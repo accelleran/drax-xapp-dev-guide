@@ -1,0 +1,2443 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://accelleran.github.io/drax-xapp-dev-guide/0.1/">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>dRAX</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="css/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-version-history" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="dRAX" class="md-header__button md-logo" aria-label="dRAX" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            dRAX
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="." class="md-tabs__link md-tabs__link--active">
+      Home
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="dRAX" class="md-nav__button md-logo" aria-label="dRAX" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    dRAX
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Home
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <!-- Output copied to clipboard! -->
+
+<!-----
+
+You have some errors, warnings, or alerts. If you are using reckless mode, turn it off to see inline alerts.
+* ERRORs: 37
+* WARNINGs: 1
+* ALERTS: 41
+
+Conversion time: 4.603 seconds.
+
+
+Using this Markdown file:
+
+1. Paste this output into your source file.
+2. See the notes and action items below regarding this conversion run.
+3. Check the rendered output (headings, lists, code blocks, tables) for proper
+   formatting and use a linkchecker before you publish this page.
+
+Conversion notes:
+
+* Docs to Markdown version 1.0β33
+* Wed May 04 2022 00:52:51 GMT-0700 (PDT)
+* Source doc: dRAX xApps Development Guide - v2
+* Tables are currently converted to HTML tables.
+
+ERROR:
+undefined internal link to this URL: "#heading=h.1w5pbc1ceis4".link text: xApp Framework In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.iearpmur2wp0".link text: xApp Library In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.gqjoo99iairl".link text: xApp Configuration In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.q5dse9slgrek".link text: Quick guide
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.hlulo2sugc4t".link text: Development Workflows
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.z1bf03z9d7mx".link text: Build your own xApp Dev Environment
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.iearpmur2wp0".link text: xApp Library In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.gqjoo99iairl".link text: xApp Configuration In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.dxwbfsqdbnic".link text: xApps Lifecycle In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.8afewd77cpbd".link text: xApp Helm Chart In-Depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.gcal6ni5e1dd".link text: xApp REST API
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.mkzx1654so68".link text: Appendix: Conversion from the xApp Framework to the xApp Library
+?Did you generate a TOC?
+
+
+WARNING:
+Inline drawings not supported: look for ">>>>>  gd2md-html alert:  inline drawings..." in output.
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.q5dse9slgrek".link text: Quick Guide
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.q5dse9slgrek".link text: Quick Guide
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.efxkdwo9dtec".link text: the section on adding other Docker images to the xApp Helm Chart
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.hlulo2sugc4t".link text: Development Workflows 
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.hlulo2sugc4t".link text: Development Workflows
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.z1bf03z9d7mx".link text: Build your own xApp Dev Env
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.8lu1d18lh4s4".link text: Pushing to Dockerhub
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.9azq43gxlmgu".link text: xApp Library In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.2lpo4sde6pjz".link text: The xApp Documentation README.me
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.z1bf03z9d7mx".link text: Build your own xApp Dev Environment
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.bd9yhsb1rfuz".link text: Productize your xApp
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.gqjoo99iairl".link text:  xApp Configuration In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.gcal6ni5e1dd".link text: xApp REST API
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.8afewd77cpbd".link text: Helm Chart In-Depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.efxkdwo9dtec".link text: How to add another microservice helm chart to the xApp
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.gqjoo99iairl".link text: xApp Configuration In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.jtn9rkqj2vy7".link text: xApp Endpoints
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.h08zdnucblce".link text: dRAX NATS Databus
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.8hdrkls5kyd".link text: How to create configuration option widgets on the dRAX Dashboard
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.gqjoo99iairl".link text: xApp Configuration In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.gqjoo99iairl".link text: xApp Configuration In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.gqjoo99iairl".link text: xApp Configuration In-depth
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.k8bcula3fxt0".link text:  xApp Metadata
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.jtn9rkqj2vy7".link text: xApp Endpoints
+?Did you generate a TOC?
+
+
+ERROR:
+undefined internal link to this URL: "#heading=h.juxhoajko4lj".link text:  Adding an endpoint behind the /api
+?Did you generate a TOC?
+
+* This document has images: check for >>>>>  gd2md-html alert:  inline image link in generated source and store images to your server. NOTE: Images in exported zip file from Google Docs may not appear in  the same order as they do in your doc. Please check the images!
+
+
+WARNING:
+You have 19 H1 headings. You may want to use the "H1 -> H2" option to demote all headings by one level.
+
+----->
+
+<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 37; WARNINGs: 2; ALERTS: 41.</p>
+<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
+
+<p style="color: red; font-weight: bold">Links to alert messages:</p>
+<p><a href="#gdcalert1">alert1</a>
+<a href="#gdcalert2">alert2</a>
+<a href="#gdcalert3">alert3</a>
+<a href="#gdcalert4">alert4</a>
+<a href="#gdcalert5">alert5</a>
+<a href="#gdcalert6">alert6</a>
+<a href="#gdcalert7">alert7</a>
+<a href="#gdcalert8">alert8</a>
+<a href="#gdcalert9">alert9</a>
+<a href="#gdcalert10">alert10</a>
+<a href="#gdcalert11">alert11</a>
+<a href="#gdcalert12">alert12</a>
+<a href="#gdcalert13">alert13</a>
+<a href="#gdcalert14">alert14</a>
+<a href="#gdcalert15">alert15</a>
+<a href="#gdcalert16">alert16</a>
+<a href="#gdcalert17">alert17</a>
+<a href="#gdcalert18">alert18</a>
+<a href="#gdcalert19">alert19</a>
+<a href="#gdcalert20">alert20</a>
+<a href="#gdcalert21">alert21</a>
+<a href="#gdcalert22">alert22</a>
+<a href="#gdcalert23">alert23</a>
+<a href="#gdcalert24">alert24</a>
+<a href="#gdcalert25">alert25</a>
+<a href="#gdcalert26">alert26</a>
+<a href="#gdcalert27">alert27</a>
+<a href="#gdcalert28">alert28</a>
+<a href="#gdcalert29">alert29</a>
+<a href="#gdcalert30">alert30</a>
+<a href="#gdcalert31">alert31</a>
+<a href="#gdcalert32">alert32</a>
+<a href="#gdcalert33">alert33</a>
+<a href="#gdcalert34">alert34</a>
+<a href="#gdcalert35">alert35</a>
+<a href="#gdcalert36">alert36</a>
+<a href="#gdcalert37">alert37</a>
+<a href="#gdcalert38">alert38</a>
+<a href="#gdcalert39">alert39</a>
+<a href="#gdcalert40">alert40</a>
+<a href="#gdcalert41">alert41</a></p>
+<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
+
+<table>
+  <tr>
+   <td>
+
+
+<img src="images/image1.png" width="" alt="alt_text" title="image_tooltip">
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h1><strong>dRAX RIC xApps Development Guide</strong></h1>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+
+<table>
+  <tr>
+   <td>Doc Ref
+   </td>
+   <td>dRAX-xApps-01
+   </td>
+  </tr>
+  <tr>
+   <td>Version
+   </td>
+   <td>2.0.0
+   </td>
+  </tr>
+  <tr>
+   <td>xApp Framework Version
+   </td>
+   <td>2.0.0
+   </td>
+  </tr>
+  <tr>
+   <td>dRAX Version Support
+   </td>
+   <td>4.0.0, 4.1.0
+   </td>
+  </tr>
+  <tr>
+   <td>Date
+   </td>
+   <td>22.12.2021.
+   </td>
+  </tr>
+</table>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+  </tr>
+</table>
+
+<p><strong>About This Document</strong></p>
+<p>This document is intended as a guide for developers creating xApps for the dRAX platform. </p>
+<p><strong>Copyright Notice </strong></p>
+<p>Accelleran copyrights this dRAX xApps Development Guide. No part of this document may be reproduced in any form or means, without the prior written consent of Accelleran. </p>
+<p><strong>Disclaimer </strong></p>
+<p>This specification is preliminary and is subject to change at any time without notice. Accelleran assumes no responsibility for any errors contained herein. For more information, please consult our customer support. </p>
+<p><strong>Contact Us</strong> </p>
+<p>Accelleran NV, Quellinstraat 49, 2018, Antwerpen, Belgium, EU</p>
+<p>E-mail: customer.support@accelleran.com</p>
+<p>Phone: +32 489 602 684</p>
+<p>Website: http://www.accelleran.com/ </p>
+<h1 id="1-version-history">1. Version history<a class="headerlink" href="#1-version-history" title="Permanent link">⚓︎</a></h1>
+<table>
+  <tr>
+   <td><strong>Author</strong>
+   </td>
+   <td><strong>Note</strong>
+   </td>
+   <td><strong>Date</strong>
+   </td>
+   <td><strong>Version</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Ensar Zeljkovic
+   </td>
+   <td>First draft with table of contents
+   </td>
+   <td>06.05.2020.
+   </td>
+   <td>0.0.1
+   </td>
+  </tr>
+  <tr>
+   <td>Ensar Zeljkovic
+   </td>
+   <td>Restructuring to new xApp Framework Package
+   </td>
+   <td>24.09.2020.
+   </td>
+   <td>0.0.2
+   </td>
+  </tr>
+  <tr>
+   <td>Ensar Zeljkovic
+   </td>
+   <td>Pre-Release ready for review
+   </td>
+   <td>07.10.2020.
+   </td>
+   <td>0.1.0
+   </td>
+  </tr>
+  <tr>
+   <td>Antoine Dugast
+   </td>
+   <td>Adding Extendable API overview
+   </td>
+   <td>25.03.2021.
+   </td>
+   <td>0.2.0
+   </td>
+  </tr>
+  <tr>
+   <td>Antoine Dugast
+   </td>
+   <td>Adding README documentation
+   </td>
+   <td>09.04.2021.
+   </td>
+   <td>0.3.0
+   </td>
+  </tr>
+  <tr>
+   <td>Ensar Zeljkovic
+   </td>
+   <td>Incorporating API and README documentation
+   </td>
+   <td>13.04.2021.
+   </td>
+   <td>0.3.1
+   </td>
+  </tr>
+  <tr>
+   <td>Ensar Zeljkovic
+   </td>
+   <td>New Development workflow
+   </td>
+   <td>14.04.2021
+   </td>
+   <td>0.4.0
+   </td>
+  </tr>
+  <tr>
+   <td>Ensar Zeljkovic
+   </td>
+   <td>Align with dRAX-4.0.0
+   </td>
+   <td>03.12.2021
+   </td>
+   <td>1.0.0
+   </td>
+  </tr>
+  <tr>
+   <td>Gerwin Dox
+   </td>
+   <td>Sync with xApp Library rework.
+   </td>
+   <td>28.07.2021
+   </td>
+   <td>2.0.0-rc0
+   </td>
+  </tr>
+  <tr>
+   <td>Gerwin Dox
+   </td>
+   <td>Sync with Lib version 0.3
+   </td>
+   <td>29.11.2021
+   </td>
+   <td>2.0.0-rc1
+   </td>
+  </tr>
+  <tr>
+   <td>Ensar Zeljkovic
+   </td>
+   <td>Review and edits for xApp Library update
+   </td>
+   <td>14.12.2021.
+   </td>
+   <td>2.0.0-rc2
+   </td>
+  </tr>
+  <tr>
+   <td>Ensar Zeljkovic
+   </td>
+   <td>Adding ChangeLog section 
+   </td>
+   <td>22.12.2021.
+   </td>
+   <td>2.0.0
+   </td>
+  </tr>
+</table>
+
+<h1 id="2-changelog">2. Changelog<a class="headerlink" href="#2-changelog" title="Permanent link">⚓︎</a></h1>
+<h2 id="21-added">2.1. Added<a class="headerlink" href="#21-added" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Added xApp Library instead of the xApp Python Template. Instead of having template Python files, we now have a full xApp Python Library, which abstracts the interfaces towards dRAX and dRAX RIC. More info can be found in the </li>
+</ul>
+<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApp Framework In-depth"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.1w5pbc1ceis4">xApp Framework In-depth</a> and </p>
+<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApp Library In-depth"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.iearpmur2wp0">xApp Library In-depth</a>.
+* Added new xApp Configuration API. More information can be found in the </p>
+<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApp Configuration In-depth"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.gqjoo99iairl">xApp Configuration In-depth</a> section. </p>
+<h2 id="22-changed">2.2. Changed<a class="headerlink" href="#22-changed" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Updated the Workflows to add more options for easier development cycles. More info can be seen in the </li>
+</ul>
+<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Quick guide"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.q5dse9slgrek">Quick guide</a>, </p>
+<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Development Workflows"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.hlulo2sugc4t">Development Workflows</a> and </p>
+<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Build your own xApp Dev Environment"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.z1bf03z9d7mx">Build your own xApp Dev Environment</a> sections.
+* As the new xApp Library is in place, all the previous abstractions of the interfaces are there, however, there are syntax changes. More info can be found in the </p>
+<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApp Library In-depth"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.iearpmur2wp0">xApp Library In-depth</a> section.
+* Updated the xApp API structure. More information can be found in the </p>
+<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApp Configuration In-depth"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.gqjoo99iairl">xApp Configuration In-depth</a> section.
+* The programmable approach to configuring the xApp has changed. More info can be found in the </p>
+<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApps Lifecycle In-depth"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.dxwbfsqdbnic">xApps Lifecycle In-depth</a> section.
+* The xApp Helm Chart has been updated to incorporate the changes above. More info can be found in the </p>
+<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApp Helm Chart In-Depth"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.8afewd77cpbd">xApp Helm Chart In-Depth</a>.</p>
+<h2 id="23-removed">2.3. Removed<a class="headerlink" href="#23-removed" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>The xApp API has been removed as a separate Docker image. It is now integrated in the xApp Library and part of the xApp Core. More information can be found in the </li>
+</ul>
+<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApp REST API"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.gcal6ni5e1dd">xApp REST API</a> section.</p>
+<h2 id="24-notes">2.4. Notes<a class="headerlink" href="#24-notes" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>In the </li>
+</ul>
+<p id="gdcalert13" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Appendix: Conversion from the xApp Framework to the xApp Library"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert14">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.mkzx1654so68">Appendix: Conversion from the xApp Framework to the xApp Library</a> section, we have summarized how to upgrade from the previous xApp Framework version 0.4.0 and 1.0.0 to the new 2.0.0.</p>
+<h1 id="3-table-of-contents">3. Table of Contents<a class="headerlink" href="#3-table-of-contents" title="Permanent link">⚓︎</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#1-version-history">1. Version history</a></li>
+<li><a href="#2-changelog">2. Changelog</a><ul>
+<li><a href="#21-added">2.1. Added</a></li>
+<li><a href="#22-changed">2.2. Changed</a></li>
+<li><a href="#23-removed">2.3. Removed</a></li>
+<li><a href="#24-notes">2.4. Notes</a></li>
+</ul>
+</li>
+<li><a href="#3-table-of-contents">3. Table of Contents</a></li>
+<li><a href="#4-introduction">4. Introduction</a></li>
+<li><a href="#5-quick-guide">5. Quick guide</a><ul>
+<li><a href="#51-deploy-the-xapp-dev-environment">5.1. Deploy the xApp Dev Environment</a></li>
+<li><a href="#52-start-the-xapp-in-the-development-environment">5.2. Start the xApp in the development environment</a></li>
+<li><a href="#53-edit-the-xapp">5.3. Edit the xApp</a></li>
+<li><a href="#54-how-to-uninstall-the-xapp">5.4. How to uninstall the xApp</a></li>
+</ul>
+</li>
+<li><a href="#6-development-workflows">6. Development Workflows</a><ul>
+<li><a href="#61-development-in-the-container">6.1. Development in the container</a></li>
+<li><a href="#62-using-ssh-to-access-container">6.2. Using ssh to access container</a></li>
+<li><a href="#63-using-local-ide-to-edit-xapp-dev-environment-files">6.3. Using local IDE to edit xApp Dev Environment files</a></li>
+<li><a href="#64-using-visual-studio-code-for-an-integrated-development-environment">6.4. Using Visual Studio Code for an integrated development environment</a><ul>
+<li><a href="#641-install-vs-code">6.4.1. Install VS Code</a></li>
+<li><a href="#642-install-remote-ssh-in-vs-code">6.4.2. Install Remote-SSH in VS Code</a></li>
+<li><a href="#643-adding-the-xapp-dev-environment-as-new-ssh-host">6.4.3. Adding the xApp Dev Environment as new SSH host</a></li>
+<li><a href="#644-connecting-to-xapp-dev-environment">6.4.4. Connecting to xApp Dev Environment</a></li>
+<li><a href="#645-adding-a-ssh-key-to-the-xapp-dev-environment">6.4.5. Adding a SSH key to the xApp Dev Environment</a></li>
+<li><a href="#646-troubleshooting">6.4.6. Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#7-build-your-own-xapp-dev-environment">7. Build your own xApp Dev Environment</a><ul>
+<li><a href="#71-clone-the-xapp-framework-git-repository">7.1. Clone the xApp Framework Git repository</a></li>
+<li><a href="#72-edit-and-build-your-xapp-core-docker-image">7.2. Edit and build your xApp Core Docker image</a></li>
+<li><a href="#73-prepare-the-xapp-helm-chart">7.3. Prepare the xApp Helm Chart</a></li>
+<li><a href="#74-deploy-your-xapp-in-developer-mode">7.4. Deploy your xApp in Developer Mode</a></li>
+<li><a href="#75-optional-mount-a-host-folder-inside-your-xapp">7.5. (Optional) Mount a host folder inside your xApp</a></li>
+</ul>
+</li>
+<li><a href="#8-productize-your-xapp">8. Productize your xApp</a><ul>
+<li><a href="#81-prepare-your-xapp">8.1. Prepare your xApp</a></li>
+<li><a href="#82-build-xapp-core-docker-image">8.2. Build xApp Core Docker image</a></li>
+<li><a href="#83-optional-make-xapp-core-docker-image-globally-available">8.3. (Optional) Make xApp Core Docker image globally available</a></li>
+<li><a href="#84-prepare-xapp-helm-chart">8.4. Prepare xApp Helm Chart</a></li>
+</ul>
+</li>
+<li><a href="#image-settings-for-the-xapp-core">Image settings for the xApp Core</a><ul>
+<li><a href="#85-package-the-helm-chart">8.5. Package the Helm chart</a></li>
+<li><a href="#86-optional-upload-the-xapp-helm-chart-to-a-helm-repository">8.6. (Optional) Upload the xApp Helm Chart to a Helm Repository</a></li>
+<li><a href="#87-use-xapp">8.7. Use xApp</a></li>
+</ul>
+</li>
+<li><a href="#9-xapp-framework-in-depth">9. xApp Framework In-depth</a></li>
+<li><a href="#_1"></a></li>
+<li><a href="#10-xapp-library-in-depth">10. xApp Library In-depth</a><ul>
+<li><a href="#101-xapp-library-overview">10.1. xApp Library Overview</a></li>
+<li><a href="#102-overview-of-the-xapp-interactions-with-the-ric">10.2. Overview of the xApp interactions with the RIC</a></li>
+<li><a href="#103-the-xapp-structure-and-conventions">10.3. The xApp Structure and Conventions</a></li>
+<li><a href="#104-the-xapp-builder">10.4. The xApp Builder</a></li>
+<li><a href="#105-drax-ric-databus">10.5. dRAX RIC Databus</a></li>
+<li><a href="#106-drax-nats-databus">10.6. dRAX NATS Databus</a></li>
+<li><a href="#107-drax-commands">10.7. dRAX Commands</a><ul>
+<li><a href="#1071-the-handover-command">10.7.1. The handover command</a></li>
+<li><a href="#1072-subband-masking-command">10.7.2. Subband-masking command</a></li>
+</ul>
+</li>
+<li><a href="#108-publish-to-drax-ric-databus">10.8. Publish to dRAX RIC Databus</a><ul>
+<li><a href="#1081-event-based-publishing">10.8.1. Event-based publishing</a></li>
+<li><a href="#1082-periodic-publishing">10.8.2. Periodic publishing</a></li>
+<li><a href="#1083-publish-to-the-drax-nats-databus">10.8.3. Publish to the dRAX NATS Databus</a></li>
+</ul>
+</li>
+<li><a href="#109-use-the-drax-ric-api-gateway">10.9. Use the dRAX RIC API Gateway</a><ul>
+<li><a href="#1091-how-to-use-the-drax-ric-api-gateway-in-general">10.9.1. How to use the dRAX RIC API Gateway in general</a></li>
+<li><a href="#1092-how-to-pick-only-the-port-at-which-netconf-is-exposed">10.9.2. How to pick only the port at which NetConf is exposed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#11-the-xapp-documentation-readmeme">11. The xApp Documentation README.me</a><ul>
+<li><a href="#111-the-readmemd-file">11.1. The README.md file</a></li>
+<li><a href="#112-what-we-expect-inside-the-readmemd-file">11.2. What we expect inside the README.md file</a></li>
+<li><a href="#113-how-the-readmemd-is-made-available-via-readme-endpoint">11.3. How the README.md is made available via /readme endpoint</a></li>
+</ul>
+</li>
+<li><a href="#12-xapp-rest-api">12. xApp REST API</a><ul>
+<li><a href="#121-overview">12.1. Overview</a></li>
+<li><a href="#122-adding-an-endpoint-behind-the-api">12.2. Adding an endpoint behind the /api</a></li>
+<li><a href="#133-xapp-runtime-configuration">13.3. xApp Runtime Configuration</a><ul>
+<li><a href="#1331-setting-xapp-configuration-during-runtime">13.3.1. Setting xApp Configuration during runtime</a></li>
+<li><a href="#define-the-xapp_configjson">Define the xapp_config.json</a></li>
+<li><a href="#1332-changing-xapp-configuration-during-runtime-drax-dashboard">13.3.2. Changing xApp Configuration during runtime - dRAX Dashboard</a></li>
+<li><a href="#1333-changing-xapp-configuration-during-runtime-xapp-api">13.3.3. Changing xApp Configuration during runtime - xApp API</a></li>
+</ul>
+</li>
+<li><a href="#134-xapp-endpoints">13.4. xApp Endpoints</a><ul>
+<li><a href="#define-the-xapp_endpointsjson">Define the xapp_endpoints.json</a></li>
+</ul>
+</li>
+<li><a href="#135-xapp-settings-class">13.5. xApp Settings Class</a></li>
+<li><a href="#136-resetting-the-configuration-upon-redeployment-of-the-xapp">13.6. Resetting the configuration upon redeployment of the xApp</a><ul>
+<li><a href="#general-xapp-framework-configuration-options">General xApp Framework configuration options</a></li>
+</ul>
+</li>
+<li><a href="#137-how-to-create-configuration-option-widgets-on-the-drax-dashboard">13.7. How to create configuration option widgets on the dRAX Dashboard</a></li>
+</ul>
+</li>
+<li><a href="#14-xapp-helm-chart-in-depth">14. xApp Helm Chart In-Depth</a><ul>
+<li><a href="#141-version-control">14.1. Version control</a></li>
+<li><a href="#142-xapp-core-docker-image-to-use">14.2. xApp Core Docker image to use</a></li>
+<li><a href="#143-how-to-add-another-microservice-helm-chart-to-the-xapp">14.3. How to add another microservice helm chart to the xApp</a></li>
+<li><a href="#183-main-code">18.3. Main code</a></li>
+<li><a href="#184-actions">18.4. Actions</a></li>
+<li><a href="#185-xapp-api">18.5. xApp API</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="4-introduction">4. Introduction<a class="headerlink" href="#4-introduction" title="Permanent link">⚓︎</a></h1>
+<p>dRAX is Accelleran’s O-RAN aligned Cloud Native RAN platform. dRAX is cloud native by design and encompasses the O-RAN defined CU function, a Service Management and Orchestration (SMO) layer,  as well as a near real-time RAN Intelligent Controller (RIC) platform. It features a micro-service oriented architecture with containerized functions orchestrated via Kubernetes and supports both 4G and 5G technologies.</p>
+<p>The dRAX RIC platform is a Near Real-Time platform. It allows developers to implement xApps that can leverage dRAX near real-time open RAN data and communicate with other xApps  to bring new services and functionalities. It offers seamless integration with other orchestration platforms and lowers the technology barrier to implement Enterprise cellular networks by implementing artificial intelligence techniques for the configuration and operation of private cellular networks. This document serves as the developers guide in creating and deploying xApps on the Accelleran dRAX. </p>
+<p>To make the development and integration of xApps into dRAX as smooth as possible, we have created the dRAX xApp Framework. This framework consists of a number of predefined and pre-developed resources that can communicate with the rest of the entities within the dRAX RIC. This allows the framework to seamlessly integrate with dRAX on deployment. Using abstractions of the lower level details, the xApp Framework exposes easy to use methods which allows the developers to only focus on the functionality of their xApp.</p>
+<p>The dRAX xApp Framework consists of the following components, which are shown on <em>Figure 2</em>:</p>
+<ol>
+<li>The xApp Library - a Python library which interfaces with the dRAX RIC platform</li>
+<li>The xApp Database - Redis server for storage of configuration data</li>
+<li>The xApp Core - the core logic of the xApp written by the developer</li>
+<li>The xApp Helm Chart - a Helm Chart used to deploy the xApp and integrate it with dRAX RIC</li>
+</ol>
+<table>
+  <tr>
+   <td>
+
+
+<p id="gdcalert14" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline drawings not supported directly from Docs. You may want to copy the inline drawing to a standalone drawing and export by reference. See <a href="https://github.com/evbacher/gd3md-html/wiki/Google-Drawings-by-reference">Google Drawings by reference</a> for details. The img URL below is a placeholder. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert15">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+TODO
+
+<img src="images/image2.png" width="" alt="alt_text" title="image_tooltip">
+<img src="https://docs.google.com/drawings/d/12345/export/png" width="80%" alt="drawing">
+
+   </td>
+  </tr>
+  <tr>
+   <td><em>Figure: dRAX xApps Framework</em>
+   </td>
+  </tr>
+</table>
+
+<h1 id="5-quick-guide">5. Quick guide<a class="headerlink" href="#5-quick-guide" title="Permanent link">⚓︎</a></h1>
+<p>This section introduces you to a development sandbox called the xApp Dev Environment, which can be easily deployed on an existing dRAX installation, in order to gain familiarity with the capabilities of our xApp Framework. We have basically created a Hello-World example inside of the xApp Core using the xApp Library, built a Docker image and prepared a remotely available Helm Chart. </p>
+<h2 id="51-deploy-the-xapp-dev-environment">5.1. Deploy the xApp Dev Environment<a class="headerlink" href="#51-deploy-the-xapp-dev-environment" title="Permanent link">⚓︎</a></h2>
+<p>The xApp Dev Environment can be easily deployed in a user friendly way via the dRAX Dashboard. Open the dRAX Dashboard, and using the left hand side tabs navigate to: <strong>New Deployment -&gt; xApp Deployment</strong>.</p>
+<p>In the newly opened form, from the Method drop-down menu, select <strong>Deploy xApp Development Environment</strong>. Next, fill in the metadata fields, such as your xApps name, organization team, etc. The Version field indicates which version of the xApp Dev Environment to use. Leave this at “latest”, as this automatically picks the latest stable version of the xApp Dev Environment for your version of dRAX. Finally, the xApp Dev Environment also has the possibility to be accessed via ssh from remote. Therefore, you have to set the shh password which will be used in the <strong>Developer SSH Password</strong> field. Note: Enter a password between 7 to 15 characters which contains at least one numeric digit and a special character. Click the Submit button to deploy the xApp Dev Environment. </p>
+<p>Accessing the xApp Dev Environment</p>
+<p>Once you deploy the xApp Dev Env, you can check if all its pods are deployed. The xApp pods have a naming convention based on the metadata you provided:</p>
+<p><em>&lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;</em></p>
+<p>This can be used to filter the pods in the kubectl command:</p>
+<p>kubectl get pods </p>
+<p>Once all the pods are in running state, you can access the xApp Dev Environment by using the following command:</p>
+<p>You can now access the xApp Dev Environment by going into the container in Kubernetes. The xApp pods have a naming convention based on the metadata you provided:</p>
+<p>&lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;</p>
+<p>When the xApp is deployed you will have 2 pods in Kubernetes:</p>
+<ul>
+<li>&lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;</li>
+<li>&lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;-xapp-redis</li>
+</ul>
+<p>The xApp Core is located under the &lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt; pod, so to access the development environment you can:</p>
+<p>kubectl exec -it &lt;pod_name&gt; -- /bin/bash</p>
+<h2 id="52-start-the-xapp-in-the-development-environment">5.2. Start the xApp in the development environment<a class="headerlink" href="#52-start-the-xapp-in-the-development-environment" title="Permanent link">⚓︎</a></h2>
+<p>Finally you can start your xApp by issuing the following command inside the container:</p>
+<p>python3 xapp_main.py</p>
+<h2 id="53-edit-the-xapp">5.3. Edit the xApp<a class="headerlink" href="#53-edit-the-xapp" title="Permanent link">⚓︎</a></h2>
+<p>The developer is free to edit the xapp_main.py and create other .py files. You can stop the currently running xapp_main.py, edit the files and restart the xApp again. This allows you to work in a sandbox environment, all fully integrated into dRAX, and focus only on the functionality you bring. </p>
+<h2 id="54-how-to-uninstall-the-xapp">5.4. How to uninstall the xApp<a class="headerlink" href="#54-how-to-uninstall-the-xapp" title="Permanent link">⚓︎</a></h2>
+<p>You can simply delete the xApp Dev Environment by clicking the <strong>Uninstall</strong> button on the xApp Overview page on the dRAX Dashboard. Navigate to <strong>xApp Management -&gt; Overview</strong>.</p>
+<p><strong>NOTE: </strong>Please note that any changes will be lost once the sandbox deployment is removed. Therefore it is important to backup your work before deleting the xApp Dev Environment. In the xApp Dev Environment container, we have also pre-installed git, so you are free to use it to backup your code to a remote Git repository. In the following section we will explore how to move from the xApp Dev Environment to a productized xApp.</p>
+<h1 id="6-development-workflows">6. Development Workflows<a class="headerlink" href="#6-development-workflows" title="Permanent link">⚓︎</a></h1>
+<p>The xApp Dev Environment described in the </p>
+<p id="gdcalert15" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Quick Guide"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert16">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.q5dse9slgrek">Quick Guide</a> section is a great way to quickly deploy the full xApp Framework, with the xApp Library in place and the xApp fully integrated into dRAX. In this section, we will explain the different workflows you can use in the development cycle. </p>
+<h2 id="61-development-in-the-container">6.1. Development in the container<a class="headerlink" href="#61-development-in-the-container" title="Permanent link">⚓︎</a></h2>
+<p>Once the xApp Dev Environment is deployed, you can access the xApp Dev Environment container as described in the </p>
+<p id="gdcalert16" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Quick Guide"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert17">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.q5dse9slgrek">Quick Guide</a> section:</p>
+<p>kubectl exec -it &lt;pod_name&gt; -- /bin/bash</p>
+<p>As part of the xApp Dev Environment, we have pre-installed tools such as:</p>
+<ul>
+<li>vim</li>
+<li>nano</li>
+<li>Git</li>
+</ul>
+<p>You are of course free to install any additional packages. This initial set should be enough to get you started in editing the xApp python files and backing up your code to Git. You can start the xApp by running:</p>
+<p>python3 xapp_main.py</p>
+<h2 id="62-using-ssh-to-access-container">6.2. Using ssh to access container<a class="headerlink" href="#62-using-ssh-to-access-container" title="Permanent link">⚓︎</a></h2>
+<p>If for any reason you don’t have access to the dRAX host machine or the kubectl command, you can also access the xApp Dev Environment using ssh. First, discover which port is used on the host machine as the ssh port for your xApp Dev environment. You can do this by going to the dRAX Dashboard and navigating to <strong>xApps Management -&gt; Overview</strong>. Find you xApp Dev Environment, and click the <strong>Show</strong> button under the <strong>Services</strong> column. You should see multiple services associated with your xApp, one of which should be the <strong>dev-ssh</strong> service. You will find the port on which this service is exposed under the <strong>NodePort</strong> column (it will be in the range of 30 000 - 32 000). You can now ssh into your xApp Dev Environment by using the IP of the dRAX host machine, the dev-ssh service nodePort, and the SSH Password set during the deployment of the xApp Dev Environment:</p>
+<p>ssh -p &lt;dev-ssh-nodeport&gt; xapp@&lt;drax-host-ip&gt;</p>
+<p>You now have access to the python files in the xApp Core which are located in _/home/xapp/xapp_core _inside the container. You can edit the python files and start the xApp as normal using:</p>
+<p>python3 xapp_main.py</p>
+<h2 id="63-using-local-ide-to-edit-xapp-dev-environment-files">6.3. Using local IDE to edit xApp Dev Environment files<a class="headerlink" href="#63-using-local-ide-to-edit-xapp-dev-environment-files" title="Permanent link">⚓︎</a></h2>
+<p>As an xApp developer, it is often easier to develop the xApp in an IDE or user-friendly text editor. You may use a tool called sshfs to mount the files from the xApp Dev Environment container onto your local machine. This way you can edit the files locally in any text editor you want, and the changes will also take effect in the dRAX Dev Environment. Of course, you still need to access the xApp Dev Environment of ssh into it to actually start or stop the xApp!</p>
+<p>You can install sshfs using the following command:</p>
+<p>sudo apt install -y sshfs</p>
+<p>Next create a folder where you will mount the remote files:</p>
+<p>mkdir /path/to/xapp-dev-file</p>
+<p>Finally use the sshfs command to mount the files:</p>
+<p>sshfs -p &lt;dev-ssh-node-port&gt; xapp@&lt;drax-host-ip&gt;:/home/xapp/xapp_core /path/to/xapp-dev-files</p>
+<p>The xapp_core files will now be available in the "xapp-dev-files" folder you just created.</p>
+<p><strong>NOTE:</strong> You still have to access the xApp Development Environment via kubectl or ssh into it in order to run the actual xApp with the "python3 xapp_main.py" command.</p>
+<h2 id="64-using-visual-studio-code-for-an-integrated-development-environment">6.4. Using Visual Studio Code for an integrated development environment<a class="headerlink" href="#64-using-visual-studio-code-for-an-integrated-development-environment" title="Permanent link">⚓︎</a></h2>
+<p>You can use Visual Studio Code to get an integrated development environment. Visual Studio Code has the “remote-ssh” extension which lets you connect to a remote ssh host, access the remote files in the user friendly text editor of VS Code, and have a terminal open to the remote host.</p>
+<h3 id="641-install-vs-code">6.4.1. Install VS Code<a class="headerlink" href="#641-install-vs-code" title="Permanent link">⚓︎</a></h3>
+<p>You can download the VS Code from:</p>
+<p><a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a> </p>
+<h3 id="642-install-remote-ssh-in-vs-code">6.4.2. Install Remote-SSH in VS Code<a class="headerlink" href="#642-install-remote-ssh-in-vs-code" title="Permanent link">⚓︎</a></h3>
+<p>You need to install the remote-ssh extension in VS Code, and configure it to connect to your xApp Dev Environment (taking into account the ssh password and port used).  </p>
+<p>In the left hand menu, select the Extensions tab. Search for Remote-SSH and install the extension.</p>
+<h3 id="643-adding-the-xapp-dev-environment-as-new-ssh-host">6.4.3. Adding the xApp Dev Environment as new SSH host<a class="headerlink" href="#643-adding-the-xapp-dev-environment-as-new-ssh-host" title="Permanent link">⚓︎</a></h3>
+<p>Next, click F1 on the keyboard to open the Command Pallete (or VSCode -&gt; View -&gt; Command Palette). Now start typing “remote-ssh add new” and select the option that appears: “Remote-SSH: Add New SSH Host…”. </p>
+<p>Follow the instruction to enter the ssh command:</p>
+<p>ssh -p &lt;dev-ssh-port&gt; xapp@&lt;drax-host-ip&gt;</p>
+<p>You will be asked to supply a ssh config file. Since we will use the password for ssh, you can just pick the default one. Or if you know what you are doing, you can create or select your ssh config file.</p>
+<h3 id="644-connecting-to-xapp-dev-environment">6.4.4. Connecting to xApp Dev Environment<a class="headerlink" href="#644-connecting-to-xapp-dev-environment" title="Permanent link">⚓︎</a></h3>
+<p>You can now find the newly added host, or your xApp Dev Environment, in the “Remote Explorer” tab on the left. You will see the host and can click on it to connect. You will be asked for the ssh password in the process (you might be asked for the ssh password a couple of times which is normal).</p>
+<h3 id="645-adding-a-ssh-key-to-the-xapp-dev-environment">6.4.5. Adding a SSH key to the xApp Dev Environment<a class="headerlink" href="#645-adding-a-ssh-key-to-the-xapp-dev-environment" title="Permanent link">⚓︎</a></h3>
+<p>You can of course add your public ssh key to the xApp Dev Environment and then use that in the ssh config file of VS Code Remote-SSH, which makes the connection process easier. Of course you have to keep in mind that once the xApp Dev environment is deleted, all your data in the xApp Dev Environment including the ssh key will be deleted. When deploying a new xApp Dev Environment, you have to set up the ssh key again. </p>
+<h3 id="646-troubleshooting">6.4.6. Troubleshooting<a class="headerlink" href="#646-troubleshooting" title="Permanent link">⚓︎</a></h3>
+<p>There is a known issue if you try to connect to the remote xApp Dev Environment using the remote-ssh extension in VS Code. When you try to connect, you can get an error message:</p>
+<p>“Could not establish connection to “10.8.0.1”: Downloading VS Code Server failed - please install either curl or wget on the remote”</p>
+<p>To resolve it, you need to kill the VS Code server on the remote using the following command:</p>
+<p>VSCode -&gt; View -&gt; Command Palette -&gt; input "remote" -&gt; Select Remote-SSH: Kill VS Code Server on Host…</p>
+<p>You can then select the IP address of your xApp Dev Environment, and will be required to enter the ssh password. Once the process completes, reconnect to the remote ssh again and it should work this time. </p>
+<h1 id="7-build-your-own-xapp-dev-environment">7. Build your own xApp Dev Environment<a class="headerlink" href="#7-build-your-own-xapp-dev-environment" title="Permanent link">⚓︎</a></h1>
+<p>In certain use cases, the developer will need a more flexible approach than the xApp Dev environment. For example:</p>
+<ul>
+<li>Edit the xApp Helm Chart</li>
+<li>Add another Docker image to the xApp</li>
+<li>Add certain files or packages to the xApp Core</li>
+</ul>
+<p>In such cases, deploying the xApp Dev Environment will not be sufficient, as you don’t have such options. However, in this case you can create your own xApp Core Docker image, including any additional files you need to it, as well as edit the default xApp Helm Chart to create one specific to your xApp, including any additional Docker images. You can then enable the Developer Mode on your own xApp to have the same options as in the xApp Dev Environment.</p>
+<p>In the following subsection, we assume that you are on the dRAX host machine, so the Docker image built will already be present on the dRAX machine, as well as the helm chart.</p>
+<h2 id="71-clone-the-xapp-framework-git-repository">7.1. Clone the xApp Framework Git repository<a class="headerlink" href="#71-clone-the-xapp-framework-git-repository" title="Permanent link">⚓︎</a></h2>
+<p>To do so, you can first clone the xApp Framework GitHub repository:</p>
+<p>git clone <a href="https://github.com/accelleran/xapp-framework-package.git">https://github.com/accelleran/xapp-framework-package.git</a></p>
+<p><strong>NOTE:</strong> You will need to contact Accelleran and provide a GitHub username so that we can grant you access to this repository.</p>
+<h2 id="72-edit-and-build-your-xapp-core-docker-image">7.2. Edit and build your xApp Core Docker image<a class="headerlink" href="#72-edit-and-build-your-xapp-core-docker-image" title="Permanent link">⚓︎</a></h2>
+<p>This repository contains the xApp Library, as well as an example on how to build your own xApp located in the _example _folder. To build your own xApp Core Docker image, we provide the default Dockerfile. There are two Dockerfiles:</p>
+<ul>
+<li>Dockerfile - Used to generate the production version of the xApp</li>
+<li>Dockerfile.dev - Used to generate the Development Environment version of your xApp </li>
+</ul>
+<p>You can, therefore, edit the Dockerfile.dev according to you own needs and initiate a build by issuing the following command:</p>
+<p>cd xapp-framework-package/example</p>
+<p>sudo docker build -t my-xapp:0.1.0 --build-arg username=&lt;GITHUB_USERNAME&gt; --build-arg token=&lt;GITHUB_TOKEN&gt; -f Dockerfile.dev .</p>
+<p>Here:</p>
+<ul>
+<li>my-xapp: This is the name of your xApp Docker image, which we will need to also provide to the Helm Chart;</li>
+<li>0.1.0: This is the version of the Docker image. We follow the semver versioning, so we also advise you to do the same;</li>
+<li>&lt;GITHUB_USERNAME&gt;: Replace this with the GitHub username that has access to the xApp Framework GitHub repository.</li>
+<li>&lt;GITHUB_TOKEN&gt;: This is the security token of your GitHub account.</li>
+</ul>
+<h2 id="73-prepare-the-xapp-helm-chart">7.3. Prepare the xApp Helm Chart<a class="headerlink" href="#73-prepare-the-xapp-helm-chart" title="Permanent link">⚓︎</a></h2>
+<p>Once the Docker image is built, we need to prepare the xApp Helm Chart. The default xApp helm Chart is available in the example folder of the xApp Framework Git repository. Therefore, go to the following folder:</p>
+<p>cd example/helm_chart/xapp</p>
+<p>We need to edit the values.yaml file to point the xApp Hel,m Chart to use our previously built xApp Core Docker image. In our case the &lt;xapp-name&gt; is my-xapp, &lt;xapp-version&gt; is 0.1.0. Therefore, edit the values.yaml accordingly:</p>
+<p>...</p>
+<p>image:</p>
+<div class="highlight"><pre><span></span><code>repository: &amp;lt;xapp-name&gt;
+
+tag: &quot;&amp;lt;xapp-version&gt;&quot;
+</code></pre></div>
+<p>…</p>
+<p>You are of course free to now edit the xApp Helm Chart in any way you see fit, for example adding another Docker image to it, which we explain in </p>
+<p id="gdcalert17" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "the section on adding other Docker images to the xApp Helm Chart"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert18">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.efxkdwo9dtec">the section on adding other Docker images to the xApp Helm Chart</a>.</p>
+<h2 id="74-deploy-your-xapp-in-developer-mode">7.4. Deploy your xApp in Developer Mode<a class="headerlink" href="#74-deploy-your-xapp-in-developer-mode" title="Permanent link">⚓︎</a></h2>
+<p>You can now deploy your xApp in Developer Mode, which will grant you the same options as the xApp Dev Environment. Your xApp will be deployed as a sandbox environment, which you can access, further develop and debug, start or stop the xApp, etc. </p>
+<p>To do so, run the following command on the dRAX host machine:</p>
+<p>helm install &lt;xapp-name&gt; /path/to/xAppHelmChartFolder --set developerMode.enabled=true --set-string global.kubeIp=&lt;drax-host-ip&gt;</p>
+<p><strong>NOTE:</strong> You can give the deployment any generic name you want by changing the &lt;xapp-name&gt;. When deploying from the command line, using helm install, we also have to supply the dRAX Host IP as the global.kubeIp parameter in helm. </p>
+<p>From this point on, you can use any of the development workflows as described in the </p>
+<p id="gdcalert18" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Development Workflows "). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert19">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.hlulo2sugc4t">Development Workflows </a>section.</p>
+<h2 id="75-optional-mount-a-host-folder-inside-your-xapp">7.5. (Optional) Mount a host folder inside your xApp<a class="headerlink" href="#75-optional-mount-a-host-folder-inside-your-xapp" title="Permanent link">⚓︎</a></h2>
+<p>The xApp Helm Chart also has an optional feature, which is to mount a folder from the dRAX host machine inside the xApp Core container. This can be useful:</p>
+<ul>
+<li>The files located in that mounted folder will be shared between the host and xApp Core</li>
+<li>When the xApp is deleted, the files in the mounted folder will still be present on the host machine</li>
+<li>Provides an easy way to share files from the host to inside the xApp Core</li>
+</ul>
+<p>To enable such a folder, edit the helm install command used during the deployment of the xApp as follows:</p>
+<p>helm install &lt;xapp-name&gt; /path/to/xAppHelmChartFolder --set developerMode.enabled=true --set developerMode.hostPath=/path/to/shared/folder/on/host  --set-string global.kubeIp=&lt;drax-host-ip&gt;</p>
+<p><strong>NOTE: </strong>The developerMode.hostPath uses the absolute path to a folder on the host machine. This folder will be mounted by default to the following folder inside the xApp Core container:</p>
+<p>/home/xapp/xapp_core/dev.</p>
+<p>You can, for example, mount the whole example folder from the xApp Framework git repository, making the python files automatically saved on the host machine. This way even if you delete the xApp, your code will be preserved. Also, if you deploy another xApp, you can mount the same folder into it, getting your code into the second xApp automatically.</p>
+<h1 id="8-productize-your-xapp">8. Productize your xApp<a class="headerlink" href="#8-productize-your-xapp" title="Permanent link">⚓︎</a></h1>
+<p>When the developers are happy with a version of the xApp, they can prepare it for production mode. This means that we won’t use the developer mode options in the xApp Helm Chart, which will result in the xApp starting immediately on deployment, as opposed to creating a sandbox which the developer mode does. Also, this means we can prepare the Docker image using the Dockerfile instead of Dockerfile.dev. </p>
+<h2 id="81-prepare-your-xapp">8.1. Prepare your xApp<a class="headerlink" href="#81-prepare-your-xapp" title="Permanent link">⚓︎</a></h2>
+<p>We assume you have already cloned the xApp Framework Git repository, and have edited your code and helm chart using the xApp Dev Environment and workflows in the </p>
+<p id="gdcalert19" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Development Workflows"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert20">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.hlulo2sugc4t">Development Workflows</a> section or creating your own xApp Development Environment from section </p>
+<p id="gdcalert20" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Build your own xApp Dev Env"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert21">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.z1bf03z9d7mx">Build your own xApp Dev Env</a>. We will now first prepare everything for productizing the xApp.</p>
+<p>The python files that you have developed should be readily available. This includes the mandatory xapp_main.py which is the main python file to start the xApp. </p>
+<h2 id="82-build-xapp-core-docker-image">8.2. Build xApp Core Docker image<a class="headerlink" href="#82-build-xapp-core-docker-image" title="Permanent link">⚓︎</a></h2>
+<p>Use the Dockerfile (not the Dockerfile.dev) from the example folder of the xApp Framework. Edit it so that it copies over all your files into the xApp Core Docker image. Finally issue the build command:</p>
+<p>sudo docker build -t my-xapp:1.0.0 --build-arg username=&lt;GITHUB_USERNAME&gt; --build-arg token=&lt;GITHUB_TOKEN&gt; -f Dockerfile .</p>
+<p><strong>NOTE:</strong> The . at the end specifies the Docker build context, hence it should point to where you python files are located.</p>
+<h2 id="83-optional-make-xapp-core-docker-image-globally-available">8.3. (Optional) Make xApp Core Docker image globally available<a class="headerlink" href="#83-optional-make-xapp-core-docker-image-globally-available" title="Permanent link">⚓︎</a></h2>
+<p>When you build the xApp Core Docker image, it will be available on the dRAX host machine. However, if you decide to install the xApp on another dRAX instance, you will have to:</p>
+<ul>
+<li>Either move the xApp Core Docker image to the new machine OR</li>
+<li>Upload the xApp Core Docker image to a Docker image repository, such as Dockerhub to make it globally available</li>
+</ul>
+<p>We provide a guide on how to do so in the section on </p>
+<p id="gdcalert21" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Pushing to Dockerhub"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert22">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.8lu1d18lh4s4">Pushing to Dockerhub</a>.</p>
+<h2 id="84-prepare-xapp-helm-chart">8.4. Prepare xApp Helm Chart<a class="headerlink" href="#84-prepare-xapp-helm-chart" title="Permanent link">⚓︎</a></h2>
+<p>Next, we need to prepare the xApp helm Chart. Assuming you have already edited your xApp Helm chart, locate it, and make the following edits as well. Edit the values.yaml file to point to the xApp Core Docker image, either local or global one in a Docker image repository:</p>
+<p>…</p>
+<h1 id="image-settings-for-the-xapp-core">Image settings for the xApp Core<a class="headerlink" href="#image-settings-for-the-xapp-core" title="Permanent link">⚓︎</a></h1>
+<p>image:</p>
+<div class="highlight"><pre><span></span><code>repository: dockerRepoUrl/&amp;lt;xapp-name&gt;
+
+pullPolicy: IfNotPresent
+</code></pre></div>
+<p>...</p>
+<p>Also don’t forget to set the xappFrameworkConfig.flushOnDeployment field back to ‘false’ in case you changed it to true.</p>
+<p>Next, edit the xApp Helm chart Chart.yaml to specify the version:</p>
+<p>…</p>
+<p>version: &lt;xapp-helm-chart-version&gt;</p>
+<div class="highlight"><pre><span></span><code>…
+</code></pre></div>
+<p>appVersion: &lt;xapp-version&gt;</p>
+<div class="highlight"><pre><span></span><code>...
+</code></pre></div>
+<p><strong>NOTE: </strong>The appVersion refers to the version of the xApp Core Docker image, while the version field is the version of the xApp helm Chart. The version of the Helm Chart is used when deploying the xApp (so it is used as the --version flag in the helm install command, or in the Version field on the xApp Deployment page of the dRAX Dashboard).</p>
+<h2 id="85-package-the-helm-chart">8.5. Package the Helm chart<a class="headerlink" href="#85-package-the-helm-chart" title="Permanent link">⚓︎</a></h2>
+<p>Package the Helm chart in a .tgz file using:</p>
+<p>helm package /helm_chart/xapp</p>
+<p>This will create the .tgz xApp Helm chart package, which will also have the version of the xApp. You can now use this .tgz file to deploy your helm chart, either by issuing the helm install command on this file (and specifying the global.kubeIp), or using the Upload Helm chart deployment method from the dRAX Dashboard. </p>
+<h2 id="86-optional-upload-the-xapp-helm-chart-to-a-helm-repository">8.6. (Optional) Upload the xApp Helm Chart to a Helm Repository<a class="headerlink" href="#86-optional-upload-the-xapp-helm-chart-to-a-helm-repository" title="Permanent link">⚓︎</a></h2>
+<p>You can also create a Helm Chart repository, or use a pre-existing one, and add the xApp Helm Chart .tgz file to it. This way you can make it globally available. Now, from the dRAX Dashboard you can also use the Remote Helm Chart Repository deployment method for an xApp. How to create a Helm Chart repository is out of this document's scope.</p>
+<h2 id="87-use-xapp">8.7. Use xApp<a class="headerlink" href="#87-use-xapp" title="Permanent link">⚓︎</a></h2>
+<p>You can now share your xApp with the world. We recommend that you upload your xApp Core Docker image to a Docker image repository (such as Dockerhub) and make your own Helm Chart repository to expose your xApp helm Chart. This way anyone, anywhere can use your xApp if you grant them permissions.</p>
+<p>All other scenarios will either require you to copy the xApp Core Docker image to the dRAX host machine, and/or copy the xApp helm chart to the dRAX host. </p>
+<h1 id="9-xapp-framework-in-depth">9. xApp Framework In-depth<a class="headerlink" href="#9-xapp-framework-in-depth" title="Permanent link">⚓︎</a></h1>
+<p>To accelerate the development of xApps, Accelleran has created the xApp Framework which is available on GitHub: <a href="https://github.com/accelleran/xapp-framework-package">https://github.com/accelleran/xapp-framework-package</a>. In this repository, the xApp developer has access to the xApp Library under <em>xapp_core/xapp_lib</em>. The developer can explore the xApp Library files to get familiar with the different methods and abstractions available. We also cover what the xApp Library comes with in the </p>
+<p id="gdcalert22" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApp Library In-depth"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert23">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.9azq43gxlmgu">xApp Library In-depth</a> section. </p>
+<p>Also, in the repository, we provide an example xApp in the <em>example</em> folder. Here, we provide template Python files which use the xApp Library and include examples of usage. In the _example _folder we provide the Dockerfiles, readme and requirements files. The Dockerfiles (one for production and another for development mode) that can be used on the xApp example to build the xApp Core. An example README.md file used for documentation is also provided, more details on it can be found in the </p>
+<p id="gdcalert23" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "The xApp Documentation README.me"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert24">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.2lpo4sde6pjz">The xApp Documentation README.me</a> section. The requirements.txt contains the python required packages for the xApp to run properly. This file is used during the build process of the xApp Core to install all the required packages in the Docker image, including the xApp Library. This is why credentials are also required to be passed to the build process, as explained in the </p>
+<p id="gdcalert24" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Build your own xApp Dev Environment"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert25">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.z1bf03z9d7mx">Build your own xApp Dev Environment</a> and </p>
+<p id="gdcalert25" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Productize your xApp"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert26">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.bd9yhsb1rfuz">Productize your xApp</a> sections.</p>
+<p>In the <em>example/core _folder, we provide the example python code. The xapp_main.py file is the main python file where the xApp is started. In this example file, you can check how the xApp Builder is used, how to retrieve data from Kafka, as well as different examples on the usage. Also, the configuration file xapp_metadata.json is provided in the _example/core</em> folder, on which more details can be found in the </p>
+<p id="gdcalert26" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: " xApp Configuration In-depth"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert27">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.gqjoo99iairl"> xApp Configuration In-depth</a> section. The restapi.py python file is provided in the <em>example/core</em> folder that shows an example of how to add custom API endpoints to the xApp, more details can be found in the </p>
+<p id="gdcalert27" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApp REST API"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert28">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.gcal6ni5e1dd">xApp REST API</a> section. </p>
+<p>Finally, the example xApp also has the xApp Helm Chart in the _example _folder which contains the necessary minimum to deploy the xApp Framework in Kubernetes and seamlessly integrate it with the dRAX RIC. Details on the xApp Helm Chart can be found in the </p>
+<p id="gdcalert28" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Helm Chart In-Depth"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert29">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.8afewd77cpbd">Helm Chart In-Depth</a> section. The developer is of course free to explore the xApp Helm Chart and add features, such as adding more Docker images to be deployed along the xApp in advanced scenarios. We cover this in the </p>
+<p id="gdcalert29" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "How to add another microservice helm chart to the xApp"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert30">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.efxkdwo9dtec">How to add another microservice helm chart to the xApp</a> section. The xapp_config.json and xapp_endpoints.json are configuration files created by the xApp Helm Chart and they will be stored in the _config _folder. More information about those configuration files and how to edit them can be found in the </p>
+<p id="gdcalert30" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApp Configuration In-depth"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert31">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.gqjoo99iairl">xApp Configuration In-depth</a> section.</p>
+<p>As can be seen, the xApp framework consists of the following blocks, described also in <a href="#bookmark=id.3ezvq9iavxs3">Figure: dRAX xApp Framework</a>:</p>
+<ul>
+<li>The xApp Database</li>
+<li>The xApp Core</li>
+<li>The xApp Library</li>
+<li>The xApp Helm Chart</li>
+</ul>
+<p>The xApp framework is built using a microservice oriented architecture. The xApp Database and the xApp Core are Docker images, which are deployed using a Helm Chart, and orchestrated via Kubernetes. The xApp Database is used to store the configuration of the xApp, and can be used by the developer to store other data. The xApp Core is a container that includes the xApp Library. The xApp Library is a Python library that is the main part of the xApp Framework. The xApp Library is created in a way that abstracts how the xApp interfaces with the dRAX RIC. Different hooks are pre-built, such as the connections to the dRAX Databuses (NATS, Kafka), the API endpoints for communication to the dRAX SMO layer (dRAX Dashboard), methods to send dRAX commands (handover, sub-band masking), etc. These methods abstract the lower level details (such as URLs, ports, generating protobuf command messages, etc.) so that the developer does not need to worry about them, and can focus on the functionality and algorithms they are implementing.</p>
+<h1 id="_1"><a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h1>
+<h1 id="10-xapp-library-in-depth">10. xApp Library In-depth<a class="headerlink" href="#10-xapp-library-in-depth" title="Permanent link">⚓︎</a></h1>
+<h2 id="101-xapp-library-overview">10.1. xApp Library Overview<a class="headerlink" href="#101-xapp-library-overview" title="Permanent link">⚓︎</a></h2>
+<p>The xApp Library is a library written in Python which is used by developers to implement their own new functionalities and/or services on the dRAX RIC. The xApp Library abstracts the interfaces towards the dRAX RIC, allowing developers to use these interfaces in an easy-to-use way. The xApp Library connects multiple components using its interfaces such as:</p>
+<ol>
+<li>The logic as implemented by the developer</li>
+<li>The kafka and nats connectors</li>
+<li>The REST API</li>
+<li>The configuration and settings</li>
+</ol>
+<h2 id="102-overview-of-the-xapp-interactions-with-the-ric">10.2. Overview of the xApp interactions with the RIC<a class="headerlink" href="#102-overview-of-the-xapp-interactions-with-the-ric" title="Permanent link">⚓︎</a></h2>
+<p>Once an xApp is deployed into dRAX it can interact with all the components present in the system. Currently, there are two main ways to achieve this: via the dRAX Databus or via the REST APIs. Depending on the use case, a developer can choose which communication method fits their need best. The use of the dRAX Databus is encouraged in scenarios where xApps need to access RAN data, exchange real-time data or issue commands via the Action Taker. The use of the REST APIs is best for non-real-time information gathering or for utilizing the Netconf functionalities exposed by the dRAX REST API Gateway. The xAPP interaction with the cells can happen either via the REST API or via direct Netconf sessions to the corresponding Netconf servers.</p>
+<h2 id="103-the-xapp-structure-and-conventions">10.3. The xApp Structure and Conventions<a class="headerlink" href="#103-the-xapp-structure-and-conventions" title="Permanent link">⚓︎</a></h2>
+<p>When creating a new Python xApp, we recommend the following structure:</p>
+<div class="highlight"><pre><span></span><code>root/
+  setup.cfg
+  README.md
+  requirements.txt
+  core/
+    restapi.py
+    xapp_main.py
+    xapp_metadata.json
+  config/
+    xapp_endpoints.json
+    xapp_config.json
+</code></pre></div>
+<p>This folder structure splits the xApp in three parts:</p>
+<ul>
+<li>The root folder contains necessary information about the Python packages the xApp is and needs. Since Python usually expects those to be in the base of the tree we recommend leaving them there. This includes the README.md documentation file and requirements.txt to specify python package dependencies.</li>
+<li>The core folder contains the xApp code (which can be spread over multiple files and subfolders). Here, we also expect the xapp_metadata.json file which is used by the xApp itself and contains the configuration details of the xApp including the default values. As an example, we also include here the restapi.py which contains custom API endpoints exposed by the xApp. Do note the directory of the file building the xapp is used as base by the builder. </li>
+<li>The config folder contains various configuration files meant to be provided at runtime. This means the folder will usually not exist and not be added to the version tracking system, as its contents are created by the xApp Helm Chart.</li>
+</ul>
+<p>An example of this can be found in the <em>example</em> subfolder of the repository, along with some basic usage in <em>example/core/xapp_main.py</em>.</p>
+<h2 id="104-the-xapp-builder">10.4. The xApp Builder<a class="headerlink" href="#104-the-xapp-builder" title="Permanent link">⚓︎</a></h2>
+<p>For convenience an xApp Builder class has been added. An example of how its used can be found in the _example/core/xapp_main/.py _example xApp in the xApp Framework repository:</p>
+<div class="highlight"><pre><span></span><code>builder = xapp_lib.XAppBuilder(&quot;..&quot;, absolute=False)
+    builder.metadata(&quot;core/xapp_metadata.json&quot;)
+    builder.endpoints(&quot;config/xapp_endpoints.json&quot;)
+    builder.config(&quot;config/xapp_config.json&quot;)
+    builder.readme(&quot;README.md&quot;)
+    builder.restapi(
+        [
+            (&quot;/api/&quot;, restapi.MainApiHandler),
+            (&quot;/api/actions&quot;, restapi.ActionsHandler),
+            (&quot;/api/request&quot;, restapi.RequestHandler),
+        ]
+    )
+    xapp = builder.build()
+</code></pre></div>
+<p>This code, assuming it is written in root/core/xapp_main.py, will create an xApp builder using root/ as base (hence the “..” as its first argument). After this, the metadata, which is located in root/core/xapp_metadata.json, will be loaded by the xApp itself. The xapp_metadata.json is a mandatory configuration file of the xApp.</p>
+<p>Next, the xapp_endpoints.json and xapp-config.json files can be loaded. Note that these files are created by the xApp Helm Chart as on deployment time configuration options, hence they are located in the root/config folder. </p>
+<p>The xApp Builder then can load the README.md documentation file. Finally, if the xApp developer has created custom API endpoints in the root/core/restapi.py file, the APIs can be initiated by the xApp Builder as described above in the example code (providing their API endpoint and callback function).</p>
+<p>Do note that the builder only registers paths and configuration, and thus any errors about missing files etc will only be thrown during the builder.build() call.</p>
+<h2 id="105-drax-ric-databus">10.5. dRAX RIC Databus<a class="headerlink" href="#105-drax-ric-databus" title="Permanent link">⚓︎</a></h2>
+<p>The data from the dRAX RIC Databus comes in through the Kafka object, which automatically takes care of properly setting up and configuring a Kafka client. Note that this object is a singleton created and owned by the xApp library object itself, and calling the .kafka() method multiple times will result in the same object being returned every time, which is why the following code works:</p>
+<div class="highlight"><pre><span></span><code>xapp.kafka().subscribe([&quot;topic&quot;])
+(topic, data) = xapp.kafka().recv_data() 
+</code></pre></div>
+<p>The URL of the dRAX RIC Databus (Kafka in this case) is automatically generated in the xapp_endpoints.json file by the xApp Helm Chart. As seen, this config file is loaded into the xapp using:</p>
+<div class="highlight"><pre><span></span><code>builder.endpoints(&quot;config/xapp_endpoints.json&quot;)
+</code></pre></div>
+<p>By default, kafka will use the value associated with the “KAFKA_URL” key inside the xapp_endpoints.json. However, the developer can choose to add additional keys in the xapp_endpoints.json file through the xApp Helm Chart, which is discussed in the </p>
+<p id="gdcalert31" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "xApp Endpoints"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert32">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.jtn9rkqj2vy7">xApp Endpoints</a> section. The xApp itself can then decide to use a different key by calling:</p>
+<div class="highlight"><pre><span></span><code>(topic, data) = xapp.kafka(name=&quot;KAFKA_URL_2&quot;).recv_data() 
+</code></pre></div>
+<p>A simple way to check what messages are received is to simply log everything coming in from the kafka object. This is shown in Example 1 in the example/core/xapp_main.py from the xApp Framework repository and in the test_kafka_producer unittest.</p>
+<div class="highlight"><pre><span></span><code>### Example 1: Just logging all the messages received from the dRAX Databus
+logging.info(&quot;Received message from dRAX Databus!&quot;)
+logging.debug(&quot;dRAX Databus message on {topic}: {data}&quot;.format(topic=topic, data=data))
+</code></pre></div>
+<p>The data on the dRAX RIC Databus (Kafka) uses the JSON format. In order to decode json messages the xApp Library provides a decorator created with .json() that automatically transforms serialized data into a dictionary. </p>
+<div class="highlight"><pre><span></span><code>(topic, data) = xapp.kafka().json().recv_message() 
+</code></pre></div>
+<p>The 4G and 5G RAN data that is available on the dRAX Databus is described in a separate document that can be accessed via the following link:</p>
+<p><a href="https://docs.google.com/document/u/1/d/e/2PACX-1vTmZjYiThXivi03Td_1LXjQVldAO_7AXqnVwc0Qe-uFCT16tKH6EBF2OTOhiZ0SFw/pub">https://docs.google.com/document/u/1/d/e/2PACX-1vTmZjYiThXivi03Td_1LXjQVldAO_7AXqnVwc0Qe-uFCT16tKH6EBF2OTOhiZ0SFw/pub</a> </p>
+<h2 id="106-drax-nats-databus">10.6. dRAX NATS Databus<a class="headerlink" href="#106-drax-nats-databus" title="Permanent link">⚓︎</a></h2>
+<p>Connecting to the dRAX NATS Databus is nearly identical to connecting to the dRAX RIC Databus. The only difference is the xApp method call and the use of NATS_URL instead of KAFKA_URL:</p>
+<div class="highlight"><pre><span></span><code>xapp.nats().subscribe([&quot;topic&quot;])
+(topic, data) = xapp.nats().recv_data() 
+</code></pre></div>
+<h2 id="107-drax-commands">10.7. dRAX Commands<a class="headerlink" href="#107-drax-commands" title="Permanent link">⚓︎</a></h2>
+<p>From the xApp you can currently issue two types of commands towards the dRAX:</p>
+<ol>
+<li>
+<p>The handover command</p>
+</li>
+<li>
+<p>The subband masking command</p>
+</li>
+</ol>
+<p>Both of them are declared inside the xapp_lib.actions module.</p>
+<p><strong>NOTE:</strong> The dRAX Commands use the dRAX NATS Databus to send messages. Hence, the NATS client should be set up in the xApp, as described in the </p>
+<p id="gdcalert32" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "dRAX NATS Databus"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert33">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.h08zdnucblce">dRAX NATS Databus</a> section.</p>
+<h3 id="1071-the-handover-command">10.7.1. The handover command<a class="headerlink" href="#1071-the-handover-command" title="Permanent link">⚓︎</a></h3>
+<p>dRAX enables you to issue a handover command of a specific UE, from its currently serving cell to a certain target cell, assuming of course the target cell is in UEs range. In the <em>example/core/xapp_main.py</em> example of the xApp Framework we show this in Example 4:</p>
+<div class="highlight"><pre><span></span><code>### Example 4: Send handover command
+handover_list = [
+    {&#39;ueIdx&#39;: &#39;ueRicId_to_handover_1&#39;, &#39;targetCell&#39;: &#39;Cell_1&#39;, &#39;sourceCell&#39;: &#39;Cell_2&#39;},
+    {&#39;ueIdx&#39;: &#39;ueRicId_to_handover_2&#39;, &#39;targetCell&#39;: &#39;Cell_2&#39;, &#39;sourceCell&#39;: &#39;Cell_1&#39;}
+]
+actions.send_handover_command(xapp.nats(), handover_list)
+</code></pre></div>
+<p>First, we have to create the handover_list. This is a list of dictionaries in Python. Each dictionary, as shown above, contains a handover request, where we have the following elements:</p>
+<ul>
+<li>‘ueIdx’: This is the ueDraxId of the UE that should be handed over;</li>
+<li>‘targetCell’: The target cell to which the UE should get handed over to;</li>
+<li>‘servingCell’: The UEs’ current serving cell. </li>
+</ul>
+<p>All that information can be retrieved from the messages on the dRAX RIC Databus. Once the handover_list is created, you simply call the 'send_handover_command' function passing along the NATS connection and the handover_list. This function abstracts the lower-level details on how a handover command message is generated and sent towards the dRAX and cells. Also, the different configuration options, such as where to send the message etc., are stored in the settings variable.</p>
+<h3 id="1072-subband-masking-command">10.7.2. Subband-masking command<a class="headerlink" href="#1072-subband-masking-command" title="Permanent link">⚓︎</a></h3>
+<p>dRAX enables you to also mask certain subbands of a cell. This way, these subbands become unusable by the cell. Similarly to the handover command, we have abstracted the lower-level details, and created a function you can call to mask the subbands of a certain cell. This is described in Example 5 in the <em>example/core/xapp_main.py</em> example of the xApp Framework:</p>
+<div class="highlight"><pre><span></span><code>### Example 5: Send subband masking command
+subband_mask = [
+    {&#39;cell&#39;: &#39;Cell_1&#39;, &#39;num_of_bands&#39;: &#39;13&#39;, &#39;mask&#39;: [1,1,1,1,1,1,1,1,1,1,1,1,1]},
+    {&#39;cell&#39;: &#39;Cell_2&#39;, &#39;num_of_bands&#39;: &#39;9&#39;, &#39;mask&#39;: [1,1,1,1,1,1,1,1,1]}
+]
+actions.send_subband_masking_command(xapp.nats(), subband_mask)
+</code></pre></div>
+<p>First we create the subband_mask variable, which is a list of dictionaries in Python. Each dictionary contains the following elements:</p>
+<ul>
+<li>
+<p>'cell': This is the cell name of the cell we want to apply subband masking on;</p>
+</li>
+<li>
+<p>'num_of_bands': Number of bands, should be 13 for 20 Mhz or 9 for 15MHz;</p>
+</li>
+<li>
+<p>'mask': This is a list containing booleans where each bool corresponds to a subband of the cell, if it's set to true the subband is used, else if it's set to false the subband is masked and not used.</p>
+</li>
+</ul>
+<h2 id="108-publish-to-drax-ric-databus">10.8. Publish to dRAX RIC Databus<a class="headerlink" href="#108-publish-to-drax-ric-databus" title="Permanent link">⚓︎</a></h2>
+<p>From your xApp, you can publish data on the dRAX RIC Databus for other xApps to use as well. </p>
+<h3 id="1081-event-based-publishing">10.8.1. Event-based publishing<a class="headerlink" href="#1081-event-based-publishing" title="Permanent link">⚓︎</a></h3>
+<p>You can publish certain event-based data to the dRAX RIC Databus. This is shown in Example 2 in the processor.py of the xApp Core:</p>
+<div class="highlight"><pre><span></span><code>### Example 2: Publishing one time or event-based data on the dRAX Databus
+###                      We will publish on topic &quot;my_test_topic&quot;, and just republish the &quot;data&quot; data
+xapp.kafka().json().send_message(&quot;my_test_topic&quot;, data)
+</code></pre></div>
+<p>We have created an abstraction which takes the following parameters:</p>
+<ol>
+<li>"my_test_topic": This is the topic on the dRAX RIC Databus to which the data should be published</li>
+<li>data: the actual data that needs to be published, it should be of a type that can be serialized as the dRAX RIC Databus expects JSON format messages (hence the xapp.kafka().json()... decorator). </li>
+</ol>
+<h3 id="1082-periodic-publishing">10.8.2. Periodic publishing<a class="headerlink" href="#1082-periodic-publishing" title="Permanent link">⚓︎</a></h3>
+<p>If one wants to periodically publish information, they can spawn a separate thread using the spawn function from the xApp library:</p>
+<div class="highlight"><pre><span></span><code>data = {&quot;key&quot;: &quot;data&quot;}
+def periodic_publish(xapp):
+    while True:
+        xapp().kafka().json().send_message(&quot;my_test_topic&quot;, data)
+        sleep(1)
+xapp.spawn(periodic_publish)
+</code></pre></div>
+<p><strong>NOTE: </strong>The xApp argument is a weak reference, thus the use of xapp() inside the function.</p>
+<h3 id="1083-publish-to-the-drax-nats-databus">10.8.3. Publish to the dRAX NATS Databus<a class="headerlink" href="#1083-publish-to-the-drax-nats-databus" title="Permanent link">⚓︎</a></h3>
+<p>Publishing to the dRAX NATS Databus is equally simple:</p>
+<div class="highlight"><pre><span></span><code>data = {&quot;key&quot;: &quot;data&quot;}
+def periodic_publish(xapp):
+    while True:
+        xapp().nats().json().send_message(&quot;my_test_topic&quot;, data)
+        sleep(1)
+xapp.spawn(periodic_publish)
+</code></pre></div>
+<h2 id="109-use-the-drax-ric-api-gateway">10.9. Use the dRAX RIC API Gateway<a class="headerlink" href="#109-use-the-drax-ric-api-gateway" title="Permanent link">⚓︎</a></h2>
+<p>The dRAX RIC exposes a number of APIs through the dRAX RIC API Gateway. The full documentation on all of the endpoints is available on the dRAX RIC API Gateway Swagerhub, which is exposed on the following URL:</p>
+<p>http://&lt;kubernets_ip&gt;:31315/api/v1/docs</p>
+<p>Just substitute &lt;kubernetes_ip&gt; with the advertise address of your Kubernetes cluster.</p>
+<p>Inside the actions module of the xApp Library, we have already implemented the code for making API calls, and abstracted the details on how to connect to the API. That information is stored in the xapp_endpoints.json file (see also section on <a href="#bookmark=id.dvop83lpdozd">xApp Configuration</a>) under API_GATEWAY_URL. We created a few examples of how this works in the xApp Example, while the SwagerHub contains detailed information and description of all the endpoints.</p>
+<p>In summary, through the dRAX RIC API Gateway you can:</p>
+<ul>
+<li>xApps<ul>
+<li>Get a list of deployed xApps</li>
+<li>Get/Modify the configuration of another xApp</li>
+<li>Check if the xApp is healthy</li>
+<li>Deploy or delete other xApps</li>
+</ul>
+</li>
+<li>4G Radio Controller<ul>
+<li>Check the status of the 4GRC</li>
+<li>Configure the 4GRC</li>
+</ul>
+</li>
+<li>4G Cells<ul>
+<li>Configure basic parameters of a cell using a JSON</li>
+<li>Send a full NetConf RPC through the API to configure the cell</li>
+<li>Upload a pre-existing configuration</li>
+<li>Auto-configure cells</li>
+<li>Reboot cells </li>
+</ul>
+</li>
+<li>5G CU<ul>
+<li>Programmatically deploy the 5G CU-CP and CU-UP</li>
+<li>Configure the 5G CU-CP and CU-UP</li>
+</ul>
+</li>
+</ul>
+<h3 id="1091-how-to-use-the-drax-ric-api-gateway-in-general">10.9.1. How to use the dRAX RIC API Gateway in general<a class="headerlink" href="#1091-how-to-use-the-drax-ric-api-gateway-in-general" title="Permanent link">⚓︎</a></h3>
+<p>Example 6 shows how to call the API gateway on the following endpoint:</p>
+<div class="highlight"><pre><span></span><code>&quot;/xappconfiguration/discover/services/netconf&quot; 
+</code></pre></div>
+<p>This endpoint, as described in the SwagerHub, returns the list of NetConf services deployed on dRAX. Since the Accelleran 4G small cells and the 5G CUs have NetConf servers running in them to be able to use NetConf to configure them, this way we can get that information.</p>
+<div class="highlight"><pre><span></span><code>### Example 6: How to use the dRAX RIC API Gateway
+endpoint = &#39;/xappconfiguration/discover/services/netconf&#39;
+api_response = requests.get(actions.create_api_url(xapp, endpoint))
+
+if api_response.status_code == 200:
+  try:
+    logging.info(api_response.json())
+  except:
+    logging.info(&#39;Failed to load JSON, showing raw content of API response:&#39;)
+    logging.info(api_response.text)
+</code></pre></div>
+<h3 id="1092-how-to-pick-only-the-port-at-which-netconf-is-exposed">10.9.2. How to pick only the port at which NetConf is exposed<a class="headerlink" href="#1092-how-to-pick-only-the-port-at-which-netconf-is-exposed" title="Permanent link">⚓︎</a></h3>
+<p>Example 7 shows how to parse the retrieved information from the dRAX RIC API Gateway. Because the information retrieved can be parsed as JSON, in python we can simply use it as a Python dictionary:</p>
+<div class="highlight"><pre><span></span><code>### Example 7: Get the ports where the netconf servers of cells are exposed
+        endpoint = &#39;/xappconfiguration/discover/services/netconf&#39;
+        api_response = requests.get(actions.create_api_url(xapp, endpoint))
+
+        for cell, cell_info in api_response.json().items():
+            for port in cell_info[&#39;spec&#39;][&#39;ports&#39;]:
+                if port[&#39;name&#39;] == &#39;netconf-port&#39;:
+                    logging.info(&#39;Cell [{cell}] has NETCONF exposed on port [{port}]&#39;.format(
+                        cell=cell,
+                        port=port[&#39;node_port&#39;])
+                    )
+</code></pre></div>
+<p>This would log the following example data:</p>
+<div class="highlight"><pre><span></span><code>[netconf-dageraadplats] has NETCONF exposed on port [30023]
+[netconf-parking] has NETCONF exposed on port [32634]
+</code></pre></div>
+<h1 id="11-the-xapp-documentation-readmeme">11. The xApp Documentation README.me<a class="headerlink" href="#11-the-xapp-documentation-readmeme" title="Permanent link">⚓︎</a></h1>
+<h2 id="111-the-readmemd-file">11.1. The README.md file<a class="headerlink" href="#111-the-readmemd-file" title="Permanent link">⚓︎</a></h2>
+<p>The README.md is a text file used to provide a reliable way to explain, describe and illustrate an xApp. Its content is fully text-based and allows special syntax using Markdown. The Markdown language is a lightweight markup language that allows the creation of formatted text using only a plain-text editor. It allows one to control the display of the document; formatting words as bold or italic, adding images, creating lists and much more. By filling the README.md file with xApp information, the Accelleran dRAX RIC will  display its content automatically in the dRAX dashboard of the specific xApp. Thus, a full description of the xApp and its context can be provided with a special style for the illustration. An example README.md file is provided in the <em>example</em> folder of the xApp Framework.</p>
+<p>Here are some links describing the Markdown features:</p>
+<ul>
+<li>Wikipedia Markdown: <a href="https://en.wikipedia.org/wiki/Markdown">https://en.wikipedia.org/wiki/Markdown</a></li>
+<li>Markdown CheatSheet: <a href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a></li>
+<li>StackEdit: In-browser Markdown Editor</li>
+<li>Markdown guide: <a href="https://guides.github.com/features/mastering-markdown/">https://guides.github.com/features/mastering-markdown/</a> </li>
+</ul>
+<h2 id="112-what-we-expect-inside-the-readmemd-file">11.2. What we expect inside the README.md file<a class="headerlink" href="#112-what-we-expect-inside-the-readmemd-file" title="Permanent link">⚓︎</a></h2>
+<p>The README.md file is used to explain, describe and illustrate xApp behavior. It is the place where the xApp developer can give information about the xApp and its context.</p>
+<p>The xApp README file generally contains the following elements:</p>
+<ul>
+<li>A description of the xApp and its functionality</li>
+<li>If the xApp is sharing data on the dRAX RIC Databus or not</li>
+<li>If the xApp is sharing data, what is the format of the data</li>
+<li>If the xApp is sharing data, which topic on the dRAX RIC Databus is the data shared on</li>
+<li>If the xApp has additional custom API endpoints, and an explanation of what they are and what they do</li>
+</ul>
+<p>Then, it is the responsibility of the xApp developer to feed the information correctly and give the best description possible for its xApp. The Markdown style formatting is also available to help xApps developers to structure the document but it’s not mandatory.</p>
+<h2 id="113-how-the-readmemd-is-made-available-via-readme-endpoint">11.3. How the README.md is made available via /readme endpoint<a class="headerlink" href="#113-how-the-readmemd-is-made-available-via-readme-endpoint" title="Permanent link">⚓︎</a></h2>
+<p>As with the /config and /metadata endpoint on the xApp API, (consequently used for configuration purposes), the /readme endpoint retrieves the README.md file from the xApp Core and makes it available for other modules. Only the GET method is accepted for this endpoint.</p>
+<p>To suit this behavior, the README.md must be a text file co-located with the xApp core files. An example of the README.md file is already provided in the xApp Framework Package to demonstrate the /readme endpoint functionality.</p>
+<p>Thus, the README.md content is available the xApp API port:</p>
+<p><em>http://&lt;kubernetes_ip&gt;:&lt;xapp_api_port&gt;/readme</em></p>
+<p>Substitute &lt;kubernetes_ip&gt; with the advertised address of your Kubernetes cluster and the &lt;xapp_api_port&gt; by the exposed port of your xApp API.</p>
+<h1 id="12-xapp-rest-api">12. xApp REST API<a class="headerlink" href="#12-xapp-rest-api" title="Permanent link">⚓︎</a></h1>
+<p>The dRAX RIC platform has been, in its own roots, designed to use an adaptable approach. Through its genuinely defined architecture, an xApp can be developed and extended depending on needs to provide infinite tastes and flavors to the RIC.</p>
+<p>The xApp Library, therefore, also includes Tornado as the API framework. Accelleran has already pre-built a number of xApp API endpoints that are used for xApp Configuration purposes. On the other hand, the developer can also take advantage of the xApp Library abstractions to create their own custom API endpoints. This allows xApp developers to create handlers for the API endpoint requests (POST, GET, DELETE, PUT, etc.), to create different actions per endpoint depending on the requests received and add support for event-based actions. For more information about the tornado framework, you can reach the following link :<a href="https://www.tornadoweb.org/en/stable/">https://www.tornadoweb.org/en/stable/</a>. </p>
+<h2 id="121-overview">12.1. Overview<a class="headerlink" href="#121-overview" title="Permanent link">⚓︎</a></h2>
+<p>The xApp API has a couple of endpoints predefined:</p>
+<table>
+  <tr>
+   <td><strong>Endpoint</strong>
+   </td>
+   <td>
+   </td>
+   <td><strong>HTTP Methods</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>/config  
+   </td>
+   <td>This endpoint is used to get or change the current configuration options
+   </td>
+   <td>GET, PUT, DELETE, POST
+   </td>
+  </tr>
+  <tr>
+   <td>/health/alive    
+   </td>
+   <td>This endpoint is used to check if the xApp is alive
+   </td>
+   <td>GET
+   </td>
+  </tr>
+  <tr>
+   <td>/health/ready        
+   </td>
+   <td>This endpoint is used to check if the xApp is ready
+   </td>
+   <td>GET
+   </td>
+  </tr>
+  <tr>
+   <td>/readme
+   </td>
+   <td>This endpoint is used to get the README.md documentation of the xApp
+   </td>
+   <td>GET
+   </td>
+  </tr>
+  <tr>
+   <td>/api
+   </td>
+   <td>This is the recommended exposed endpoint for adding custom API endpoints to your xApp
+   </td>
+   <td>ANY
+   </td>
+  </tr>
+  <tr>
+   <td>/metadata
+   </td>
+   <td>This API endpoint is used to get the xApps metadata as defined in the xapp_metadata.json. Note, this API endpoint only has the GET method implemented.
+   </td>
+   <td>GET
+   </td>
+  </tr>
+</table>
+
+<p>These prebuilt API endpoints are used to:</p>
+<ol>
+<li>To enable the dRAX RIC to discover the xApp and make it visible through the dRAX Dashboard</li>
+<li>To enable the real-time configuration of the xApp</li>
+<li>To enable the developer to expose functionalities of the xApp to the rest of the dRAX as well as to external systems</li>
+<li>To easily fetch the documentation and metadata of the xApp</li>
+</ol>
+<p>The /api is the extendable and optional endpoint that we have left up to developers to implement the functionalities. Example code for handling the /api endpoint can be found in the xApp Framework example/core/restapi.py. This way we keep the xApp Core the single point of focus for the developers. The use of /api is simply convention and developers can rename it as they wish. We will, however, use it here in this document when referring to developer created custom API endpoints.</p>
+<h2 id="122-adding-an-endpoint-behind-the-api">12.2. Adding an endpoint behind the /api<a class="headerlink" href="#122-adding-an-endpoint-behind-the-api" title="Permanent link">⚓︎</a></h2>
+<p>To create a new entry point for your xApp under /api, the xApp developer simply needs to add a handler to the xApp builder .restapi() call.</p>
+<p>For each endpoint defined in the list, a callback class is associated. These classes will be called each time the endpoint is triggered and can also be overloaded at needs to handle every REST request (GET, PUT, POST, DELETE, …).</p>
+<p>In the following example /api/, /api/actions and /api/request have been defined as endpoints with corresponding handlers.</p>
+<div class="highlight"><pre><span></span><code>builder.restapi([
+        (&quot;/api/&quot;, MainApiHandler),
+        (&quot;/api/actions&quot;, ActionsHandler),
+        (&quot;/api/request&quot;, RequestHandler),
+    ])
+</code></pre></div>
+<p>Then, the endpoint handler can be declared to ensure defined behaviors per REST request.</p>
+<p>In the following example, the RequestHandler class is defined for the /api/request endpoint. It handles:</p>
+<ul>
+<li>A first initialize function used to save a weak reference to the xapp class</li>
+<li>A get function that handles the REST request GET for this specific endpoint</li>
+<li>
+<p>A post function that handles the REST request POST for this specific endpoint.</p>
+<p>```
+class RequestHandler(tornado.web.RequestHandler):
+def initialize(self, xapp):
+    self.xapp = xapp
+    self.write("init request handler\n")
+def get(self):
+    self.write("request handler get\n")
+def post(self):
+    self.set_header("Content-Type", "text/plain")
+    self.write("You wrote " + self.get_body_argument("message"))
+<div class="highlight"><pre><span></span><code>Hence, every endpoint is bound to a specific class handler that will define and organize all the expected management and behaviors when it will be triggered.
+
+
+## 12.3. How to extend the context of the newly added API endpoint
+
+While deploying a new endpoint, xApp developers also might want to extend its functionalities to have the hand on much wider components. To have access to the functionalities of these components, a reference to the xapp will need to be provided to the handlers.
+
+This reference will be forwarded automatically to the user class initialization function for further use inside it. In addition metaclassing can be used to pass additional parameters to the handler.
+
+It allows xApps developers to declare a dictionary of variables and information that will be made automatically available in the initialize function of the handler definition.
+
+The following example introduce the notion of context inside the callback class with the listener object passed to the MainApiHandler:
+</code></pre></div>
+def create_handle(listener):
+class MainApiHandler(tornado.web.RequestHandler):
+    def initialize(self, xapp):
+        self.xapp = xapp
+    def get(self):
+        self.write("Write a message into the listener...\n")
+        listener.send_data("topic", "Message from restapi main handler")
+        self.write("Message written.\n")
+return MainApiHandler</p>
+</li>
+</ul>
+<p>builder.restapi(["/api", create_handle(my_listener)])
+<div class="highlight"><pre><span></span><code>In this example listener is an object of a user-defined class meant to forward logic to a main thread.
+
+This way a certain message from the API can be forwarded to the main application. Hence, xApp developers can extend the possibilities of the xApps at needs in a fully configurable environment.
+
+
+## 12.4. Reaching API endpoints
+
+All the endpoints of the xApp can be reached using the following syntax: \
+http://&amp;lt;kubernetes_ip&gt;:&amp;lt;xapp_api_port&gt;/&amp;lt;endpoint&gt;
+
+Just substitute &amp;lt;kubernetes_ip&gt; with the advertised address of your Kubernetes cluster and the &amp;lt;xapp_api_port&gt; by the exposed port of your xApp API. This can be found on the dRAX Dashboard by clicking the Show button under services, and locating the xapp-api service information. Finally, change the &amp;lt;endpoint&gt; to whichever endpoint you need (/config, /metadata/ /api/custom_endpoint, etc.).
+
+
+# 13. xApp Configuration In-depth
+
+The xApp Configuration has multiple aspects which need to be understood. First, the xApp Library itself has a Settings class which is used for handling the configuration options inside the actual xApp. These configuration options are split between multiple JSON files. One of the JSON files, the xapp_metadata.json, is created by the developer and holds the default values of the configuration options. The second configuration file, the xapp_config.json, is generated by the xApp Helm Chart and used to change the default values of the configuration options defined in the xapp_metadata.json on deployment time. Finally, the third configuration file, the xapp_endpoints.json, is also generated by the xApp Helm Chart on deployment and is used to store the dRAX RIC endpoints URLs and ports, which are auto discovered and used for seamless integration with the dRAX RIC.
+
+To access the xApp configuration, the xApp Library exposes two xApp API endpoints: /config and /metadata. There are multiple ways of editing the configuration options during run-time. The users can use the dRAX Dashboard for a user friendly, GUI approach, or they can use the /config API endpoint to programmatically change the configuration options. Once the configuration options are changed in any way, the xApp Library Settings class will automatically save the changes to the xApp Database for persistence. Therefore, if the xApp is restarted, the changes to the configuration options will be picked up from the xApp Database. 
+
+
+## 13.1. Overview of the xApp Configuration
+
+In this subsection we describe the xApp Configuration aspects. We will explain the configuration split into multiple files, and what they contain. 
+
+The xApp relies on three different configuration files:
+
+
+
+1. The xapp_metadata.json: Required for every xApp, contains information about the xApp itself, including but not limited to the name of the xApp, a description, the date of the last modification, as well as the definitions of the configuration options of that xApp including their default values. This information is provided by the creator of the xApp and cannot be modified during run-time.
+2. The xapp_config.json: This file is generated by the xApp Helm Chart on deployment. It is used to change the default values of the configuration that is defined in the xapp_metadata.json. Note, that this file is used to change the config on deployment, however,  this file can be separately created and sent to the /config API endpoint to change the configuration during runtime. The dRAX Dashboard basically uses this principle to change the configuration during runtime.
+3. The xapp_endpoints.json: This file is also generated by the xApp Helm Chart. The xApp Helm Chart already auto discovers the necessary endpoint of the dRAX RIC (Kafka, NATS, xApp Database, dRAX RIC API Gateway, etc.) which are necessary for proper xApp functionality and integration. However, the developer or user may choose to add additional endpoints of their choosing to make them accessible through the Settings class in the xApp itself.
+
+When reading configuration (except for endpoints which are treated separately) the xApp first checks the xApp database for the configuration parameters, then if not present checks the configuration inside xapp_config.json, and if the configuration parameter is not present either, uses the default value from xapp_metadata.json. On the other hand, all writes during the lifetime of an xApp will be forwarded to xApp Database.
+
+All three can be added using the builder pattern:
+
+builder = xapp_lib.XAppBuilder(&quot;..&quot;, absolute=False)
+
+builder.metadata(&quot;core/xapp_metadata.json&quot;)
+
+builder.endpoints(&quot;config/xapp_endpoints.json&quot;)
+
+builder.config(&quot;config/xapp_config.json&quot;)
+
+xapp = builder.build()
+
+**NOTE:** If for example the user during deployment does not need to change the default values defined in xapp_metadata.json, one can do so in the xApp Helm Chart by not generating the xapp_config.json. Still, the developers should leave the option for the xApp Builder to include this file if it exists. If the file does not exist, the xApp will just log that this file was not found, and us eteh default from the xapp-metadata.sjon.
+
+
+## 13.2. xApp Metadata
+
+The Metadata contains basic information and metadata about the xApp itself. Usually the metadata is included in the repository containing the xApp itself and is created by the developer. The list of configuration options can be expanded depending on the need, but this is only done in development. The data contained inside the xapp_metadata.json cannot be changed during runtime. To change the value of the configuration options defined here, one must use the /config API endpoint.
+
+
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Configuration option
+   &lt;/td&gt;
+   &lt;td&gt;Type
+   &lt;/td&gt;
+   &lt;td&gt;Description
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;metadata.name
+   &lt;/td&gt;
+   &lt;td&gt;Uneditable 
+   &lt;/td&gt;
+   &lt;td&gt;The name of the xApp
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;metadata.namespace
+   &lt;/td&gt;
+   &lt;td&gt;Uneditable 
+   &lt;/td&gt;
+   &lt;td&gt;The namespace where the xApp is deployed. This is the same namespace as dRAX.
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;metadata.description
+   &lt;/td&gt;
+   &lt;td&gt;Uneditable
+   &lt;/td&gt;
+   &lt;td&gt;A description of the xApp
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;metadata.last_modified
+   &lt;/td&gt;
+   &lt;td&gt;Uneditable 
+   &lt;/td&gt;
+   &lt;td&gt;A timestamp when the configuration was last modified. In format: 
+&lt;p&gt;
+&quot;d/m/Y H:M:S&quot;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;metadata.config_options
+   &lt;/td&gt;
+   &lt;td&gt;Uneditable
+   &lt;/td&gt;
+   &lt;td&gt;A list of configuration options in  \
+{ \
+    “name”: \
+    ”description”: \
+    ”default”:
+&lt;p&gt;
+}
+&lt;p&gt;
+format
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+
+In the xApp Framework repository, we give an example of how the xapp_metadata.json can look like.
+</code></pre></div>
+{
+    "name": "xApp Name",
+    "configName": "",
+    "description": "xApp Description...",
+    "last_modified": "06/07/2020 23:32:00",
+    "config_options": [
+        {
+            "name": "LOG_LEVEL",
+            "description": "Log stuff",
+            "default": 10,
+            "jsonSchemaOptions": {
+                "type": "number"
+            },
+            "uiSchemaOptions": {}
+        },
+        {
+            "name": "example_slider",
+            "description": "Test string configuration option",
+            "default": 10,
+            "jsonSchemaOptions": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 50
+            },
+            "uiSchemaOptions": {
+                "ui:widget": "range"
+            }
+        },
+        {
+            "name": "someUrl",
+            "description": "Test URL configuration option",
+            "default": "url://some.url",
+            "jsonSchemaOptions": {
+                "type": "string"
+            },
+            "uiSchemaOptions": {}
+        },
+        {
+            "name": "boolean",
+            "description": "Test boolean configuration option",
+            "default": true,
+            "jsonSchemaOptions": {
+                "type": "boolean"
+            },
+            "uiSchemaOptions": {
+                "ui:widget": "select"
+            }
+        }</p>
+<div class="highlight"><pre><span></span><code>]
+</code></pre></div>
+<p>}
+```
+
+
+As can be seen, we define 4 configuration options: LOG_LEVEL, example_slider, someUrl, boolean. Each of them has a name, description, default value, and visualization options for the dRAX Dashboard. The visualization options are described in the 
+
+<p id="gdcalert33" ><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: undefined internal link (link text: "How to create configuration option widgets on the dRAX Dashboard"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert34">Next alert</a>)<br><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
+
+<a href="#heading=h.8hdrkls5kyd">How to create configuration option widgets on the dRAX Dashboard</a> section.
+
+</p>
+<h2 id="133-xapp-runtime-configuration">13.3. xApp Runtime Configuration<a class="headerlink" href="#133-xapp-runtime-configuration" title="Permanent link">⚓︎</a></h2>
+<p>The configuration options as seen before are defined in the xapp_metadata.json and loaded into the Settings class of the xApp. Changing the value of these configuration options can be done in multiple ways:
+
+
+
+* During deployment time by defining the xapp_config.json through the xApp Helm Chart
+* During runtime via the dRAX Dashboard
+* During runtime using the /config xApp API endpoint
+
+</p>
+<h3 id="1331-setting-xapp-configuration-during-runtime">13.3.1. Setting xApp Configuration during runtime<a class="headerlink" href="#1331-setting-xapp-configuration-during-runtime" title="Permanent link">⚓︎</a></h3>
+<p>If the user needs to change the xApp Configuration options default values on deployment, one can edit the xApp Helm Chart to generate the xapp_config.json file. In particular, the user can supply a values.yaml file containing the following:
+
+
+```</p>
+<h3 id="define-the-xapp_configjson">Define the xapp_config.json<a class="headerlink" href="#define-the-xapp_configjson" title="Permanent link">⚓︎</a></h3>
+<p>xappConfig: 
+  LOG_LEVEL: 20
+  example_slider: 50
+  someUrl: "nats://{{ .Values.global.kubeIp }}:31000"
+  boolean: false
+```
+
+
+The configuration options in this example (LOG_LEVEL, example_slider, someUrl, boolean) need to be defined in the xapp-metadata.json. When comparing with the previous subsection, the xapp_metadata.json example, we see that the LOG_LEVEL by default has the value of 10. However, if we use the above-mentioned values file for the xApp Helm Chart, the LOG_LEVEL will change to 20 during deployment time. 
+
+</p>
+<h3 id="1332-changing-xapp-configuration-during-runtime-drax-dashboard">13.3.2. Changing xApp Configuration during runtime - dRAX Dashboard<a class="headerlink" href="#1332-changing-xapp-configuration-during-runtime-drax-dashboard" title="Permanent link">⚓︎</a></h3>
+<p>The xApp Configuration can then further be changed during runtime. One way to achieve this is using the dRAX Dashboard. The dRAX Dashboard uses the xApps /metadata and /config API endpoints to retrieve information on the xApp. Then it can also use the /config API endpoint to change the runtime configuration of the xApp. 
+
+Simply navigate to the xApp Management -&gt; Overview page of the dRAX Dashboard. Click the icon under the Detail column of your xApp. Expand the Configuration Parameters section to see all the configuration options of your xApp like shown on <a href="#bookmark=id.4vkzgdmnzhmm">Figure: xApp example configuration options</a>. Now change any value and click the Submit button. In the background, the dRAX Dashboard generates the equivalent of the xapp_config.json, and sends it to the xApp /config API endpoint. This triggers the xApp Library Settings class to apply the configuration change, but also to store this configuration change into the xApp Database for persistence. 
+
+
+<table>
+  <tr>
+   <td>
+
+<p id="gdcalert34" ><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert35">Next alert</a>)<br><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
+
+
+<img src="images/image3.png" width="" alt="alt_text" title="image_tooltip">
+
+   </td>
+  </tr>
+  <tr>
+   <td>Figure: xApp example configuration options
+   </td>
+  </tr>
+</table>
+
+
+</p>
+<h3 id="1333-changing-xapp-configuration-during-runtime-xapp-api">13.3.3. Changing xApp Configuration during runtime - xApp API<a class="headerlink" href="#1333-changing-xapp-configuration-during-runtime-xapp-api" title="Permanent link">⚓︎</a></h3>
+<p>The configuration of an xApp can also be changed using the xApp /config API endpoint. To do so, we need to create the xapp_config.json. This JSON is then forwarded to the xApp /config API, which will trigger the Settings class in the xApp Library to adjust the xApp Configuration and save teh changes to the xApp Database for persistence. For example, if we want to change the LOG_LEVEL configuration option from our example, we can simply create the following xapp_config.json:
+
+
+<code>{
+        'LOG_LEVEL': 20,  
+}</code>
+
+
+By creating such a JSON and sending it to the xApp /config API, the configuration options can be edited during runtime. The xApp API can be reached via the dRAX RIC API Gateway. Each xApp has their API endpoints exposed through the dRAX RIC API Gateway. You can use the:
+
+/xappconfiguration/config/{xAppName}
+
+API endpoint to reach the configuration of each xApp. You can get the xApp configuration from this endpoint and edit it. Details on the dRAX RIC API Gateway endpoints for the xApps can be seen on Swagger which can be reached at:
+
+http://&lt;kubernets_ip&gt;:31315/api/v1/docs
+
+Just substitute &lt;kubernetes_ip&gt; with the advertised address of your Kubernetes cluster. 
+
+</p>
+<h2 id="134-xapp-endpoints">13.4. xApp Endpoints<a class="headerlink" href="#134-xapp-endpoints" title="Permanent link">⚓︎</a></h2>
+<p>The xApp Endpoints are a list of urls explaining to the xApp where to find databases and event brokers. The xapp_endpoints.json, which is loaded by the xApp Builder, is filled with information how to reach all the necessary dRAX RIC hooks. Since this is generated by the xApp Helm Chart, these URLs and ports can also be auto discovered, which is what the xApp Helm Chart does. This way, the developer does not have to worry about how to properly connect to all the dRAX RIC hooks. Some of the default endpoints this file contains are:
+
+
+<table>
+  <tr>
+   <td>Configuration option
+   </td>
+   <td>Type
+   </td>
+   <td>Description
+   </td>
+  </tr>
+  <tr>
+   <td>NATS_URL
+   </td>
+   <td>Optional
+   </td>
+   <td>The url of the NATS broker
+   </td>
+  </tr>
+  <tr>
+   <td>KAFKA_URL
+   </td>
+   <td>Optional
+   </td>
+   <td>The url of the Kafka broker
+   </td>
+  </tr>
+  <tr>
+   <td>REDIS_URL
+   </td>
+   <td>Required
+   </td>
+   <td>The url of the xApp Redis database
+   </td>
+  </tr>
+</table>
+
+
+The developer is however free to add additional xApp endpoints, so they can be accessible through the endpoints object in the Settings class. This can be done in the xApp Helm Chart. Edit the xApp Chart values.yaml file, and locate the xappEnpoints key:
+
+
+```
+...</p>
+<h3 id="define-the-xapp_endpointsjson">Define the xapp_endpoints.json<a class="headerlink" href="#define-the-xapp_endpointsjson" title="Permanent link">⚓︎</a></h3>
+<p>xappEnpoints:
+  REDIS_URL: "redis://{{ .Release.Name }}-xapp-redis.{{ .Release.Namespace }}:6379"
+  KAFKA_URL: "kafka://{{ .Values.global.kubeIp }}:31090"
+  API_URL: "http://{{ .Values.global.kubeIp }}:31315"
+  NATS_URL: "nats://{{ .Values.global.kubeIp }}:31000"
+...
+```
+
+
+Here, the developer can add additional endpoints. 
+
+</p>
+<h2 id="135-xapp-settings-class">13.5. xApp Settings Class<a class="headerlink" href="#135-xapp-settings-class" title="Permanent link">⚓︎</a></h2>
+<p>Most configuration can be accessed through the Settings class, which abstracts away the peculiarities when dealing with configuration. The Settings class is in charge of setting the configuration options locally through the xApp configuration files. Furthermore, it is in charge of changing those configuration options once a change happens via the xApp API. Finally, it also stored the configuration in the xApp Database for persistence. 
+
+Different configuration options, metadata, and endpoints can be used as follows:
+
+xapp.settings().get_config(“LOG_LEVEL”)
+
+xapp.settings().metadata[‘last_modified’]
+
+xapp.settings().urls[‘NATS_URL’]
+
+<strong>NOTE:</strong> Connections can easily be made using xapp.nats(name=”NATS_URL”) and thus accessing urls directly is discouraged.
+
+Another way of accessing the configuration options is by creating a variable and polling the configuration option. This way the variable is always updated on a change:
+
+log_level = xapp.settings().poll_config(“LOG_LEVEL”)
+
+while True:
+
+    (topic, data) = xapp.kafka()
+
+    if log_level() &lt;= 10:
+
+        print(“Received data: ” + str(data))
+
+</p>
+<h2 id="136-resetting-the-configuration-upon-redeployment-of-the-xapp">13.6. Resetting the configuration upon redeployment of the xApp<a class="headerlink" href="#136-resetting-the-configuration-upon-redeployment-of-the-xapp" title="Permanent link">⚓︎</a></h2>
+<p>As stated before, the xApp Configuration is saved in the xApp Database with persistence. This means that on redeployment, your old configuration will be restored. You can, however, choose to delete the old configuration and redeploy with the default deployment time configuration options. To do so, in the values.yaml file in the example/helm_chart/xapp folder of the xApp Framework Package, change the value of the xappFrameworkConfig.flushOnDeployment field to ‘true’. 
+
+
+```</p>
+<h3 id="general-xapp-framework-configuration-options">General xApp Framework configuration options<a class="headerlink" href="#general-xapp-framework-configuration-options" title="Permanent link">⚓︎</a></h3>
+<p>xappFrameworkConfig:
+  # If you want to flush the existing config, and use the config on helm install, enable the following
+  flushOnDeployment: true
+```
+
+
+</p>
+<h2 id="137-how-to-create-configuration-option-widgets-on-the-drax-dashboard">13.7. How to create configuration option widgets on the dRAX Dashboard<a class="headerlink" href="#137-how-to-create-configuration-option-widgets-on-the-drax-dashboard" title="Permanent link">⚓︎</a></h2>
+<p>The dashboard front-end makes use of the react-jsonschema-form library to visualize the xApp configuration form. Changing the  "jsonSchemaOptions" and "uiSchemaOptions" objects within the xApp configuration xapp_metadata.json, will change the way the form appears on the browser. e.g.
+
+
+<code>{
+            "name": "example_slider",
+            "description": "Test string configuration option",
+            "default": 10,
+            "jsonSchemaOptions": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 50
+            },
+            "uiSchemaOptions": {
+                "ui:widget": "range"
+            }
+        },</code>
+
+
+Will create a configuration option named “example_slider”, with a default value of 10. Then the jsonSchemaOptions define that this is a number, with a range of (0-50). The uiSchemaOptions defines this as a “range” widget, which is a slider. Therefore, the dRAX Dashboard will use this data to display a slider.
+
+For more information and how to modify these options check :
+
+<a href="https://react-jsonschema-form.readthedocs.io/en/latest/usage/widgets/">https://react-jsonschema-form.readthedocs.io/en/latest/usage/widgets/</a>
+
+The visualization library used can be found here:
+
+<a href="https://github.com/rjsf-team/react-jsonschema-form">https://github.com/rjsf-team/react-jsonschema-form</a>  <br />
+</p>
+<h1 id="14-xapp-helm-chart-in-depth">14. xApp Helm Chart In-Depth<a class="headerlink" href="#14-xapp-helm-chart-in-depth" title="Permanent link">⚓︎</a></h1>
+<p>The way we package and deploy our xApp is using Helm. Therefore, we created the xApp Helm Chart to accompany our xApp. Editing the Helm chart is done as any other Helm chart. Most of the fields in the values.yaml file are auto-generated and prebuilt. The xApp Helm chart can be located in the <em>example</em> folder of the xApp Framework repository: 
+
+<a href="https://github.com/accelleran/xapp-framework-package.git">https://github.com/accelleran/xapp-framework-package</a>. 
+
+</p>
+<h2 id="141-version-control">14.1. Version control<a class="headerlink" href="#141-version-control" title="Permanent link">⚓︎</a></h2>
+<p>The version of the xApp is configured in the Chart.yaml file in the /helm_chart/xapp folder. Here we have two version fields: i) version and ii) appVersion. The first one corresponds to the version of the xApp Helm Chart, while the second one is the version of the xApp Core Docker image. 
+
+</p>
+<h2 id="142-xapp-core-docker-image-to-use">14.2. xApp Core Docker image to use<a class="headerlink" href="#142-xapp-core-docker-image-to-use" title="Permanent link">⚓︎</a></h2>
+<p>Which Docker image of the xApp Core is used when deploying the xApp Helm Chart is defined in the values.yaml file under the ‘<em>image.repository’</em> field. You can specify a local Docker image or a remote Docker repository. The ‘_image.tag” _field can also be used to override the version of the xApp Core Docker image that is defined by the appVersion field in the Chart.yaml.
+
+</p>
+<h2 id="143-how-to-add-another-microservice-helm-chart-to-the-xapp">14.3. How to add another microservice helm chart to the xApp<a class="headerlink" href="#143-how-to-add-another-microservice-helm-chart-to-the-xapp" title="Permanent link">⚓︎</a></h2>
+<p>Adding another microservice helm chart to your xApp requires some Helm knowledge. We try to create a simple guide here as a starting point. We will add InfluxDB to our xApp.
+<br/>
+1. Add the InfluxDB Helm Chart to the xApp
+
+    This is done by editing the Chart.yaml file in the /helm_chart/xapp folder. Under the ‘dependencies’ field. add the following:
+
+
+<code>dependencies:
+  - name: xapp-redis
+    condition: xapp-redis.enabled
+    version: 0.2.0
+    repository: https://accelleran.github.io/helm-charts/
+  - name: influxdb
+    condition: influxdb.enabled
+    version: 4.8.5
+    repository: https://github.com/influxdata/influxdb</code>
+
+
+
+    Give the Helm Chart ‘name’, set the conditions for it to be installed under ‘condition’, choose the ‘version’ of the helm chart to be installed and finally give the Helm Chart repository where the Helm Chart is located.<br/>
+
+2. Next, edit the values.yaml file to enable editing the new Helm Charts specific configuration:<br/>
+
+```
+influxdb:
+  # Enable/disable installation of InfluxDB
+  enabled: true</p>
+<p>setDefaultUser:
+    enabled: true
+    user:
+      username: admin
+      password: admin
+<div class="highlight"><pre><span></span><code>    Here, make sure to use the ‘name’ used in the Chart.yaml file. Note that here we create the ‘enabled’ option, which is the ;condition; statement in the Chart.yaml. The rest of the fields are InfluxDB specific fields which come from its own Helm Chart. Therefore, you can pick any config option from the InfluxDB Helm charts’ values.yaml and incorporate it in the xApp values.yaml file this way.
+
+3. Optionally add some of the InfluxDB specific configuration options as xApp Configuration so that you can access them in the xApp Core. You can add them to the xapp_metadata.json file, which will allow you to also set their default values, enable editing them from the dRAX Dashboard and also provide visual widgets for those configuration options. 
+</code></pre></div>
+"config_options": [
+        ...
+        {
+            "name": "influxdb_username",
+            "description": "InfluxDB User name",
+            "default": "admin",
+            "jsonSchemaOptions": {
+                "type": "string"
+            },
+            "uiSchemaOptions": {}
+        },
+        ...
+<div class="highlight"><pre><span></span><code>4. To change their value on deployment, you can edit the xappConfig field in the values.yaml of the xApp Helm chart:
+</code></pre></div>
+xappConfig:
+  ...
+  influxdb_username: root
+  ...
+<div class="highlight"><pre><span></span><code># 15. xApps Lifecycle In-depth
+
+In this section we will explain the lifecycle of the xApps in the RIC.
+
+
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+
+&lt;p id=&quot;gdcalert35&quot; &gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. &lt;/span&gt;&lt;br&gt;(&lt;a href=&quot;#&quot;&gt;Back to top&lt;/a&gt;)(&lt;a href=&quot;#gdcalert36&quot;&gt;Next alert&lt;/a&gt;)&lt;br&gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt; &lt;/span&gt;&lt;/p&gt;
+
+
+&lt;img src=&quot;images/image4.png&quot; width=&quot;&quot; alt=&quot;alt_text&quot; title=&quot;image_tooltip&quot;&gt;
+
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Figure: dRAX RIC and xApp interactions
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+## 15.1. Service Monitor and Service Orchestrator roles
+
+Part of the dRAX RIC are the Service Monitor and Service Orchestrator which play a key role in the xApp lifecycle management. 
+
+
+### 15.1.1. Service Orchestrator
+
+The Service Orchestrator is a service of the dRAX RIC which has a number of tools at its disposal. It contains a Kubernetes client as well as a Helm client, enabling it to deploy Kubernetes resources. It is exposed through the dRAX RIC API Gateway on endpoint with two methods (POST to deploy an xApp or DELETE to delete an xApp):
+
+
+
+* /deployment/xapp
+
+Details on the endpoint can be found on the dRAX RIC API Gateway Swagger page: 
+
+http://&amp;lt;kubernets_ip&gt;:31315/api/v1/docs
+
+Just substitute &amp;lt;kubernetes_ip&gt; with the advertise address of your Kubernetes cluster. 
+
+The Service Orchestrator supports multiple deployment options:
+
+
+
+* Using a local Helm chart package
+* Using a remote Helm repository
+
+In both cases, you can also send the optional values.yaml file with specific xApp configuration options.
+
+
+### 15.1.2. Service Monitor
+
+The Service Monitor is equipped with the Kubernetes client, so it&#39;s able to monitor all the deployed resources. Therefore the Service Monitor is used for:
+
+
+
+* xApp discovery
+* Retrieving relevant configuration options of dRAX RIC resources, such as services, ports, etc.
+
+
+## 15.2. Onboarding
+
+There are 2 ways of onboarding an xApp:
+
+
+
+* Through the dRAX Dashboard
+* By using the Service Orchestrator endpoint via the dRAX RIC API Gateway
+
+
+### 15.2.1. Using the dRAX Dashboard
+
+Go to the dRAX dashboard, which by default is on port 31315:
+
+http://&amp;lt;kubernetes_ip&gt;:31315
+
+On the left side, navigate to **New deployments -&gt; xApp deployment**. On the next page you should see a **Deploy new xApp** button. After clicking the button you will land on the xApp deployment page. Here you need to specify the xApp metadata, such as:
+
+
+
+* xApp name
+* Organization that made the xApp
+* Team inside the organization
+* Version of the xApp
+* Owner of the xApp
+
+Next, you specify the “Deploy Method”. Here you can choose:
+
+
+
+* Upload Helm Chart - To upload a packaged Helm chart .tgz file
+* Remote Helm Repository - To specify a Helm repository from which to deploy the xApp
+
+If you select “Upload Helm Chart”, you will get the option to:
+
+
+
+* Upload the Helm Chart package .tgz file
+* Upload the optional values.yaml file for the Helm Chart
+
+**NOTE:** The Service Orchestrator automatically knows the Kubernetes advertise address used in its Kubernetes cluster, hence it will automatically populate this field in the xApps values.yaml file. You do not need to provide a separate values.yaml for this, hence the deployment procedure is simple. Of course, if on deployment time you need to change other parameters in the values.yaml (such as changing the default configuration options etc.) you can supply the values.yaml file. 
+
+If you select “Remote Helm Repository”, you will need to fill in a few more fields:
+
+
+
+* Repository name - A generic name of your choice
+* Repository URL - The URL where the Helm Chart repository is located
+* Chart name - the name of the Helm Chart in the repository where the xApp is located
+* An option to also upload a values.yaml file
+
+Once the details are filled in, click “Submit”, and your xApp will be deployed.
+
+
+### 15.2.2. Using the Service Orchestrator endpoint via the dRAX RIC API Gateway
+
+As described before, we use the Service Orchestrator to deploy the dRAX RIC xApps. The method described before, using the dRAX Dashboard, also in the background uses the Service Orchestrator. Therefore, you may also choose to deploy an xApp directly using the Service Orchestrator by using its API endpoint via the dRAX RIC API Gateway. Details on the contents of the API are on the dRAX RIC API Gateway Swagger:
+
+http://&amp;lt;kubernets_ip&gt;:31315/api/v1/docs
+
+Just substitute &amp;lt;kubernetes_ip&gt; with the advertise address of your Kubernetes cluster. 
+
+You again have the possibility to either:
+
+
+
+* deploy using a helm chart package .tgz file
+* Deploy from a remote Helm Chart repository
+
+Deploying an xApp using a local Helm chart tgz package file can be done using the curl command like this:
+</code></pre></div>
+curl -X POST "http://10.55.1.2:31315/api/deployment/xapp" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F 'xAppForm={"xAppName":"example-xapp","organization":"Accelleran","team":"dRAX","version":"0.1.0","owner":"Owner","method":"Upload Helm Chart","namespace":"default"}' -F "file=@/home/ad/xapp-training-course/xapp-0.1.0.tgz;type=application/x-compressed-tar" -F "values=@/home/ad/xapp-training-course/values.yaml;type=application/x-yaml"
+<div class="highlight"><pre><span></span><code>Deploying an xApp using a remote Helm chart repository can be done using the curl command as an example:
+</code></pre></div>
+curl -X POST "http://10.55.1.2:31315/api/deployment/xapp" -H "accept: application/json, text/plain, <em>/</em>" -H "Content-Type: multipart/form-data" -F 'xAppForm={"xAppName":"example-xapp","organization":"Accelleran","team":"dRAX","version":"0.1.0","owner":"Owner","method":"Remote Helm Repository","chartName":"xapp-hello-world","url":"https://accelleran.github.io/xapp-hello-world/","repoName":"example-repo-name","namespace":"default"}' -F "values=@/home/dimitris/Desktop/5g_logs/values.yaml;type=application/x-yaml"
+<div class="highlight"><pre><span></span><code>The following information is of interest:
+
+
+
+* **10.55.1.2** - Is the Kubernetes IP
+* **example-xapp **- is the xApp name
+* **Accelleran **- is the organisation 
+* **dRAX **- is the team
+* **0.1.0 **- is the version of the xApp
+* **Owner **- the owner of the xApp
+* **Upload Helm Chart/Remote Helm Repository **- specifies whether we are uploading a helm .tgz package or using a remote Helm repository
+* If a .tgz helm package file is used, then 
+
+    **-F &quot;file=@/home/ad/xapp-training-course/xapp-0.1.0.tgz;type=application/x-compressed-tar&quot; **
+
+
+    specifies the the .tgz helm package and its location
+
+* If a remote helm repository is used, then **https://accelleran.github.io/xapp-hello-world/ **is the URL to the remote repository
+* If a remote helm repository is used, then **xapp-hello-world **is the name of the helm chart in the remote repository
+* If a remote helm repository is used, then **example-repo-name **is the generic name used to save the repository URL in helm
+* Finally,
+
+    **-F “values=@/home/dimitris/Desktop/5g_logs/values.yaml;type=application/x-yaml&quot;**
+
+
+    specifies the optional values.yaml file and its location
+
+
+
+## 15.3. Discovery
+
+Once the xApp is deployed, the dRAX Service Monitor automatically registers the xApp as deployed using predefined labels in the xApp Kubernetes objects. This information is gathered by the dRAX RIC API Gateway and is used by the dRAX Dashboard where the new xApp appears in the **xApps Management** tab. From here, the user can control and configure the xApp. 
+
+A user can also get this information programmatically via the dRAX RIC API Gateway. Endpoints are available to:
+
+
+
+* Get the xApps list with all the deployed xApps
+* Get the configuration of an xApp
+* Check the health of an xApp
+
+Details are available on the dRAX RIC API Gateway Swagger:
+
+http://&amp;lt;kubernets_ip&gt;:31315/api/v1/docs
+
+Just substitute &amp;lt;kubernetes_ip&gt; with the advertise address of your Kubernetes cluster. 
+
+
+## 15.4. Configuration
+
+Details on how the xApps are configured can be found in the 
+
+&lt;p id=&quot;gdcalert36&quot; &gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: undefined internal link (link text: &quot;xApp Configuration In-depth&quot;). Did you generate a TOC? &lt;/span&gt;&lt;br&gt;(&lt;a href=&quot;#&quot;&gt;Back to top&lt;/a&gt;)(&lt;a href=&quot;#gdcalert37&quot;&gt;Next alert&lt;/a&gt;)&lt;br&gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt; &lt;/span&gt;&lt;/p&gt;
+
+[xApp Configuration In-depth](#heading=h.gqjoo99iairl) section. Here we summarize that the xApp can be configured:
+
+
+
+* On deployment time using the xApp Helm Chart values.yaml file
+* During runtime through the dRAX Dashboard
+* During runtime through the xApps’ API, which can be reached through the dRAX RIC API Gateway
+
+The configuration description can be found in the “
+
+&lt;p id=&quot;gdcalert37&quot; &gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: undefined internal link (link text: &quot;xApp Configuration In-depth&quot;). Did you generate a TOC? &lt;/span&gt;&lt;br&gt;(&lt;a href=&quot;#&quot;&gt;Back to top&lt;/a&gt;)(&lt;a href=&quot;#gdcalert38&quot;&gt;Next alert&lt;/a&gt;)&lt;br&gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt; &lt;/span&gt;&lt;/p&gt;
+
+[xApp Configuration In-depth](#heading=h.gqjoo99iairl)” section.
+
+
+## 15.5. Uninstallation
+
+Uninstalling an xApp in the dRAX RIC can be done in 2 ways:
+
+
+
+* Using the dRAX Dashboard
+* Using the service Orchestrator API via the dRAX RIC API Gateway
+
+If you are using the dRAX Dashboard, you can simply go to the **xApps Management** tab on the left side of the dashboard. From here you can see the xApp list of currently deployed xApp. For each xApp, you can see an “Uninstall” button, which if you click will uninstall the xApp.
+
+On the other hand, you can also reach the /deployment/xapp endpoint on the dRAX RIC API Gateway and use the DELETE method to delete an xApp. Details for the endpoint are available on the dRAX RIC API Gateway Swagger:
+
+http://&amp;lt;kubernets_ip&gt;:31315/api/v1/docs
+
+Just substitute &amp;lt;kubernetes_ip&gt; with the advertise address of your Kubernetes cluster. 
+
+An example of how to use delete an xApp using the API Gateway can be seen below:
+</code></pre></div>
+curl -X DELETE -H "accept: application/json" -H "Content-Type: application/json" -d '{"name":"accelleran-drax-example-xapp-010", "namespace":"default"}' http://10.55.1.2:31315/api/deployment/xapp
+<div class="highlight"><pre><span></span><code>Here we use the curl command to reach the API endpoint, and use the following parameters:
+
+
+
+* **accelleran-drax-example-xapp-010 **- This is the name of the xApp
+* **default **- This is the namespace where the xApp is deployed
+* **10.55.1.2 **- This is an example Kubernetes advertise IP
+
+
+
+
+# 16. Writing the xApp Core in a different language
+
+We have built the xApp Framework with the objective to simplify the development of xApps for developers. Hence, most of the lower level details of the xApps interfaces with the dRAX RIC are abstracted into simpler and easy to use methods. These methods are implemented using the xApp Library, which was written in Python. The xApp Library and the developer code are then located inside the xApp Core, a Docker image which containirizes the code in a environment with all the prerequisites installed. The xApp Core, song with the xApp Database, are then deployed using the xApp Helm Chart, which takes care of automating the deployment, by for example discovering the URLs and ports used by the dRAX RIC. That way the developer does not need to worry about such details. 
+
+However, if the developer wishes, the xApp can be written in any other programming language, and can be deployed in any other form that suits the developer. The developer, in that case, needs to implement all the necessary functionality to interface with the dRAX RIC alone. Here, we briefly summarize the different approaches and what the developer, beside the functionality and algorithm they bring, need to implement for the xApp to work properly with the dRAX RIC.
+
+
+## 16.1. Changing the xApp Library - Using a different programming language
+
+The developer can write an equivalent of the xApp Library in a different programming language. This means that the developer will need to define the following:
+
+
+
+* A Kafka client: A Kafka client which is used to receive or send data from/to the dRAX RIC Databus. The developer also needs to properly configure the client, set the Kafka URL, port, etc. used by the Kafka in the dRAX RIC.
+* A NATS client: The dRAX RIC also has a NATS databus. Hence, the developer needs to have a NATS client, properly configured to send or receive data to/from it. Of course the developer might not need to use the NATS databus, but just the Kafka one, in which case this component becomes optional.
+* A REDIS client: As the xApp uses REDIS as its xApp Database, the xApp should have a REDIS client to interface to this database. The developer has to properly configure thai client as well. Of course, the developer can choose not to have a xApp Database (a scenario we will explain later), so this is optional
+* An API client: To communicate to the dRAX RIC API Gateway, the xApp needs an API client. The developer needs to take care of properly configuring the client.
+*  NetConf client: If the developer wants to communicate to the NetConf servers in dRAX via the NetConf protocol, a NetConf client is needed. Again, the developer also needs to take care of the configuration of the client.
+* A protobuf client: The dRAX Commands, such as the handover and sub-band masking one, are issued by creating a protobuf message and sending it via NATS tpo the correct topic. The developer would need to create the protobuf message based on the proto definition of thos messages, have a properly configured NATS client to send that messages, and finally know the topic on NATS where the message needs to be sent.
+* An API: The xApp needs to have API endpoints, especially the /config and /metadata which are used by the dRAX Dashboard to configure the xApp. Hence, the developer needs to create such endpoints for their xApp. If these are not present, compatibility with teh dRAX Dashboard cannot be achieved.
+
+Of course, each of the components is optional, depending on what the xApp is supposed to do. 
+
+Once the xApp is written in another language, the developer also needs to take care of generating the xApp Core Docker image, which we will explain in the following subsection. The developer may also choose to run its xApp locally, without integrating it into the Kubernetes where dRAX is running, however the support for such a scenario is limited. For example, the dRAX Dashboard will not be able to discover the xApp, hence it will not appear in the dRAX Dashboard. You will not be able to configure the xApp via the dashboard or via the API endpoints.
+
+
+## 16.2. Changing the xApp Core
+
+The developer is free to take the Dockerfile and Dockerfile.dev from the xApp framework as a starting point to generate their own xApp Core. The developer is in charge of creating the xApp Core that has all the requirements installed to run the xApp they have created in another language.
+
+
+## 16.3. Changing the xApp Helm Chart
+
+Once an xApp Core Docker image is generated, the developer is in charge of editing the Helm Chart to include this new xApp Core Docker image. This can be as simple as changing the image.repository field in the values.yaml file. However, if additional information needs to be passed to the xApp Core Docker image on deployment, the developer has to edit the Helm Chart manually. 
+
+
+## 16.4. Changing the whole xApp Framework
+
+The developer may also choose to run the xApp in a completely different way, and not use any of the xApp Framework blocks. In this case, the developer needs to take care of where the xApp is deployed, and how it would integrate into dRAX. If the xApp is run locally, without integrating it into the Kubernetes where dRAX is running, the support for such a scenario is limited. For example, the dRAX Dashboard will not be able to discover the xApp, hence it will not appear in the dRAX Dashboard. You will not be able to configure the xApp via the dashboard or via the API endpoints.
+
+If the xApp developer chooses to run the xApp inside Kubernetes, the developer is in charge of setting up the proper labels for the pods, in order for the dRAX Dashboard to discover the xApp. For the pods, they should have the following additional labels:
+</code></pre></div>
+drax/role: xapp
+drax/xapp-name: xapp-name
+xapp/mode: Production # or Developer in case the xApp is in development
+<div class="highlight"><pre><span></span><code>For the Kubernetes Services, besides the same labels as for the pods, we add the component name:
+</code></pre></div>
+drax/role: xapp
+drax/xapp-name: xapp-name
+xapp/mode: Production # or Developer in case the xApp is in development
+drax/xapp-component-name: xapp-dev-ssh
+<div class="highlight"><pre><span></span><code>**NOTE:** The xApp framework has some default services, such as the service where its own API is exposed, the optional development mode ssh service, etc. All this is up to the developer to implement. 
+
+**NOTE 2:** Note that the API endpoints of the xApp such as /config and /metadata are required for proper functionality with the dRAX Dashboard. Hence the developer needs to implement the equivalents, and provide the same information as described in the 
+
+&lt;p id=&quot;gdcalert38&quot; &gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: undefined internal link (link text: &quot;xApp Configuration In-depth&quot;). Did you generate a TOC? &lt;/span&gt;&lt;br&gt;(&lt;a href=&quot;#&quot;&gt;Back to top&lt;/a&gt;)(&lt;a href=&quot;#gdcalert39&quot;&gt;Next alert&lt;/a&gt;)&lt;br&gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt; &lt;/span&gt;&lt;/p&gt;
+
+[xApp Configuration In-depth](#heading=h.gqjoo99iairl) section.
+
+
+
+
+# 17. Appendix: Pushing to Dockerhub
+
+
+
+1. One example remote Docker image repository is Dockerhub. Create an account and log in on [https://hub.docker.com/](https://hub.docker.com/). Click on Create Repository and name it &amp;lt;xapp-name&gt;. 
+2. Log into the Docker Hub from the command line using:
+
+    _docker login --username=_yourdockerhubusername_ --email=[name@company.com](mailto:name@company.com)_
+
+
+    Enter your password when prompted. 
+
+3. Check the IMAGE ID of your local xApp Docker image:
+
+    docker images
+
+4. Tag your xApp Docker image by using its IMAGE ID:
+
+    docker tag &amp;lt;image-id&gt; yourdockerhubusername/&amp;lt;xapp-name&gt;:&amp;lt;xapp-version&gt;
+
+5. Push your xApp Docker image to the repository you created:
+
+    docker push yourdockerhubusername/&amp;lt;xapp-name&gt;
+
+
+
+
+
+# 18. Appendix: Conversion from the xApp Framework to the xApp Library
+
+Due to the kind of big changes between the different versions of the xApp Framework/Library, this appendix handles how to convert between them.
+
+
+## 18.1. xApp Configuration
+
+The xApp Configuration has undergone a big change from the previous version of the xApp framework. The xApp Configuration was generated by the xApp helm Chart, by generating the xapp-configuration.json. In the new xApp Framework, the developer is in charge of creating the xapp_metadata.json file, which contains metadata and configuration options, including their default values. Only when you need to change the configuration from their default values, you can use the xApp helm Chart values.yaml to do so. This is explained in the following subsection. 
+
+The developer needs to copy all the configuration options that were defined in the xApp Helm Chart values.yaml under the xappConfig key, to the xapp_metadata.json, keeping in mind the xapp_metadata.json format, which can be seen in the 
+
+&lt;p id=&quot;gdcalert39&quot; &gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: undefined internal link (link text: &quot; xApp Metadata&quot;). Did you generate a TOC? &lt;/span&gt;&lt;br&gt;(&lt;a href=&quot;#&quot;&gt;Back to top&lt;/a&gt;)(&lt;a href=&quot;#gdcalert40&quot;&gt;Next alert&lt;/a&gt;)&lt;br&gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt; &lt;/span&gt;&lt;/p&gt;
+
+[ xApp Metadata](#heading=h.k8bcula3fxt0) section.
+
+The xapp_endpoints.json configuration file is generated by the xApp Helm Chart. Its content can bee seen under the xappEndpoints key in the xApp Helm Chart values.yaml. These are the normal dRAX RIC endpoints required for the xApp Framework to work properly. In case you need to add other endpoints, you can check the 
+
+&lt;p id=&quot;gdcalert40&quot; &gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: undefined internal link (link text: &quot;xApp Endpoints&quot;). Did you generate a TOC? &lt;/span&gt;&lt;br&gt;(&lt;a href=&quot;#&quot;&gt;Back to top&lt;/a&gt;)(&lt;a href=&quot;#gdcalert41&quot;&gt;Next alert&lt;/a&gt;)&lt;br&gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt; &lt;/span&gt;&lt;/p&gt;
+
+[xApp Endpoints](#heading=h.jtn9rkqj2vy7) section.
+
+
+## 18.2. xApp Helm Chart
+
+We recommend that you pick up the new xApp Helm Chart from the xApp Framework repository, in the _example_ folder. Then, edit the values.yaml file as follows.
+
+
+
+1. The image key: As with the previous version, edit the image key to point to your own xApp Core Docker image, including the repository and tag fields under image. There is no particular change here, but we note it as a general change required.
+2. The xappConfig key: You will notice a change in the way we define the xApp Configuration options. First of all, part of the previous configuration options are moved to the xapp_endpoints.json, explained earlier. The rest of the configuration options are moved to xapp_metadata.json. The xapp_metadata.json also holds the default values of the xApp Configuration options. The new xappConfig key in the values.yaml is to change those config options on deployment time only if needed. Hence, by default the xappConfig is set as an empty list. If you need to change the default values, not that the xappConfig is now a list instead of a dictionary. For example, what was previously:
+
+    ```
+xappConfig: 
+  - name: &#39;LOG_LEVEL&#39;
+     type: int
+     value: 20
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code>Is now:
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>xappConfig: 
+  LOG_LEVEL: 20
+</code></pre></div>
+<h2 id="183-main-code">18.3. Main code<a class="headerlink" href="#183-main-code" title="Permanent link">⚓︎</a></h2>
+<p>In previous versions, the xApp Framework required the developer to modify the run function inside the processor.py file:</p>
+<div class="highlight"><pre><span></span><code>def run(settings, in_queue, out_queue, data_store):
+    while True:
+        msg = in_queue.get()
+        data  = msg[&#39;data&#39;]
+        topic = msg[&#39;topic&#39;]
+        # handle data
+</code></pre></div>
+<p>In the xApp library this can be rewritten as</p>
+<div class="highlight"><pre><span></span><code>If __name__ == &quot;__main__&quot;:
+    builder = xapp_lib.XAppBuilder(&quot;..&quot;, absolute=False)
+    builder.metadata(&quot;core/xapp_metadata.json&quot;)
+    builder.endpoints(&quot;config/xapp_endpoints.json&quot;)
+    builder.config(&quot;config/xapp_config.json&quot;)
+    builder.readme(&quot;README.md&quot;)
+    builder.restapi(
+        [
+            (&quot;/api/&quot;, restapi.MainApiHandler),
+            (&quot;/api/actions&quot;, restapi.ActionsHandler),
+            (&quot;/api/request&quot;, restapi.RequestHandler),
+        ]
+    )
+    xapp = builder.build()
+
+    while True:
+        (topic, data) = xapp.kafka().json().recv_message() 
+        # handle data
+</code></pre></div>
+<h2 id="184-actions">18.4. Actions<a class="headerlink" href="#184-actions" title="Permanent link">⚓︎</a></h2>
+<p>Most of the functionality from action_taker has been moved to actions, and requires an xapp.nats() as first argument instead of a queue:</p>
+<div class="highlight"><pre><span></span><code>actions.handover_command(xapp.nats(), handover_cells)
+</code></pre></div>
+<p>The structure of the other arguments hasn’t changed.</p>
+<h2 id="185-xapp-api">18.5. xApp API<a class="headerlink" href="#185-xapp-api" title="Permanent link">⚓︎</a></h2>
+<p>The xApp API has a small change. You can check the restapi.py example file in the xApp Framework _example _folder. As you can see, we now pass the xapp parameter for access to the xapp class. We also now don’t start the Tornado API in the restapi.py file. We explain how custom xApp API can be added in the</p>
+<p id="gdcalert41" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: " Adding an endpoint behind the /api"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert42">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><a href="#heading=h.juxhoajko4lj"> Adding an endpoint behind the /api</a> section.</p>
+<p>As can be seen, the xApp API is created now with the xApp Builder:</p>
+<div class="highlight"><pre><span></span><code>builder.restapi([
+        (&quot;/api/&quot;, MainApiHandler),
+        (&quot;/api/actions&quot;, ActionsHandler),
+        (&quot;/api/request&quot;, RequestHandler),
+    ])
+</code></pre></div>
+<p>Hence the previous xApp API endpoints you have to define in the xApp Buidler. </p>
+<p>Next, in the restapi.py, you can change the in_queue parameter to the xapp parameter, as seen in the restapi.py example. Then, when sending a message from the xApp API to the main xApp, we used to do:</p>
+<div class="highlight"><pre><span></span><code>self.in_queue.put(&quot;Message from restapi main handler&quot;)
+</code></pre></div>
+<p>Which is now:</p>
+<div class="highlight"><pre><span></span><code>self.xapp().insert_message(&quot;Message from restapi main handler&quot;)
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tabs", "toc.integrate"], "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
