@@ -1,0 +1,1912 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://accelleran.github.io/drax-xapp-dev-guide/v0.2/proto/pmdata/" rel="canonical"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-7.3.6" name="generator"/>
+<title>Messages Definition - dRAX xApp Dev Guide</title>
+<link href="../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../css/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#messages-definition">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="dRAX xApp Dev Guide" class="md-header__button md-logo" data-md-component="logo" href="../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            dRAX xApp Dev Guide
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Messages Definition
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+      Overview
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../xapp-dev-guide/">
+      Documentation
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="./">
+      Messages Definition
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="dRAX xApp Dev Guide" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
+</a>
+    dRAX xApp Dev Guide
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../xapp-dev-guide/">
+        Documentation
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Messages Definition
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Messages Definition
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#genpmcntsproto">
+    genPmCnts.proto
+  </a>
+<nav aria-label="genPmCnts.proto" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuuppminfopublisherpubdata">
+    CuUpPmInfoPublisherPubData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmreportcounterpublisherpubdata">
+    PmReportCounterPublisherPubData
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#genpmdataproto">
+    genPmData.proto
+  </a>
+<nav aria-label="genPmData.proto" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuuppmdata">
+    CuUpPmData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuuppmdldata">
+    CuUpPmDlData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuuppmdldelaydata">
+    CuUpPmDlDelayData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuuppmdl_delaydistdata">
+    CuUpPmDl_delayDistData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuuppmdl_delaydistitemdata">
+    CuUpPmDl_delayDistItemData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuuppmitemdata">
+    CuUpPmItemData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuuppmlistdata">
+    CuUpPmListData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuuppmuldata">
+    CuUpPmUlData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmreportingcounteritemdata">
+    PmReportingCounterItemData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmreportingcounterslistdata">
+    PmReportingCountersListData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmreportingcucpcounterdata">
+    PmReportingCucpCounterData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmreportingcucpcounteritemdata">
+    PmReportingCucpCounterItemData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmreportingcucpcounterslistdata">
+    PmReportingCucpCountersListData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmreportingcuupcounterdata">
+    PmReportingCuupCounterData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmreportingcuupcounteritemdata">
+    PmReportingCuupCounterItemData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmreportingcuupcounterslistdata">
+    PmReportingCuupCountersListData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmreportingeventitemdata">
+    PmReportingEventItemData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmreportingeventslistdata">
+    PmReportingEventsListData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmvalueitemdata">
+    PmValueItemData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pmvaluelistdata">
+    PmValueListData
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#counteridenum">
+    CounterIdEnum
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cucpcounteridenum">
+    CucpCounterIdEnum
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuupcounteridenum">
+    CuupCounterIdEnum
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instancetypeenum">
+    InstanceTypeEnum
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ngapinitialctxtfailuresubcounterenum">
+    NgapInitialCtxtFailureSubcounterEnum
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrcconnestattemptsubcounterenum">
+    RrcConnEstAttemptSubcounterEnum
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrcconnsuccsubcounterenum">
+    RrcConnSuccSubcounterEnum
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scalar-value-types">
+    Scalar Value Types
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="messages-definition"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.</span> Messages Definition<a class="headerlink" href="#messages-definition" title="Permanent link">⚓︎</a></h1>
+<p><a name="genPmCnts-proto"></a></p>
+<h2 id="genpmcntsproto"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.1</span> genPmCnts.proto<a class="headerlink" href="#genpmcntsproto" title="Permanent link">⚓︎</a></h2>
+<p><a name="PBFPmCnts-CuUpPmInfoPublisherPubData"></a></p>
+<h3 id="cuuppminfopublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.1.1</span> CuUpPmInfoPublisherPubData<a class="headerlink" href="#cuuppminfopublisherpubdata" title="Permanent link">⚓︎</a></h3>
+<p>Publisher : CuUpPmInfoPublisher</p>
+<p>Topic : CUUP-PM-INFO</p>
+<p>Description : This publisher will publish CuupPmInfo</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CuUpPmData</td>
+<td><a href="#PBFPmData-CuUpPmData">PBFPmData.CuUpPmData</a></td>
+<td>optional</td>
+<td>See CuUpPmData for detailed description of this field</td>
+</tr>
+<tr>
+<td>tlpublishTime__</td>
+<td><a href="#uint64">uint64</a></td>
+<td>optional</td>
+<td>Contains the time of publishing in EPOCH milliseconds</td>
+</tr>
+<tr>
+<td>spanContext__</td>
+<td><a href="#bytes">bytes</a></td>
+<td>optional</td>
+<td>Contains an opentracing spancontext</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmCnts-PmReportCounterPublisherPubData"></a></p>
+<h3 id="pmreportcounterpublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.1.2</span> PmReportCounterPublisherPubData<a class="headerlink" href="#pmreportcounterpublisherpubdata" title="Permanent link">⚓︎</a></h3>
+<p>Publisher : PmReportCounterPublisher</p>
+<p>Topic : PM-REPORT-COUNTERS</p>
+<p>Description : This publisher will publish reportCounter</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PmReportingCountersListData</td>
+<td><a href="#PBFPmData-PmReportingCountersListData">PBFPmData.PmReportingCountersListData</a></td>
+<td>optional</td>
+<td>See PmReportingCountersListData for detailed description of this field</td>
+</tr>
+<tr>
+<td>tlpublishTime__</td>
+<td><a href="#uint64">uint64</a></td>
+<td>optional</td>
+<td>Contains the time of publishing in EPOCH milliseconds</td>
+</tr>
+<tr>
+<td>spanContext__</td>
+<td><a href="#bytes">bytes</a></td>
+<td>optional</td>
+<td>Contains an opentracing spancontext</td>
+</tr>
+</tbody>
+</table>
+<!-- end messages -->
+<!-- end enums -->
+<!-- end HasExtensions -->
+<!-- end services -->
+<p><a name="genPmData-proto"></a></p>
+<p align="right"><a href="#top">Top</a></p>
+<h2 id="genpmdataproto"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2</span> genPmData.proto<a class="headerlink" href="#genpmdataproto" title="Permanent link">⚓︎</a></h2>
+<p><a name="PBFPmData-CuUpPmData"></a></p>
+<h3 id="cuuppmdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.1</span> CuUpPmData<a class="headerlink" href="#cuuppmdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for cu-up-pm-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DrbData</td>
+<td><a href="#PBFPmData-CuUpPmListData">CuUpPmListData</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for drb-data</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-CuUpPmDlData"></a></p>
+<h3 id="cuuppmdldata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.2</span> CuUpPmDlData<a class="headerlink" href="#cuuppmdldata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for cu-up-pm-dl-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NumDlPdcpPdus</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for num-dl-pdcp-pdus</td>
+</tr>
+<tr>
+<td>NumDiscardedDlPdcpPdus</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for num-discarded-dl-pdcp-pdus</td>
+</tr>
+<tr>
+<td>Thp</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for thp</td>
+</tr>
+<tr>
+<td>DlDelay</td>
+<td><a href="#PBFPmData-CuUpPmDlDelayData">CuUpPmDlDelayData</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for dl-delay</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-CuUpPmDlDelayData"></a></p>
+<h3 id="cuuppmdldelaydata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.3</span> CuUpPmDlDelayData<a class="headerlink" href="#cuuppmdldelaydata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for cu-up-pm-dl-delay-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NumPdus</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for num-pdus</td>
+</tr>
+<tr>
+<td>AvgDelay</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for avg-delay</td>
+</tr>
+<tr>
+<td>DelayDistData</td>
+<td><a href="#PBFPmData-CuUpPmDl_delayDistData">CuUpPmDl_delayDistData</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for delay-dist-data</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-CuUpPmDl_delayDistData"></a></p>
+<h3 id="cuuppmdl_delaydistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.4</span> CuUpPmDl_delayDistData<a class="headerlink" href="#cuuppmdl_delaydistdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for cu-up-pm-dl_delay-dist-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>items</td>
+<td><a href="#PBFPmData-CuUpPmDl_delayDistItemData">CuUpPmDl_delayDistItemData</a></td>
+<td>repeated</td>
+<td>Carries max 25 elements of type CuUpPmDl_delayDistItemData</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-CuUpPmDl_delayDistItemData"></a></p>
+<h3 id="cuuppmdl_delaydistitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.5</span> CuUpPmDl_delayDistItemData<a class="headerlink" href="#cuuppmdl_delaydistitemdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for cu-up-pm-dl_delay-dist-item-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bin</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for bin</td>
+</tr>
+<tr>
+<td>Val</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for val</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-CuUpPmItemData"></a></p>
+<h3 id="cuuppmitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.6</span> CuUpPmItemData<a class="headerlink" href="#cuuppmitemdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for cu-up-pm-item-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CuCpUeId</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for cu-cp-ue-id</td>
+</tr>
+<tr>
+<td>SNssai</td>
+<td><a href="#PBCommonMsgData-SNssaiData">PBCommonMsgData.SNssaiData</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for s-nssai</td>
+</tr>
+<tr>
+<td>Qfi</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for qfi</td>
+</tr>
+<tr>
+<td>UlData</td>
+<td><a href="#PBFPmData-CuUpPmUlData">CuUpPmUlData</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for ul-data</td>
+</tr>
+<tr>
+<td>DlData</td>
+<td><a href="#PBFPmData-CuUpPmDlData">CuUpPmDlData</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for dl-data</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-CuUpPmListData"></a></p>
+<h3 id="cuuppmlistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.7</span> CuUpPmListData<a class="headerlink" href="#cuuppmlistdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for cu-up-pm-list-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>items</td>
+<td><a href="#PBFPmData-CuUpPmItemData">CuUpPmItemData</a></td>
+<td>repeated</td>
+<td>Carries max common_msg_data::MAX_NUM_OF_DRBS elements of type CuUpPmItemData</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-CuUpPmUlData"></a></p>
+<h3 id="cuuppmuldata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.8</span> CuUpPmUlData<a class="headerlink" href="#cuuppmuldata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for cu-up-pm-ul-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NumUlPdus</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for num-ul-pdus</td>
+</tr>
+<tr>
+<td>NumMissingUlPdus</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for num-missing-ul-pdus</td>
+</tr>
+<tr>
+<td>Thp</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for thp</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmReportingCounterItemData"></a></p>
+<h3 id="pmreportingcounteritemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.9</span> PmReportingCounterItemData<a class="headerlink" href="#pmreportingcounteritemdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-reporting-counter-item-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CounterId</td>
+<td><a href="#PBFPmData-CounterIdEnum">CounterIdEnum</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for counter-id</td>
+</tr>
+<tr>
+<td>InstanceType</td>
+<td><a href="#PBFPmData-InstanceTypeEnum">InstanceTypeEnum</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for instance-type</td>
+</tr>
+<tr>
+<td>InstanceId</td>
+<td><a href="#string">string</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for instance-id</td>
+</tr>
+<tr>
+<td>ValueList</td>
+<td><a href="#PBFPmData-PmValueListData">PmValueListData</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for value-list</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmReportingCountersListData"></a></p>
+<h3 id="pmreportingcounterslistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.10</span> PmReportingCountersListData<a class="headerlink" href="#pmreportingcounterslistdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-reporting-counters-list-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>items</td>
+<td><a href="#PBFPmData-PmReportingCounterItemData">PmReportingCounterItemData</a></td>
+<td>repeated</td>
+<td>Carries max MAX_NUM_OF_REPORTED_COUNTERS elements of type PmReportingCounterItemData</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmReportingCucpCounterData"></a></p>
+<h3 id="pmreportingcucpcounterdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.11</span> PmReportingCucpCounterData<a class="headerlink" href="#pmreportingcucpcounterdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-reporting-cucp-counter-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ReportingNodeId</td>
+<td><a href="#uint64">uint64</a></td>
+<td>optional</td>
+<td>Identifies the sending CU-CP node: gnb-id</td>
+</tr>
+<tr>
+<td>CounterList</td>
+<td><a href="#PBFPmData-PmReportingCucpCountersListData">PmReportingCucpCountersListData</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for counter-list</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmReportingCucpCounterItemData"></a></p>
+<h3 id="pmreportingcucpcounteritemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.12</span> PmReportingCucpCounterItemData<a class="headerlink" href="#pmreportingcucpcounteritemdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-reporting-cucp-counter-item-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CounterId</td>
+<td><a href="#PBFPmData-CucpCounterIdEnum">CucpCounterIdEnum</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for counter-id</td>
+</tr>
+<tr>
+<td>InstanceType</td>
+<td><a href="#PBFPmData-InstanceTypeEnum">InstanceTypeEnum</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for instance-type</td>
+</tr>
+<tr>
+<td>InstanceId</td>
+<td><a href="#string">string</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for instance-id</td>
+</tr>
+<tr>
+<td>ValueList</td>
+<td><a href="#PBFPmData-PmValueListData">PmValueListData</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for value-list</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmReportingCucpCountersListData"></a></p>
+<h3 id="pmreportingcucpcounterslistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.13</span> PmReportingCucpCountersListData<a class="headerlink" href="#pmreportingcucpcounterslistdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-reporting-cucp-counters-list-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>items</td>
+<td><a href="#PBFPmData-PmReportingCucpCounterItemData">PmReportingCucpCounterItemData</a></td>
+<td>repeated</td>
+<td>Carries max MAX_NUM_OF_REPORTED_COUNTERS elements of type PmReportingCucpCounterItemData</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmReportingCuupCounterData"></a></p>
+<h3 id="pmreportingcuupcounterdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.14</span> PmReportingCuupCounterData<a class="headerlink" href="#pmreportingcuupcounterdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-reporting-cuup-counter-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ReportingNodeId</td>
+<td><a href="#uint64">uint64</a></td>
+<td>optional</td>
+<td>Identifies the sending CU-UP node: gnb-cu-up-id</td>
+</tr>
+<tr>
+<td>CounterList</td>
+<td><a href="#PBFPmData-PmReportingCuupCountersListData">PmReportingCuupCountersListData</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for counter-list</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmReportingCuupCounterItemData"></a></p>
+<h3 id="pmreportingcuupcounteritemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.15</span> PmReportingCuupCounterItemData<a class="headerlink" href="#pmreportingcuupcounteritemdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-reporting-cuup-counter-item-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CounterId</td>
+<td><a href="#PBFPmData-CuupCounterIdEnum">CuupCounterIdEnum</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for counter-id</td>
+</tr>
+<tr>
+<td>InstanceType</td>
+<td><a href="#PBFPmData-InstanceTypeEnum">InstanceTypeEnum</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for instance-type</td>
+</tr>
+<tr>
+<td>InstanceId</td>
+<td><a href="#string">string</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for instance-id</td>
+</tr>
+<tr>
+<td>ValueList</td>
+<td><a href="#PBFPmData-PmValueListData">PmValueListData</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for value-list</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmReportingCuupCountersListData"></a></p>
+<h3 id="pmreportingcuupcounterslistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.16</span> PmReportingCuupCountersListData<a class="headerlink" href="#pmreportingcuupcounterslistdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-reporting-cuup-counters-list-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>items</td>
+<td><a href="#PBFPmData-PmReportingCuupCounterItemData">PmReportingCuupCounterItemData</a></td>
+<td>repeated</td>
+<td>Carries max MAX_NUM_OF_REPORTED_COUNTERS elements of type PmReportingCuupCounterItemData</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmReportingEventItemData"></a></p>
+<h3 id="pmreportingeventitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.17</span> PmReportingEventItemData<a class="headerlink" href="#pmreportingeventitemdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-reporting-event-item-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EventId</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for event-id</td>
+</tr>
+<tr>
+<td>TimestampId</td>
+<td><a href="#uint64">uint64</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for timestamp-id</td>
+</tr>
+<tr>
+<td>InstanceId</td>
+<td><a href="#string">string</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for instance-id</td>
+</tr>
+<tr>
+<td>CauseId</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for cause-id</td>
+</tr>
+<tr>
+<td>AdditionalInfo</td>
+<td><a href="#string">string</a></td>
+<td>optional</td>
+<td>Please provide a description in your YANG file for additional-info</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmReportingEventsListData"></a></p>
+<h3 id="pmreportingeventslistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.18</span> PmReportingEventsListData<a class="headerlink" href="#pmreportingeventslistdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-reporting-events-list-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>items</td>
+<td><a href="#PBFPmData-PmReportingEventItemData">PmReportingEventItemData</a></td>
+<td>repeated</td>
+<td>Carries max MAX_NUM_OF_REPORTED_EVENTS elements of type PmReportingEventItemData</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmValueItemData"></a></p>
+<h3 id="pmvalueitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.19</span> PmValueItemData<a class="headerlink" href="#pmvalueitemdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-value-item-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_key</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>sub counter</td>
+</tr>
+<tr>
+<td>_val</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td>sub counter value</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-PmValueListData"></a></p>
+<h3 id="pmvaluelistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.20</span> PmValueListData<a class="headerlink" href="#pmvaluelistdata" title="Permanent link">⚓︎</a></h3>
+<p>Please provide a description in your YANG file for pm-value-list-data</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>items</td>
+<td><a href="#PBFPmData-PmValueItemData">PmValueItemData</a></td>
+<td>repeated</td>
+<td>Carries max MAX_NUM_SUBCOUNTERS elements of type PmValueItemData</td>
+</tr>
+</tbody>
+</table>
+<!-- end messages -->
+<p><a name="PBFPmData-CounterIdEnum"></a></p>
+<h3 id="counteridenum"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.21</span> CounterIdEnum<a class="headerlink" href="#counteridenum" title="Permanent link">⚓︎</a></h3>
+<p>pm counter ids</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RRC_CONNECTION_EST_ATTEMPT_ID</td>
+<td>0</td>
+<td>RRC connection establishment attempt counter</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_ID</td>
+<td>1</td>
+<td>RRC connection establishment success counter</td>
+</tr>
+<tr>
+<td>REQ_INTRA_GNB_HANDOVER_EXECUTIONS_ID</td>
+<td>2</td>
+<td>Number of intra GNB Handover execution attempts</td>
+</tr>
+<tr>
+<td>SUCC_INTRA_GNB_HANDOVER_EXECUTIONS_ID</td>
+<td>3</td>
+<td>Number of intra GNB Handovers successful</td>
+</tr>
+<tr>
+<td>DL_GTP_THP_ID</td>
+<td>4</td>
+<td>DL_GTP_THP represents number of bytes transferred by CU-UP instance</td>
+</tr>
+<tr>
+<td>DL_GTP_THP_SAMPLES_ID</td>
+<td>5</td>
+<td>DL_GTP_THP_SAMPLES represents number of active seconds during which the data transfer took place</td>
+</tr>
+<tr>
+<td>UL_GTP_THP_ID</td>
+<td>6</td>
+<td>UL_GTP_THP represents number of bytes transferred by CU-UP instance</td>
+</tr>
+<tr>
+<td>UL_GTP_THP_SAMPLES_ID</td>
+<td>7</td>
+<td>UL_GTP_THP_SAMPLES represents number of active seconds during which the data transfer took place</td>
+</tr>
+<tr>
+<td>MAX_NUMBER_COUNTERS</td>
+<td>8</td>
+<td>Please provide a description for MAX_NUMBER_COUNTERS</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-CucpCounterIdEnum"></a></p>
+<h3 id="cucpcounteridenum"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.22</span> CucpCounterIdEnum<a class="headerlink" href="#cucpcounteridenum" title="Permanent link">⚓︎</a></h3>
+<p>cucp pm counter ids</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RRC_CONNECTION_EST_ATTEMPT</td>
+<td>0</td>
+<td>Please provide a description for RRC_CONNECTION_EST_ATTEMPT</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC</td>
+<td>1</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC</td>
+</tr>
+<tr>
+<td>REQ_INTRA_GNB_HANDOVER_EXECUTIONS</td>
+<td>2</td>
+<td>Please provide a description for REQ_INTRA_GNB_HANDOVER_EXECUTIONS</td>
+</tr>
+<tr>
+<td>SUCC_INTRA_GNB_HANDOVER_EXECUTIONS</td>
+<td>3</td>
+<td>Please provide a description for SUCC_INTRA_GNB_HANDOVER_EXECUTIONS</td>
+</tr>
+<tr>
+<td>MEAN_NUMBER_OF_RRC_CONNECTIONS</td>
+<td>4</td>
+<td>Please provide a description for MEAN_NUMBER_OF_RRC_CONNECTIONS</td>
+</tr>
+<tr>
+<td>MAXIMUM_NUMBER_OF_RRC_CONNECTIONS</td>
+<td>5</td>
+<td>Please provide a description for MAXIMUM_NUMBER_OF_RRC_CONNECTIONS</td>
+</tr>
+<tr>
+<td>NUMBER_OF_PDU_SESSIONS_REQUESTED_TO_SETUP</td>
+<td>6</td>
+<td>Please provide a description for NUMBER_OF_PDU_SESSIONS_REQUESTED_TO_SETUP</td>
+</tr>
+<tr>
+<td>NUMBER_OF_PDU_SESSIONS_FAILED_TO_SETUP</td>
+<td>7</td>
+<td>Please provide a description for NUMBER_OF_PDU_SESSIONS_FAILED_TO_SETUP</td>
+</tr>
+<tr>
+<td>SS_RSRP_DISTRIBUTION_PER_SSB</td>
+<td>8</td>
+<td>Please provide a description for SS_RSRP_DISTRIBUTION_PER_SSB</td>
+</tr>
+<tr>
+<td>NUMBER_OF_CUCP_COUNTERS</td>
+<td>9</td>
+<td>Please provide a description for NUMBER_OF_CUCP_COUNTERS</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-CuupCounterIdEnum"></a></p>
+<h3 id="cuupcounteridenum"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.23</span> CuupCounterIdEnum<a class="headerlink" href="#cuupcounteridenum" title="Permanent link">⚓︎</a></h3>
+<p>cuup pm counter ids</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DL_GTP_THP</td>
+<td>0</td>
+<td>Please provide a description for DL_GTP_THP</td>
+</tr>
+<tr>
+<td>UL_GTP_THP</td>
+<td>1</td>
+<td>Please provide a description for UL_GTP_THP</td>
+</tr>
+<tr>
+<td>DRB_PACKET_LOSS_UL_QOS</td>
+<td>2</td>
+<td>Please provide a description for DRB_PACKET_LOSS_UL_QOS</td>
+</tr>
+<tr>
+<td>DRB_PACKET_LOSS_UL_SNSSAI</td>
+<td>3</td>
+<td>Please provide a description for DRB_PACKET_LOSS_UL_SNSSAI</td>
+</tr>
+<tr>
+<td>DRB_PDCP_PACKET_DROP_RATE_DL_QOS</td>
+<td>4</td>
+<td>Please provide a description for DRB_PDCP_PACKET_DROP_RATE_DL_QOS</td>
+</tr>
+<tr>
+<td>DRB_PDCP_PACKET_DROP_RATE_DL_SNSSAI</td>
+<td>5</td>
+<td>Please provide a description for DRB_PDCP_PACKET_DROP_RATE_DL_SNSSAI</td>
+</tr>
+<tr>
+<td>AVERAGE_DELAY_DL_IN_CUUP_QOS</td>
+<td>6</td>
+<td>Please provide a description for AVERAGE_DELAY_DL_IN_CUUP_QOS</td>
+</tr>
+<tr>
+<td>AVERAGE_DELAY_DL_IN_CUUP_SNSSAI</td>
+<td>7</td>
+<td>Please provide a description for AVERAGE_DELAY_DL_IN_CUUP_SNSSAI</td>
+</tr>
+<tr>
+<td>DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS</td>
+<td>8</td>
+<td>Please provide a description for DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS</td>
+</tr>
+<tr>
+<td>DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI</td>
+<td>9</td>
+<td>Please provide a description for DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI</td>
+</tr>
+<tr>
+<td>NUMBER_OF_CUUP_COUNTERS</td>
+<td>10</td>
+<td>Please provide a description for NUMBER_OF_CUUP_COUNTERS</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-InstanceTypeEnum"></a></p>
+<h3 id="instancetypeenum"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.24</span> InstanceTypeEnum<a class="headerlink" href="#instancetypeenum" title="Permanent link">⚓︎</a></h3>
+<p>pm counter instance types</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NONE_TYPE</td>
+<td>0</td>
+<td>included information is per complete node</td>
+</tr>
+<tr>
+<td>CELL_TYPE</td>
+<td>1</td>
+<td>included information is per cell</td>
+</tr>
+<tr>
+<td>AMF_TYPE</td>
+<td>2</td>
+<td>included information is per amf (5G cores)</td>
+</tr>
+<tr>
+<td>UE_TYPE</td>
+<td>3</td>
+<td>included information is per UE</td>
+</tr>
+<tr>
+<td>SSB_FREQ_TYPE</td>
+<td>4</td>
+<td>included information is per ssb frequency</td>
+</tr>
+<tr>
+<td>QOS_TYPE</td>
+<td>5</td>
+<td>included information is per QoS</td>
+</tr>
+<tr>
+<td>SNSSAI_TYPE</td>
+<td>6</td>
+<td>included information is per s-nssai</td>
+</tr>
+<tr>
+<td>INVALID_TYPE</td>
+<td>7</td>
+<td>Please provide a description for INVALID_TYPE</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-NgapInitialCtxtFailureSubcounterEnum"></a></p>
+<h3 id="ngapinitialctxtfailuresubcounterenum"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.25</span> NgapInitialCtxtFailureSubcounterEnum<a class="headerlink" href="#ngapinitialctxtfailuresubcounterenum" title="Permanent link">⚓︎</a></h3>
+<p>subcounter values for NUMBER_OF_PDU_SESSIONS_FAILED_TO_SETUP counter. Each subcounter increments the PDU session resource failed to be setup by 3GPP 38.413 clause 9.3.1.2 failure cause</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RN_UNSPECIFIED</td>
+<td>0</td>
+<td>Please provide a description for RN_UNSPECIFIED</td>
+</tr>
+<tr>
+<td>RN_TXN_RELOC_OVERALL_EXPIRY</td>
+<td>1</td>
+<td>Please provide a description for RN_TXN_RELOC_OVERALL_EXPIRY</td>
+</tr>
+<tr>
+<td>RN_SUCC_HANDOVER</td>
+<td>2</td>
+<td>Please provide a description for RN_SUCC_HANDOVER</td>
+</tr>
+<tr>
+<td>RN_REL_DUE_TO_RAN_GENERATED_REASON</td>
+<td>3</td>
+<td>Please provide a description for RN_REL_DUE_TO_RAN_GENERATED_REASON</td>
+</tr>
+<tr>
+<td>RN_REL_DUE_TO_5GC_GENERATED_REASON</td>
+<td>4</td>
+<td>Please provide a description for RN_REL_DUE_TO_5GC_GENERATED_REASON</td>
+</tr>
+<tr>
+<td>RN_HANDOVER_CANCELLED</td>
+<td>5</td>
+<td>Please provide a description for RN_HANDOVER_CANCELLED</td>
+</tr>
+<tr>
+<td>RN_PARTIAL_HANDOVER</td>
+<td>6</td>
+<td>Please provide a description for RN_PARTIAL_HANDOVER</td>
+</tr>
+<tr>
+<td>RN_HANDOVER_FAILURE_IN_TARGET</td>
+<td>7</td>
+<td>Please provide a description for RN_HANDOVER_FAILURE_IN_TARGET</td>
+</tr>
+<tr>
+<td>RN_HANDOVER_TARGET_NOT_ALLOWED</td>
+<td>8</td>
+<td>Please provide a description for RN_HANDOVER_TARGET_NOT_ALLOWED</td>
+</tr>
+<tr>
+<td>RN_TNG_RELOC_OVERALL_EXPIRY</td>
+<td>9</td>
+<td>Please provide a description for RN_TNG_RELOC_OVERALL_EXPIRY</td>
+</tr>
+<tr>
+<td>RN_TNG_RELOC_PREP_EXPIRY</td>
+<td>10</td>
+<td>Please provide a description for RN_TNG_RELOC_PREP_EXPIRY</td>
+</tr>
+<tr>
+<td>RN_CELL_NOT_AVAIL</td>
+<td>11</td>
+<td>Please provide a description for RN_CELL_NOT_AVAIL</td>
+</tr>
+<tr>
+<td>RN_UNKNOWN_TARGET_ID</td>
+<td>12</td>
+<td>Please provide a description for RN_UNKNOWN_TARGET_ID</td>
+</tr>
+<tr>
+<td>RN_NO_RES_AVAIL_IN_TARGET_CELL</td>
+<td>13</td>
+<td>Please provide a description for RN_NO_RES_AVAIL_IN_TARGET_CELL</td>
+</tr>
+<tr>
+<td>RN_UNKNONN_UE_NGAP_ID</td>
+<td>14</td>
+<td>Please provide a description for RN_UNKNONN_UE_NGAP_ID</td>
+</tr>
+<tr>
+<td>RN_INCONSISTENT_REMOTE_UE_NGAP_ID</td>
+<td>15</td>
+<td>Please provide a description for RN_INCONSISTENT_REMOTE_UE_NGAP_ID</td>
+</tr>
+<tr>
+<td>RN_HO_DESIRABLE_FOR_RADIO_REASONS</td>
+<td>16</td>
+<td>Please provide a description for RN_HO_DESIRABLE_FOR_RADIO_REASONS</td>
+</tr>
+<tr>
+<td>RN_TIME_CRITICAL_HO</td>
+<td>17</td>
+<td>Please provide a description for RN_TIME_CRITICAL_HO</td>
+</tr>
+<tr>
+<td>RN_RESOURCE_OPT_HO</td>
+<td>18</td>
+<td>Please provide a description for RN_RESOURCE_OPT_HO</td>
+</tr>
+<tr>
+<td>RN_REDUCE_LOAD_IN_SERVING_CELL</td>
+<td>19</td>
+<td>Please provide a description for RN_REDUCE_LOAD_IN_SERVING_CELL</td>
+</tr>
+<tr>
+<td>RN_USER_INACTIVITY</td>
+<td>20</td>
+<td>Please provide a description for RN_USER_INACTIVITY</td>
+</tr>
+<tr>
+<td>RN_RADIO_CONN_WITH_UE_LOST</td>
+<td>21</td>
+<td>Please provide a description for RN_RADIO_CONN_WITH_UE_LOST</td>
+</tr>
+<tr>
+<td>RN_RADIO_RES_NOT_AVAIL</td>
+<td>22</td>
+<td>Please provide a description for RN_RADIO_RES_NOT_AVAIL</td>
+</tr>
+<tr>
+<td>RN_INVALID_QOS_COMB</td>
+<td>23</td>
+<td>Please provide a description for RN_INVALID_QOS_COMB</td>
+</tr>
+<tr>
+<td>RN_FAILURE_RADIO_INTERFACE_PROC</td>
+<td>24</td>
+<td>Please provide a description for RN_FAILURE_RADIO_INTERFACE_PROC</td>
+</tr>
+<tr>
+<td>RN_INTERACTION_OTHER_PROC</td>
+<td>25</td>
+<td>Please provide a description for RN_INTERACTION_OTHER_PROC</td>
+</tr>
+<tr>
+<td>RN_UNKNOWN_PDU_SESS_ID</td>
+<td>26</td>
+<td>Please provide a description for RN_UNKNOWN_PDU_SESS_ID</td>
+</tr>
+<tr>
+<td>RN_UNKNOWN_QOS_ID</td>
+<td>27</td>
+<td>Please provide a description for RN_UNKNOWN_QOS_ID</td>
+</tr>
+<tr>
+<td>RN_MULTIPLE_PDU_SESS_ID_INSTANCES</td>
+<td>28</td>
+<td>Please provide a description for RN_MULTIPLE_PDU_SESS_ID_INSTANCES</td>
+</tr>
+<tr>
+<td>RN_MULTIPLE_QOS_FLOW_ID_INSTANCES</td>
+<td>29</td>
+<td>Please provide a description for RN_MULTIPLE_QOS_FLOW_ID_INSTANCES</td>
+</tr>
+<tr>
+<td>RN_ENCRYPTION_INTEGRITY_ALG_NOT_SUPPORTED</td>
+<td>30</td>
+<td>Please provide a description for RN_ENCRYPTION_INTEGRITY_ALG_NOT_SUPPORTED</td>
+</tr>
+<tr>
+<td>RN_NG_INTRA_SYSTEM_HO_TRIGGERED</td>
+<td>31</td>
+<td>Please provide a description for RN_NG_INTRA_SYSTEM_HO_TRIGGERED</td>
+</tr>
+<tr>
+<td>RN_NG_INTER_SYSTEM_HO_TRIGGERED</td>
+<td>32</td>
+<td>Please provide a description for RN_NG_INTER_SYSTEM_HO_TRIGGERED</td>
+</tr>
+<tr>
+<td>RN_XN_HO_TRIGGERED</td>
+<td>33</td>
+<td>Please provide a description for RN_XN_HO_TRIGGERED</td>
+</tr>
+<tr>
+<td>RN_NOT_SUPPORTED_5QI_VALUE</td>
+<td>34</td>
+<td>Please provide a description for RN_NOT_SUPPORTED_5QI_VALUE</td>
+</tr>
+<tr>
+<td>RN_UE_CONTEXT_TRANSFER</td>
+<td>35</td>
+<td>Please provide a description for RN_UE_CONTEXT_TRANSFER</td>
+</tr>
+<tr>
+<td>RN_IMS_VOICE_FALLBACK_TRIGGERED</td>
+<td>36</td>
+<td>Please provide a description for RN_IMS_VOICE_FALLBACK_TRIGGERED</td>
+</tr>
+<tr>
+<td>RN_UP_INTEGRITY_PROTECTION_NOT_POSSIBLE</td>
+<td>37</td>
+<td>Please provide a description for RN_UP_INTEGRITY_PROTECTION_NOT_POSSIBLE</td>
+</tr>
+<tr>
+<td>RN_UP_CONFIDENTIALITY_PROTECTION_NOT_POSSIBLE</td>
+<td>38</td>
+<td>Please provide a description for RN_UP_CONFIDENTIALITY_PROTECTION_NOT_POSSIBLE</td>
+</tr>
+<tr>
+<td>RN_SLICE_NOT_SUPPORTED</td>
+<td>39</td>
+<td>Please provide a description for RN_SLICE_NOT_SUPPORTED</td>
+</tr>
+<tr>
+<td>RN_UE_IN_INACTIVE_NOT_REACHABLE</td>
+<td>40</td>
+<td>Please provide a description for RN_UE_IN_INACTIVE_NOT_REACHABLE</td>
+</tr>
+<tr>
+<td>RN_REDIRECTION</td>
+<td>41</td>
+<td>Please provide a description for RN_REDIRECTION</td>
+</tr>
+<tr>
+<td>RN_RES_NOT_AVAIL_FOR_SLICE</td>
+<td>42</td>
+<td>Please provide a description for RN_RES_NOT_AVAIL_FOR_SLICE</td>
+</tr>
+<tr>
+<td>RN_UE_MAX_INTEGRITY_PROTECTED_DATA_RATE</td>
+<td>43</td>
+<td>Please provide a description for RN_UE_MAX_INTEGRITY_PROTECTED_DATA_RATE</td>
+</tr>
+<tr>
+<td>RN_RELEASE_DUE_TO_CN_DETECTED_MOBILITY</td>
+<td>44</td>
+<td>Please provide a description for RN_RELEASE_DUE_TO_CN_DETECTED_MOBILITY</td>
+</tr>
+<tr>
+<td>RN_N26_INTERFACE_NOT_AVAIL</td>
+<td>45</td>
+<td>Please provide a description for RN_N26_INTERFACE_NOT_AVAIL</td>
+</tr>
+<tr>
+<td>RN_RELEASE_DUE_TO_PRE_EMPTION</td>
+<td>46</td>
+<td>Please provide a description for RN_RELEASE_DUE_TO_PRE_EMPTION</td>
+</tr>
+<tr>
+<td>RN_MULTIPLE_LOC_RPT_REF_ID_INSTANCES</td>
+<td>47</td>
+<td>Please provide a description for RN_MULTIPLE_LOC_RPT_REF_ID_INSTANCES</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-RrcConnEstAttemptSubcounterEnum"></a></p>
+<h3 id="rrcconnestattemptsubcounterenum"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.26</span> RrcConnEstAttemptSubcounterEnum<a class="headerlink" href="#rrcconnestattemptsubcounterenum" title="Permanent link">⚓︎</a></h3>
+<p>subcounter values for RRC_CONNECTION_EST_ATTEMPT counter. Each subcounter maps to number of RRC connection establishment attempts by 3GPP 38.331 RRC establishment cause</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_EMERGENCY</td>
+<td>0</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_EMERGENCY</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_HIGH_PRIORITY_ACCESS</td>
+<td>1</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_HIGH_PRIORITY_ACCESS</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_MT_ACCESS</td>
+<td>2</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_MT_ACCESS</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_MO_SIGNALLING</td>
+<td>3</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_MO_SIGNALLING</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_MO_DATA</td>
+<td>4</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_MO_DATA</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_MO_VOICE_CALL</td>
+<td>5</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_MO_VOICE_CALL</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_MO_VIDEO_CALL</td>
+<td>6</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_MO_VIDEO_CALL</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_MO_SMS</td>
+<td>7</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_MO_SMS</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_MPS_PRIORITY_ACCESS</td>
+<td>8</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_MPS_PRIORITY_ACCESS</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_MCS_PRIORITY_ACCESS</td>
+<td>9</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_MCS_PRIORITY_ACCESS</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE6</td>
+<td>10</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE6</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE5</td>
+<td>11</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE5</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE4</td>
+<td>12</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE4</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE3</td>
+<td>13</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE3</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE2</td>
+<td>14</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE2</td>
+</tr>
+<tr>
+<td>RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE1</td>
+<td>15</td>
+<td>Please provide a description for RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE1</td>
+</tr>
+</tbody>
+</table>
+<p><a name="PBFPmData-RrcConnSuccSubcounterEnum"></a></p>
+<h3 id="rrcconnsuccsubcounterenum"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2.27</span> RrcConnSuccSubcounterEnum<a class="headerlink" href="#rrcconnsuccsubcounterenum" title="Permanent link">⚓︎</a></h3>
+<p>subcounter values for RRC_CONNECTION_SUCC_ID counter. Each subcounter maps to number of RRC connection establishment sucess by 3GPP 38.331 RRC establishment cause</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_EMERGENCY</td>
+<td>0</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_EMERGENCY</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_HIGH_PRIORITY_ACCESS</td>
+<td>1</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_HIGH_PRIORITY_ACCESS</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_MT_ACCESS</td>
+<td>2</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_MT_ACCESS</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_SIGNALLING</td>
+<td>3</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_SIGNALLING</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_DATA</td>
+<td>4</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_DATA</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_VOICE_CALL</td>
+<td>5</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_VOICE_CALL</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_VIDEO_CALL</td>
+<td>6</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_VIDEO_CALL</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_SMS</td>
+<td>7</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_SMS</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_MPS_PRIORITY_ACCESS</td>
+<td>8</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_MPS_PRIORITY_ACCESS</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_MCS_PRIORITY_ACCESS</td>
+<td>9</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_MCS_PRIORITY_ACCESS</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE6</td>
+<td>10</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE6</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE5</td>
+<td>11</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE5</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE4</td>
+<td>12</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE4</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE3</td>
+<td>13</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE3</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE2</td>
+<td>14</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE2</td>
+</tr>
+<tr>
+<td>RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE1</td>
+<td>15</td>
+<td>Please provide a description for RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE1</td>
+</tr>
+</tbody>
+</table>
+<!-- end enums -->
+<!-- end HasExtensions -->
+<!-- end services -->
+<h2 id="scalar-value-types"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.3</span> Scalar Value Types<a class="headerlink" href="#scalar-value-types" title="Permanent link">⚓︎</a></h2>
+<table>
+<thead>
+<tr>
+<th>.proto Type</th>
+<th>Notes</th>
+<th>C++</th>
+<th>Java</th>
+<th>Python</th>
+<th>Go</th>
+<th>C#</th>
+<th>PHP</th>
+<th>Ruby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a name="double"></a> double</td>
+<td></td>
+<td>double</td>
+<td>double</td>
+<td>float</td>
+<td>float64</td>
+<td>double</td>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td><a name="float"></a> float</td>
+<td></td>
+<td>float</td>
+<td>float</td>
+<td>float</td>
+<td>float32</td>
+<td>float</td>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td><a name="int32"></a> int32</td>
+<td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</td>
+<td>int32</td>
+<td>int</td>
+<td>int</td>
+<td>int32</td>
+<td>int</td>
+<td>integer</td>
+<td>Bignum or Fixnum (as required)</td>
+</tr>
+<tr>
+<td><a name="int64"></a> int64</td>
+<td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</td>
+<td>int64</td>
+<td>long</td>
+<td>int/long</td>
+<td>int64</td>
+<td>long</td>
+<td>integer/string</td>
+<td>Bignum</td>
+</tr>
+<tr>
+<td><a name="uint32"></a> uint32</td>
+<td>Uses variable-length encoding.</td>
+<td>uint32</td>
+<td>int</td>
+<td>int/long</td>
+<td>uint32</td>
+<td>uint</td>
+<td>integer</td>
+<td>Bignum or Fixnum (as required)</td>
+</tr>
+<tr>
+<td><a name="uint64"></a> uint64</td>
+<td>Uses variable-length encoding.</td>
+<td>uint64</td>
+<td>long</td>
+<td>int/long</td>
+<td>uint64</td>
+<td>ulong</td>
+<td>integer/string</td>
+<td>Bignum or Fixnum (as required)</td>
+</tr>
+<tr>
+<td><a name="sint32"></a> sint32</td>
+<td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+<td>int32</td>
+<td>int</td>
+<td>int</td>
+<td>int32</td>
+<td>int</td>
+<td>integer</td>
+<td>Bignum or Fixnum (as required)</td>
+</tr>
+<tr>
+<td><a name="sint64"></a> sint64</td>
+<td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+<td>int64</td>
+<td>long</td>
+<td>int/long</td>
+<td>int64</td>
+<td>long</td>
+<td>integer/string</td>
+<td>Bignum</td>
+</tr>
+<tr>
+<td><a name="fixed32"></a> fixed32</td>
+<td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+<td>uint32</td>
+<td>int</td>
+<td>int</td>
+<td>uint32</td>
+<td>uint</td>
+<td>integer</td>
+<td>Bignum or Fixnum (as required)</td>
+</tr>
+<tr>
+<td><a name="fixed64"></a> fixed64</td>
+<td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+<td>uint64</td>
+<td>long</td>
+<td>int/long</td>
+<td>uint64</td>
+<td>ulong</td>
+<td>integer/string</td>
+<td>Bignum</td>
+</tr>
+<tr>
+<td><a name="sfixed32"></a> sfixed32</td>
+<td>Always four bytes.</td>
+<td>int32</td>
+<td>int</td>
+<td>int</td>
+<td>int32</td>
+<td>int</td>
+<td>integer</td>
+<td>Bignum or Fixnum (as required)</td>
+</tr>
+<tr>
+<td><a name="sfixed64"></a> sfixed64</td>
+<td>Always eight bytes.</td>
+<td>int64</td>
+<td>long</td>
+<td>int/long</td>
+<td>int64</td>
+<td>long</td>
+<td>integer/string</td>
+<td>Bignum</td>
+</tr>
+<tr>
+<td><a name="bool"></a> bool</td>
+<td></td>
+<td>bool</td>
+<td>boolean</td>
+<td>boolean</td>
+<td>bool</td>
+<td>bool</td>
+<td>boolean</td>
+<td>TrueClass/FalseClass</td>
+</tr>
+<tr>
+<td><a name="string"></a> string</td>
+<td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+<td>string</td>
+<td>String</td>
+<td>str/unicode</td>
+<td>string</td>
+<td>string</td>
+<td>string</td>
+<td>String (UTF-8)</td>
+</tr>
+<tr>
+<td><a name="bytes"></a> bytes</td>
+<td>May contain any arbitrary sequence of bytes.</td>
+<td>string</td>
+<td>ByteString</td>
+<td>str</td>
+<td>[]byte</td>
+<td>ByteString</td>
+<td>string</td>
+<td>String (ASCII-8BIT)</td>
+</tr>
+</tbody>
+</table>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Documentation" class="md-footer__link md-footer__link--prev" href="../../xapp-dev-guide/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Documentation
+            </div>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+            Material for MkDocs
+          </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tabs", "toc.integrate"], "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+</body>
+</html>
