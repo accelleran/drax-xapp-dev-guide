@@ -3,7 +3,7 @@ name: Publish to public drax-xapp-dev-guide repo
 on:
   push:
     branches:
-      - gh-pages
+      - 'gh-pages'
 
 jobs:
   publish-to-drax-xapp-dev-guide-repo:
@@ -11,12 +11,14 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+        with:
+          ref: 'gh-pages'
       - name: Set ssh-agent
         uses: webfactory/ssh-agent@v0.5.4
         with:
-          ssh-private-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          ssh-private-key: ${{ secrets.PUBLIC_REPO_DEPLOY_KEY }}
       - name: Publish website on drax-xapp-dev-guide repo
-        # Separate workflow will copy the output to public repo for publishing
         run: |
-          echo "Here should publish/sync"
+          git remote add public git@github.com:accelleran/drax-xapp-dev-guide.git
+          git push --force public gh-pages
 
