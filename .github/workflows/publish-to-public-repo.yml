@@ -1,3 +1,14 @@
+# This workflow is triggered on each push to the local gh-pages branch
+# of the private drax-xapp-dev-guide-internal repo.
+#
+# When this action is triggered, it push --force all the changes on
+# the local gh-pages branch to the public repo drax-xapp-dev-guide
+#
+# We change the name of the branch gh-pages (adding -public at the end)
+# during the push --force step because this current file
+# "publish-to-public-repo.yml" is also pushed to the public repository
+# and so may trigger unwanted workflow.
+
 name: Publish to public drax-xapp-dev-guide repo
 
 on:
