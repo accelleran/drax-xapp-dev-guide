@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/proto/pmdata/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
