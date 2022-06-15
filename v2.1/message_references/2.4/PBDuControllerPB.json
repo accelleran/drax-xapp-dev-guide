@@ -1,0 +1,71 @@
+{
+  CuCpDuBeaconInfo # optional
+  {
+    GnbId : <uint32> # optional
+    ServiceInfo : <string> # optional
+    DuList # optional
+    {
+      items # repeated
+      {
+        GnbDuId : <uint64> # optional
+        State : <enum> # optional
+        ServedCellList # optional
+        {
+          items # repeated
+          {
+            State : <enum> # optional
+            NrCgi # optional
+            {
+              NrCellId : <uint64> # optional
+              PlmnId # optional
+              {
+                items : <uint32> # repeated
+              }
+            }
+            Pci : <uint32> # optional
+            OptionalFivegSTac # optional
+            {
+              Present : <bool> # optional
+              FivegSTac # optional
+              {
+                items : <uint32> # repeated
+              }
+            }
+            ServedPlmns # optional
+            {
+              items # repeated
+              {
+                PlmnIdentity # optional
+                {
+                  items : <uint32> # repeated
+                }
+                TaiSlicedSupportList # optional
+                {
+                  items # repeated
+                  {
+                    SNssai # optional
+                    {
+                      SST : <uint32> # optional
+                      SD # optional
+                      {
+                        items : <uint32> # repeated
+                      }
+                    }
+                  }
+                  ,{...}
+                }
+              }
+              ,{...}
+            }
+            CellGuid : <string> # optional
+          }
+          ,{...}
+        }
+        DuGuid : <string> # optional
+      }
+      ,{...}
+    }
+  }
+  tlpublishTime__ : <uint64> # optional
+  spanContext__ : <bytes> # optional
+}

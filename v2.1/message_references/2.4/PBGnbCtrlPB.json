@@ -1,0 +1,45 @@
+{
+  CuCpCuupBeaconInfo # optional
+  {
+    GnbId : <uint32> # optional
+    ServiceInfo : <string> # optional
+    CuUpList # optional
+    {
+      items # repeated
+      {
+        GnbCuupId : <uint64> # optional
+        State : <enum> # optional
+        SupportedPlmns # optional
+        {
+          items # repeated
+          {
+            PlmnIdentity # optional
+            {
+              items : <uint32> # repeated
+            }
+            SliceSupportList # optional
+            {
+              items # repeated
+              {
+                SNssai # optional
+                {
+                  SST : <uint32> # optional
+                  SD # optional
+                  {
+                    items : <uint32> # repeated
+                  }
+                }
+              }
+              ,{...}
+            }
+          }
+          ,{...}
+        }
+        CuupGuid : <string> # optional
+      }
+      ,{...}
+    }
+  }
+  tlpublishTime__ : <uint64> # optional
+  spanContext__ : <bytes> # optional
+}

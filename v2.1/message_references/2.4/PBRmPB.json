@@ -1,0 +1,49 @@
+{
+  RrcMeasurementReportResultInfo # optional
+  {
+    GnbCuCpUeId : <uint32> # optional
+    Timestamp : <uint64> # optional
+    ServingCellInfo # optional
+    {
+      NrCgi # optional
+      {
+        NrCellId : <uint64> # optional
+        PlmnId # optional
+        {
+          items : <uint32> # repeated
+        }
+      }
+      SsbRsrpResult : <uint32> # optional
+      SsbRsrpResultPresent : <bool> # optional
+      SsbRsrqResult : <uint32> # optional
+      SsbRsrqResultPresent : <bool> # optional
+      SsbSinrResult : <uint32> # optional
+      SsbSinrResultPresent : <bool> # optional
+    }
+    NumberOfIncludedCells : <uint32> # optional
+    CellInfo # repeated
+    {
+      PhyCellId : <uint32> # optional
+      NeighbourCellInfo # optional
+      {
+        NrCgi # optional
+        {
+          NrCellId : <uint64> # optional
+          PlmnId # optional
+          {
+            items : <uint32> # repeated
+          }
+        }
+        SsbRsrpResult : <uint32> # optional
+        SsbRsrpResultPresent : <bool> # optional
+        SsbRsrqResult : <uint32> # optional
+        SsbRsrqResultPresent : <bool> # optional
+        SsbSinrResult : <uint32> # optional
+        SsbSinrResultPresent : <bool> # optional
+      }
+    }
+    ,{...}
+  }
+  tlpublishTime__ : <uint64> # optional
+  spanContext__ : <bytes> # optional
+}
