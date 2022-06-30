@@ -22,6 +22,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#beacons">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -182,9 +185,83 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Kafka
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Kafka
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#beacons">
+    Beacons
+  </a>
+<nav aria-label="Beacons" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#du-beacon-info">
+    DU beacon info
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-up-beacon-info">
+    CU-UP beacon info
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#amf-beacon-info">
+    AMF beacon info
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#measurements">
+    Measurements
+  </a>
+<nav aria-label="Measurements" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-measurements">
+    UE Measurements
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pm-stats">
+    PM stats
+  </a>
+<nav aria-label="PM stats" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrc-stats">
+    RRC stats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-cp-throughput-stats">
+    CU-CP Throughput stats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-up-throughput-stats">
+    CU-UP Throughput stats
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -200,8 +277,432 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1><span class="enumerate-headings-plugin enumerate-heading-plugin">6.</span> Kafka</h1>
-<div class="highlight"><pre><span></span><code>
+<h2 id="beacons"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1</span> Beacons<a class="headerlink" href="#beacons" title="Permanent link">⚓︎</a></h2>
+<h3 id="du-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1.1</span> DU beacon info<a class="headerlink" href="#du-beacon-info" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives information about the DUs connected to the CU-CP and their operational state (including [3GPP 38.473] served cell information).</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "CuCpDuBeaconInfo": {
+    "GnbId": &lt;uint&gt;,
+    "ServiceInfo": &lt;string&gt;,
+    "DuList": {
+      "items": {
+        "0": {
+          "GnbDuId": &lt;string&gt;,
+          "State": "&lt;DuState&gt;",
+          "ServedCellList": {
+            "items": {
+              "0": {
+                "State": "&lt;CellState&gt;",
+                "NrCgi": {
+                  "NrCellId": &lt;string&gt;,
+                  "PlmnId": {
+                    "items": {
+                      "0": &lt;uint&gt;
+                    }
+                  }
+                },
+                "Pci": &lt;uint&gt;,
+                "OptionalFivegSTac": {
+                  "Present": &lt;bool&gt;,
+                  "FivegSTac": {
+                    "items": {
+                      "0": &lt;uint&gt;
+                    }
+                  }
+                },
+                "ServedPlmns": {
+                  "items": {
+                    "0": {
+                      "PlmnIdentity": {
+                        "items": {
+                          "0": &lt;uint&gt;
+                        }
+                      },
+                      "TaiSlicedSupportList": {
+                        "items": {
+                          "0": {
+                            "SNssai": {
+                              "SST": &lt;uint&gt;,
+                              "SD": {
+                                "items": {
+                                  "0": &lt;uint&gt;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "CellGuid": &lt;string&gt;
+              }
+            }
+          },
+          "DuGuid": &lt;string&gt;
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
 </code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+DuState
+
+Enum Values:
+DUSTATE_NON_OPERATIONAL
+DUSTATE_NON_OPERATIONAL_FAILURE
+DUSTATE_OPERATIONAL
+
+Enum Type:
+CellState
+
+Enum Values:
+CELLSTATE_NOT_SUPPORTED
+CELLSTATE_ACTIVATING
+CELLSTATE_DEACTIVATING
+CELLSTATE_RESOURCE_UNAVAIL
+CELLSTATE_ACTIVATION_FAILED
+CELLSTATE_ACTIVATED
+</code></pre></div></p>
+<h3 id="cu-up-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1.2</span> CU-UP beacon info<a class="headerlink" href="#cu-up-beacon-info" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives information about the CU-UPs connected to the CU-CP and their operation state.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "CuCpCuupBeaconInfo": {
+    "GnbId": &lt;uint&gt;,
+    "ServiceInfo": &lt;string&gt;,
+    "CuUpList": {
+      "items": {
+        "0": {
+          "GnbCuupId": &lt;string&gt;,
+          "State": "&lt;CuupState&gt;",
+          "SupportedPlmns": {
+            "items": {
+              "0": {
+                "PlmnIdentity": {
+                  "items": {
+                    "0": &lt;uint&gt;
+                  }
+                },
+                "SliceSupportList": {
+                  "items": {
+                    "0": {
+                      "SNssai": {
+                        "SST": &lt;uint&gt;,
+                        "SD": {
+                          "items": {
+                            "0": &lt;uint&gt;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "CuupGuid": &lt;string&gt;
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+CuupState
+
+Enum Values:
+CUUPSTATE_OPERATIONAL
+CUUPSTATE_NON_OPERATIONAL_FAILURE
+</code></pre></div></p>
+<h3 id="amf-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1.3</span> AMF beacon info<a class="headerlink" href="#amf-beacon-info" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives information about the AMFs connected to the CU-CP.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "CuCpAmfBeaconInfo": {
+    "GnbId": &lt;uint&gt;,
+    "ServiceInfo": &lt;string&gt;,
+    "AmfList": {
+      "items": {
+        "0": {
+          "AmfName": &lt;string&gt;,
+          "State": "&lt;AmfState&gt;",
+          "AmfIpaddress": &lt;string&gt;,
+          "SupportedPlmns": {
+            "items": {
+              "0": {
+                "PlmnIdentity": {
+                  "items": {
+                    "0": &lt;uint&gt;
+                  }
+                },
+                "SliceSupportList": {
+                  "items": {
+                    "0": {
+                      "SNssai": {
+                        "SST": &lt;uint&gt;,
+                        "SD": {
+                          "items": {
+                            "0": &lt;uint&gt;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "AmfGuid": &lt;string&gt;
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+AmfState
+
+Enum Values:
+AMFSTATE_NOT_CONNECTED
+AMFSTATE_NOT_CONNECTED_FAILURE
+AMFSTATE_CONNECTED
+</code></pre></div></p>
+<h2 id="measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2</span> Measurements<a class="headerlink" href="#measurements" title="Permanent link">⚓︎</a></h2>
+<h3 id="ue-measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.1</span> UE Measurements<a class="headerlink" href="#ue-measurements" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> These measurements contain the RSRP and RSRQ periodic measurements from serving cell.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.ue_measurements</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "ENB": &lt;string&gt;,
+  "DU": &lt;string&gt;,
+  "CELL": &lt;string&gt;,
+  "UE": &lt;string&gt;,
+  "RrcMeasurementReportResultInfo": {
+    "GnbCuCpUeId": &lt;uint&gt;,
+    "Timestamp": &lt;string&gt;,
+    "ServingCellInfo": {
+      "NrCgi": {
+        "NrCellId": &lt;string&gt;,
+        "PlmnId": {
+          "items": {
+            "0": &lt;uint&gt;
+          }
+        }
+      },
+      "SsbRsrpResult": &lt;uint&gt;,
+      "SsbRsrpResultPresent": &lt;bool&gt;,
+      "SsbRsrqResult": &lt;uint&gt;,
+      "SsbRsrqResultPresent": &lt;bool&gt;,
+      "SsbSinrResult": &lt;uint&gt;,
+      "SsbSinrResultPresent": &lt;bool&gt;
+    },
+    "NumberOfIncludedCells": &lt;uint&gt;,
+    "CellInfo": {
+      "0": {
+        "PhyCellId": &lt;uint&gt;,
+        "NeighbourCellInfo": {
+          "NrCgi": {
+            "NrCellId": &lt;string&gt;,
+            "PlmnId": {
+              "items": {
+                "0": &lt;uint&gt;
+              }
+            }
+          },
+          "SsbRsrpResult": &lt;uint&gt;,
+          "SsbRsrpResultPresent": &lt;bool&gt;,
+          "SsbRsrqResult": &lt;uint&gt;,
+          "SsbRsrqResultPresent": &lt;bool&gt;,
+          "SsbSinrResult": &lt;uint&gt;,
+          "SsbSinrResultPresent": &lt;bool&gt;
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<h2 id="pm-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.3</span> PM stats<a class="headerlink" href="#pm-stats" title="Permanent link">⚓︎</a></h2>
+<h3 id="rrc-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.3.1</span> RRC stats<a class="headerlink" href="#rrc-stats" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives a list of raw PM counter values in CU-CP</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "PmReportingCountersListData": {
+    "items": {
+      "0": {
+        "CounterId": "&lt;CounterIdEnum&gt;",
+        "InstanceType": "&lt;InstanceTypeEnum&gt;",
+        "InstanceId": &lt;string&gt;,
+        "ValueList": {
+          "items": {
+            "0": {
+              "_key": &lt;uint&gt;,
+              "_val": &lt;uint&gt;
+            }
+          }
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+INVALID_TYPE
+
+Enum Type:
+CounterIdEnum
+
+Enum Values:
+RRC_CONNECTION_EST_ATTEMPT_ID
+RRC_CONNECTION_SUCC_ID
+REQ_INTRA_GNB_HANDOVER_EXECUTIONS_ID
+SUCC_INTRA_GNB_HANDOVER_EXECUTIONS_ID
+DL_GTP_THP_ID
+DL_GTP_THP_SAMPLES_ID
+UL_GTP_THP_ID
+UL_GTP_THP_SAMPLES_ID
+MAX_NUMBER_COUNTERS
+</code></pre></div></p>
+<h3 id="cu-cp-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.3.2</span> CU-CP Throughput stats<a class="headerlink" href="#cu-cp-throughput-stats" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-CP.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "PmReportingCucpCounterData": {
+    "ReportingNodeId": &lt;string&gt;,
+    "CounterList": {
+      "items": {
+        "0": {
+          "CounterId": "&lt;CucpCounterIdEnum&gt;",
+          "InstanceType": "&lt;InstanceTypeEnum&gt;",
+          "InstanceId": &lt;string&gt;,
+          "ValueList": {
+            "items": {
+              "0": {
+                "_key": &lt;uint&gt;,
+                "_val": &lt;uint&gt;
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+CucpCounterIdEnum
+
+Enum Values:
+RRC_CONNECTION_EST_ATTEMPT
+RRC_CONNECTION_SUCC
+REQ_INTRA_GNB_HANDOVER_EXECUTIONS
+SUCC_INTRA_GNB_HANDOVER_EXECUTIONS
+MEAN_NUMBER_OF_RRC_CONNECTIONS
+MAXIMUM_NUMBER_OF_RRC_CONNECTIONS
+NUMBER_OF_PDU_SESSIONS_REQUESTED_TO_SETUP
+NUMBER_OF_PDU_SESSIONS_FAILED_TO_SETUP
+SS_RSRP_DISTRIBUTION_PER_SSB
+NUMBER_OF_CUCP_COUNTERS
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+INVALID_TYPE
+</code></pre></div></p>
+<h3 id="cu-up-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.3.3</span> CU-UP Throughput stats<a class="headerlink" href="#cu-up-throughput-stats" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-UP.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "PmReportingCuupCounterData": {
+    "ReportingNodeId": &lt;string&gt;,
+    "CounterList": {
+      "items": {
+        "0": {
+          "CounterId": "&lt;CuupCounterIdEnum&gt;",
+          "InstanceType": "&lt;InstanceTypeEnum&gt;",
+          "InstanceId": &lt;string&gt;,
+          "ValueList": {
+            "items": {
+              "0": {
+                "_key": &lt;uint&gt;,
+                "_val": &lt;uint&gt;
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+CuupCounterIdEnum
+
+Enum Values:
+DL_GTP_THP
+UL_GTP_THP
+DRB_PACKET_LOSS_UL_QOS
+DRB_PACKET_LOSS_UL_SNSSAI
+DRB_PDCP_PACKET_DROP_RATE_DL_QOS
+DRB_PDCP_PACKET_DROP_RATE_DL_SNSSAI
+AVERAGE_DELAY_DL_IN_CUUP_QOS
+AVERAGE_DELAY_DL_IN_CUUP_SNSSAI
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI
+NUMBER_OF_CUUP_COUNTERS
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+INVALID_TYPE
+</code></pre></div></p>
 </article>
 </div>
 </div>

@@ -30,19 +30,6 @@ accelleran.drax.5g.ric.raw.pm_counters
 <!--enum-start-->
 
 Enum Type:
-InstanceTypeEnum
-
-Enum Values:
-NONE_TYPE
-CELL_TYPE
-AMF_TYPE
-UE_TYPE
-SSB_FREQ_TYPE
-QOS_TYPE
-SNSSAI_TYPE
-INVALID_TYPE
-
-Enum Type:
 CuupCounterIdEnum
 
 Enum Values:
@@ -57,5 +44,18 @@ AVERAGE_DELAY_DL_IN_CUUP_SNSSAI
 DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS
 DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI
 NUMBER_OF_CUUP_COUNTERS
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+INVALID_TYPE
 
 <!--enum-end-->
