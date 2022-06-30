@@ -22,6 +22,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#beacons">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -157,9 +160,83 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Kafka
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Kafka
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#beacons">
+    Beacons
+  </a>
+<nav aria-label="Beacons" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#du-beacon-info">
+    DU beacon info
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-up-beacon-info">
+    CU-UP beacon info
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#amf-beacon-info">
+    AMF beacon info
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#measurements">
+    Measurements
+  </a>
+<nav aria-label="Measurements" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-measurements">
+    UE Measurements
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pm-stats">
+    PM stats
+  </a>
+<nav aria-label="PM stats" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrc-stats">
+    RRC stats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-cp-throughput-stats">
+    CU-CP Throughput stats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-up-throughput-stats">
+    CU-UP Throughput stats
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -200,340 +277,432 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1><span class="enumerate-headings-plugin enumerate-heading-plugin">4.</span> Kafka</h1>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="err">CuCpAm</span><span class="kc">f</span><span class="err">Beaco</span><span class="kc">n</span><span class="err">I</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="err">G</span><span class="kc">n</span><span class="err">bId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">ServiceI</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">Am</span><span class="kc">f</span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">Am</span><span class="kc">f</span><span class="err">Name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">S</span><span class="kc">tate</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;e</span><span class="kc">nu</span><span class="err">m&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">Am</span><span class="kc">f</span><span class="err">Ipaddress</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">Suppor</span><span class="kc">te</span><span class="err">dPlm</span><span class="kc">ns</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">          </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">Plm</span><span class="kc">n</span><span class="err">Ide</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">y</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="err">SliceSuppor</span><span class="kc">t</span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">              </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="err">SNssai</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                  </span><span class="err">SST</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                  </span><span class="err">SD</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                  </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">                  </span><span class="p">}</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">              </span><span class="p">}</span><span class="w"></span>
-<span class="w">              </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="err">Am</span><span class="kc">f</span><span class="err">Guid</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="kc">tl</span><span class="err">publishTime__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="err">spa</span><span class="kc">n</span><span class="err">Co</span><span class="kc">nte</span><span class="err">x</span><span class="kc">t</span><span class="err">__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;by</span><span class="kc">tes</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="err">CuCpCuupBeaco</span><span class="kc">n</span><span class="err">I</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="err">G</span><span class="kc">n</span><span class="err">bId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">ServiceI</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">CuUpLis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">G</span><span class="kc">n</span><span class="err">bCuupId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">S</span><span class="kc">tate</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;e</span><span class="kc">nu</span><span class="err">m&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">Suppor</span><span class="kc">te</span><span class="err">dPlm</span><span class="kc">ns</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">          </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">Plm</span><span class="kc">n</span><span class="err">Ide</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">y</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="err">SliceSuppor</span><span class="kc">t</span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">              </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="err">SNssai</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                  </span><span class="err">SST</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                  </span><span class="err">SD</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                  </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">                  </span><span class="p">}</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">              </span><span class="p">}</span><span class="w"></span>
-<span class="w">              </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="err">CuupGuid</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="kc">tl</span><span class="err">publishTime__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="err">spa</span><span class="kc">n</span><span class="err">Co</span><span class="kc">nte</span><span class="err">x</span><span class="kc">t</span><span class="err">__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;by</span><span class="kc">tes</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="err">CuCpDuBeaco</span><span class="kc">n</span><span class="err">I</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="err">G</span><span class="kc">n</span><span class="err">bId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">ServiceI</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">DuLis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">G</span><span class="kc">n</span><span class="err">bDuId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">S</span><span class="kc">tate</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;e</span><span class="kc">nu</span><span class="err">m&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">ServedCellLis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">          </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">S</span><span class="kc">tate</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;e</span><span class="kc">nu</span><span class="err">m&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="err">NrCgi</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="err">NrCellId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">              </span><span class="err">Plm</span><span class="kc">n</span><span class="err">Id</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">              </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">              </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="err">Pci</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="err">Op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="err">FivegSTac</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="err">Prese</span><span class="kc">nt</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">              </span><span class="err">FivegSTac</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">              </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">              </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="err">ServedPlm</span><span class="kc">ns</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">              </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="err">Plm</span><span class="kc">n</span><span class="err">Ide</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">y</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                  </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">                </span><span class="err">TaiSlicedSuppor</span><span class="kc">t</span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                  </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">                  </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="err">SNssai</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                    </span><span class="p">{</span><span class="w"></span>
-<span class="w">                      </span><span class="err">SST</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                      </span><span class="err">SD</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                      </span><span class="p">{</span><span class="w"></span>
-<span class="w">                        </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">                      </span><span class="p">}</span><span class="w"></span>
-<span class="w">                    </span><span class="p">}</span><span class="w"></span>
-<span class="w">                  </span><span class="p">}</span><span class="w"></span>
-<span class="w">                  </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">              </span><span class="p">}</span><span class="w"></span>
-<span class="w">              </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="err">CellGuid</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="err">DuGuid</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="kc">tl</span><span class="err">publishTime__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="err">spa</span><span class="kc">n</span><span class="err">Co</span><span class="kc">nte</span><span class="err">x</span><span class="kc">t</span><span class="err">__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;by</span><span class="kc">tes</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="err">PmRepor</span><span class="kc">t</span><span class="err">i</span><span class="kc">n</span><span class="err">gCou</span><span class="kc">nters</span><span class="err">Lis</span><span class="kc">t</span><span class="err">Da</span><span class="kc">ta</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="err">Cou</span><span class="kc">nter</span><span class="err">Id</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;e</span><span class="kc">nu</span><span class="err">m&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="err">I</span><span class="kc">nstan</span><span class="err">ceType</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;e</span><span class="kc">nu</span><span class="err">m&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="err">I</span><span class="kc">nstan</span><span class="err">ceId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="err">ValueLis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="err">_key</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">          </span><span class="err">_val</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="kc">tl</span><span class="err">publishTime__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="err">spa</span><span class="kc">n</span><span class="err">Co</span><span class="kc">nte</span><span class="err">x</span><span class="kc">t</span><span class="err">__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;by</span><span class="kc">tes</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="err">CuCpCuupBeaco</span><span class="kc">n</span><span class="err">I</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="err">G</span><span class="kc">n</span><span class="err">bId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">ServiceI</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">CuUpLis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">G</span><span class="kc">n</span><span class="err">bCuupId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">S</span><span class="kc">tate</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;e</span><span class="kc">nu</span><span class="err">m&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">Suppor</span><span class="kc">te</span><span class="err">dPlm</span><span class="kc">ns</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">          </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">Plm</span><span class="kc">n</span><span class="err">Ide</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">y</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="err">SliceSuppor</span><span class="kc">t</span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">              </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="err">SNssai</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                  </span><span class="err">SST</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                  </span><span class="err">SD</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">                  </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">                  </span><span class="p">}</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">              </span><span class="p">}</span><span class="w"></span>
-<span class="w">              </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="err">CuupGuid</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="kc">tl</span><span class="err">publishTime__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="err">spa</span><span class="kc">n</span><span class="err">Co</span><span class="kc">nte</span><span class="err">x</span><span class="kc">t</span><span class="err">__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;by</span><span class="kc">tes</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="err">PmRepor</span><span class="kc">t</span><span class="err">i</span><span class="kc">n</span><span class="err">gCucpCou</span><span class="kc">nter</span><span class="err">Da</span><span class="kc">ta</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="err">Repor</span><span class="kc">t</span><span class="err">i</span><span class="kc">n</span><span class="err">gNodeId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">Cou</span><span class="kc">nter</span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">Cou</span><span class="kc">nter</span><span class="err">Id</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;e</span><span class="kc">nu</span><span class="err">m&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">I</span><span class="kc">nstan</span><span class="err">ceType</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;e</span><span class="kc">nu</span><span class="err">m&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">I</span><span class="kc">nstan</span><span class="err">ceId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">ValueLis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">          </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">_key</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="err">_val</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="kc">tl</span><span class="err">publishTime__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="err">spa</span><span class="kc">n</span><span class="err">Co</span><span class="kc">nte</span><span class="err">x</span><span class="kc">t</span><span class="err">__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;by</span><span class="kc">tes</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="err">PmRepor</span><span class="kc">t</span><span class="err">i</span><span class="kc">n</span><span class="err">gCuupCou</span><span class="kc">nter</span><span class="err">Da</span><span class="kc">ta</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="err">Repor</span><span class="kc">t</span><span class="err">i</span><span class="kc">n</span><span class="err">gNodeId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">Cou</span><span class="kc">nter</span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">Cou</span><span class="kc">nter</span><span class="err">Id</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;e</span><span class="kc">nu</span><span class="err">m&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">I</span><span class="kc">nstan</span><span class="err">ceType</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;e</span><span class="kc">nu</span><span class="err">m&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">I</span><span class="kc">nstan</span><span class="err">ceId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">ValueLis</span><span class="kc">t</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">          </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">_key</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">            </span><span class="err">_val</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="kc">tl</span><span class="err">publishTime__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="err">spa</span><span class="kc">n</span><span class="err">Co</span><span class="kc">nte</span><span class="err">x</span><span class="kc">t</span><span class="err">__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;by</span><span class="kc">tes</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="err">RrcMeasureme</span><span class="kc">nt</span><span class="err">Repor</span><span class="kc">t</span><span class="err">Resul</span><span class="kc">t</span><span class="err">I</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="err">G</span><span class="kc">n</span><span class="err">bCuCpUeId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">Times</span><span class="kc">ta</span><span class="err">mp</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">Servi</span><span class="kc">n</span><span class="err">gCellI</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="err">NrCgi</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">NrCellId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">Plm</span><span class="kc">n</span><span class="err">Id</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="err">SsbRsrpResul</span><span class="kc">t</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="err">SsbRsrpResul</span><span class="kc">t</span><span class="err">Prese</span><span class="kc">nt</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="err">SsbRsrqResul</span><span class="kc">t</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="err">SsbRsrqResul</span><span class="kc">t</span><span class="err">Prese</span><span class="kc">nt</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="err">SsbSi</span><span class="kc">nr</span><span class="err">Resul</span><span class="kc">t</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="err">SsbSi</span><span class="kc">nr</span><span class="err">Resul</span><span class="kc">t</span><span class="err">Prese</span><span class="kc">nt</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="err">NumberO</span><span class="kc">f</span><span class="err">I</span><span class="kc">n</span><span class="err">cludedCells</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">    </span><span class="err">CellI</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="err">PhyCellId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="err">NeighbourCellI</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">NrCgi</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="err">NrCellId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">          </span><span class="err">Plm</span><span class="kc">n</span><span class="err">Id</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">          </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">i</span><span class="kc">te</span><span class="err">ms</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">repea</span><span class="kc">te</span><span class="err">d</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="err">SsbRsrpResul</span><span class="kc">t</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">SsbRsrpResul</span><span class="kc">t</span><span class="err">Prese</span><span class="kc">nt</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">SsbRsrqResul</span><span class="kc">t</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">SsbRsrqResul</span><span class="kc">t</span><span class="err">Prese</span><span class="kc">nt</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">SsbSi</span><span class="kc">nr</span><span class="err">Resul</span><span class="kc">t</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">32</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">        </span><span class="err">SsbSi</span><span class="kc">nr</span><span class="err">Resul</span><span class="kc">t</span><span class="err">Prese</span><span class="kc">nt</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">,{</span><span class="err">...</span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="kc">tl</span><span class="err">publishTime__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;ui</span><span class="kc">nt</span><span class="mi">64</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="w">  </span><span class="err">spa</span><span class="kc">n</span><span class="err">Co</span><span class="kc">nte</span><span class="err">x</span><span class="kc">t</span><span class="err">__</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&lt;by</span><span class="kc">tes</span><span class="err">&gt;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<h2 id="beacons"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1</span> Beacons<a class="headerlink" href="#beacons" title="Permanent link">⚓︎</a></h2>
+<h3 id="du-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1.1</span> DU beacon info<a class="headerlink" href="#du-beacon-info" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives information about the DUs connected to the CU-CP and their operational state (including [3GPP 38.473] served cell information).</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "CuCpDuBeaconInfo": {
+    "GnbId": &lt;uint&gt;,
+    "ServiceInfo": &lt;string&gt;,
+    "DuList": {
+      "items": {
+        "0": {
+          "GnbDuId": &lt;string&gt;,
+          "State": "&lt;DuState&gt;",
+          "ServedCellList": {
+            "items": {
+              "0": {
+                "State": "&lt;CellState&gt;",
+                "NrCgi": {
+                  "NrCellId": &lt;string&gt;,
+                  "PlmnId": {
+                    "items": {
+                      "0": &lt;uint&gt;
+                    }
+                  }
+                },
+                "Pci": &lt;uint&gt;,
+                "OptionalFivegSTac": {
+                  "Present": &lt;bool&gt;,
+                  "FivegSTac": {
+                    "items": {
+                      "0": &lt;uint&gt;
+                    }
+                  }
+                },
+                "ServedPlmns": {
+                  "items": {
+                    "0": {
+                      "PlmnIdentity": {
+                        "items": {
+                          "0": &lt;uint&gt;
+                        }
+                      },
+                      "TaiSlicedSupportList": {
+                        "items": {
+                          "0": {
+                            "SNssai": {
+                              "SST": &lt;uint&gt;,
+                              "SD": {
+                                "items": {
+                                  "0": &lt;uint&gt;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "CellGuid": &lt;string&gt;
+              }
+            }
+          },
+          "DuGuid": &lt;string&gt;
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
 </code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+DuState
+
+Enum Values:
+DUSTATE_NON_OPERATIONAL
+DUSTATE_NON_OPERATIONAL_FAILURE
+DUSTATE_OPERATIONAL
+
+Enum Type:
+CellState
+
+Enum Values:
+CELLSTATE_NOT_SUPPORTED
+CELLSTATE_ACTIVATING
+CELLSTATE_DEACTIVATING
+CELLSTATE_RESOURCE_UNAVAIL
+CELLSTATE_ACTIVATION_FAILED
+CELLSTATE_ACTIVATED
+</code></pre></div></p>
+<h3 id="cu-up-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1.2</span> CU-UP beacon info<a class="headerlink" href="#cu-up-beacon-info" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives information about the CU-UPs connected to the CU-CP and their operation state.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "CuCpCuupBeaconInfo": {
+    "GnbId": &lt;uint&gt;,
+    "ServiceInfo": &lt;string&gt;,
+    "CuUpList": {
+      "items": {
+        "0": {
+          "GnbCuupId": &lt;string&gt;,
+          "State": "&lt;CuupState&gt;",
+          "SupportedPlmns": {
+            "items": {
+              "0": {
+                "PlmnIdentity": {
+                  "items": {
+                    "0": &lt;uint&gt;
+                  }
+                },
+                "SliceSupportList": {
+                  "items": {
+                    "0": {
+                      "SNssai": {
+                        "SST": &lt;uint&gt;,
+                        "SD": {
+                          "items": {
+                            "0": &lt;uint&gt;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "CuupGuid": &lt;string&gt;
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+CuupState
+
+Enum Values:
+CUUPSTATE_OPERATIONAL
+CUUPSTATE_NON_OPERATIONAL_FAILURE
+</code></pre></div></p>
+<h3 id="amf-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1.3</span> AMF beacon info<a class="headerlink" href="#amf-beacon-info" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives information about the AMFs connected to the CU-CP.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "CuCpAmfBeaconInfo": {
+    "GnbId": &lt;uint&gt;,
+    "ServiceInfo": &lt;string&gt;,
+    "AmfList": {
+      "items": {
+        "0": {
+          "AmfName": &lt;string&gt;,
+          "State": "&lt;AmfState&gt;",
+          "AmfIpaddress": &lt;string&gt;,
+          "SupportedPlmns": {
+            "items": {
+              "0": {
+                "PlmnIdentity": {
+                  "items": {
+                    "0": &lt;uint&gt;
+                  }
+                },
+                "SliceSupportList": {
+                  "items": {
+                    "0": {
+                      "SNssai": {
+                        "SST": &lt;uint&gt;,
+                        "SD": {
+                          "items": {
+                            "0": &lt;uint&gt;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "AmfGuid": &lt;string&gt;
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+AmfState
+
+Enum Values:
+AMFSTATE_NOT_CONNECTED
+AMFSTATE_NOT_CONNECTED_FAILURE
+AMFSTATE_CONNECTED
+</code></pre></div></p>
+<h2 id="measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2</span> Measurements<a class="headerlink" href="#measurements" title="Permanent link">⚓︎</a></h2>
+<h3 id="ue-measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2.1</span> UE Measurements<a class="headerlink" href="#ue-measurements" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> These measurements contain the RSRP and RSRQ periodic measurements from serving cell.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.ue_measurements</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "ENB": &lt;string&gt;,
+  "DU": &lt;string&gt;,
+  "CELL": &lt;string&gt;,
+  "UE": &lt;string&gt;,
+  "RrcMeasurementReportResultInfo": {
+    "GnbCuCpUeId": &lt;uint&gt;,
+    "Timestamp": &lt;string&gt;,
+    "ServingCellInfo": {
+      "NrCgi": {
+        "NrCellId": &lt;string&gt;,
+        "PlmnId": {
+          "items": {
+            "0": &lt;uint&gt;
+          }
+        }
+      },
+      "SsbRsrpResult": &lt;uint&gt;,
+      "SsbRsrpResultPresent": &lt;bool&gt;,
+      "SsbRsrqResult": &lt;uint&gt;,
+      "SsbRsrqResultPresent": &lt;bool&gt;,
+      "SsbSinrResult": &lt;uint&gt;,
+      "SsbSinrResultPresent": &lt;bool&gt;
+    },
+    "NumberOfIncludedCells": &lt;uint&gt;,
+    "CellInfo": {
+      "0": {
+        "PhyCellId": &lt;uint&gt;,
+        "NeighbourCellInfo": {
+          "NrCgi": {
+            "NrCellId": &lt;string&gt;,
+            "PlmnId": {
+              "items": {
+                "0": &lt;uint&gt;
+              }
+            }
+          },
+          "SsbRsrpResult": &lt;uint&gt;,
+          "SsbRsrpResultPresent": &lt;bool&gt;,
+          "SsbRsrqResult": &lt;uint&gt;,
+          "SsbRsrqResultPresent": &lt;bool&gt;,
+          "SsbSinrResult": &lt;uint&gt;,
+          "SsbSinrResultPresent": &lt;bool&gt;
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<h2 id="pm-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.3</span> PM stats<a class="headerlink" href="#pm-stats" title="Permanent link">⚓︎</a></h2>
+<h3 id="rrc-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.3.1</span> RRC stats<a class="headerlink" href="#rrc-stats" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives a list of raw PM counter values in CU-CP</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "PmReportingCountersListData": {
+    "items": {
+      "0": {
+        "CounterId": "&lt;CounterIdEnum&gt;",
+        "InstanceType": "&lt;InstanceTypeEnum&gt;",
+        "InstanceId": &lt;string&gt;,
+        "ValueList": {
+          "items": {
+            "0": {
+              "_key": &lt;uint&gt;,
+              "_val": &lt;uint&gt;
+            }
+          }
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+CounterIdEnum
+
+Enum Values:
+RRC_CONNECTION_EST_ATTEMPT_ID
+RRC_CONNECTION_SUCC_ID
+REQ_INTRA_GNB_HANDOVER_EXECUTIONS_ID
+SUCC_INTRA_GNB_HANDOVER_EXECUTIONS_ID
+DL_GTP_THP_ID
+DL_GTP_THP_SAMPLES_ID
+UL_GTP_THP_ID
+UL_GTP_THP_SAMPLES_ID
+MAX_NUMBER_COUNTERS
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+INVALID_TYPE
+</code></pre></div></p>
+<h3 id="cu-cp-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.3.2</span> CU-CP Throughput stats<a class="headerlink" href="#cu-cp-throughput-stats" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-CP.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "PmReportingCucpCounterData": {
+    "ReportingNodeId": &lt;string&gt;,
+    "CounterList": {
+      "items": {
+        "0": {
+          "CounterId": "&lt;CucpCounterIdEnum&gt;",
+          "InstanceType": "&lt;InstanceTypeEnum&gt;",
+          "InstanceId": &lt;string&gt;,
+          "ValueList": {
+            "items": {
+              "0": {
+                "_key": &lt;uint&gt;,
+                "_val": &lt;uint&gt;
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+CucpCounterIdEnum
+
+Enum Values:
+RRC_CONNECTION_EST_ATTEMPT
+RRC_CONNECTION_SUCC
+REQ_INTRA_GNB_HANDOVER_EXECUTIONS
+SUCC_INTRA_GNB_HANDOVER_EXECUTIONS
+MEAN_NUMBER_OF_RRC_CONNECTIONS
+MAXIMUM_NUMBER_OF_RRC_CONNECTIONS
+NUMBER_OF_PDU_SESSIONS_REQUESTED_TO_SETUP
+NUMBER_OF_PDU_SESSIONS_FAILED_TO_SETUP
+SS_RSRP_DISTRIBUTION_PER_SSB
+NUMBER_OF_CUCP_COUNTERS
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+INVALID_TYPE
+</code></pre></div></p>
+<h3 id="cu-up-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.3.3</span> CU-UP Throughput stats<a class="headerlink" href="#cu-up-throughput-stats" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-UP.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "PmReportingCuupCounterData": {
+    "ReportingNodeId": &lt;string&gt;,
+    "CounterList": {
+      "items": {
+        "0": {
+          "CounterId": "&lt;CuupCounterIdEnum&gt;",
+          "InstanceType": "&lt;InstanceTypeEnum&gt;",
+          "InstanceId": &lt;string&gt;,
+          "ValueList": {
+            "items": {
+              "0": {
+                "_key": &lt;uint&gt;,
+                "_val": &lt;uint&gt;
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+INVALID_TYPE
+
+Enum Type:
+CuupCounterIdEnum
+
+Enum Values:
+DL_GTP_THP
+UL_GTP_THP
+DRB_PACKET_LOSS_UL_QOS
+DRB_PACKET_LOSS_UL_SNSSAI
+DRB_PDCP_PACKET_DROP_RATE_DL_QOS
+DRB_PDCP_PACKET_DROP_RATE_DL_SNSSAI
+AVERAGE_DELAY_DL_IN_CUUP_QOS
+AVERAGE_DELAY_DL_IN_CUUP_SNSSAI
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI
+NUMBER_OF_CUUP_COUNTERS
+</code></pre></div></p>
 </article>
 </div>
 </div>
