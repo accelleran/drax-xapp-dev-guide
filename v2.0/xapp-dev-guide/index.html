@@ -98,6 +98,11 @@
       Documentation
     </a>
 </li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../message_references/3.1/kafka/">
+        5G Message References
+      </a>
+</li>
 </ul>
 </div>
 </nav>
@@ -430,10 +435,10 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#the-xapp-documentation-readmeme">
-    The xApp Documentation README.me
+<a class="md-nav__link" href="#the-xapp-documentation-readmemd">
+    The xApp Documentation README.md
   </a>
-<nav aria-label="The xApp Documentation README.me" class="md-nav">
+<nav aria-label="The xApp Documentation README.md" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#the-readmemd-file">
@@ -716,6 +721,71 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          5G Message References
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5G Message References" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          5G Message References
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+          version 3.1
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 3.1" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          version 3.1
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../message_references/3.1/kafka/">
+        Kafka
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../message_references/3.1/nats/">
+        Nats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+          version 2.4
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 2.4" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          version 2.4
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../message_references/2.4/kafka/">
+        Kafka
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../message_references/2.4/nats/">
+        Nats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -958,7 +1028,7 @@ appVersion: &lt;xapp-version&gt;
 <p>All other scenarios will either require you to copy the xApp Core Docker image to the dRAX host machine, and/or copy the xApp helm chart to the dRAX host.</p>
 <h2 id="xapp-framework-in-depth"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.6</span> xApp Framework In-depth<a class="headerlink" href="#xapp-framework-in-depth" title="Permanent link">⚓︎</a></h2>
 <p>To accelerate the development of xApps, Accelleran has created the xApp Framework which is available on GitHub: <a href="https://github.com/accelleran/xapp-framework-package">https://github.com/accelleran/xapp-framework-package</a>. In this repository, the xApp developer has access to the xApp Library under <em>xapp_core/xapp_lib</em>. The developer can explore the xApp Library files to get familiar with the different methods and abstractions available. We also cover what the xApp Library comes with in the <a href="#xapp-library-in-depth">xApp Library In-depth</a> section.</p>
-<p>Also, in the repository, we provide an example xApp in the <em>example</em> folder. Here, we provide template Python files which use the xApp Library and include examples of usage. In the _example _folder we provide the Dockerfiles, readme and requirements files. The Dockerfiles (one for production and another for development mode) that can be used on the xApp example to build the xApp Core. An example README.md file used for documentation is also provided, more details on it can be found in the <a href="#the-xapp-documentation-readme">The xApp Documentation README.me</a> section. The requirements.txt contains the python required packages for the xApp to run properly. This file is used during the build process of the xApp Core to install all the required packages in the Docker image, including the xApp Library. This is why credentials are also required to be passed to the build process, as explained in the <a href="#build-your-own-xapp-dev-environment">Build your own xApp Dev Environment</a> and <a href="#productize-your-xapp">Productize your xApp</a> sections.</p>
+<p>Also, in the repository, we provide an example xApp in the <em>example</em> folder. Here, we provide template Python files which use the xApp Library and include examples of usage. In the _example _folder we provide the Dockerfiles, readme and requirements files. The Dockerfiles (one for production and another for development mode) that can be used on the xApp example to build the xApp Core. An example README.md file used for documentation is also provided, more details on it can be found in the <a href="#the-xapp-documentation-readmemd">The xApp Documentation README.md</a> section. The requirements.txt contains the python required packages for the xApp to run properly. This file is used during the build process of the xApp Core to install all the required packages in the Docker image, including the xApp Library. This is why credentials are also required to be passed to the build process, as explained in the <a href="#build-your-own-xapp-dev-environment">Build your own xApp Dev Environment</a> and <a href="#productize-your-xapp">Productize your xApp</a> sections.</p>
 <p>In the <em>example/core _folder, we provide the example python code. The xapp_main.py file is the main python file where the xApp is started. In this example file, you can check how the xApp Builder is used, how to retrieve data from Kafka, as well as different examples on the usage. Also, the configuration file xapp_metadata.json is provided in the _example/core</em> folder, on which more details can be found in the <a href="#xapp-configuration-in-depth">xApp Configuration In-depth</a> section. The restapi.py python file is provided in the <em>example/core</em> folder that shows an example of how to add custom API endpoints to the xApp, more details can be found in the <a href="#xapp-rest-api">xApp REST API</a> section.</p>
 <p>Finally, the example xApp also has the xApp Helm Chart in the _example _folder which contains the necessary minimum to deploy the xApp Framework in Kubernetes and seamlessly integrate it with the dRAX RIC. Details on the xApp Helm Chart can be found in the <a href="#xapp-helm-chart-in-depth">xApp Helm Chart In-Depth</a> section. The developer is of course free to explore the xApp Helm Chart and add features, such as adding more Docker images to be deployed along the xApp in advanced scenarios. We cover this in the <a href="#how-to-add-another-microservice-helm-chart-to-the-xapp">How to add another microservice helm chart to the xApp</a> section. The xapp_config.json and xapp_endpoints.json are configuration files created by the xApp Helm Chart and they will be stored in the _config _folder. More information about those configuration files and how to edit them can be found in the <a href="#xapp-configuration-in-depth">xApp Configuration In-depth</a> section.</p>
 <p>As can be seen, the xApp framework consists of the following blocks, described also in <a href="#introduction">Figure: dRAX xApp Framework</a>:</p>
@@ -1133,7 +1203,7 @@ xapp.spawn(periodic_publish)
 <div class="highlight"><pre><span></span><code>http://&lt;kubernets_ip&gt;:31315/api/v1/docs
 </code></pre></div>
 <p>Just substitute <kubernetes_ip> with the advertise address of your Kubernetes cluster.</kubernetes_ip></p>
-<p>Inside the actions module of the xApp Library, we have already implemented the code for making API calls, and abstracted the details on how to connect to the API. That information is stored in the xapp_endpoints.json file (see also section on <a href="#bookmark=id.dvop83lpdozd">xApp Configuration</a>) under API_GATEWAY_URL. We created a few examples of how this works in the xApp Example, while the SwagerHub contains detailed information and description of all the endpoints.</p>
+<p>Inside the actions module of the xApp Library, we have already implemented the code for making API calls, and abstracted the details on how to connect to the API. That information is stored in the xapp_endpoints.json file (see also section on <a href="#xapp-configuration-in-depth">xApp Configuration In-depth</a>) under API_GATEWAY_URL. We created a few examples of how this works in the xApp Example, while the SwagerHub contains detailed information and description of all the endpoints.</p>
 <p>In summary, through the dRAX RIC API Gateway you can:</p>
 <ul>
 <li>xApps<ul>
@@ -1196,7 +1266,7 @@ if api_response.status_code == 200:
 <div class="highlight"><pre><span></span><code>[netconf-dageraadplats] has NETCONF exposed on port [30023]
 [netconf-parking] has NETCONF exposed on port [32634]
 </code></pre></div>
-<h2 id="the-xapp-documentation-readmeme"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.8</span> The xApp Documentation README.me<a class="headerlink" href="#the-xapp-documentation-readmeme" title="Permanent link">⚓︎</a></h2>
+<h2 id="the-xapp-documentation-readmemd"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.8</span> The xApp Documentation README.md<a class="headerlink" href="#the-xapp-documentation-readmemd" title="Permanent link">⚓︎</a></h2>
 <h3 id="the-readmemd-file"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.8.1</span> The README.md file<a class="headerlink" href="#the-readmemd-file" title="Permanent link">⚓︎</a></h3>
 <p>The README.md is a text file used to provide a reliable way to explain, describe and illustrate an xApp. Its content is fully text-based and allows special syntax using Markdown. The Markdown language is a lightweight markup language that allows the creation of formatted text using only a plain-text editor. It allows one to control the display of the document; formatting words as bold or italic, adding images, creating lists and much more. By filling the README.md file with xApp information, the Accelleran dRAX RIC will  display its content automatically in the dRAX dashboard of the specific xApp. Thus, a full description of the xApp and its context can be provided with a special style for the illustration. An example README.md file is provided in the <em>example</em> folder of the xApp Framework.</p>
 <p>Here are some links describing the Markdown features:</p>
@@ -1991,6 +2061,19 @@ drax/xapp-component-name: xapp-dev-ssh
               </span>
               Overview
             </div>
+</div>
+</a>
+<a aria-label="Next: Kafka" class="md-footer__link md-footer__link--next" href="../message_references/3.1/kafka/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Kafka
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
 </div>
 </a>
 </nav>
