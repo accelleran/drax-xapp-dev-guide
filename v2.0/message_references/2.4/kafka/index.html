@@ -94,9 +94,9 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../xapp-dev-guide/">
-      Documentation
-    </a>
+<a class="md-tabs__link" href="../../../xapp-dev-guide/introduction/">
+        Documentation
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link md-tabs__link--active" href="../../3.1/kafka/">
@@ -124,10 +124,95 @@
         Overview
       </a>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Documentation" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../xapp-dev-guide/">
-        Documentation
+<a class="md-nav__link" href="../../../xapp-dev-guide/introduction/">
+        Introduction
       </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/quick_guide/">
+        Quick guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/development_workflows/">
+        Development Workflows
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_dev_environment/">
+        Build your own xApp Dev Environment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_productize/">
+        Productize your xApp
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_framework/">
+        xApp Framework In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_library/">
+        xApp Library In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_readme/">
+        The xApp Documentation README.md
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_rest_api/">
+        xApp REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_configuration/">
+        xApp Configuration In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_helm_charts/">
+        xApp Helm Chart In-Depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_lifecycle/">
+        xApps Lifecycle In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_core/">
+        Writing the xApp Core in a different language
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/appendix_dockerhub/">
+        Appendix: Pushing to Dockerhub
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/appendix_conversion/">
+        Appendix: Conversion from the xApp Framework to the xApp Library
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
@@ -276,9 +361,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1><span class="enumerate-headings-plugin enumerate-heading-plugin">5.</span> Kafka</h1>
-<h2 id="beacons"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1</span> Beacons<a class="headerlink" href="#beacons" title="Permanent link">⚓︎</a></h2>
-<h3 id="du-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.1</span> DU beacon info<a class="headerlink" href="#du-beacon-info" title="Permanent link">⚓︎</a></h3>
+<h1><span class="enumerate-headings-plugin enumerate-heading-plugin">19.</span> Kafka</h1>
+<h2 id="beacons"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.1</span> Beacons<a class="headerlink" href="#beacons" title="Permanent link">⚓︎</a></h2>
+<h3 id="du-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.1.1</span> DU beacon info<a class="headerlink" href="#du-beacon-info" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives information about the DUs connected to the CU-CP and their operational state (including [3GPP 38.473] served cell information).</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
 <div class="highlight"><pre><span></span><code>{
@@ -369,7 +454,7 @@ CELLSTATE_RESOURCE_UNAVAIL
 CELLSTATE_ACTIVATION_FAILED
 CELLSTATE_ACTIVATED
 </code></pre></div></p>
-<h3 id="cu-up-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.2</span> CU-UP beacon info<a class="headerlink" href="#cu-up-beacon-info" title="Permanent link">⚓︎</a></h3>
+<h3 id="cu-up-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.1.2</span> CU-UP beacon info<a class="headerlink" href="#cu-up-beacon-info" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives information about the CU-UPs connected to the CU-CP and their operation state.</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
 <div class="highlight"><pre><span></span><code>{
@@ -423,7 +508,7 @@ Enum Values:
 CUUPSTATE_OPERATIONAL
 CUUPSTATE_NON_OPERATIONAL_FAILURE
 </code></pre></div></p>
-<h3 id="amf-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.3</span> AMF beacon info<a class="headerlink" href="#amf-beacon-info" title="Permanent link">⚓︎</a></h3>
+<h3 id="amf-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.1.3</span> AMF beacon info<a class="headerlink" href="#amf-beacon-info" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives information about the AMFs connected to the CU-CP.</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
 <div class="highlight"><pre><span></span><code>{
@@ -479,8 +564,8 @@ AMFSTATE_NOT_CONNECTED
 AMFSTATE_NOT_CONNECTED_FAILURE
 AMFSTATE_CONNECTED
 </code></pre></div></p>
-<h2 id="measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2</span> Measurements<a class="headerlink" href="#measurements" title="Permanent link">⚓︎</a></h2>
-<h3 id="ue-measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.1</span> UE Measurements<a class="headerlink" href="#ue-measurements" title="Permanent link">⚓︎</a></h3>
+<h2 id="measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.2</span> Measurements<a class="headerlink" href="#measurements" title="Permanent link">⚓︎</a></h2>
+<h3 id="ue-measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.2.1</span> UE Measurements<a class="headerlink" href="#ue-measurements" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> These measurements contain the RSRP and RSRQ periodic measurements from serving cell.</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.ue_measurements</code></p>
 <div class="highlight"><pre><span></span><code>{
@@ -534,8 +619,8 @@ AMFSTATE_CONNECTED
   "spanContext__": &lt;string&gt;
 }
 </code></pre></div>
-<h2 id="pm-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3</span> PM stats<a class="headerlink" href="#pm-stats" title="Permanent link">⚓︎</a></h2>
-<h3 id="rrc-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3.1</span> RRC stats<a class="headerlink" href="#rrc-stats" title="Permanent link">⚓︎</a></h3>
+<h2 id="pm-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.3</span> PM stats<a class="headerlink" href="#pm-stats" title="Permanent link">⚓︎</a></h2>
+<h3 id="rrc-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.3.1</span> RRC stats<a class="headerlink" href="#rrc-stats" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives a list of raw PM counter values in CU-CP</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
 <div class="highlight"><pre><span></span><code>{
@@ -588,7 +673,7 @@ QOS_TYPE
 SNSSAI_TYPE
 INVALID_TYPE
 </code></pre></div></p>
-<h3 id="cu-cp-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3.2</span> CU-CP Throughput stats<a class="headerlink" href="#cu-cp-throughput-stats" title="Permanent link">⚓︎</a></h3>
+<h3 id="cu-cp-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.3.2</span> CU-CP Throughput stats<a class="headerlink" href="#cu-cp-throughput-stats" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-CP.</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
 <div class="highlight"><pre><span></span><code>{
@@ -645,7 +730,7 @@ QOS_TYPE
 SNSSAI_TYPE
 INVALID_TYPE
 </code></pre></div></p>
-<h3 id="cu-up-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3.3</span> CU-UP Throughput stats<a class="headerlink" href="#cu-up-throughput-stats" title="Permanent link">⚓︎</a></h3>
+<h3 id="cu-up-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.3.3</span> CU-UP Throughput stats<a class="headerlink" href="#cu-up-throughput-stats" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-UP.</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
 <div class="highlight"><pre><span></span><code>{
