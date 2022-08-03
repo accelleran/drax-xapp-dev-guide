@@ -456,7 +456,7 @@
 <p>The URL of the dRAX RIC Databus (Kafka in this case) is automatically generated in the xapp_endpoints.json file by the xApp Helm Chart. As seen, this config file is loaded into the xapp using:</p>
 <div class="highlight"><pre><span></span><code>builder.endpoints("config/xapp_endpoints.json")
 </code></pre></div>
-<p>By default, kafka will use the value associated with the “KAFKA_URL” key inside the xapp_endpoints.json. However, the developer can choose to add additional keys in the xapp_endpoints.json file through the xApp Helm Chart, which is discussed in the <a href="/drax-xapp-dev-guide/xapp-dev-guide/xapp_configuration#xapp-endpoints">xApp Endpoints</a> section. The xApp itself can then decide to use a different key by calling:</p>
+<p>By default, kafka will use the value associated with the “KAFKA_URL” key inside the xapp_endpoints.json. However, the developer can choose to add additional keys in the xapp_endpoints.json file through the xApp Helm Chart, which is discussed in the <a href="../xapp_configuration/#xapp-endpoints">xApp Endpoints</a> section. The xApp itself can then decide to use a different key by calling:</p>
 <div class="highlight"><pre><span></span><code>(topic, data) = xapp.kafka(name="KAFKA_URL_2").recv_data()
 </code></pre></div>
 <p>A simple way to check what messages are received is to simply log everything coming in from the kafka object. This is shown in Example 1 in the example/core/xapp_main.py from the xApp Framework repository and in the test_kafka_producer unittest.</p>
@@ -560,7 +560,7 @@ xapp.spawn(periodic_publish)
 <div class="highlight"><pre><span></span><code>http://&lt;kubernets_ip&gt;:31315/api/v1/docs
 </code></pre></div>
 <p>Just substitute <kubernetes_ip> with the advertise address of your Kubernetes cluster.</kubernetes_ip></p>
-<p>Inside the actions module of the xApp Library, we have already implemented the code for making API calls, and abstracted the details on how to connect to the API. That information is stored in the xapp_endpoints.json file (see also section on <a href="/drax-xapp-dev-guide/xapp-dev-guide/xapp_configuration#xapp-configuration-in-depth">xApp Configuration In-depth</a>) under API_GATEWAY_URL. We created a few examples of how this works in the xApp Example, while the SwagerHub contains detailed information and description of all the endpoints.</p>
+<p>Inside the actions module of the xApp Library, we have already implemented the code for making API calls, and abstracted the details on how to connect to the API. That information is stored in the xapp_endpoints.json file (see also section on <a href="../xapp_configuration/#xapp-configuration-in-depth">xApp Configuration In-depth</a> under API_GATEWAY_URL. We created a few examples of how this works in the xApp Example, while the SwagerHub contains detailed information and description of all the endpoints.</p>
 <p>In summary, through the dRAX RIC API Gateway you can:</p>
 <ul>
 <li>xApps<ul>

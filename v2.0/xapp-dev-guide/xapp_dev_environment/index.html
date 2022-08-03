@@ -371,14 +371,14 @@ image:
 
 ...
 </code></pre></div>
-<p>You are of course free to now edit the xApp Helm Chart in any way you see fit, for example adding another Docker image to it, which we explain in the section <a href="/drax-xapp-dev-guide/xapp-dev-guide/xapp_helm_charts#how-to-add-another-microservice-helm-chart-to-the-xapp">How to add another microservice helm chart to the xApp</a>.</p>
+<p>You are of course free to now edit the xApp Helm Chart in any way you see fit, for example adding another Docker image to it, which we explain in the section <a href="../xapp_helm_charts/#how-to-add-another-microservice-helm-chart-to-the-xapp">How to add another microservice helm chart to the xApp</a>.</p>
 <h2 id="deploy-your-xapp-in-developer-mode"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.4</span> Deploy your xApp in Developer Mode<a class="headerlink" href="#deploy-your-xapp-in-developer-mode" title="Permanent link">⚓︎</a></h2>
 <p>You can now deploy your xApp in Developer Mode, which will grant you the same options as the xApp Dev Environment. Your xApp will be deployed as a sandbox environment, which you can access, further develop and debug, start or stop the xApp, etc.</p>
 <p>To do so, run the following command on the dRAX host machine:</p>
 <div class="highlight"><pre><span></span><code>helm install &lt;xapp-name&gt; /path/to/xAppHelmChartFolder --set developerMode.enabled=true --set-string global.kubeIp=&lt;drax-host-ip&gt;
 </code></pre></div>
 <p><strong>NOTE:</strong> You can give the deployment any generic name you want by changing the &lt;xapp-name&gt;. When deploying from the command line, using helm install, we also have to supply the dRAX Host IP as the global.kubeIp parameter in helm.</p>
-<p>From this point on, you can use any of the development workflows as described in the <a href="/drax-xapp-dev-guide/xapp-dev-guide/xapp_dev_environment#development-workflows">Development Workflows</a> section.</p>
+<p>From this point on, you can use any of the development workflows as described in the <a href="./#development-workflows">Development Workflows</a> section.</p>
 <h2 id="optional-mount-a-host-folder-inside-your-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5</span> (Optional) Mount a host folder inside your xApp<a class="headerlink" href="#optional-mount-a-host-folder-inside-your-xapp" title="Permanent link">⚓︎</a></h2>
 <p>The xApp Helm Chart also has an optional feature, which is to mount a folder from the dRAX host machine inside the xApp Core container. This can be useful:</p>
 <ul>
