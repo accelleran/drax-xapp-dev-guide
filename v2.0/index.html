@@ -94,9 +94,9 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="xapp-dev-guide/">
-      Documentation
-    </a>
+<a class="md-tabs__link" href="xapp-dev-guide/introduction/">
+        Documentation
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="message_references/3.1/kafka/">
@@ -171,10 +171,95 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Documentation" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="xapp-dev-guide/">
-        Documentation
+<a class="md-nav__link" href="xapp-dev-guide/introduction/">
+        Introduction
       </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/quick_guide/">
+        Quick guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/development_workflows/">
+        Development Workflows
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/xapp_dev_environment/">
+        Build your own xApp Dev Environment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/xapp_productize/">
+        Productize your xApp
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/xapp_framework/">
+        xApp Framework In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/xapp_library/">
+        xApp Library In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/xapp_readme/">
+        The xApp Documentation README.md
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/xapp_rest_api/">
+        xApp REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/xapp_configuration/">
+        xApp Configuration In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/xapp_helm_charts/">
+        xApp Helm Chart In-Depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/xapp_lifecycle/">
+        xApps Lifecycle In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/xapp_core/">
+        Writing the xApp Core in a different language
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/appendix_dockerhub/">
+        Appendix: Pushing to Dockerhub
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="xapp-dev-guide/appendix_conversion/">
+        Appendix: Conversion from the xApp Framework to the xApp Library
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
@@ -437,24 +522,24 @@
 <h2 id="changelog"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Changelog<a class="headerlink" href="#changelog" title="Permanent link">⚓︎</a></h2>
 <h3 id="added"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Added<a class="headerlink" href="#added" title="Permanent link">⚓︎</a></h3>
 <ul>
-<li>Added xApp Library instead of the xApp Python Template. Instead of having template Python files, we now have a full xApp Python Library, which abstracts the interfaces towards dRAX and dRAX RIC. More info can be found in the <a href="xapp-dev-guide#xapp-framework-in-depth">xApp Framework In-depth</a> and <a href="xapp-dev-guide#xapp-library-in-depth">xApp Library In-depth</a>.</li>
-<li>Added new xApp Configuration API. More information can be found in the <a href="xapp-dev-guide#xapp-configuration-in-depth">xApp Configuration In-depth</a> section.</li>
+<li>Added xApp Library instead of the xApp Python Template. Instead of having template Python files, we now have a full xApp Python Library, which abstracts the interfaces towards dRAX and dRAX RIC. More info can be found in the <a href="xapp-dev-guide/xapp_framework#xapp-framework-in-depth">xApp Framework In-depth</a> and <a href="xapp-dev-guide/xapp_library#xapp-library-in-depth">xApp Library In-depth</a>.</li>
+<li>Added new xApp Configuration API. More information can be found in the <a href="xapp-dev-guide/xapp_configuration#xapp-configuration-in-depth">xApp Configuration In-depth</a> section.</li>
 </ul>
 <h3 id="changed"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Changed<a class="headerlink" href="#changed" title="Permanent link">⚓︎</a></h3>
 <ul>
-<li>Updated the Workflows to add more options for easier development cycles. More info can be seen in the <a href="xapp-dev-guide#quick-guide">Quick guide</a>, <a href="xapp-dev-guide#development-workflows">Development Workflows</a> and <a href="xapp-dev-guide#build-your-own-xapp-dev-environment">Build your own xApp Dev Environment</a> sections.</li>
-<li>As the new xApp Library is in place, all the previous abstractions of the interfaces are there, however, there are syntax changes. More info can be found in the <a href="xapp-dev-guide#xapp-library-in-depth">xApp Library In-depth</a> section.</li>
-<li>Updated the xApp API structure. More information can be found in the <a href="xapp-dev-guide#xapp-configuration-in-depth">xApp Configuration In-depth</a> section.</li>
-<li>The programmable approach to configuring the xApp has changed. More info can be found in the <a href="xapp-dev-guide#xapps-lifecycle-in-depth">xApps Lifecycle In-depth</a> section.</li>
-<li>The xApp Helm Chart has been updated to incorporate the changes above. More info can be found in the <a href="xapp-dev-guide#xapp-helm-chart-in-depth">xApp Helm Chart In-Depth</a>.</li>
+<li>Updated the Workflows to add more options for easier development cycles. More info can be seen in the <a href="xapp-dev-guide/quick_guide#quick-guide">Quick guide</a>, <a href="xapp-dev-guide/development_workflows#development-workflows">Development Workflows</a> and <a href="xapp-dev-guide/xapp_dev_environment#build-your-own-xapp-dev-environment">Build your own xApp Dev Environment</a> sections.</li>
+<li>As the new xApp Library is in place, all the previous abstractions of the interfaces are there, however, there are syntax changes. More info can be found in the <a href="xapp-dev-guide/xapp_library#xapp-library-in-depth">xApp Library In-depth</a> section.</li>
+<li>Updated the xApp API structure. More information can be found in the <a href="xapp-dev-guide/xapp_configuration#xapp-configuration-in-depth">xApp Configuration In-depth</a> section.</li>
+<li>The programmable approach to configuring the xApp has changed. More info can be found in the <a href="xapp-dev-guide/xapp_lifecycle#xapps-lifecycle-in-depth">xApps Lifecycle In-depth</a> section.</li>
+<li>The xApp Helm Chart has been updated to incorporate the changes above. More info can be found in the <a href="xapp-dev-guide/xapp_helm_charts#xapp-helm-chart-in-depth">xApp Helm Chart In-Depth</a>.</li>
 </ul>
 <h3 id="removed"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3</span> Removed<a class="headerlink" href="#removed" title="Permanent link">⚓︎</a></h3>
 <ul>
-<li>The xApp API has been removed as a separate Docker image. It is now integrated in the xApp Library and part of the xApp Core. More information can be found in the <a href="xapp-dev-guide#xapp-rest-api">xApp REST API</a> section.</li>
+<li>The xApp API has been removed as a separate Docker image. It is now integrated in the xApp Library and part of the xApp Core. More information can be found in the <a href="xapp-dev-guide/xapp_rest_api#xapp-rest-api">xApp REST API</a> section.</li>
 </ul>
 <h3 id="notes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.4</span> Notes<a class="headerlink" href="#notes" title="Permanent link">⚓︎</a></h3>
 <ul>
-<li>In the <a href="xapp-dev-guide#appendix-conversion-from-the-xapp-framework-to-the-xapp-library">Appendix: Conversion from the xApp Framework to the xApp Library</a> section, we have summarized how to upgrade from the previous xApp Framework version 0.4.0 and 1.0.0 to the new 2.0.0.</li>
+<li>In the <a href="xapp-dev-guide/appendix_conversion#appendix-conversion-from-the-xapp-framework-to-the-xapp-library">Appendix: Conversion from the xApp Framework to the xApp Library</a> section, we have summarized how to upgrade from the previous xApp Framework version 0.4.0 and 1.0.0 to the new 2.0.0.</li>
 </ul>
 </article>
 </div>
@@ -466,13 +551,13 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Next: Documentation" class="md-footer__link md-footer__link--next" href="xapp-dev-guide/" rel="next">
+<a aria-label="Next: Introduction" class="md-footer__link md-footer__link--next" href="xapp-dev-guide/introduction/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              Documentation
+              Introduction
             </div>
 </div>
 <div class="md-footer__button md-icon">
