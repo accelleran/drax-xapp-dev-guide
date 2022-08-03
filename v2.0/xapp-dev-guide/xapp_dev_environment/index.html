@@ -378,7 +378,7 @@ image:
 <div class="highlight"><pre><span></span><code>helm install &lt;xapp-name&gt; /path/to/xAppHelmChartFolder --set developerMode.enabled=true --set-string global.kubeIp=&lt;drax-host-ip&gt;
 </code></pre></div>
 <p><strong>NOTE:</strong> You can give the deployment any generic name you want by changing the &lt;xapp-name&gt;. When deploying from the command line, using helm install, we also have to supply the dRAX Host IP as the global.kubeIp parameter in helm.</p>
-<p>From this point on, you can use any of the development workflows as described in the <a href="./#development-workflows">Development Workflows</a> section.</p>
+<p>From this point on, you can use any of the development workflows as described in the <a href="../development_workflows/#development-workflows">Development Workflows</a> section.</p>
 <h2 id="optional-mount-a-host-folder-inside-your-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5</span> (Optional) Mount a host folder inside your xApp<a class="headerlink" href="#optional-mount-a-host-folder-inside-your-xapp" title="Permanent link">⚓︎</a></h2>
 <p>The xApp Helm Chart also has an optional feature, which is to mount a folder from the dRAX host machine inside the xApp Core container. This can be useful:</p>
 <ul>
