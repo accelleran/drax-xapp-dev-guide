@@ -377,6 +377,7 @@
 <h1><span class="enumerate-headings-plugin enumerate-heading-plugin">17.</span> Kafka</h1>
 <h2 id="heartbeats"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.1</span> Heartbeats<a class="headerlink" href="#heartbeats" title="Permanent link">⚓︎</a></h2>
 <p><strong>Description :</strong> Both the Layer 2 and Layer3 of each cell send out heartbeats to report that they are alive.</p>
+<p>The Layer 2 heartbeats has the following format:</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.4g.ric.raw.service_discovery</code></p>
 <div class="highlight"><pre><span></span><code>{
   "ENB": &lt;string&gt;,
@@ -393,9 +394,7 @@
   "timestamp": &lt;int&gt;
 }
 </code></pre></div>
-<p><strong>Enumeration description :</strong>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div></p>
+<p>The Layer 3 heartbeats have a similar format:</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.4g.ric.raw.service_discovery</code></p>
 <div class="highlight"><pre><span></span><code>{
   "ENB": &lt;string&gt;,
@@ -412,9 +411,6 @@
   "timestamp": &lt;int&gt;
 }
 </code></pre></div>
-<p><strong>Enumeration description :</strong>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div></p>
 <h2 id="network-state"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.2</span> Network state<a class="headerlink" href="#network-state" title="Permanent link">⚓︎</a></h2>
 <p><strong>Description :</strong> This message publishes the network state of the eNodeB, cell and UEs connected to the cell.</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.4g.ric.raw.network_state</code></p>
@@ -502,9 +498,6 @@
   "timestamp": &lt;int&gt;
 }
 </code></pre></div>
-<p><strong>Enumeration description :</strong>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div></p>
 <h2 id="l2-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.4</span> L2 Stats<a class="headerlink" href="#l2-stats" title="Permanent link">⚓︎</a></h2>
 <p><strong>Description :</strong> The dRAX RIC also reports the downlink and uplink L2 stats of the UEs in the network.</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.4g.ric.raw.ue_measurements</code></p>
@@ -528,9 +521,6 @@
   "timestamp": &lt;int&gt;
 }
 </code></pre></div>
-<p><strong>Enumeration description :</strong>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div></p>
 <h2 id="cqi"><span class="enumerate-headings-plugin enumerate-heading-plugin">17.5</span> CQI<a class="headerlink" href="#cqi" title="Permanent link">⚓︎</a></h2>
 <p><strong>Description :</strong> The dRAX RIC also supports retrieving the CQI report of the UE to its serving cell. You can get the CQI value from each subband as well as the wideband CQI value.</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.4g.ric.raw.ue_measurements</code></p>
@@ -557,9 +547,6 @@
   "timestamp": &lt;int&gt;
 }
 </code></pre></div>
-<p><strong>Enumeration description :</strong>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div></p>
 </article>
 </div>
 </div>
