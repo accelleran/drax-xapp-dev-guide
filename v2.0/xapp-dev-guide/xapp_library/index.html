@@ -587,23 +587,26 @@ actions.send_subband_masking_command(xapp.nats(), subband_mask)
 <li>data: the actual data that needs to be published, it should be of a type that can be serialized as the dRAX RIC Databus expects JSON format messages (hence the xapp.kafka().json()... decorator).</li>
 </ol>
 <h3 id="periodic-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.3</span> Periodic publishing<a class="headerlink" href="#periodic-publishing" title="Permanent link">⚓︎</a></h3>
-<p>If one wants to periodically publish information, they can spawn a separate thread using the spawn function from the xApp library:</p>
+<p>If one wants to periodically publish information, they can spawn a separate thread using the standard Python threading.Thread function </p>
 <div class="highlight"><pre><span></span><code>data = {"key": "data"}
 def periodic_publish(xapp):
     while True:
-        xapp().kafka().json().send_message("my_test_topic", data)
+        xapp.kafka().json().send_message("my_test_topic", data)
         sleep(1)
-xapp.spawn(periodic_publish)
+
+publish_thread = threading.Thread(name="PeriodicPublish", target=periodic_publish, args=(xapp,))
+publish_thread.start()
 </code></pre></div>
-<p><strong>NOTE: </strong>The xApp argument is a weak reference, thus the use of xapp() inside the function.</p>
 <h3 id="publish-to-the-drax-nats-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.4</span> Publish to the dRAX NATS Databus<a class="headerlink" href="#publish-to-the-drax-nats-databus" title="Permanent link">⚓︎</a></h3>
 <p>Publishing to the dRAX NATS Databus is equally simple:</p>
 <div class="highlight"><pre><span></span><code>data = {"key": "data"}
 def periodic_publish(xapp):
     while True:
-        xapp().nats().json().send_message("my_test_topic", data)
+        xapp.nats().json().send_message("my_test_topic", data)
         sleep(1)
-xapp.spawn(periodic_publish)
+
+publish_thread = threading.Thread(name="PeriodicPublish", target=periodic_publish, args=(xapp,))
+publish_thread.start()
 </code></pre></div>
 <h2 id="use-the-drax-ric-api-gateway"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9</span> Use the dRAX RIC API Gateway<a class="headerlink" href="#use-the-drax-ric-api-gateway" title="Permanent link">⚓︎</a></h2>
 <p>The dRAX RIC exposes a number of APIs through the dRAX RIC API Gateway. The full documentation on all of the endpoints is available on the dRAX RIC API Gateway Swagerhub, which is exposed on the following URL:</p>
