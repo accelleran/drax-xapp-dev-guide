@@ -172,6 +172,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_unittest/">
+        xApp Unit Tests
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../xapp_readme/">
         The xApp Documentation README.md
       </a>
@@ -369,11 +374,11 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="xapp-rest-api"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.</span> xApp REST API<a class="headerlink" href="#xapp-rest-api" title="Permanent link">⚓︎</a></h1>
+<h1 id="xapp-rest-api"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.</span> xApp REST API<a class="headerlink" href="#xapp-rest-api" title="Permanent link">⚓︎</a></h1>
 <p>The dRAX RIC platform has been, in its own roots, designed to use an adaptable approach. Through its genuinely defined architecture, an xApp can be developed and extended depending on needs to provide infinite tastes and flavors to the RIC.</p>
 <p>The xApp Library, therefore, also includes Tornado as the API framework. Accelleran has already pre-built a number of xApp API endpoints that are used for xApp Configuration purposes. On the other hand, the developer can also take advantage of the xApp Library abstractions to create their own custom API endpoints. This allows xApp developers to create handlers for the API endpoint requests (POST, GET, DELETE, PUT, etc.), to create different actions per endpoint depending on the requests received and add support for event-based actions. For more information about the tornado framework, you can reach the following link:</p>
 <p><a href="https://www.tornadoweb.org/en/stable/">https://www.tornadoweb.org/en/stable/</a></p>
-<h2 id="overview"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.1</span> Overview<a class="headerlink" href="#overview" title="Permanent link">⚓︎</a></h2>
+<h2 id="overview"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1</span> Overview<a class="headerlink" href="#overview" title="Permanent link">⚓︎</a></h2>
 <p>The xApp API has a couple of endpoints predefined:</p>
 <table>
 <tr>
@@ -441,7 +446,7 @@
 <li>To easily fetch the documentation and metadata of the xApp</li>
 </ol>
 <p>The /api is the extendable and optional endpoint that we have left up to developers to implement the functionalities. Example code for handling the /api endpoint can be found in the xApp Framework example/core/restapi.py. This way we keep the xApp Core the single point of focus for the developers. The use of /api is simply convention and developers can rename it as they wish. We will, however, use it here in this document when referring to developer created custom API endpoints.</p>
-<h2 id="adding-an-endpoint-behind-the-api"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.2</span> Adding an endpoint behind the /api<a class="headerlink" href="#adding-an-endpoint-behind-the-api" title="Permanent link">⚓︎</a></h2>
+<h2 id="adding-an-endpoint-behind-the-api"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2</span> Adding an endpoint behind the /api<a class="headerlink" href="#adding-an-endpoint-behind-the-api" title="Permanent link">⚓︎</a></h2>
 <p>To create a new entry point for your xApp under /api, the xApp developer simply needs to add a handler to the xApp builder .restapi() call.</p>
 <p>For each endpoint defined in the list, a callback class is associated. These classes will be called each time the endpoint is triggered and can also be overloaded at needs to handle every REST request (GET, PUT, POST, DELETE, ...).</p>
 <p>In the following example /api/, /api/actions and /api/request have been defined as endpoints with corresponding handlers.</p>
@@ -469,7 +474,7 @@
         self.write("You wrote " + self.get_body_argument("message"))
 </code></pre></div>
 <p>Hence, every endpoint is bound to a specific class handler that will define and organize all the expected management and behaviors when it will be triggered.</p>
-<h2 id="how-to-extend-the-context-of-the-newly-added-api-endpoint"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3</span> How to extend the context of the newly added API endpoint<a class="headerlink" href="#how-to-extend-the-context-of-the-newly-added-api-endpoint" title="Permanent link">⚓︎</a></h2>
+<h2 id="how-to-extend-the-context-of-the-newly-added-api-endpoint"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.3</span> How to extend the context of the newly added API endpoint<a class="headerlink" href="#how-to-extend-the-context-of-the-newly-added-api-endpoint" title="Permanent link">⚓︎</a></h2>
 <p>While deploying a new endpoint, xApp developers also might want to extend its functionalities to have the hand on much wider components. To have access to the functionalities of these components, a reference to the xapp will need to be provided to the handlers.</p>
 <p>This reference will be forwarded automatically to the user class initialization function for further use inside it. In addition metaclassing can be used to pass additional parameters to the handler.</p>
 <p>It allows xApps developers to declare a dictionary of variables and information that will be made automatically available in the initialize function of the handler definition.</p>
@@ -488,7 +493,7 @@ builder.restapi(["/api", create_handle(my_listener)])
 </code></pre></div>
 <p>In this example listener is an object of a user-defined class meant to forward logic to a main thread.</p>
 <p>This way a certain message from the API can be forwarded to the main application. Hence, xApp developers can extend the possibilities of the xApps at needs in a fully configurable environment.</p>
-<h2 id="reaching-api-endpoints"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.4</span> Reaching API endpoints<a class="headerlink" href="#reaching-api-endpoints" title="Permanent link">⚓︎</a></h2>
+<h2 id="reaching-api-endpoints"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.4</span> Reaching API endpoints<a class="headerlink" href="#reaching-api-endpoints" title="Permanent link">⚓︎</a></h2>
 <p>All the endpoints of the xApp can be reached using the following syntax:</p>
 <div class="highlight"><pre><span></span><code>http://&lt;kubernetes_ip&gt;:&lt;xapp_api_port&gt;/&lt;endpoint&gt;
 </code></pre></div>

@@ -282,6 +282,11 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_unittest/">
+        xApp Unit Tests
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../xapp_readme/">
         The xApp Documentation README.md
       </a>
@@ -543,7 +548,7 @@ handover_list = [
     {'ueIdx': 'ueRicId_to_handover_1', 'targetCell': 'Cell_1', 'sourceCell': 'Cell_2'},
     {'ueIdx': 'ueRicId_to_handover_2', 'targetCell': 'Cell_2', 'sourceCell': 'Cell_1'}
 ]
-actions.send_handover_command(xapp.nats(), handover_list)
+actions.trigger_handover(xapp.nats(), handover_list)
 </code></pre></div>
 <p>First, we have to create the handover_list. This is a list of dictionaries in Python. Each dictionary, as shown above, contains a handover request, where we have the following elements:</p>
 <ul>
@@ -555,11 +560,11 @@ actions.send_handover_command(xapp.nats(), handover_list)
 <h3 id="subband-masking-command"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2</span> Subband-masking command<a class="headerlink" href="#subband-masking-command" title="Permanent link">⚓︎</a></h3>
 <p>dRAX enables you to also mask certain subbands of a cell. This way, these subbands become unusable by the cell. Similarly to the handover command, we have abstracted the lower-level details, and created a function you can call to mask the subbands of a certain cell. This is described in Example 5 in the <em>example/core/xapp_main.py</em> example of the xApp Framework:</p>
 <div class="highlight"><pre><span></span><code>### Example 5: Send subband masking command
-subband_mask = [
-    {'cell': 'Cell_1', 'num_of_bands': '13', 'mask': [1,1,1,1,1,1,1,1,1,1,1,1,1]},
-    {'cell': 'Cell_2', 'num_of_bands': '9', 'mask': [1,1,1,1,1,1,1,1,1]}
+sub_band_masking_list = [
+    { 'cell': 'Cell_1', 'mask': (1, True) },
+    { 'cell': 'Cell_2', 'mask': (1, True) },
 ]
-actions.send_subband_masking_command(xapp.nats(), subband_mask)
+actions.trigger_sub_band_selection(xapp.nats(), sub_band_masking_list)
 </code></pre></div>
 <p>First we create the subband_mask variable, which is a list of dictionaries in Python. Each dictionary contains the following elements:</p>
 <ul>
@@ -587,7 +592,7 @@ actions.send_subband_masking_command(xapp.nats(), subband_mask)
 <li>data: the actual data that needs to be published, it should be of a type that can be serialized as the dRAX RIC Databus expects JSON format messages (hence the xapp.kafka().json()... decorator).</li>
 </ol>
 <h3 id="periodic-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.3</span> Periodic publishing<a class="headerlink" href="#periodic-publishing" title="Permanent link">⚓︎</a></h3>
-<p>If one wants to periodically publish information, they can spawn a separate thread using the standard Python threading.Thread function </p>
+<p>If one wants to periodically publish information, they can spawn a separate thread using the standard Python threading.Thread function</p>
 <div class="highlight"><pre><span></span><code>data = {"key": "data"}
 def periodic_publish(xapp):
     while True:
@@ -644,11 +649,11 @@ publish_thread.start()
 </ul>
 <h3 id="how-to-use-the-drax-ric-api-gateway-in-general"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9.1</span> How to use the dRAX RIC API Gateway in general<a class="headerlink" href="#how-to-use-the-drax-ric-api-gateway-in-general" title="Permanent link">⚓︎</a></h3>
 <p>Example 6 shows how to call the API gateway on the following endpoint:</p>
-<div class="highlight"><pre><span></span><code>/xappconfiguration/discover/services/netconf
+<div class="highlight"><pre><span></span><code>/discover/services/netconf
 </code></pre></div>
 <p>This endpoint, as described in the SwagerHub, returns the list of NetConf services deployed on dRAX. Since the Accelleran 4G small cells and the 5G CUs have NetConf servers running in them to be able to use NetConf to configure them, this way we can get that information.</p>
 <div class="highlight"><pre><span></span><code>### Example 6: How to use the dRAX RIC API Gateway
-endpoint = '/xappconfiguration/discover/services/netconf'
+endpoint = '/discover/services/netconf'
 api_response = requests.get(actions.create_api_url(xapp, endpoint))
 
 if api_response.status_code == 200:
@@ -661,7 +666,7 @@ if api_response.status_code == 200:
 <h3 id="how-to-pick-only-the-port-at-which-netconf-is-exposed"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9.2</span> How to pick only the port at which NetConf is exposed<a class="headerlink" href="#how-to-pick-only-the-port-at-which-netconf-is-exposed" title="Permanent link">⚓︎</a></h3>
 <p>Example 7 shows how to parse the retrieved information from the dRAX RIC API Gateway. Because the information retrieved can be parsed as JSON, in python we can simply use it as a Python dictionary:</p>
 <div class="highlight"><pre><span></span><code>### Example 7: Get the ports where the netconf servers of cells are exposed
-        endpoint = '/xappconfiguration/discover/services/netconf'
+        endpoint = '/discover/services/netconf'
         api_response = requests.get(actions.create_api_url(xapp, endpoint))
 
         for cell, cell_info in api_response.json().items():
@@ -699,13 +704,13 @@ if api_response.status_code == 200:
             </div>
 </div>
 </a>
-<a aria-label="Next: The xApp Documentation README.md" class="md-footer__link md-footer__link--next" href="../xapp_readme/" rel="next">
+<a aria-label="Next: xApp Unit Tests" class="md-footer__link md-footer__link--next" href="../xapp_unittest/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              The xApp Documentation README.md
+              xApp Unit Tests
             </div>
 </div>
 <div class="md-footer__button md-icon">

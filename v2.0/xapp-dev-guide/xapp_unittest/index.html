@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://accelleran.github.io/drax-xapp-dev-guide/v2.0/xapp-dev-guide/introduction/" rel="canonical"/>
+<link href="https://accelleran.github.io/drax-xapp-dev-guide/v2.0/xapp-dev-guide/xapp_unittest/" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.3.0, mkdocs-material-7.3.6" name="generator"/>
-<title>Introduction - dRAX xApp Dev Guide</title>
+<title>xApp Unit Tests - dRAX xApp Dev Guide</title>
 <link href="../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#introduction">
+<a class="md-skip" href="#xapp-unit-tests">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Introduction
+              xApp Unit Tests
             
           </span>
 </div>
@@ -94,7 +94,7 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
+<a class="md-tabs__link md-tabs__link--active" href="../introduction/">
         Documentation
       </a>
 </li>
@@ -136,9 +136,8 @@
           Documentation
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
         Introduction
       </a>
 </li>
@@ -172,10 +171,38 @@
         xApp Library In-depth
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_unittest/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          xApp Unit Tests
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         xApp Unit Tests
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#xapp-testing-framework">
+    xApp testing framework
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-the-virtual-environment">
+    Setup the virtual environment
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-pytest">
+    Run pytest
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../xapp_readme/">
@@ -342,28 +369,79 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="introduction"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.</span> Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h1>
-<p>dRAX is Accelleran’s O-RAN aligned Cloud Native RAN platform. dRAX is cloud native by design and encompasses the O-RAN defined CU function, a Service Management and Orchestration (SMO) layer,  as well as a near real-time RAN Intelligent Controller (RIC) platform. It features a micro-service oriented architecture with containerized functions orchestrated via Kubernetes and supports both 4G and 5G technologies.</p>
-<p>The dRAX RIC platform is a Near Real-Time platform. It allows developers to implement xApps that can leverage dRAX near real-time open RAN data and communicate with other xApps  to bring new services and functionalities. It offers seamless integration with other orchestration platforms and lowers the technology barrier to implement Enterprise cellular networks by implementing artificial intelligence techniques for the configuration and operation of private cellular networks. This document serves as the developers guide in creating and deploying xApps on the Accelleran dRAX.</p>
-<p>To make the development and integration of xApps into dRAX as smooth as possible, we have created the dRAX xApp Framework. This framework consists of a number of predefined and pre-developed resources that can communicate with the rest of the entities within the dRAX RIC. This allows the framework to seamlessly integrate with dRAX on deployment. Using abstractions of the lower level details, the xApp Framework exposes easy to use methods which allows the developers to only focus on the functionality of their xApp.</p>
-<p>The dRAX xApp Framework consists of the following components, which are shown on <em>Figure 2</em>:</p>
-<ol>
-<li>The xApp Library - a Python library which interfaces with the dRAX RIC platform</li>
-<li>The xApp Database - Redis server for storage of configuration data</li>
-<li>The xApp Core - the core logic of the xApp written by the developer</li>
-<li>The xApp Helm Chart - a Helm Chart used to deploy the xApp and integrate it with dRAX RIC</li>
-</ol>
-<table>
-<tr>
-<td>
-<img align="center" alt="dRAX xApps Framework diagram" src="../images/xapps_framework_diagram.png" title="dRAX xApps Framework" width="500px"/>
-</td>
-</tr>
-<tr>
-<td><em>Figure: dRAX xApps Framework</em>
-</td>
-</tr>
-</table>
+<h1 id="xapp-unit-tests"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.</span> xApp Unit Tests<a class="headerlink" href="#xapp-unit-tests" title="Permanent link">⚓︎</a></h1>
+<p>When developing an xApp, you may want to ensure that your code runs as it should at every development step and does not break the links between your different modules in your system,</p>
+<p>To guarantee a correct behaviour of your xApp and its relations, you can provide some stubs and mocks to assist the testing of your different blocks,</p>
+<p>Stubs and mocks are predefined methods/objects that simulate the behaviour of a real methods/objects and expect a specific way of working,</p>
+<p>This approach will help you to secure your code and protect it from breaking changes and unwanted behaviour during your development cycle,</p>
+<p>In this context, each block should be tested independently to isolate the issues that may happen and thus demonstrate that the individual parts behave flawlessly,</p>
+<p>Some of the different blocks that you might use when developing an xApp to interact with dRax components are already available inside of the the xApp framework,</p>
+<h2 id="xapp-testing-framework"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.1</span> xApp testing framework<a class="headerlink" href="#xapp-testing-framework" title="Permanent link">⚓︎</a></h2>
+<p>In most cases, an xApp will use predefined interfaces to interact with the dRax components,</p>
+<p>The xApp might want, for instance, to read values from nats and/or kafka, to set fields in redis or to assure that its configuration is correct,</p>
+<p>For all these functionalities and much more, all the dRax interfaces are already mocked for you to simplify your tests and speedup your testing process,</p>
+<p>Here is a non-exhaustive list of mocked components provided and pre-built inside the xapp-framework:</p>
+<ul>
+<li>nats</li>
+<li>kafka</li>
+<li>redis</li>
+<li>tornado</li>
+<li>xapp</li>
+<li>...</li>
+</ul>
+<p>Examples of using the unit tests are available in the tests folder available when creating an xapp: <a href="/drax-xapp-dev-guide/xapp-dev-guide/development_workflows#development-workflows">Development Workflows</a></p>
+<p>To use the xapp framework, go in the tests folder of your deployed xapp and follow the next steps,</p>
+<h2 id="setup-the-virtual-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.2</span> Setup the virtual environment<a class="headerlink" href="#setup-the-virtual-environment" title="Permanent link">⚓︎</a></h2>
+<p>The virtual environment is used to make sure that your suite of tests works independently from your current environment,</p>
+<p>It creates an isolated environment to protect against local packages interferences and to guarantee packages versioning installation,</p>
+<p>Follow the steps to setup your own virtual environment and install the packages, python3.9 is required</p>
+<p>1) Install virtualenv:
+<div class="highlight"><pre><span></span><code>python -m pip install --user virtualenv
+</code></pre></div></p>
+<p>2) Go to your xapp tests folder
+<div class="highlight"><pre><span></span><code>cd /your/xapp/path/root/tests
+</code></pre></div></p>
+<p>3) Create a virtualenv folder:
+<div class="highlight"><pre><span></span><code>virtualenv -p /usr/bin/python3.9 venv_test
+</code></pre></div></p>
+<p>4) Activate the virtualenv:
+<div class="highlight"><pre><span></span><code>source venv_test/bin/activate
+</code></pre></div></p>
+<p>5) Install needed packages for xapp and for tests:
+<div class="highlight"><pre><span></span><code>pip install -r requirements.txt
+pip install -r tests/requirements.txt
+</code></pre></div></p>
+<p>/!\ Once your virtual environment is setup and the packages installed, next time you want to run the tests you can simply reactivate your environment, no need to go over all the previous steps again /!\</p>
+<h2 id="run-pytest"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.3</span> Run pytest<a class="headerlink" href="#run-pytest" title="Permanent link">⚓︎</a></h2>
+<p>To be able to run your tests, make sure that your virtual environment has been setup according to the previous section: <a href="./#setup-the-virtual-environment">Setup the virtual environment</a></p>
+<p>Also, you should make sure that your virtual environment is activated,</p>
+<p>If not, run your virtual environment:
+<div class="highlight"><pre><span></span><code>source venv_test/bin/activate
+</code></pre></div></p>
+<p>Then, run your tests:
+<div class="highlight"><pre><span></span><code>python -m pytest .
+</code></pre></div></p>
+<p>The previous command will run all the tests available in the folder where you run pytest,</p>
+<p>Output example:
+<div class="highlight"><pre><span></span><code>(venv_test) &lt;your_prompt&gt; python -m pytest .
+====================================== test session starts =========================================
+platform linux -- Python 3.9.13, pytest-7.1.0, pluggy-1.0.0
+rootdir: &lt;your_project_path&gt;
+collected 54 items
+
+item1_test.py ..........                                                                      [ 18%]
+item2_test.py ...........                                                                     [ 38%]
+common_test.py .....                                                                          [ 48%]
+item3_test.py ....                                                                            [ 55%]
+datastore_test.py .....................                                                       [ 94%]
+scenario_test.py ...                                                                          [100%]
+
+====================================== 54 passed in 0.76s ==========================================
+</code></pre></div></p>
+<p>More info on pytest: <a href="https://docs.pytest.org/en/7.1.x/">https://docs.pytest.org/en/7.1.x/</a></p>
+<p>To deactivate your virtual environment:
+<div class="highlight"><pre><span></span><code>deactivate
+</code></pre></div></p>
 </article>
 </div>
 </div>
@@ -374,7 +452,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Overview" class="md-footer__link md-footer__link--prev" href="../.." rel="prev">
+<a aria-label="Previous: xApp Library In-depth" class="md-footer__link md-footer__link--prev" href="../xapp_library/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -383,17 +461,17 @@
 <span class="md-footer__direction">
                 Previous
               </span>
-              Overview
+              xApp Library In-depth
             </div>
 </div>
 </a>
-<a aria-label="Next: Quick guide" class="md-footer__link md-footer__link--next" href="../quick_guide/" rel="next">
+<a aria-label="Next: The xApp Documentation README.md" class="md-footer__link md-footer__link--next" href="../xapp_readme/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              Quick guide
+              The xApp Documentation README.md
             </div>
 </div>
 <div class="md-footer__button md-icon">
