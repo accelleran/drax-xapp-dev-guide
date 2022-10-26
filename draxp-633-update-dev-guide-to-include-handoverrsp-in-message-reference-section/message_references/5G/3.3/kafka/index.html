@@ -320,6 +320,11 @@
     CU-UP Throughput stats
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5g-ran-control-response">
+    5G RAN Control Response
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -691,19 +696,6 @@ AMFSTATE_CONNECTED
 </code></pre></div>
 <p><strong>Enumeration description :</strong>
 <div class="highlight"><pre><span></span><code>Enum Type:
-InstanceTypeEnum
-
-Enum Values:
-NONE_TYPE
-CELL_TYPE
-AMF_TYPE
-UE_TYPE
-SSB_FREQ_TYPE
-QOS_TYPE
-SNSSAI_TYPE
-INVALID_TYPE
-
-Enum Type:
 CounterIdEnum
 
 Enum Values:
@@ -716,6 +708,19 @@ DL_GTP_THP_SAMPLES_ID
 UL_GTP_THP_ID
 UL_GTP_THP_SAMPLES_ID
 MAX_NUMBER_COUNTERS
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+INVALID_TYPE
 </code></pre></div></p>
 <h3 id="cu-cp-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.2</span> CU-CP Throughput stats<a class="headerlink" href="#cu-cp-throughput-stats" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-CP.</p>
@@ -747,19 +752,6 @@ MAX_NUMBER_COUNTERS
 </code></pre></div>
 <p><strong>Enumeration description :</strong>
 <div class="highlight"><pre><span></span><code>Enum Type:
-InstanceTypeEnum
-
-Enum Values:
-NONE_TYPE
-CELL_TYPE
-AMF_TYPE
-UE_TYPE
-SSB_FREQ_TYPE
-QOS_TYPE
-SNSSAI_TYPE
-INVALID_TYPE
-
-Enum Type:
 CucpCounterIdEnum
 
 Enum Values:
@@ -773,6 +765,19 @@ NUMBER_OF_PDU_SESSIONS_REQUESTED_TO_SETUP
 NUMBER_OF_PDU_SESSIONS_FAILED_TO_SETUP
 SS_RSRP_DISTRIBUTION_PER_SSB
 NUMBER_OF_CUCP_COUNTERS
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+INVALID_TYPE
 </code></pre></div></p>
 <h3 id="cu-up-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.3</span> CU-UP Throughput stats<a class="headerlink" href="#cu-up-throughput-stats" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-UP.</p>
@@ -804,19 +809,6 @@ NUMBER_OF_CUCP_COUNTERS
 </code></pre></div>
 <p><strong>Enumeration description :</strong>
 <div class="highlight"><pre><span></span><code>Enum Type:
-InstanceTypeEnum
-
-Enum Values:
-NONE_TYPE
-CELL_TYPE
-AMF_TYPE
-UE_TYPE
-SSB_FREQ_TYPE
-QOS_TYPE
-SNSSAI_TYPE
-INVALID_TYPE
-
-Enum Type:
 CuupCounterIdEnum
 
 Enum Values:
@@ -831,6 +823,27 @@ AVERAGE_DELAY_DL_IN_CUUP_SNSSAI
 DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS
 DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI
 NUMBER_OF_CUUP_COUNTERS
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+INVALID_TYPE
+</code></pre></div></p>
+<h3 id="5g-ran-control-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.4</span> 5G RAN Control Response<a class="headerlink" href="#5g-ran-control-response" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message is used to communicate successful completion of a request by the CU:</p>
+<p><strong>Kafka topic :</strong> ``</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>
 </code></pre></div></p>
 </article>
 </div>
