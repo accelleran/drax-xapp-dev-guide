@@ -576,13 +576,14 @@ lte.trigger_handover_4g(xapp.nats(), handover_list)
                           'TargetCellPlmnId': [4, 5, 6],
                         }
 
+        kafka = xapp.kafka(xapp)
+        kafka.subscribe('accelleran.drax.5g.ric.raw.ran_control_response')
+
         nr.trigger_handover(nats=xapp.nats(),
                             handover_data=handover_data,
                             ric_requester_id=ricRequesterId,
                             ric_instance_id=ricInstanceId)
 
-        kafka = xapp.kafka(xapp)
-        kafka.subscribe('accelleran.drax.5g.ric.raw.ran_control_response')
         (topic, data) = kafka.json().recv_message()
 
         if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
@@ -590,11 +591,12 @@ lte.trigger_handover_4g(xapp.nats(), handover_list)
                 print('handover completed!')
 </code></pre></div>
 <p>We start by creating an transaction id generator and using it to generate a unique transacion id (it is thread safe). This id will be used to label the handover command and, later, to identify the response coming from the CU.</p>
-<p>Next, a dictionary with the data necessary for the handover to be executed is created and used in the handover command:
+<p>Next, a dictionary with the data necessary for the handover to be executed is created:
 * 'Crnti': the CRNTI of the UE to be handed over between cells;
 * 'TargetCellId', 'TargetCellPlmnId': The target cell id and PLMN to which the UE should get handed over to;
 * 'SourceCellId', 'SourceCellPlmnId': The UE's current serving cell id and PLMN.</p>
-<p>Finally, a subscription to kafka bus for the handover response message is created and awaited on. The message only communicates success - at the moment there is no way to signal handover failure. The 'RicInstanceId' field in the response is the transaction id that we have generated earlier.</p>
+<p>Then, a subscription to kafka bus for the handover response message is created and awaited on. The message only communicates success - at the moment there is no way to signal handover failure. The 'RicInstanceId' field in the response is the transaction id that we have generated earlier.</p>
+<p>Finally, the handover command is issued and the response is awaited on the Kafka bus:</p>
 <h3 id="subband-masking-command"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3</span> Subband-masking command<a class="headerlink" href="#subband-masking-command" title="Permanent link">⚓︎</a></h3>
 <p>dRAX enables you to also mask certain subbands of a cell. This way, these subbands become unusable by the cell. Similarly to the handover command, we have abstracted the lower-level details, and created a function you can call to mask the subbands of a certain cell. This is described in Example 5 in the <em>example/core/xapp_main.py</em> example of the xApp Framework:</p>
 <div class="highlight"><pre><span></span><code>### Example 5: Send subband masking command
