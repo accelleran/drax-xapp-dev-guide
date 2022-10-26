@@ -566,8 +566,8 @@ lte.trigger_handover_4g(xapp.nats(), handover_list)
 <p>dRAX enables you to issue a handover command of a specific UE within the NR RAN, from its currently serving cell to a certain target cell, assuming of course the target cell is in UEs range. In the <em>example/core/xapp_main.py</em> example of the xApp Framework we show this in Example 4b:</p>
 <div class="highlight"><pre><span></span><code>### Example 4b: Send handover command (NR)
         id_gen = utils.Id()
-        ricInstanceId  = id_gen.get()
-        ricRequesterId = 123456  # should be unique across the RIC deployment
+        ric_instance_id  = id_gen.get()
+        ric_requester_id = 123456  # should be unique across the RIC deployment
 
         handover_data = { 'Crnti': 7,
                           'TargetCellId': 123,
@@ -581,20 +581,22 @@ lte.trigger_handover_4g(xapp.nats(), handover_list)
 
         nr.trigger_handover(nats=xapp.nats(),
                             handover_data=handover_data,
-                            ric_requester_id=ricRequesterId,
-                            ric_instance_id=ricInstanceId)
+                            ric_requester_id=ric_instance_id,
+                            ric_instance_id=ric_requester_id)
 
         (topic, data) = kafka.json().recv_message()
 
         if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
-            if data.RicInstanceId == ricInstanceId:
+            if data.RicInstanceId == ric_requester_id:
                 print('handover completed!')
 </code></pre></div>
 <p>We start by creating an transaction id generator and using it to generate a unique transacion id (it is thread safe). This id will be used to label the handover command and, later, to identify the response coming from the CU.</p>
-<p>Next, a dictionary with the data necessary for the handover to be executed is created:
-* 'Crnti': the CRNTI of the UE to be handed over between cells;
-* 'TargetCellId', 'TargetCellPlmnId': The target cell id and PLMN to which the UE should get handed over to;
-* 'SourceCellId', 'SourceCellPlmnId': The UE's current serving cell id and PLMN.</p>
+<p>Next, a dictionary with the data necessary for the handover to be executed is created:</p>
+<ul>
+<li>'Crnti': the CRNTI of the UE to be handed over between cells;</li>
+<li>'TargetCellId', 'TargetCellPlmnId': The target cell id and PLMN to which the UE should get handed over to;</li>
+<li>'SourceCellId', 'SourceCellPlmnId': The UE's current serving cell id and PLMN.</li>
+</ul>
 <p>Then, a subscription to kafka bus for the handover response message is created and awaited on. The message only communicates success - at the moment there is no way to signal handover failure. The 'RicInstanceId' field in the response is the transaction id that we have generated earlier.</p>
 <p>Finally, the handover command is issued and the response is awaited on the Kafka bus:</p>
 <h3 id="subband-masking-command"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3</span> Subband-masking command<a class="headerlink" href="#subband-masking-command" title="Permanent link">⚓︎</a></h3>
