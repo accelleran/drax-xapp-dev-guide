@@ -8,7 +8,7 @@
 <link href="https://accelleran.github.io/drax-xapp-dev-guide/v2.0/" rel="canonical"/>
 <link href="assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.3.0, mkdocs-material-7.3.6" name="generator"/>
-<title>dRAX xApp Dev Guide</title>
+<title>Introduction - dRAX xApp Dev Guide</title>
 <link href="assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
 <link href="assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#overview">
+<a class="md-skip" href="#introduction">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Overview
+              Introduction
             
           </span>
 </div>
@@ -90,11 +90,11 @@
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
 <a class="md-tabs__link md-tabs__link--active" href=".">
-      Overview
-    </a>
+        Overview
+      </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="xapp-dev-guide/introduction/">
+<a class="md-tabs__link" href="xapp-dev-guide/quick_guide/">
         Documentation
       </a>
 </li>
@@ -119,54 +119,24 @@
     dRAX xApp Dev Guide
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Overview
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href=".">
-        Overview
-      </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index md-nav__link--active">
+<a href=".">Overview</a>
+<label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+</label>
+</div>
+<nav aria-label="Overview" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#version-history">
-    Version history
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changelog">
-    Changelog
-  </a>
-<nav aria-label="Changelog" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added">
-    Added
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed">
-    Changed
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#removed">
-    Removed
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#notes">
-    Notes
-  </a>
-</li>
-</ul>
-</nav>
+<a class="md-nav__link" href="changelog/">
+        Changelog
+      </a>
 </li>
 </ul>
 </nav>
@@ -183,11 +153,6 @@
           Documentation
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="xapp-dev-guide/introduction/">
-        Introduction
-      </a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="xapp-dev-guide/quick_guide/">
         Quick guide
@@ -388,214 +353,22 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="overview"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Overview<a class="headerlink" href="#overview" title="Permanent link">⚓︎</a></h1>
-<p><img align="center" alt="Accelleran Logo" src="accelleran_logo.png" title="Accelleran Logo" width="700px"/></p>
-<div>
-<strong>
-<div style="font-size: 40px;">
-<div style="color:#F7941D; display:inline">dRAX</div>
-<div style="color:#00AEEF; display:inline">RIC xApps Development Guide</div>
-</div>
-</strong>
-</div>
-<table>
-<tr>
-<td>Doc Ref
-   </td>
-<td>dRAX-xApps-01
-   </td>
-</tr>
-<tr>
-<td>Version
-   </td>
-<td>2.0.0
-   </td>
-</tr>
-<tr>
-<td>xApp Framework Version
-   </td>
-<td>2.0.0
-   </td>
-</tr>
-<tr>
-<td>dRAX Version Support
-   </td>
-<td>4.0.0, 4.1.0
-   </td>
-</tr>
-<tr>
-<td>Date
-   </td>
-<td>22.12.2021.
-   </td>
-</tr>
-</table>
-<p><strong>About This Document</strong></p>
-<p>This document is intended as a guide for developers creating xApps for the dRAX platform.</p>
-<p><strong>Copyright Notice </strong></p>
-<p>Accelleran copyrights this dRAX xApps Development Guide. No part of this document may be reproduced in any form or means, without the prior written consent of Accelleran.</p>
-<p><strong>Disclaimer </strong></p>
-<p>This specification is preliminary and is subject to change at any time without notice. Accelleran assumes no responsibility for any errors contained herein. For more information, please consult our customer support.</p>
-<p><strong>Contact Us</strong></p>
-<p>Accelleran NV, Quellinstraat 49, 2018, Antwerpen, Belgium, EU</p>
-<p>E-mail: customer.support@accelleran.com</p>
-<p>Phone: +32 489 602 684</p>
-<p>Website: http://www.accelleran.com/</p>
-<h2 id="version-history"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Version history<a class="headerlink" href="#version-history" title="Permanent link">⚓︎</a></h2>
-<table>
-<tr>
-<td><strong>Author</strong>
-</td>
-<td><strong>Note</strong>
-</td>
-<td><strong>Date</strong>
-</td>
-<td><strong>Version</strong>
-</td>
-</tr>
-<tr>
-<td>Ensar Zeljkovic
-   </td>
-<td>First draft with table of contents
-   </td>
-<td>06.05.2020.
-   </td>
-<td>0.0.1
-   </td>
-</tr>
-<tr>
-<td>Ensar Zeljkovic
-   </td>
-<td>Restructuring to new xApp Framework Package
-   </td>
-<td>24.09.2020.
-   </td>
-<td>0.0.2
-   </td>
-</tr>
-<tr>
-<td>Ensar Zeljkovic
-   </td>
-<td>Pre-Release ready for review
-   </td>
-<td>07.10.2020.
-   </td>
-<td>0.1.0
-   </td>
-</tr>
-<tr>
-<td>Antoine Dugast
-   </td>
-<td>Adding Extendable API overview
-   </td>
-<td>25.03.2021.
-   </td>
-<td>0.2.0
-   </td>
-</tr>
-<tr>
-<td>Antoine Dugast
-   </td>
-<td>Adding README documentation
-   </td>
-<td>09.04.2021.
-   </td>
-<td>0.3.0
-   </td>
-</tr>
-<tr>
-<td>Ensar Zeljkovic
-   </td>
-<td>Incorporating API and README documentation
-   </td>
-<td>13.04.2021.
-   </td>
-<td>0.3.1
-   </td>
-</tr>
-<tr>
-<td>Ensar Zeljkovic
-   </td>
-<td>New Development workflow
-   </td>
-<td>14.04.2021
-   </td>
-<td>0.4.0
-   </td>
-</tr>
-<tr>
-<td>Ensar Zeljkovic
-   </td>
-<td>Align with dRAX-4.0.0
-   </td>
-<td>03.12.2021
-   </td>
-<td>1.0.0
-   </td>
-</tr>
-<tr>
-<td>Gerwin Dox
-   </td>
-<td>Sync with xApp Library rework.
-   </td>
-<td>28.07.2021
-   </td>
-<td>2.0.0-rc0
-   </td>
-</tr>
-<tr>
-<td>Gerwin Dox
-   </td>
-<td>Sync with Lib version 0.3
-   </td>
-<td>29.11.2021
-   </td>
-<td>2.0.0-rc1
-   </td>
-</tr>
-<tr>
-<td>Ensar Zeljkovic
-   </td>
-<td>Review and edits for xApp Library update
-   </td>
-<td>14.12.2021.
-   </td>
-<td>2.0.0-rc2
-   </td>
-</tr>
-<tr>
-<td>Ensar Zeljkovic
-   </td>
-<td>Adding ChangeLog section
-   </td>
-<td>22.12.2021.
-   </td>
-<td>2.0.0
-   </td>
-</tr>
-</table>
-<h2 id="changelog"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Changelog<a class="headerlink" href="#changelog" title="Permanent link">⚓︎</a></h2>
-<h3 id="added"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Added<a class="headerlink" href="#added" title="Permanent link">⚓︎</a></h3>
-<ul>
-<li>Added xApp Library instead of the xApp Python Template. Instead of having template Python files, we now have a full xApp Python Library, which abstracts the interfaces towards dRAX and dRAX RIC. More info can be found in the <a href="xapp-dev-guide/xapp_framework#xapp-framework-in-depth">xApp Framework In-depth</a> and <a href="xapp-dev-guide/xapp_library#xapp-library-in-depth">xApp Library In-depth</a>.</li>
-<li>Added new xApp Configuration API. More information can be found in the <a href="xapp-dev-guide/xapp_configuration#xapp-configuration-in-depth">xApp Configuration In-depth</a> section.</li>
-</ul>
-<h3 id="changed"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Changed<a class="headerlink" href="#changed" title="Permanent link">⚓︎</a></h3>
-<ul>
-<li>Updated the Workflows to add more options for easier development cycles. More info can be seen in the <a href="xapp-dev-guide/quick_guide#quick-guide">Quick guide</a>, <a href="xapp-dev-guide/development_workflows#development-workflows">Development Workflows</a> and <a href="xapp-dev-guide/xapp_dev_environment#build-your-own-xapp-dev-environment">Build your own xApp Dev Environment</a> sections.</li>
-<li>As the new xApp Library is in place, all the previous abstractions of the interfaces are there, however, there are syntax changes. More info can be found in the <a href="xapp-dev-guide/xapp_library#xapp-library-in-depth">xApp Library In-depth</a> section.</li>
-<li>Updated the xApp API structure. More information can be found in the <a href="xapp-dev-guide/xapp_configuration#xapp-configuration-in-depth">xApp Configuration In-depth</a> section.</li>
-<li>The programmable approach to configuring the xApp has changed. More info can be found in the <a href="xapp-dev-guide/xapp_lifecycle#xapps-lifecycle-in-depth">xApps Lifecycle In-depth</a> section.</li>
-<li>The xApp Helm Chart has been updated to incorporate the changes above. More info can be found in the <a href="xapp-dev-guide/xapp_helm_charts#xapp-helm-chart-in-depth">xApp Helm Chart In-Depth</a>.</li>
-</ul>
-<h3 id="removed"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3</span> Removed<a class="headerlink" href="#removed" title="Permanent link">⚓︎</a></h3>
-<ul>
-<li>The xApp API has been removed as a separate Docker image. It is now integrated in the xApp Library and part of the xApp Core. More information can be found in the <a href="xapp-dev-guide/xapp_rest_api#xapp-rest-api">xApp REST API</a> section.</li>
-</ul>
-<h3 id="notes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.4</span> Notes<a class="headerlink" href="#notes" title="Permanent link">⚓︎</a></h3>
-<ul>
-<li>In the <a href="xapp-dev-guide/appendix_conversion#appendix-conversion-from-the-xapp-framework-to-the-xapp-library">Appendix: Conversion from the xApp Framework to the xApp Library</a> section, we have summarized how to upgrade from the previous xApp Framework version 0.4.0 and 1.0.0 to the new 2.0.0.</li>
-</ul>
+<h1 id="introduction"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h1>
+<p>This document is intended as a guide for developers creating xApps for the dRAX platform, using the xApp Framework 2.0.</p>
+<h2 id="supported-versions"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Supported Versions<a class="headerlink" href="#supported-versions" title="Permanent link">⚓︎</a></h2>
+<p>This version of the xApp Framework supports RIC 4.0 and up.</p>
+<h2 id="background"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Background<a class="headerlink" href="#background" title="Permanent link">⚓︎</a></h2>
+<p>dRAX is Accelleran’s O-RAN aligned Cloud Native RAN platform. dRAX is cloud native by design and encompasses the O-RAN defined CU function, a Service Management and Orchestration (SMO) layer,  as well as a near real-time RAN Intelligent Controller (RIC) platform. It features a micro-service oriented architecture with containerized functions orchestrated via Kubernetes and supports both 4G and 5G technologies.</p>
+<p>The dRAX RIC platform is a Near Real-Time platform. It allows developers to implement xApps that can leverage dRAX near real-time open RAN data and communicate with other xApps  to bring new services and functionalities. It offers seamless integration with other orchestration platforms and lowers the technology barrier to implement Enterprise cellular networks by implementing artificial intelligence techniques for the configuration and operation of private cellular networks. This document serves as the developers guide in creating and deploying xApps on the Accelleran dRAX.</p>
+<p>To make the development and integration of xApps into dRAX as smooth as possible, we have created the dRAX xApp Framework. This framework consists of a number of predefined and pre-developed resources that can communicate with the rest of the entities within the dRAX RIC. This allows the framework to seamlessly integrate with dRAX on deployment. Using abstractions of the lower level details, the xApp Framework exposes easy to use methods which allows the developers to only focus on the functionality of their xApp.</p>
+<p>The dRAX xApp Framework consists of the following components, which are shown below:</p>
+<ol>
+<li>The xApp Library - a Python library which interfaces with the dRAX RIC platform</li>
+<li>The xApp Database - Redis server for storage of configuration data</li>
+<li>The xApp Core - the core logic of the xApp written by the developer</li>
+<li>The xApp Helm Chart - a Helm Chart used to deploy the xApp and integrate it with dRAX RIC</li>
+</ol>
+<p><img align="middle" alt="dRAX xApps Framework" src="images/xapps_framework_diagram.png" width="500px"/></p>
 </article>
 </div>
 </div>
@@ -606,13 +379,13 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Next: Introduction" class="md-footer__link md-footer__link--next" href="xapp-dev-guide/introduction/" rel="next">
+<a aria-label="Next: Changelog" class="md-footer__link md-footer__link--next" href="changelog/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              Introduction
+              Changelog
             </div>
 </div>
 <div class="md-footer__button md-icon">
