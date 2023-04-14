@@ -563,11 +563,8 @@ logging.debug("dRAX Databus message on {topic}: {data}".format(topic=topic, data
 <li>
 <p>5G NR Handover command and response</p>
 </li>
-<li>
-<p>Subband masking command</p>
-</li>
 </ol>
-<p>All of these are declared inside the xapp_lib.actions module.</p>
+<p>These are both defined inside the xapp_lib.actions module.</p>
 <p><strong>NOTE:</strong> The dRAX Commands use the dRAX NATS Databus to send messages. Hence, the NATS client should be set up in the xApp, as described in the <a href="#drax-nats-databus">dRAX NATS Databus</a> section.</p>
 <h3 id="4g-lte-handover-command"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.1</span> 4G LTE Handover command<a class="headerlink" href="#4g-lte-handover-command" title="Permanent link">⚓︎</a></h3>
 <p>dRAX enables you to issue a handover command for a set of UEs in an LTE environment from source cells to target cells. In the <em>example/core/xapp_main.py</em> example of the xApp Framework we show this in Example 4a.</p>
@@ -673,13 +670,7 @@ transaction_id = nr.trigger_handover(xapp=xapp,
           },
 ...
 </code></pre></div>
-<p>Handover responses are received on the Kafka topic accelleran.drax.5g.ric.raw.ran_control_response', therefore you will also need to subscribe to this Kafka topic in the subscribe_to_topics function. The Example 4c shows a handover response being received, and the data being parsed using the nr.parse_ran_control_response(data) function.</p>
-<div class="highlight"><pre><span></span><code>### Example 4c: Receive handover response
-(topic, data) = xapp.kafka().json().recv_message()
-if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
-    publish_time, transaction_id, requestor_id = nr.parse_ran_control_response(data)
-</code></pre></div>
-<p>The data returned will be in the following format:</p>
+<p>Handover responses are received on the Kafka topic accelleran.drax.5g.ric.raw.ran_control_response', therefore you will also need to subscribe to this Kafka topic in the subscribe_to_topics function. The reponse will be in the following format:  </p>
 <div class="highlight"><pre><span></span><code>{
   "RIC_REQUESTOR": &lt;string&gt;,
   "RIC_INSTANCE": &lt;string&gt;,
@@ -693,7 +684,13 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
   "spanContext__": &lt;string&gt;
 }
 </code></pre></div>
-<p>However, the nr.parse_ran_control_response function should be used with this to extract the time the response was sent, the requestor_id (which is the xapp.id), and also the transaction_id (which is the RicInstanceId) so the response can be matched with the transaction_id returned by the nr.trigger_handover function from Example 4b.</p>
+<p>However, Example 4c shows a handover response being received, and the data being parsed using the nr.parse_ran_control_response(data) function.</p>
+<div class="highlight"><pre><span></span><code>### Example 4c: Receive handover response
+(topic, data) = xapp.kafka().json().recv_message()
+if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
+    publish_time, transaction_id, requestor_id = nr.parse_ran_control_response(data)
+</code></pre></div>
+<p>The nr.parse_ran_control_response function will returnthe requestor_id (which is the xapp.id), and also the transaction_id so the response can be matched with the transaction_id returned by the nr.trigger_handover function from Example 4b.</p>
 <h2 id="publish-to-drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8</span> Publish to dRAX RIC Databus<a class="headerlink" href="#publish-to-drax-ric-databus" title="Permanent link">⚓︎</a></h2>
 <p>From your xApp, you can publish data on the dRAX RIC Databus for other xApps to use as well.</p>
 <h3 id="event-based-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.1</span> Event-based publishing<a class="headerlink" href="#event-based-publishing" title="Permanent link">⚓︎</a></h3>
