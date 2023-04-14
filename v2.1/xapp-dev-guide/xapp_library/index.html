@@ -641,7 +641,8 @@ transaction_id = nr.trigger_handover(xapp=xapp,
 <p>The crnti is for a UE is determined from ???</p>
 <p>The source_cell and target_cell are determined from UE Measurement messages received on the accelleran.drax.5g.ric.raw.ue_measurement Kafka Topic. </p>
 <p>For the source_cell, the cell id and plmn are derived from ServingCellInfo fields of a UE Measurement message :</p>
-<div class="highlight"><pre><span></span><code>"RrcMeasurementReportResultInfo": {
+<div class="highlight"><pre><span></span><code>...
+"RrcMeasurementReportResultInfo": {
     "GnbCuCpUeId": &lt;uint&gt;,
     "Timestamp": &lt;string&gt;,
     "ServingCellInfo": {
@@ -653,9 +654,11 @@ transaction_id = nr.trigger_handover(xapp=xapp,
           }
         }
       }
+...
 </code></pre></div>
 <p>It is the responsibility of the xApp application to determine the target_cell required for the handover. Potential target cells for a UE can be determined from the Neighbour Cells listed in the following portion of a UE Measurement message.</p>
-<div class="highlight"><pre><span></span><code>"NumberOfIncludedCells": &lt;uint&gt;,
+<div class="highlight"><pre><span></span><code>...
+"NumberOfIncludedCells": &lt;uint&gt;,
     "CellInfo": {
       "0": {
         "PhyCellId": &lt;uint&gt;,
@@ -668,6 +671,7 @@ transaction_id = nr.trigger_handover(xapp=xapp,
               }
             }
           },
+...
 </code></pre></div>
 <p>Handover responses are received on the Kafka topic accelleran.drax.5g.ric.raw.ran_control_response', therefore you will also need to subscribe to this Kafka topic in the subscribe_to_topics function. The Example 4c shows a handover response being received, and the data being parsed using the nr.parse_ran_control_response(data) function.</p>
 <div class="highlight"><pre><span></span><code>### Example 4c: Receive handover response
@@ -675,7 +679,21 @@ transaction_id = nr.trigger_handover(xapp=xapp,
 if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
     publish_time, transaction_id, requestor_id = nr.parse_ran_control_response(data)
 </code></pre></div>
-<p>The nr.parse_ran_control_response function returns the time the response was sent, the reqestor_id (which is the xapp.id), and also the transaction_id so the response can be matched with the transaction_id returned by the nr.trigger_handover function from Example 4b.</p>
+<p>The data returned will be in the following format:</p>
+<div class="highlight"><pre><span></span><code>{
+  "RIC_REQUESTOR": &lt;string&gt;,
+  "RIC_INSTANCE": &lt;string&gt;,
+  "E2apRanControlRsp": {
+    "RicRequestorId": &lt;uint&gt;,
+    "RicInstanceId": &lt;uint&gt;,
+    "RicControlActionId": &lt;uint&gt;,
+    "Timestamp": &lt;string&gt;
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p>However, the nr.parse_ran_control_response function should be used with this to extract the time the response was sent, the requestor_id (which is the xapp.id), and also the transaction_id (which is the RicInstanceId) so the response can be matched with the transaction_id returned by the nr.trigger_handover function from Example 4b.</p>
 <h2 id="publish-to-drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8</span> Publish to dRAX RIC Databus<a class="headerlink" href="#publish-to-drax-ric-databus" title="Permanent link">⚓︎</a></h2>
 <p>From your xApp, you can publish data on the dRAX RIC Databus for other xApps to use as well.</p>
 <h3 id="event-based-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.1</span> Event-based publishing<a class="headerlink" href="#event-based-publishing" title="Permanent link">⚓︎</a></h3>
