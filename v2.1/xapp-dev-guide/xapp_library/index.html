@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_library/" rel="canonical"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-7.3.6" name="generator"/>
+<title>xApp Library In-depth - dRAX xApp Dev Guide</title>
+<link href="../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../css/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#xapp-library-in-depth">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="dRAX xApp Dev Guide" class="md-header__button md-logo" data-md-component="logo" href="../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            dRAX xApp Dev Guide
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              xApp Library In-depth
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+      Overview
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../introduction/">
+        Documentation
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../message_references/5G/3.3/kafka/">
+        Message References
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="dRAX xApp Dev Guide" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
+</a>
+    dRAX xApp Dev Guide
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Documentation" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../quick_guide/">
+        Quick guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../development_workflows/">
+        Development Workflows
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_dev_environment/">
+        Build your own xApp Dev Environment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_productize/">
+        Productize your xApp
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_framework/">
+        xApp Framework In-depth
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          xApp Library In-depth
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        xApp Library In-depth
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#xapp-library-overview">
+    xApp Library Overview
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview-of-the-xapp-interactions-with-the-ric">
+    Overview of the xApp interactions with the RIC
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-xapp-structure-and-conventions">
+    The xApp Structure and Conventions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-xapp-builder">
+    The xApp Builder
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drax-ric-databus">
+    dRAX RIC Databus
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drax-nats-databus">
+    dRAX NATS Databus
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drax-commands">
+    dRAX Commands
+  </a>
+<nav aria-label="dRAX Commands" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4g-lte-handover-command">
+    4G LTE Handover command
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5g-nr-handover-command-and-response">
+    5G NR Handover command and response
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-4c-receive-handover-response">
+    Example 4c: Receive handover response
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-6-how-to-use-the-drax-ric-api-gateway">
+    Example 6: How to use the dRAX RIC API Gateway
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-7-get-the-ports-where-the-netconf-servers-of-cells-are-exposed">
+    Example 7: Get the ports where the netconf servers of cells are exposed
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_unittest/">
+        xApp Unit Tests
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_readme/">
+        The xApp Documentation README.md
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_rest_api/">
+        xApp REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_configuration/">
+        xApp Configuration In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_helm_charts/">
+        xApp Helm Chart In-Depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_lifecycle/">
+        xApps Lifecycle In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_core/">
+        Writing the xApp Core in a different language
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../appendix_dockerhub/">
+        Appendix: Pushing to Dockerhub
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../appendix_conversion/">
+        Appendix: Conversion from the xApp Framework to the xApp Library
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Message References
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Message References" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Message References
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+          5G
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5G" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          5G
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_1" id="__nav_3_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_1">
+          version 3.3
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 3.3" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_1">
+<span class="md-nav__icon md-icon"></span>
+          version 3.3
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/5G/3.3/kafka/">
+        Kafka
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/5G/3.3/nats/">
+        Nats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_2" id="__nav_3_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_2">
+          version 2.4
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 2.4" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_2">
+<span class="md-nav__icon md-icon"></span>
+          version 2.4
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/5G/2.4/kafka/">
+        Kafka
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/5G/2.4/nats/">
+        Nats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+          4G
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4G" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          4G
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2_1" id="__nav_3_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_1">
+          version 5.2
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 5.2" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_1">
+<span class="md-nav__icon md-icon"></span>
+          version 5.2
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/4G/5.2/kafka/">
+        Kafka
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="xapp-library-in-depth"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.</span> xApp Library In-depth<a class="headerlink" href="#xapp-library-in-depth" title="Permanent link">⚓︎</a></h1>
+<h2 id="xapp-library-overview"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.1</span> xApp Library Overview<a class="headerlink" href="#xapp-library-overview" title="Permanent link">⚓︎</a></h2>
+<p>The xApp Library is a library written in Python which is used by developers to implement their own new functionalities and/or services on the dRAX RIC. The xApp Library abstracts the interfaces towards the dRAX RIC, allowing developers to use these interfaces in an easy-to-use way. The xApp Library connects multiple components using its interfaces such as:</p>
+<ol>
+<li>The logic as implemented by the developer</li>
+<li>The kafka and nats connectors</li>
+<li>The REST API</li>
+<li>The configuration and settings</li>
+</ol>
+<h2 id="overview-of-the-xapp-interactions-with-the-ric"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.2</span> Overview of the xApp interactions with the RIC<a class="headerlink" href="#overview-of-the-xapp-interactions-with-the-ric" title="Permanent link">⚓︎</a></h2>
+<p>Once an xApp is deployed into dRAX it can interact with all the components present in the system. Currently, there are two main ways to achieve this: via the dRAX Databus or via the REST APIs. Depending on the use case, a developer can choose which communication method fits their need best. The use of the dRAX Databus is encouraged in scenarios where xApps need to access RAN data, exchange real-time data or issue commands via the Action Taker. The use of the REST APIs is best for non-real-time information gathering or for utilizing the Netconf functionalities exposed by the dRAX REST API Gateway. The xAPP interaction with the cells can happen either via the REST API or via direct Netconf sessions to the corresponding Netconf servers.</p>
+<h2 id="the-xapp-structure-and-conventions"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.3</span> The xApp Structure and Conventions<a class="headerlink" href="#the-xapp-structure-and-conventions" title="Permanent link">⚓︎</a></h2>
+<p>When creating a new Python xApp, we recommend the following structure:</p>
+<div class="highlight"><pre><span></span><code>root/
+  setup.cfg
+  README.md
+  requirements.txt
+  core/
+    restapi.py
+    xapp_main.py
+    xapp_metadata.json
+  config/
+    xapp_endpoints.json
+    xapp_config.json
+</code></pre></div>
+<p>This folder structure splits the xApp in three parts:</p>
+<ul>
+<li>The root folder contains necessary information about the Python packages the xApp is and needs. Since Python usually expects those to be in the base of the tree we recommend leaving them there. This includes the README.md documentation file and requirements.txt to specify python package dependencies.</li>
+<li>The core folder contains the xApp code (which can be spread over multiple files and subfolders). Here, we also expect the xapp_metadata.json file which is used by the xApp itself and contains the configuration details of the xApp including the default values. As an example, we also include here the restapi.py which contains custom API endpoints exposed by the xApp. Do note the directory of the file building the xapp is used as base by the builder.</li>
+<li>The config folder contains various configuration files meant to be provided at runtime. This means the folder will usually not exist and not be added to the version tracking system, as its contents are created by the xApp Helm Chart.</li>
+</ul>
+<p>An example of this can be found in the <em>example</em> subfolder of the repository, along with some basic usage in <em>example/core/xapp_main.py</em>.</p>
+<h2 id="the-xapp-builder"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.4</span> The xApp Builder<a class="headerlink" href="#the-xapp-builder" title="Permanent link">⚓︎</a></h2>
+<p>For convenience an xApp Builder class has been added. An example of how its used can be found in the _example/core/xapp_main/.py _example xApp in the xApp Framework repository:</p>
+<div class="highlight"><pre><span></span><code>builder = xapp_lib.XAppBuilder("..", absolute=False)
+    builder.metadata("core/xapp_metadata.json")
+    builder.endpoints("config/xapp_endpoints.json")
+    builder.config("config/xapp_config.json")
+    builder.readme("README.md")
+    builder.restapi(
+        [
+            ("/api/", restapi.MainApiHandler),
+            ("/api/actions", restapi.ActionsHandler),
+            ("/api/request", restapi.RequestHandler),
+        ]
+    )
+    xapp = builder.build()
+</code></pre></div>
+<p>This code, assuming it is written in root/core/xapp_main.py, will create an xApp builder using root/ as base (hence the “..” as its first argument). After this, the metadata, which is located in root/core/xapp_metadata.json, will be loaded by the xApp itself. The xapp_metadata.json is a mandatory configuration file of the xApp.</p>
+<p>Next, the xapp_endpoints.json and xapp-config.json files can be loaded. Note that these files are created by the xApp Helm Chart as on deployment time configuration options, hence they are located in the root/config folder.</p>
+<p>The xApp Builder then can load the README.md documentation file. Finally, if the xApp developer has created custom API endpoints in the root/core/restapi.py file, the APIs can be initiated by the xApp Builder as described above in the example code (providing their API endpoint and callback function).</p>
+<p>Do note that the builder only registers paths and configuration, and thus any errors about missing files etc will only be thrown during the builder.build() call.</p>
+<h2 id="drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.5</span> dRAX RIC Databus<a class="headerlink" href="#drax-ric-databus" title="Permanent link">⚓︎</a></h2>
+<p>The data from the dRAX RIC Databus comes in through the Kafka object, which automatically takes care of properly setting up and configuring a Kafka client. Note that this object is a singleton created and owned by the xApp library object itself, and calling the .kafka() method multiple times will result in the same object being returned every time, which is why the following code works:</p>
+<div class="highlight"><pre><span></span><code>xapp.kafka().subscribe(["topic"])
+(topic, data) = xapp.kafka().recv_data()
+</code></pre></div>
+<p>The URL of the dRAX RIC Databus (Kafka in this case) is automatically generated in the xapp_endpoints.json file by the xApp Helm Chart. As seen, this config file is loaded into the xapp using:</p>
+<div class="highlight"><pre><span></span><code>builder.endpoints("config/xapp_endpoints.json")
+</code></pre></div>
+<p>By default, kafka will use the value associated with the “KAFKA_URL” key inside the xapp_endpoints.json. However, the developer can choose to add additional keys in the xapp_endpoints.json file through the xApp Helm Chart, which is discussed in the <a href="../xapp_configuration/#xapp-endpoints">xApp Endpoints</a> section. The xApp itself can then decide to use a different key by calling:</p>
+<div class="highlight"><pre><span></span><code>(topic, data) = xapp.kafka(name="KAFKA_URL_2").recv_data()
+</code></pre></div>
+<p>A simple way to check what messages are received is to simply log everything coming in from the kafka object. This is shown in Example 1 in the example/core/xapp_main.py from the xApp Framework repository and in the test_kafka_producer unittest.</p>
+<div class="highlight"><pre><span></span><code>### Example 1: Just logging all the messages received from the dRAX Databus
+logging.info("Received message from dRAX Databus!")
+logging.debug("dRAX Databus message on {topic}: {data}".format(topic=topic, data=data))
+</code></pre></div>
+<p>The data on the dRAX RIC Databus (Kafka) uses the JSON format. In order to decode json messages the xApp Library provides a decorator created with .json() that automatically transforms serialized data into a dictionary.</p>
+<div class="highlight"><pre><span></span><code>(topic, data) = xapp.kafka().json().recv_message()
+</code></pre></div>
+<p>The 4G and 5G RAN data that is available on the dRAX Databus is described in a separate document that can be accessed via the following link:</p>
+<p><a href="https://docs.google.com/document/u/1/d/e/2PACX-1vTmZjYiThXivi03Td_1LXjQVldAO_7AXqnVwc0Qe-uFCT16tKH6EBF2OTOhiZ0SFw/pub">https://docs.google.com/document/u/1/d/e/2PACX-1vTmZjYiThXivi03Td_1LXjQVldAO_7AXqnVwc0Qe-uFCT16tKH6EBF2OTOhiZ0SFw/pub</a></p>
+<h2 id="drax-nats-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.6</span> dRAX NATS Databus<a class="headerlink" href="#drax-nats-databus" title="Permanent link">⚓︎</a></h2>
+<p>Connecting to the dRAX NATS Databus is nearly identical to connecting to the dRAX RIC Databus. The only difference is the xApp method call and the use of NATS_URL instead of KAFKA_URL:</p>
+<div class="highlight"><pre><span></span><code>xapp.nats().subscribe(["topic"])
+(topic, data) = xapp.nats().recv_data()
+</code></pre></div>
+<h2 id="drax-commands"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7</span> dRAX Commands<a class="headerlink" href="#drax-commands" title="Permanent link">⚓︎</a></h2>
+<p>From the xApp you can currently issue two types of commands towards the dRAX:</p>
+<ol>
+<li>
+<p>4G LTE Handover command</p>
+</li>
+<li>
+<p>5G NR Handover command and response</p>
+</li>
+<li>
+<p>Subband masking command</p>
+</li>
+</ol>
+<p>All of these are declared inside the xapp_lib.actions module.</p>
+<p><strong>NOTE:</strong> The dRAX Commands use the dRAX NATS Databus to send messages. Hence, the NATS client should be set up in the xApp, as described in the <a href="#drax-nats-databus">dRAX NATS Databus</a> section.</p>
+<h3 id="4g-lte-handover-command"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.1</span> 4G LTE Handover command<a class="headerlink" href="#4g-lte-handover-command" title="Permanent link">⚓︎</a></h3>
+<p>dRAX enables you to issue a handover command for a set of UEs in an LTE environment from source cells to target cells. In the <em>example/core/xapp_main.py</em> example of the xApp Framework we show this in Example 4a.</p>
+<div class="highlight"><pre><span></span><code>### Example 4a: Send handover command (LTE)
+handover_list = [
+    {'ueIdx': 'ueRicId_to_handover_1', 'targetCell': 'Cell_1', 'sourceCell': 'Cell_2'},
+    {'ueIdx': 'ueRicId_to_handover_2', 'targetCell': 'Cell_2', 'sourceCell': 'Cell_1'}
+]
+lte.trigger_handover(xapp.nats(), handover_list)
+</code></pre></div>
+<p>The lte.trigger_handover function abstracts the lower-level details of how a handover command message is generated and sent.</p>
+<p>The function takes a list of handovers that are required. Each handover consists of the following information :</p>
+<ul>
+<li>'ueIdx': This is the ueDraxId of the UE that should be handed over;</li>
+<li>'targetCell': The target cell to which the UE should get handed over to;</li>
+<li>'servingCell': The UEs’ current serving cell.</li>
+</ul>
+<p>The ueIdx and servingCell values are determined from the UE Measurement messages received on the accelleran.drax.4g.ric.raw.ue_measurements Kafka Topic, and the relevant portion is shown below.</p>
+<div class="highlight"><pre><span></span><code>...
+"Rc4gUeMeasurement": {
+    "UniqueRicId": &lt;string&gt;,
+    "CellId": &lt;string&gt;,
+    "AttachedCellId": &lt;string&gt;,
+    "Rsrp": &lt;uint&gt;,
+    "Rsrq": &lt;uint&gt;,
+...
+</code></pre></div>
+<p>ueIdx is UniqueRicId and the servingCell is AttachedCellId</p>
+<p>The potential target cells should be collected from L2 Stats messages also received on the accelleran.drax.4g.ric.raw.ue_measurements Kafka Topic. These messages are in the format :</p>
+<div class="highlight"><pre><span></span><code>{
+  "ENB": &lt;string&gt;,
+  "CELL": &lt;string&gt;,
+  "UE": &lt;string&gt;,
+  "ueDraxId": &lt;string&gt;,
+  "ueRicId": &lt;string&gt;,
+  "EnbStatsL2StatsValues": {
+    "Report": {
+      "DschThroughput": &lt;uint&gt;,
+      "UschThroughput": &lt;uint&gt;,
+      "DownlinkBler": &lt;uint&gt;,
+      "UplinkBler": &lt;uint&gt;,
+      "TimingAdvance": &lt;uint&gt;,
+      "UlSinr": &lt;uint&gt;
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "timestamp": &lt;int&gt;
+}
+</code></pre></div>
+<p>The UniqueRicId field from a UEMeasurement can be matched with the ueDraxId field from a L2 Stats message. Then the cell along with its information relating to the UE can be matched using the CELL field from the corresponding L2 Stats message.</p>
+<h3 id="5g-nr-handover-command-and-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2</span> 5G NR Handover command and response<a class="headerlink" href="#5g-nr-handover-command-and-response" title="Permanent link">⚓︎</a></h3>
+<p>dRAX also enables you to issue a handover command of a specific UE in an NR environment, from its currently serving cell to a certain target cell. It is also possible to check the response from the handover command. In the <em>example/core/xapp_main.py</em> example of the xApp Framework we show this in Examples 4b and 4c:</p>
+<div class="highlight"><pre><span></span><code>### Example 4b: Send handover command (NR)
+crnti = 7
+source_cell = nr.Cell(id=123, plmn='123456')
+target_cell = nr.Cell(id=456, plmn='654321')
+
+transaction_id = nr.trigger_handover(xapp=xapp,
+                                     crnti=crnti,
+                                     source_cell=source_cell,
+                                     target_cell=target_cell)
+</code></pre></div>
+<p>The nr.trigger_handover function abstracts the lower-level details of how a handover command message is generated and sent.</p>
+<p>The parameters required are as follows :</p>
+<ul>
+<li>'xapp': This a reference to the xapp triggering the handover</li>
+<li>'crnti': This is the crnti of the UE that should be handed over;</li>
+<li>'source_cell': The source cell from which the UE should get handed over from (the cell is composed of the cell id and the plmn)</li>
+<li>'target_cell': the target cell to which the UE should be handed over to (the cell is composed of the cell id and the plmn)</li>
+</ul>
+<p>The crnti is for a UE is determined from ???</p>
+<p>The source_cell and target_cell are determined from UE Measurement messages received on the accelleran.drax.5g.ric.raw.ue_measurement Kafka Topic. </p>
+<p>For the source_cell, the cell id and plmn are derived from ServingCellInfo fields of a UE Measurement message :</p>
+<p>~~~
+ ...
+"RrcMeasurementReportResultInfo": {
+    "GnbCuCpUeId": <uint>,
+    "Timestamp": <string>,
+    "ServingCellInfo": {
+      "NrCgi": {
+        "NrCellId": <string>,
+        "PlmnId": {
+          "items": {
+            "0": <uint>
+          }
+        }
+      }
+...
+<div class="highlight"><pre><span></span><code>It is the responsibility of the xApp application to determine the target_cell required for the handover. Potential target cells for a UE can be determined from the Neighbour Cells listed in the following portion of a UE Measurement message.
+</code></pre></div>
+...
+"NumberOfIncludedCells": <uint>,
+    "CellInfo": {
+      "0": {
+        "PhyCellId": <uint>,
+        "NeighbourCellInfo": {
+          "NrCgi": {
+            "NrCellId": <string>,
+            "PlmnId": {
+              "items": {
+                "0": <uint>
+              }
+            }
+          },
+...
+<div class="highlight"><pre><span></span><code>Handover responses are received on the Kafka topic accelleran.drax.5g.ric.raw.ran_control_response', therefore you will also need to subscribe to this Kafka topic in the subscribe_to_topics function. The Example 4c shows a handover response being received, and the data being parsed using the nr.parse_ran_control_response(data) function.
+</code></pre></div></uint></string></uint></uint></uint></string></string></uint></p>
+<h3 id="example-4c-receive-handover-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3</span> Example 4c: Receive handover response<a class="headerlink" href="#example-4c-receive-handover-response" title="Permanent link">⚓︎</a></h3>
+<p>(topic, data) = xapp.kafka().json().recv_message()
+if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
+    publish_time, transaction_id, requestor_id = nr.parse_ran_control_response(data)
+<div class="highlight"><pre><span></span><code>The nr.parse_ran_control_response function returns the time the response was sent, the reqestor_id (which is the xapp.id), and also the transaction_id so the response can be matched with the transaction_id returned by the nr.trigger_handover function from Example 4b.
+
+## Publish to dRAX RIC Databus
+
+From your xApp, you can publish data on the dRAX RIC Databus for other xApps to use as well.
+
+### Event-based publishing
+
+You can publish certain event-based data to the dRAX RIC Databus. This is shown in Example 2 in the processor.py of the xApp Core:
+
+### Example 2: Publishing one time or event-based data on the dRAX Databus
+We will publish on topic "my_test_topic", and just republish the "data" data
+</code></pre></div>
+xapp.kafka().json().send_message("my_test_topic", data)
+<div class="highlight"><pre><span></span><code>We have created an abstraction which takes the following parameters:
+
+1. "my_test_topic": This is the topic on the dRAX RIC Databus to which the data should be published
+2. data: the actual data that needs to be published, it should be of a type that can be serialized as the dRAX RIC Databus expects JSON format messages (hence the xapp.kafka().json()... decorator).
+
+### Periodic publishing
+
+If one wants to periodically publish information, they can spawn a separate thread using the standard Python threading.Thread function
+</code></pre></div>
+data = {"key": "data"}
+def periodic_publish(xapp):
+    while True:
+        xapp.kafka().json().send_message("my_test_topic", data)
+        sleep(1)</p>
+<p>publish_thread = threading.Thread(name="PeriodicPublish", target=periodic_publish, args=(xapp,))
+publish_thread.start()
+<div class="highlight"><pre><span></span><code>### Publish to the dRAX NATS Databus
+
+Publishing to the dRAX NATS Databus is equally simple:
+</code></pre></div>
+data = {"key": "data"}
+def periodic_publish(xapp):
+    while True:
+        xapp.nats().json().send_message("my_test_topic", data)
+        sleep(1)</p>
+<p>publish_thread = threading.Thread(name="PeriodicPublish", target=periodic_publish, args=(xapp,))
+publish_thread.start()
+<div class="highlight"><pre><span></span><code>## Use the dRAX RIC API Gateway
+
+The dRAX RIC exposes a number of APIs through the dRAX RIC API Gateway. The full documentation on all of the endpoints is available on the dRAX RIC API Gateway Swagerhub, which is exposed on the following URL:
+</code></pre></div>
+http://<kubernets_ip>:31315/api/v1/docs
+<div class="highlight"><pre><span></span><code>Just substitute &lt;kubernetes_ip&gt; with the advertise address of your Kubernetes cluster.
+
+Inside the actions module of the xApp Library, we have already implemented the code for making API calls, and abstracted the details on how to connect to the API. That information is stored in the xapp_endpoints.json file (see also section on [xApp Configuration In-depth](xapp_configuration.md#xapp-configuration-in-depth) under API_GATEWAY_URL. We created a few examples of how this works in the xApp Example, while the SwagerHub contains detailed information and description of all the endpoints.
+
+In summary, through the dRAX RIC API Gateway you can:
+
+* xApps
+    * Get a list of deployed xApps
+    * Get/Modify the configuration of another xApp
+    * Check if the xApp is healthy
+    * Deploy or delete other xApps
+* 4G Radio Controller
+    * Check the status of the 4GRC
+    * Configure the 4GRC
+* 4G Cells
+    * Configure basic parameters of a cell using a JSON
+    * Send a full NetConf RPC through the API to configure the cell
+    * Upload a pre-existing configuration
+    * Auto-configure cells
+    * Reboot cells
+* 5G CU
+    * Programmatically deploy the 5G CU-CP and CU-UP
+    * Configure the 5G CU-CP and CU-UP
+
+### How to use the dRAX RIC API Gateway in general
+
+Example 6 shows how to call the API gateway on the following endpoint:
+</code></pre></div>
+/discover/services/netconf
+<div class="highlight"><pre><span></span><code>This endpoint, as described in the SwagerHub, returns the list of NetConf services deployed on dRAX. Since the Accelleran 4G small cells and the 5G CUs have NetConf servers running in them to be able to use NetConf to configure them, this way we can get that information.
+</code></pre></div></kubernets_ip></p>
+<h3 id="example-6-how-to-use-the-drax-ric-api-gateway"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.4</span> Example 6: How to use the dRAX RIC API Gateway<a class="headerlink" href="#example-6-how-to-use-the-drax-ric-api-gateway" title="Permanent link">⚓︎</a></h3>
+<p>endpoint = '/discover/services/netconf'
+api_response = requests.get(actions.create_api_url(xapp, endpoint))</p>
+<p>if api_response.status_code == 200:
+  try:
+    logging.info(api_response.json())
+  except:
+    logging.info('Failed to load JSON, showing raw content of API response:')
+    logging.info(api_response.text)
+<div class="highlight"><pre><span></span><code>### How to select only the port at which NetConf is exposed
+
+Example 7 shows how to parse the retrieved information from the dRAX RIC API Gateway. Because the information retrieved can be parsed as JSON, in python we can simply use it as a Python dictionary:
+</code></pre></div></p>
+<h3 id="example-7-get-the-ports-where-the-netconf-servers-of-cells-are-exposed"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.5</span> Example 7: Get the ports where the netconf servers of cells are exposed<a class="headerlink" href="#example-7-get-the-ports-where-the-netconf-servers-of-cells-are-exposed" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><pre><span></span><code>    endpoint = '/discover/services/netconf'
+    api_response = requests.get(actions.create_api_url(xapp, endpoint))
+
+    for cell, cell_info in api_response.json().items():
+        for port in cell_info['spec']['ports']:
+            if port['name'] == 'netconf-port':
+                logging.info('Cell [{cell}] has NETCONF exposed on port [{port}]'.format(
+                    cell=cell,
+                    port=port['node_port'])
+                )
+</code></pre></div>
+<p>~~~
+
+This would log the following example data:
+
+~~~
+[netconf-dageraadplats] has NETCONF exposed on port [30023]
+[netconf-parking] has NETCONF exposed on port [32634]
+~~~</p>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: xApp Framework In-depth" class="md-footer__link md-footer__link--prev" href="../xapp_framework/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              xApp Framework In-depth
+            </div>
+</div>
+</a>
+<a aria-label="Next: xApp Unit Tests" class="md-footer__link md-footer__link--next" href="../xapp_unittest/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              xApp Unit Tests
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+            Material for MkDocs
+          </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tabs", "toc.integrate"], "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+</body>
+</html>
