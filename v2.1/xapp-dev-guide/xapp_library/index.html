@@ -555,17 +555,17 @@ logging.debug("dRAX Databus message on {topic}: {data}".format(topic=topic, data
 (topic, data) = xapp.nats().recv_data()
 </code></pre></div>
 <h2 id="drax-commands"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7</span> dRAX Commands<a class="headerlink" href="#drax-commands" title="Permanent link">⚓︎</a></h2>
-<p>From the xApp you can currently issue two types of commands towards the dRAX:</p>
+<p>From the xApp you can issue two types of commands on the dRAX NATS Databus:</p>
 <ol>
 <li>
 <p>4G LTE Handover command</p>
 </li>
 <li>
-<p>5G NR Handover command and response</p>
+<p>5G NR Handover command</p>
 </li>
 </ol>
 <p>These are both defined inside the xapp_lib.actions module.</p>
-<p><strong>NOTE:</strong> The dRAX Commands use the dRAX NATS Databus to send messages. Hence, the NATS client should be set up in the xApp, as described in the <a href="#drax-nats-databus">dRAX NATS Databus</a> section.</p>
+<p><strong>NOTE:</strong> As the commands are sent over the dRAX NATS Databus, the NATS client should be set up in the xApp as described in the <a href="#drax-nats-databus">dRAX NATS Databus</a> section.</p>
 <h3 id="4g-lte-handover-command"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.1</span> 4G LTE Handover command<a class="headerlink" href="#4g-lte-handover-command" title="Permanent link">⚓︎</a></h3>
 <p>dRAX enables you to issue a handover command for a set of UEs in an LTE environment from source cells to target cells. In the <em>example/core/xapp_main.py</em> example of the xApp Framework we show this in Example 4a.</p>
 <div class="highlight"><pre><span></span><code>### Example 4a: Send handover command (LTE)
