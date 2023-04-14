@@ -688,9 +688,9 @@ transaction_id = nr.trigger_handover(xapp=xapp,
 <div class="highlight"><pre><span></span><code>### Example 4c: Receive handover response
 (topic, data) = xapp.kafka().json().recv_message()
 if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
-    publish_time, transaction_id, requestor_id = nr.parse_ran_control_response(data)
+    timestamp, transaction_id, requestor_id = nr.parse_ran_control_response(data)
 </code></pre></div>
-<p>The nr.parse_ran_control_response function will returnthe requestor_id (which is the xapp.id), and also the transaction_id so the response can be matched with the transaction_id returned by the nr.trigger_handover function from Example 4b.</p>
+<p>The nr.parse_ran_control_response function will return the time the message was generated, the requestor_id (which is the xapp.id), and also the transaction_id so the response can be matched with the transaction_id returned by the nr.trigger_handover function from Example 4b.</p>
 <h2 id="publish-to-drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8</span> Publish to dRAX RIC Databus<a class="headerlink" href="#publish-to-drax-ric-databus" title="Permanent link">⚓︎</a></h2>
 <p>From your xApp, you can publish data on the dRAX RIC Databus for other xApps to use as well.</p>
 <h3 id="event-based-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.1</span> Event-based publishing<a class="headerlink" href="#event-based-publishing" title="Permanent link">⚓︎</a></h3>
