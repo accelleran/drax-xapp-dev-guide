@@ -227,19 +227,52 @@
     5G NR Handover command and response
   </a>
 </li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-4c-receive-handover-response">
-    Example 4c: Receive handover response
+<a class="md-nav__link" href="#publish-to-drax-ric-databus">
+    Publish to dRAX RIC Databus
+  </a>
+<nav aria-label="Publish to dRAX RIC Databus" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#event-based-publishing">
+    Event-based publishing
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-6-how-to-use-the-drax-ric-api-gateway">
-    Example 6: How to use the dRAX RIC API Gateway
+<a class="md-nav__link" href="#example-2-publishing-one-time-or-event-based-data-on-the-drax-databus">
+    Example 2: Publishing one time or event-based data on the dRAX Databus
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-7-get-the-ports-where-the-netconf-servers-of-cells-are-exposed">
-    Example 7: Get the ports where the netconf servers of cells are exposed
+<a class="md-nav__link" href="#periodic-publishing">
+    Periodic publishing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#publish-to-the-drax-nats-databus">
+    Publish to the dRAX NATS Databus
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#use-the-drax-ric-api-gateway">
+    Use the dRAX RIC API Gateway
+  </a>
+<nav aria-label="Use the dRAX RIC API Gateway" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-use-the-drax-ric-api-gateway-in-general">
+    How to use the dRAX RIC API Gateway in general
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-select-only-the-port-at-which-netconf-is-exposed">
+    How to select only the port at which NetConf is exposed
   </a>
 </li>
 </ul>
@@ -583,154 +616,144 @@ transaction_id = nr.trigger_handover(xapp=xapp,
 <p>The crnti is for a UE is determined from ???</p>
 <p>The source_cell and target_cell are determined from UE Measurement messages received on the accelleran.drax.5g.ric.raw.ue_measurement Kafka Topic. </p>
 <p>For the source_cell, the cell id and plmn are derived from ServingCellInfo fields of a UE Measurement message :</p>
-<p>~~~
- ...
-"RrcMeasurementReportResultInfo": {
-    "GnbCuCpUeId": <uint>,
-    "Timestamp": <string>,
+<div class="highlight"><pre><span></span><code>"RrcMeasurementReportResultInfo": {
+    "GnbCuCpUeId": &lt;uint&gt;,
+    "Timestamp": &lt;string&gt;,
     "ServingCellInfo": {
       "NrCgi": {
-        "NrCellId": <string>,
+        "NrCellId": &lt;string&gt;,
         "PlmnId": {
           "items": {
-            "0": <uint>
+            "0": &lt;uint&gt;
           }
         }
       }
-...
-<div class="highlight"><pre><span></span><code>It is the responsibility of the xApp application to determine the target_cell required for the handover. Potential target cells for a UE can be determined from the Neighbour Cells listed in the following portion of a UE Measurement message.
 </code></pre></div>
-...
-"NumberOfIncludedCells": <uint>,
+<p>It is the responsibility of the xApp application to determine the target_cell required for the handover. Potential target cells for a UE can be determined from the Neighbour Cells listed in the following portion of a UE Measurement message.</p>
+<div class="highlight"><pre><span></span><code>"NumberOfIncludedCells": &lt;uint&gt;,
     "CellInfo": {
       "0": {
-        "PhyCellId": <uint>,
+        "PhyCellId": &lt;uint&gt;,
         "NeighbourCellInfo": {
           "NrCgi": {
-            "NrCellId": <string>,
+            "NrCellId": &lt;string&gt;,
             "PlmnId": {
               "items": {
-                "0": <uint>
+                "0": &lt;uint&gt;
               }
             }
           },
-...
-<div class="highlight"><pre><span></span><code>Handover responses are received on the Kafka topic accelleran.drax.5g.ric.raw.ran_control_response', therefore you will also need to subscribe to this Kafka topic in the subscribe_to_topics function. The Example 4c shows a handover response being received, and the data being parsed using the nr.parse_ran_control_response(data) function.
-</code></pre></div></uint></string></uint></uint></uint></string></string></uint></p>
-<h3 id="example-4c-receive-handover-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3</span> Example 4c: Receive handover response<a class="headerlink" href="#example-4c-receive-handover-response" title="Permanent link">⚓︎</a></h3>
-<p>(topic, data) = xapp.kafka().json().recv_message()
+</code></pre></div>
+<p>Handover responses are received on the Kafka topic accelleran.drax.5g.ric.raw.ran_control_response', therefore you will also need to subscribe to this Kafka topic in the subscribe_to_topics function. The Example 4c shows a handover response being received, and the data being parsed using the nr.parse_ran_control_response(data) function.</p>
+<div class="highlight"><pre><span></span><code>### Example 4c: Receive handover response
+(topic, data) = xapp.kafka().json().recv_message()
 if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
     publish_time, transaction_id, requestor_id = nr.parse_ran_control_response(data)
-<div class="highlight"><pre><span></span><code>The nr.parse_ran_control_response function returns the time the response was sent, the reqestor_id (which is the xapp.id), and also the transaction_id so the response can be matched with the transaction_id returned by the nr.trigger_handover function from Example 4b.
-
-## Publish to dRAX RIC Databus
-
-From your xApp, you can publish data on the dRAX RIC Databus for other xApps to use as well.
-
-### Event-based publishing
-
-You can publish certain event-based data to the dRAX RIC Databus. This is shown in Example 2 in the processor.py of the xApp Core:
-
-### Example 2: Publishing one time or event-based data on the dRAX Databus
-We will publish on topic "my_test_topic", and just republish the "data" data
 </code></pre></div>
-xapp.kafka().json().send_message("my_test_topic", data)
-<div class="highlight"><pre><span></span><code>We have created an abstraction which takes the following parameters:
-
-1. "my_test_topic": This is the topic on the dRAX RIC Databus to which the data should be published
-2. data: the actual data that needs to be published, it should be of a type that can be serialized as the dRAX RIC Databus expects JSON format messages (hence the xapp.kafka().json()... decorator).
-
-### Periodic publishing
-
-If one wants to periodically publish information, they can spawn a separate thread using the standard Python threading.Thread function
+<p>The nr.parse_ran_control_response function returns the time the response was sent, the reqestor_id (which is the xapp.id), and also the transaction_id so the response can be matched with the transaction_id returned by the nr.trigger_handover function from Example 4b.</p>
+<h2 id="publish-to-drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8</span> Publish to dRAX RIC Databus<a class="headerlink" href="#publish-to-drax-ric-databus" title="Permanent link">⚓︎</a></h2>
+<p>From your xApp, you can publish data on the dRAX RIC Databus for other xApps to use as well.</p>
+<h3 id="event-based-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.1</span> Event-based publishing<a class="headerlink" href="#event-based-publishing" title="Permanent link">⚓︎</a></h3>
+<p>You can publish certain event-based data to the dRAX RIC Databus. This is shown in Example 2 in the processor.py of the xApp Core:</p>
+<h3 id="example-2-publishing-one-time-or-event-based-data-on-the-drax-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.2</span> Example 2: Publishing one time or event-based data on the dRAX Databus<a class="headerlink" href="#example-2-publishing-one-time-or-event-based-data-on-the-drax-databus" title="Permanent link">⚓︎</a></h3>
+<p>We will publish on topic "my_test_topic", and just republish the "data" data</p>
+<div class="highlight"><pre><span></span><code>xapp.kafka().json().send_message("my_test_topic", data)
 </code></pre></div>
-data = {"key": "data"}
+<p>We have created an abstraction which takes the following parameters:</p>
+<ol>
+<li>"my_test_topic": This is the topic on the dRAX RIC Databus to which the data should be published</li>
+<li>data: the actual data that needs to be published, it should be of a type that can be serialized as the dRAX RIC Databus expects JSON format messages (hence the xapp.kafka().json()... decorator).</li>
+</ol>
+<h3 id="periodic-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.3</span> Periodic publishing<a class="headerlink" href="#periodic-publishing" title="Permanent link">⚓︎</a></h3>
+<p>If one wants to periodically publish information, they can spawn a separate thread using the standard Python threading.Thread function</p>
+<div class="highlight"><pre><span></span><code>data = {"key": "data"}
 def periodic_publish(xapp):
     while True:
         xapp.kafka().json().send_message("my_test_topic", data)
-        sleep(1)</p>
-<p>publish_thread = threading.Thread(name="PeriodicPublish", target=periodic_publish, args=(xapp,))
-publish_thread.start()
-<div class="highlight"><pre><span></span><code>### Publish to the dRAX NATS Databus
+        sleep(1)
 
-Publishing to the dRAX NATS Databus is equally simple:
+publish_thread = threading.Thread(name="PeriodicPublish", target=periodic_publish, args=(xapp,))
+publish_thread.start()
 </code></pre></div>
-data = {"key": "data"}
+<h3 id="publish-to-the-drax-nats-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.4</span> Publish to the dRAX NATS Databus<a class="headerlink" href="#publish-to-the-drax-nats-databus" title="Permanent link">⚓︎</a></h3>
+<p>Publishing to the dRAX NATS Databus is equally simple:</p>
+<div class="highlight"><pre><span></span><code>data = {"key": "data"}
 def periodic_publish(xapp):
     while True:
         xapp.nats().json().send_message("my_test_topic", data)
-        sleep(1)</p>
-<p>publish_thread = threading.Thread(name="PeriodicPublish", target=periodic_publish, args=(xapp,))
+        sleep(1)
+
+publish_thread = threading.Thread(name="PeriodicPublish", target=periodic_publish, args=(xapp,))
 publish_thread.start()
-<div class="highlight"><pre><span></span><code>## Use the dRAX RIC API Gateway
-
-The dRAX RIC exposes a number of APIs through the dRAX RIC API Gateway. The full documentation on all of the endpoints is available on the dRAX RIC API Gateway Swagerhub, which is exposed on the following URL:
 </code></pre></div>
-http://<kubernets_ip>:31315/api/v1/docs
-<div class="highlight"><pre><span></span><code>Just substitute &lt;kubernetes_ip&gt; with the advertise address of your Kubernetes cluster.
-
-Inside the actions module of the xApp Library, we have already implemented the code for making API calls, and abstracted the details on how to connect to the API. That information is stored in the xapp_endpoints.json file (see also section on [xApp Configuration In-depth](xapp_configuration.md#xapp-configuration-in-depth) under API_GATEWAY_URL. We created a few examples of how this works in the xApp Example, while the SwagerHub contains detailed information and description of all the endpoints.
-
-In summary, through the dRAX RIC API Gateway you can:
-
-* xApps
-    * Get a list of deployed xApps
-    * Get/Modify the configuration of another xApp
-    * Check if the xApp is healthy
-    * Deploy or delete other xApps
-* 4G Radio Controller
-    * Check the status of the 4GRC
-    * Configure the 4GRC
-* 4G Cells
-    * Configure basic parameters of a cell using a JSON
-    * Send a full NetConf RPC through the API to configure the cell
-    * Upload a pre-existing configuration
-    * Auto-configure cells
-    * Reboot cells
-* 5G CU
-    * Programmatically deploy the 5G CU-CP and CU-UP
-    * Configure the 5G CU-CP and CU-UP
-
-### How to use the dRAX RIC API Gateway in general
-
-Example 6 shows how to call the API gateway on the following endpoint:
+<h2 id="use-the-drax-ric-api-gateway"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9</span> Use the dRAX RIC API Gateway<a class="headerlink" href="#use-the-drax-ric-api-gateway" title="Permanent link">⚓︎</a></h2>
+<p>The dRAX RIC exposes a number of APIs through the dRAX RIC API Gateway. The full documentation on all of the endpoints is available on the dRAX RIC API Gateway Swagerhub, which is exposed on the following URL:</p>
+<div class="highlight"><pre><span></span><code>http://&lt;kubernets_ip&gt;:31315/api/v1/docs
 </code></pre></div>
-/discover/services/netconf
-<div class="highlight"><pre><span></span><code>This endpoint, as described in the SwagerHub, returns the list of NetConf services deployed on dRAX. Since the Accelleran 4G small cells and the 5G CUs have NetConf servers running in them to be able to use NetConf to configure them, this way we can get that information.
-</code></pre></div></kubernets_ip></p>
-<h3 id="example-6-how-to-use-the-drax-ric-api-gateway"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.4</span> Example 6: How to use the dRAX RIC API Gateway<a class="headerlink" href="#example-6-how-to-use-the-drax-ric-api-gateway" title="Permanent link">⚓︎</a></h3>
-<p>endpoint = '/discover/services/netconf'
-api_response = requests.get(actions.create_api_url(xapp, endpoint))</p>
-<p>if api_response.status_code == 200:
+<p>Just substitute <kubernetes_ip> with the advertise address of your Kubernetes cluster.</kubernetes_ip></p>
+<p>Inside the actions module of the xApp Library, we have already implemented the code for making API calls, and abstracted the details on how to connect to the API. That information is stored in the xapp_endpoints.json file (see also section on <a href="../xapp_configuration/#xapp-configuration-in-depth">xApp Configuration In-depth</a> under API_GATEWAY_URL. We created a few examples of how this works in the xApp Example, while the SwagerHub contains detailed information and description of all the endpoints.</p>
+<p>In summary, through the dRAX RIC API Gateway you can:</p>
+<ul>
+<li>xApps<ul>
+<li>Get a list of deployed xApps</li>
+<li>Get/Modify the configuration of another xApp</li>
+<li>Check if the xApp is healthy</li>
+<li>Deploy or delete other xApps</li>
+</ul>
+</li>
+<li>4G Radio Controller<ul>
+<li>Check the status of the 4GRC</li>
+<li>Configure the 4GRC</li>
+</ul>
+</li>
+<li>4G Cells<ul>
+<li>Configure basic parameters of a cell using a JSON</li>
+<li>Send a full NetConf RPC through the API to configure the cell</li>
+<li>Upload a pre-existing configuration</li>
+<li>Auto-configure cells</li>
+<li>Reboot cells</li>
+</ul>
+</li>
+<li>5G CU<ul>
+<li>Programmatically deploy the 5G CU-CP and CU-UP</li>
+<li>Configure the 5G CU-CP and CU-UP</li>
+</ul>
+</li>
+</ul>
+<h3 id="how-to-use-the-drax-ric-api-gateway-in-general"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9.1</span> How to use the dRAX RIC API Gateway in general<a class="headerlink" href="#how-to-use-the-drax-ric-api-gateway-in-general" title="Permanent link">⚓︎</a></h3>
+<p>Example 6 shows how to call the API gateway on the following endpoint:</p>
+<div class="highlight"><pre><span></span><code>/discover/services/netconf
+</code></pre></div>
+<p>This endpoint, as described in the SwagerHub, returns the list of NetConf services deployed on dRAX. Since the Accelleran 4G small cells and the 5G CUs have NetConf servers running in them to be able to use NetConf to configure them, this way we can get that information.</p>
+<div class="highlight"><pre><span></span><code>### Example 6: How to use the dRAX RIC API Gateway
+endpoint = '/discover/services/netconf'
+api_response = requests.get(actions.create_api_url(xapp, endpoint))
+
+if api_response.status_code == 200:
   try:
     logging.info(api_response.json())
   except:
     logging.info('Failed to load JSON, showing raw content of API response:')
     logging.info(api_response.text)
-<div class="highlight"><pre><span></span><code>### How to select only the port at which NetConf is exposed
-
-Example 7 shows how to parse the retrieved information from the dRAX RIC API Gateway. Because the information retrieved can be parsed as JSON, in python we can simply use it as a Python dictionary:
-</code></pre></div></p>
-<h3 id="example-7-get-the-ports-where-the-netconf-servers-of-cells-are-exposed"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.5</span> Example 7: Get the ports where the netconf servers of cells are exposed<a class="headerlink" href="#example-7-get-the-ports-where-the-netconf-servers-of-cells-are-exposed" title="Permanent link">⚓︎</a></h3>
-<div class="highlight"><pre><span></span><code>    endpoint = '/discover/services/netconf'
-    api_response = requests.get(actions.create_api_url(xapp, endpoint))
-
-    for cell, cell_info in api_response.json().items():
-        for port in cell_info['spec']['ports']:
-            if port['name'] == 'netconf-port':
-                logging.info('Cell [{cell}] has NETCONF exposed on port [{port}]'.format(
-                    cell=cell,
-                    port=port['node_port'])
-                )
 </code></pre></div>
-<p>~~~
+<h3 id="how-to-select-only-the-port-at-which-netconf-is-exposed"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9.2</span> How to select only the port at which NetConf is exposed<a class="headerlink" href="#how-to-select-only-the-port-at-which-netconf-is-exposed" title="Permanent link">⚓︎</a></h3>
+<p>Example 7 shows how to parse the retrieved information from the dRAX RIC API Gateway. Because the information retrieved can be parsed as JSON, in python we can simply use it as a Python dictionary:</p>
+<div class="highlight"><pre><span></span><code>### Example 7: Get the ports where the netconf servers of cells are exposed
+        endpoint = '/discover/services/netconf'
+        api_response = requests.get(actions.create_api_url(xapp, endpoint))
 
-This would log the following example data:
-
-~~~
-[netconf-dageraadplats] has NETCONF exposed on port [30023]
+        for cell, cell_info in api_response.json().items():
+            for port in cell_info['spec']['ports']:
+                if port['name'] == 'netconf-port':
+                    logging.info('Cell [{cell}] has NETCONF exposed on port [{port}]'.format(
+                        cell=cell,
+                        port=port['node_port'])
+                    )
+</code></pre></div>
+<p>This would log the following example data:</p>
+<div class="highlight"><pre><span></span><code>[netconf-dageraadplats] has NETCONF exposed on port [30023]
 [netconf-parking] has NETCONF exposed on port [32634]
-~~~</p>
+</code></pre></div>
 </article>
 </div>
 </div>
