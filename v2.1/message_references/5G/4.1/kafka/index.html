@@ -496,7 +496,8 @@
                     }
                   }
                 },
-                "CellGuid": &lt;string&gt;
+                "CellGuid": &lt;string&gt;,
+                "SsPbchBlockPower": &lt;int&gt;
               }
             }
           },
@@ -566,7 +567,8 @@ CELLSTATE_ACTIVATED
               }
             }
           },
-          "CuupGuid": &lt;string&gt;
+          "CuupGuid": &lt;string&gt;,
+          "CuupName": &lt;string&gt;
         }
       }
     }
@@ -721,19 +723,6 @@ AMFSTATE_CONNECTED
 </code></pre></div>
 <p><strong>Enumeration description :</strong>
 <div class="highlight"><pre><span></span><code>Enum Type:
-InstanceTypeEnum
-
-Enum Values:
-NONE_TYPE
-CELL_TYPE
-AMF_TYPE
-UE_TYPE
-SSB_FREQ_TYPE
-QOS_TYPE
-SNSSAI_TYPE
-INVALID_TYPE
-
-Enum Type:
 CounterIdEnum
 
 Enum Values:
@@ -746,6 +735,19 @@ DL_GTP_THP_SAMPLES_ID
 UL_GTP_THP_ID
 UL_GTP_THP_SAMPLES_ID
 MAX_NUMBER_COUNTERS
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+INVALID_TYPE
 </code></pre></div></p>
 <h3 id="cu-cp-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.2</span> CU-CP Throughput stats<a class="headerlink" href="#cu-cp-throughput-stats" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-CP.</p>
@@ -864,8 +866,19 @@ INVALID_TYPE
 </code></pre></div></p>
 <h3 id="cu-up-handover-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.4</span> CU-UP Handover Response<a class="headerlink" href="#cu-up-handover-response" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message contains a handover response from a CU</p>
-<p><strong>Kafka topic :</strong> ``</p>
-<div class="highlight"><pre><span></span><code>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.ran_control_response</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "RIC_REQUESTOR": &lt;string&gt;,
+  "RIC_INSTANCE": &lt;string&gt;,
+  "E2apRanControlRsp": {
+    "RicRequestorId": &lt;uint&gt;,
+    "RicInstanceId": &lt;uint&gt;,
+    "RicControlActionId": &lt;uint&gt;,
+    "Timestamp": &lt;string&gt;
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
 </code></pre></div>
 </article>
 </div>
