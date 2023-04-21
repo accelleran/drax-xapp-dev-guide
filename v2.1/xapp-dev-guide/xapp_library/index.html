@@ -573,9 +573,9 @@ handover_list = [
     {'ueIdx': 'ueRicId_to_handover_1', 'targetCell': 'Cell_1', 'sourceCell': 'Cell_2'},
     {'ueIdx': 'ueRicId_to_handover_2', 'targetCell': 'Cell_2', 'sourceCell': 'Cell_1'}
 ]
-lte.trigger_handover(xapp.nats(), handover_list)
+actions.trigger_handover(xapp.nats(), handover_list)
 </code></pre></div>
-<p>The lte.trigger_handover function abstracts the lower-level details of how a handover command message is generated and sent.</p>
+<p>The actions.trigger_handover function abstracts the lower-level details of how a handover command message is generated and sent.</p>
 <p>The function takes a list of handovers that are required. Each handover consists of the following information :</p>
 <ul>
 <li>'ueIdx': This is the ueDraxId of the UE that should be handed over;</li>
@@ -616,28 +616,24 @@ lte.trigger_handover(xapp.nats(), handover_list)
 </code></pre></div>
 <p>The UniqueRicId field from a UEMeasurement can be matched with the ueDraxId field from a L2 Stats message. Then the cell along with its information relating to the UE can be matched using the CELL field from the corresponding L2 Stats message.</p>
 <h3 id="5g-nr-handover-command-and-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2</span> 5G NR Handover command and response<a class="headerlink" href="#5g-nr-handover-command-and-response" title="Permanent link">⚓︎</a></h3>
-<p>dRAX also enables you to issue a handover command of a specific UE in an NR environment, from its currently serving cell to a certain target cell. It is also possible to check the response from the handover command. In the <em>example/core/xapp_main.py</em> example of the xApp Framework we show this in Examples 4b and 4c:</p>
-<div class="highlight"><pre><span></span><code>### Example 4b: Send handover command (NR)
-crnti = 7
-source_cell = nr.Cell(id=123, plmn='123456')
-target_cell = nr.Cell(id=456, plmn='654321')
+<p>dRAX also enables you to issue a handover command of a specific UE in an NR environment to a target cell. It is also possible to check the response from the handover command. In the <em>example/core/xapp_main.py</em> example of the xApp Framework we show this in Examples 4b and 4c:</p>
+<div class="highlight"><pre><span></span><code>### Example 4b: Send handover command (5G NR)
+ue_id = 7
+target_cell = actions.Cell(id=456, plmn='654321')
 
-transaction_id = nr.trigger_handover(xapp=xapp,
-                                     crnti=crnti,
-                                     source_cell=source_cell,
+transaction_id = actions.trigger_handover_5g(xapp=xapp,
+                                     ue_id=ue_id,
                                      target_cell=target_cell)
 </code></pre></div>
-<p>The nr.trigger_handover function abstracts the lower-level details of how a handover command message is generated and sent.</p>
+<p>The actions.trigger_handover_5g function abstracts the lower-level details of how a handover command message is generated and sent.</p>
 <p>The parameters required are as follows :</p>
 <ul>
 <li>'xapp': This a reference to the xapp triggering the handover</li>
-<li>'crnti': This is the crnti of the UE that should be handed over;</li>
-<li>'source_cell': The source cell from which the UE should get handed over from (the cell is composed of the cell id and the plmn)</li>
+<li>'ue_id': This is the Id of the UE that should be handed over;</li>
 <li>'target_cell': the target cell to which the UE should be handed over to (the cell is composed of the cell id and the plmn)</li>
 </ul>
-<p>The crnti is for a UE is determined from ???</p>
-<p>The source_cell and target_cell are determined from UE Measurement messages received on the accelleran.drax.5g.ric.raw.ue_measurement Kafka Topic. </p>
-<p>For the source_cell, the cell id and plmn are derived from ServingCellInfo fields of a UE Measurement message :</p>
+<p>Both the ue_id and target_cell are determined from UE Mesauremnt messages recieved on the accelleran.drax.5g.ric.raw.ue_measurement Kafka Topic. </p>
+<p>The ue_id is taken from the GnbCuCpUeId field in the RrcMeasurementReportResult portion of a UE Measurement message as shown below:</p>
 <div class="highlight"><pre><span></span><code>...
 "RrcMeasurementReportResultInfo": {
     "GnbCuCpUeId": &lt;uint&gt;,
@@ -684,13 +680,13 @@ transaction_id = nr.trigger_handover(xapp=xapp,
   "spanContext__": &lt;string&gt;
 }
 </code></pre></div>
-<p>However, Example 4c shows a handover response being received, and the data being parsed using the nr.parse_ran_control_response(data) function.</p>
+<p>Example 4c shows a handover response being received, and the data being parsed using the actions.parse_ran_control_response(data) function.</p>
 <div class="highlight"><pre><span></span><code>### Example 4c: Receive handover response
 (topic, data) = xapp.kafka().json().recv_message()
 if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
-    timestamp, transaction_id, requestor_id = nr.parse_ran_control_response(data)
+    timestamp, transaction_id, requestor_id = actions.parse_ran_control_response(data)
 </code></pre></div>
-<p>The nr.parse_ran_control_response function will return the time the message was generated, the requestor_id (which is the xapp.id), and also the transaction_id so the response can be matched with the transaction_id returned by the nr.trigger_handover function from Example 4b.</p>
+<p>The actions.parse_ran_control_response function will return the time the message was generated, the requestor_id (which is the xapp.id), and also the transaction_id so the response can be matched with the transaction_id returned by the actions.trigger_handover function from Example 4b.</p>
 <h2 id="publish-to-drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8</span> Publish to dRAX RIC Databus<a class="headerlink" href="#publish-to-drax-ric-databus" title="Permanent link">⚓︎</a></h2>
 <p>From your xApp, you can publish data on the dRAX RIC Databus for other xApps to use as well.</p>
 <h3 id="event-based-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.1</span> Event-based publishing<a class="headerlink" href="#event-based-publishing" title="Permanent link">⚓︎</a></h3>
