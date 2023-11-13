@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://accelleran.github.io/drax-xapp-dev-guide/v2.1/message_references/5G/4.1/kafka/" rel="canonical"/>
+<link href="https://accelleran.github.io/drax-xapp-dev-guide/v2.1/message_references/5G/4.2/kafka/" rel="canonical"/>
 <link href="../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.3.0, mkdocs-material-7.3.6" name="generator"/>
 <title>Kafka - dRAX xApp Dev Guide</title>
@@ -90,11 +90,11 @@
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../..">
-      Overview
-    </a>
+        Overview
+      </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../xapp-dev-guide/introduction/">
+<a class="md-tabs__link" href="../../../../xapp-dev-guide/quick_guide/">
         Documentation
       </a>
 </li>
@@ -119,10 +119,27 @@
     dRAX xApp Dev Guide
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../..">Overview</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Overview" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../..">
-        Overview
+<a class="md-nav__link" href="../../../../changelog/">
+        Changelog
       </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
@@ -136,11 +153,6 @@
           Documentation
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../xapp-dev-guide/introduction/">
-        Introduction
-      </a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../xapp-dev-guide/quick_guide/">
         Quick guide
@@ -246,13 +258,13 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_1" id="__nav_3_1_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_1_1">
-          version 4.1
+          version 4.2
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="version 4.1" class="md-nav" data-md-level="3">
+<nav aria-label="version 4.2" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_1_1">
 <span class="md-nav__icon md-icon"></span>
-          version 4.1
+          version 4.2
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
@@ -352,11 +364,6 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../3.3/kafka/">
-        Kafka
-      </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../../3.3/nats/">
         Nats
       </a>
@@ -376,11 +383,6 @@
           version 2.4
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../2.4/kafka/">
-        Kafka
-      </a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../2.4/nats/">
         Nats
@@ -443,9 +445,7 @@
 <p><strong>Description :</strong> This message gives information about the DUs connected to the CU-CP and their operational state (including [3GPP 38.473] served cell information).</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
 <div class="highlight"><pre><span></span><code>{
-  "CuCpDuBeaconInfo": {
-    "GnbId": &lt;uint&gt;,
-    "ServiceInfo": &lt;string&gt;,
+  "DuBeaconInfo": {
     "DuList": {
       "items": {
         "0": {
@@ -458,34 +458,25 @@
                 "NrCgi": {
                   "NrCellId": &lt;string&gt;,
                   "PlmnId": {
-                    "items": {
+                    "Data": {
                       "0": &lt;uint&gt;
                     }
                   }
                 },
                 "Pci": &lt;uint&gt;,
-                "FivegSTac": {
-                  "FivegSTac": {
-                    "items": {
-                      "0": &lt;uint&gt;
-                    }
-                  }
-                },
-                "ServedPlmns": {
+                "FivegSTac": &lt;string&gt;,
+                "SsPBCHBlockPower": &lt;int&gt;,
+                "SupportedPlmns": {
                   "items": {
                     "0": {
-                      "PlmnIdentity": {
-                        "items": {
-                          "0": &lt;uint&gt;
-                        }
-                      },
+                      "PlmnIdentity": &lt;string&gt;,
                       "TaiSlicedSupportList": {
                         "items": {
                           "0": {
                             "SNssai": {
                               "SST": &lt;uint&gt;,
                               "SD": {
-                                "items": {
+                                "Data": {
                                   "0": &lt;uint&gt;
                                 }
                               }
@@ -495,13 +486,13 @@
                       }
                     }
                   }
-                },
-                "CellGuid": &lt;string&gt;,
-                "SsPbchBlockPower": &lt;int&gt;
+                }
               }
             }
           },
-          "DuGuid": &lt;string&gt;
+          "GnbId": &lt;string&gt;,
+          "DuName": &lt;string&gt;,
+          "TransportLayerAddress": &lt;string&gt;
         }
       }
     }
@@ -515,63 +506,75 @@
 DuState
 
 Enum Values:
-DUSTATE_NON_OPERATIONAL
-DUSTATE_NON_OPERATIONAL_FAILURE
-DUSTATE_OPERATIONAL
+NON_OPERATIONAL
+NON_OPERATIONAL_FAILURE
+OPERATIONAL
 
 Enum Type:
 CellState
 
 Enum Values:
-CELLSTATE_NOT_SUPPORTED
-CELLSTATE_ACTIVATING
-CELLSTATE_DEACTIVATING
-CELLSTATE_RESOURCE_UNAVAIL
-CELLSTATE_ACTIVATION_FAILED
-CELLSTATE_ACTIVATED
+NOT_SUPPORTED
+ACTIVATING
+DEACTIVATING
+RESOURCE_UNAVAIL
+ACTIVATION_FAILED
+ACTIVATED
 </code></pre></div></p>
 <h3 id="cu-up-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.1.2</span> CU-UP beacon info<a class="headerlink" href="#cu-up-beacon-info" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives information about the CU-UPs connected to the CU-CP and their operation state.</p>
 <p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
 <div class="highlight"><pre><span></span><code>{
-  "CuCpCuupBeaconInfo": {
-    "GnbId": &lt;uint&gt;,
-    "ServiceInfo": &lt;string&gt;,
-    "CuUpList": {
+  "CuupBeaconInfoData": {
+    "CuupId": &lt;string&gt;,
+    "State": "&lt;CuupState&gt;",
+    "SupportedPlmns": {
       "items": {
         "0": {
-          "GnbCuupId": &lt;string&gt;,
-          "State": "&lt;CuupState&gt;",
-          "SupportedPlmns": {
+          "PlmnIdentity": &lt;string&gt;,
+          "TaiSlicedSupportList": {
             "items": {
               "0": {
-                "PlmnIdentity": {
-                  "items": {
-                    "0": &lt;uint&gt;
-                  }
-                },
-                "SliceSupportList": {
-                  "items": {
-                    "0": {
-                      "SNssai": {
-                        "SST": &lt;uint&gt;,
-                        "SD": {
-                          "items": {
-                            "0": &lt;uint&gt;
-                          }
-                        }
-                      }
+                "SNssai": {
+                  "SST": &lt;uint&gt;,
+                  "SD": {
+                    "Data": {
+                      "0": &lt;uint&gt;
                     }
                   }
                 }
               }
             }
-          },
-          "CuupGuid": &lt;string&gt;,
-          "CuupName": &lt;string&gt;
+          }
         }
       }
-    }
+    },
+    "AdminState": "&lt;AdminState&gt;",
+    "Version": &lt;string&gt;,
+    "ExtraInfoList": {
+      "items": {
+        "0": {
+          "Name": &lt;string&gt;,
+          "Value": &lt;string&gt;
+        }
+      }
+    },
+    "E1InterfacesList": {
+      "items": {
+        "0": {
+          "IpAddress": &lt;string&gt;
+        }
+      }
+    },
+    "GtpuInterfacesList": {
+      "items": {
+        "0": {
+          "F1UAddress": &lt;string&gt;,
+          "NgUAddress": &lt;string&gt;
+        }
+      }
+    },
+    "CuUpName": &lt;string&gt;
   },
   "tlpublishTime__": &lt;string&gt;,
   "spanContext__": &lt;string&gt;
@@ -582,8 +585,16 @@ CELLSTATE_ACTIVATED
 CuupState
 
 Enum Values:
-CUUPSTATE_OPERATIONAL
+CUUPSTATE_NON_OPERATIONAL
 CUUPSTATE_NON_OPERATIONAL_FAILURE
+CUUPSTATE_OPERATIONAL
+
+Enum Type:
+AdminState
+
+Enum Values:
+Locked
+UnLocked
 </code></pre></div></p>
 <h3 id="amf-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.1.3</span> AMF beacon info<a class="headerlink" href="#amf-beacon-info" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives information about the AMFs connected to the CU-CP.</p>
@@ -602,7 +613,7 @@ CUUPSTATE_NON_OPERATIONAL_FAILURE
             "items": {
               "0": {
                 "PlmnIdentity": {
-                  "items": {
+                  "Data": {
                     "0": &lt;uint&gt;
                   }
                 },
@@ -612,7 +623,7 @@ CUUPSTATE_NON_OPERATIONAL_FAILURE
                       "SNssai": {
                         "SST": &lt;uint&gt;,
                         "SD": {
-                          "items": {
+                          "Data": {
                             "0": &lt;uint&gt;
                           }
                         }
@@ -656,7 +667,7 @@ AMFSTATE_CONNECTED
       "NrCgi": {
         "NrCellId": &lt;string&gt;,
         "PlmnId": {
-          "items": {
+          "Data": {
             "0": &lt;uint&gt;
           }
         }
@@ -676,7 +687,7 @@ AMFSTATE_CONNECTED
           "NrCgi": {
             "NrCellId": &lt;string&gt;,
             "PlmnId": {
-              "items": {
+              "Data": {
                 "0": &lt;uint&gt;
               }
             }
@@ -698,56 +709,11 @@ AMFSTATE_CONNECTED
 <h2 id="pm-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3</span> PM stats<a class="headerlink" href="#pm-stats" title="Permanent link">⚓︎</a></h2>
 <h3 id="rrc-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.1</span> RRC stats<a class="headerlink" href="#rrc-stats" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives a list of raw PM counter values in CU-CP</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
-<div class="highlight"><pre><span></span><code>{
-  "PmReportingCountersListData": {
-    "items": {
-      "0": {
-        "CounterId": "&lt;CounterIdEnum&gt;",
-        "InstanceType": "&lt;InstanceTypeEnum&gt;",
-        "InstanceId": &lt;string&gt;,
-        "ValueList": {
-          "items": {
-            "0": {
-              "_key": &lt;uint&gt;,
-              "_val": &lt;uint&gt;
-            }
-          }
-        }
-      }
-    }
-  },
-  "tlpublishTime__": &lt;string&gt;,
-  "spanContext__": &lt;string&gt;
-}
+<p><strong>Kafka topic :</strong> ``</p>
+<div class="highlight"><pre><span></span><code>
 </code></pre></div>
 <p><strong>Enumeration description :</strong>
-<div class="highlight"><pre><span></span><code>Enum Type:
-CounterIdEnum
-
-Enum Values:
-RRC_CONNECTION_EST_ATTEMPT_ID
-RRC_CONNECTION_SUCC_ID
-REQ_INTRA_GNB_HANDOVER_EXECUTIONS_ID
-SUCC_INTRA_GNB_HANDOVER_EXECUTIONS_ID
-DL_GTP_THP_ID
-DL_GTP_THP_SAMPLES_ID
-UL_GTP_THP_ID
-UL_GTP_THP_SAMPLES_ID
-MAX_NUMBER_COUNTERS
-
-Enum Type:
-InstanceTypeEnum
-
-Enum Values:
-NONE_TYPE
-CELL_TYPE
-AMF_TYPE
-UE_TYPE
-SSB_FREQ_TYPE
-QOS_TYPE
-SNSSAI_TYPE
-INVALID_TYPE
+<div class="highlight"><pre><span></span><code>
 </code></pre></div></p>
 <h3 id="cu-cp-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.2</span> CU-CP Throughput stats<a class="headerlink" href="#cu-cp-throughput-stats" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-CP.</p>
@@ -801,9 +767,11 @@ NONE_TYPE
 CELL_TYPE
 AMF_TYPE
 UE_TYPE
+UE_QOS_SNSSAI_PLMN_TYPE
 SSB_FREQ_TYPE
 QOS_TYPE
 SNSSAI_TYPE
+QOS_SNSSAI_PLMN_TYPE
 INVALID_TYPE
 </code></pre></div></p>
 <h3 id="cu-up-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.3</span> CU-UP Throughput stats<a class="headerlink" href="#cu-up-throughput-stats" title="Permanent link">⚓︎</a></h3>
@@ -836,22 +804,6 @@ INVALID_TYPE
 </code></pre></div>
 <p><strong>Enumeration description :</strong>
 <div class="highlight"><pre><span></span><code>Enum Type:
-CuupCounterIdEnum
-
-Enum Values:
-DL_GTP_THP
-UL_GTP_THP
-DRB_PACKET_LOSS_UL_QOS
-DRB_PACKET_LOSS_UL_SNSSAI
-DRB_PDCP_PACKET_DROP_RATE_DL_QOS
-DRB_PDCP_PACKET_DROP_RATE_DL_SNSSAI
-AVERAGE_DELAY_DL_IN_CUUP_QOS
-AVERAGE_DELAY_DL_IN_CUUP_SNSSAI
-DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS
-DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI
-NUMBER_OF_CUUP_COUNTERS
-
-Enum Type:
 InstanceTypeEnum
 
 Enum Values:
@@ -859,10 +811,34 @@ NONE_TYPE
 CELL_TYPE
 AMF_TYPE
 UE_TYPE
+UE_QOS_SNSSAI_PLMN_TYPE
 SSB_FREQ_TYPE
 QOS_TYPE
 SNSSAI_TYPE
+QOS_SNSSAI_PLMN_TYPE
 INVALID_TYPE
+
+Enum Type:
+CuupCounterIdEnum
+
+Enum Values:
+DL_GTP_THP
+DL_GTP_THP_UE_QOS_SNSSAI_PLMN
+UL_GTP_THP
+UL_GTP_THP_UE_QOS_SNSSAI_PLMN
+DRB_PACKET_LOSS_UL_QOS
+DRB_PACKET_LOSS_UL_SNSSAI
+DRB_PACKET_LOSS_UL_QOS_SNSSAI_PLMN
+DRB_PDCP_PACKET_DROP_RATE_DL_QOS
+DRB_PDCP_PACKET_DROP_RATE_DL_SNSSAI
+DRB_PDCP_PACKET_DROP_RATE_DL_QOS_SNSSAI_PLMN
+AVERAGE_DELAY_DL_IN_CUUP_QOS
+AVERAGE_DELAY_DL_IN_CUUP_SNSSAI
+AVERAGE_DELAY_DL_IN_CUUP_QOS_SNSSAI_PLMN
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS_SNSSAI_PLMN
+NUMBER_OF_CUUP_COUNTERS
 </code></pre></div></p>
 <h3 id="cu-up-handover-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.4</span> CU-UP Handover Response<a class="headerlink" href="#cu-up-handover-response" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message contains a handover response from a CU</p>
