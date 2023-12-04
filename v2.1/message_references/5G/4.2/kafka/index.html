@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://accelleran.github.io/drax-xapp-dev-guide/v2.1/message_references/5G/4.2/kafka/" rel="canonical"/>
 <link href="../../../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.3.0, mkdocs-material-7.3.6" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-7.3.6" name="generator"/>
 <title>Kafka - dRAX xApp Dev Guide</title>
 <link href="../../../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
@@ -542,7 +542,8 @@
 <h2 id="beacons"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.1</span> Beacons<a class="headerlink" href="#beacons" title="Permanent link">⚓︎</a></h2>
 <h3 id="du-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.1.1</span> DU beacon info<a class="headerlink" href="#du-beacon-info" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives information about the DUs connected to the CU-CP and their operational state (including [3GPP 38.473] served cell information).</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.cu_state
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "DuBeaconInfo": {
     "DuList": {
@@ -622,7 +623,8 @@ ACTIVATED
 </code></pre></div></p>
 <h3 id="cu-up-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.1.2</span> CU-UP beacon info<a class="headerlink" href="#cu-up-beacon-info" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives information about the CU-UPs connected to the CU-CP and their operation state.</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.cu_state
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "CuupBeaconInfoData": {
     "CuupId": &lt;string&gt;,
@@ -697,7 +699,8 @@ UnLocked
 </code></pre></div></p>
 <h3 id="amf-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.1.3</span> AMF beacon info<a class="headerlink" href="#amf-beacon-info" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives information about the AMFs connected to the CU-CP.</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.cu_state</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.cu_state
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "CuCpAmfBeaconInfo": {
     "GnbId": &lt;uint&gt;,
@@ -753,7 +756,8 @@ AMFSTATE_CONNECTED
 </code></pre></div></p>
 <h2 id="ue-measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.2</span> UE Measurements<a class="headerlink" href="#ue-measurements" title="Permanent link">⚓︎</a></h2>
 <p><strong>Description :</strong> These measurements contain the RSRP and RSRQ periodic measurements from serving cell.</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.ue_measurements</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.ue_measurements
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "ENB": &lt;string&gt;,
   "DU": &lt;string&gt;,
@@ -1375,7 +1379,7 @@ RN_MULTIPLE_LOC_RPT_REF_ID_INSTANCES
 <h2 id="raw-performance-measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.4</span> Raw Performance Measurements<a class="headerlink" href="#raw-performance-measurements" title="Permanent link">⚓︎</a></h2>
 <h3 id="rrc-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.4.1</span> RRC stats<a class="headerlink" href="#rrc-stats" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives a list of raw PM counter values in CU-CP</p>
-<p><strong>Kafka topic :</strong> ``</p>
+<p>`</p>
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
 <p><strong>Enumeration description :</strong>
@@ -1383,7 +1387,8 @@ RN_MULTIPLE_LOC_RPT_REF_ID_INSTANCES
 </code></pre></div></p>
 <h3 id="cu-cp-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.4.2</span> CU-CP Throughput stats<a class="headerlink" href="#cu-cp-throughput-stats" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-CP.</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.pm_counters
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "PmReportingCucpCounterData": {
     "ReportingNodeId": &lt;string&gt;,
@@ -1442,7 +1447,8 @@ INVALID_TYPE
 </code></pre></div></p>
 <h3 id="cu-up-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.4.3</span> CU-UP Throughput stats<a class="headerlink" href="#cu-up-throughput-stats" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-UP.</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.pm_counters</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.pm_counters
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "PmReportingCuupCounterData": {
     "ReportingNodeId": &lt;string&gt;,
@@ -1508,7 +1514,8 @@ NUMBER_OF_CUUP_COUNTERS
 </code></pre></div></p>
 <h3 id="cu-up-handover-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.4.4</span> CU-UP Handover Response<a class="headerlink" href="#cu-up-handover-response" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message contains a handover response from a CU</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.raw.ran_control_response</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.ran_control_response
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "RIC_REQUESTOR": &lt;string&gt;,
   "RIC_INSTANCE": &lt;string&gt;,

@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://accelleran.github.io/drax-xapp-dev-guide/v2.1/message_references/4G/5.2/kafka/" rel="canonical"/>
 <link href="../../../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.3.0, mkdocs-material-7.3.6" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-7.3.6" name="generator"/>
 <title>Kafka - dRAX xApp Dev Guide</title>
 <link href="../../../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
@@ -410,7 +410,8 @@
 <h2 id="heartbeats"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.1</span> Heartbeats<a class="headerlink" href="#heartbeats" title="Permanent link">⚓︎</a></h2>
 <p><strong>Description :</strong> Both the Layer 2 and Layer3 of each cell send out heartbeats to report that they are alive.</p>
 <p>The Layer 2 heartbeats has the following format:</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.4g.ric.raw.service_discovery</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.4g.ric.raw.service_discovery
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "ENB": &lt;string&gt;,
   "ueDraxId": &lt;string&gt;,
@@ -427,7 +428,8 @@
 }
 </code></pre></div>
 <p>The Layer 3 heartbeats have a similar format:</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.4g.ric.raw.service_discovery</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.4g.ric.raw.service_discovery
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "ENB": &lt;string&gt;,
   "ueDraxId": &lt;string&gt;,
@@ -531,7 +533,8 @@ available
 </code></pre></div></p>
 <h2 id="ue-measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.3</span> UE Measurements<a class="headerlink" href="#ue-measurements" title="Permanent link">⚓︎</a></h2>
 <p><strong>Description :</strong> If periodic reporting is enabled in the 4G Radio Controller, the UEs will be instructed to send periodic measurements. These measurements contain the RSRP and RSRQ value from the UE to its serving cell, as well as a maximum of 8 neighbouring cells. Each measurement to a specific cell is sent as a separate message.</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.4g.ric.raw.ue_measurements</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.4g.ric.raw.ue_measurements
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "ENB": &lt;string&gt;,
   "CELL": &lt;string&gt;,
@@ -567,7 +570,8 @@ available
 </code></pre></div>
 <h2 id="l2-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.4</span> L2 Stats<a class="headerlink" href="#l2-stats" title="Permanent link">⚓︎</a></h2>
 <p><strong>Description :</strong> The dRAX RIC also reports the downlink and uplink L2 stats of the UEs in the network.</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.4g.ric.raw.ue_measurements</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.4g.ric.raw.ue_measurements
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "ENB": &lt;string&gt;,
   "CELL": &lt;string&gt;,
@@ -590,7 +594,8 @@ available
 </code></pre></div>
 <h2 id="cqi"><span class="enumerate-headings-plugin enumerate-heading-plugin">22.5</span> CQI<a class="headerlink" href="#cqi" title="Permanent link">⚓︎</a></h2>
 <p><strong>Description :</strong> The dRAX RIC also supports retrieving the CQI report of the UE to its serving cell. You can get the CQI value from each subband as well as the wideband CQI value.</p>
-<p><strong>Kafka topic :</strong> <code>accelleran.drax.4g.ric.raw.ue_measurements</code></p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.4g.ric.raw.ue_measurements
+`</p>
 <div class="highlight"><pre><span></span><code>{
   "ENB": &lt;string&gt;,
   "CELL": &lt;string&gt;,
