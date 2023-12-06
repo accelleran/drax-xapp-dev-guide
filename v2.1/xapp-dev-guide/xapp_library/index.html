@@ -626,10 +626,12 @@ actions.trigger_handover(xapp.nats(), handover_list)
 <div class="highlight"><pre><span></span><code>### Example 4b: Send handover command (5G NR)
 ue_id = 7
 target_cell = actions.Cell(id=456, plmn='654321')
+cucp_id = "cucp-1"
 
 transaction_id = actions.trigger_handover_5g(xapp=xapp,
-                                     ue_id=ue_id,
-                                     target_cell=target_cell)
+                                      ue_id=ue_id,
+                                      target_cell=target_cell,
+                                      cucp_id=cucp_id)
 </code></pre></div>
 <p>The actions.trigger_handover_5g function abstracts the lower-level details of how a handover command message is generated and sent.</p>
 <p>The parameters required are as follows :</p>
@@ -637,8 +639,9 @@ transaction_id = actions.trigger_handover_5g(xapp=xapp,
 <li>'xapp': This a reference to the xapp triggering the handover</li>
 <li>'ue_id': This is the Id of the UE that should be handed over;</li>
 <li>'target_cell': the target cell to which the UE should be handed over to (the cell is composed of the cell id and the plmn)</li>
+<li>'cucp_id': the cucp instance id that is responsible for coordinating the handover procedure and supervising the control of the serving cell</li>
 </ul>
-<p>Both the ue_id and target_cell are determined from UE Mesauremnt messages recieved on the accelleran.drax.5g.ric.raw.ue_measurement Kafka Topic. </p>
+<p>Both the ue_id, target_cell and cucp_id are determined from UE Measurement messages recieved on the accelleran.drax.5g.ric.raw.ue_measurement Kafka Topic. The cucp_id can be extracted from the "topic" field of the message by parsing the string and identifying the first segment before the first dot (e.g. <strong>"cucp_id"</strong>.5G_MEAS_INFO...).</p>
 <p>The ue_id is taken from the GnbCuCpUeId field in the RrcMeasurementReportResult portion of a UE Measurement message as shown below:</p>
 <div class="highlight"><pre><span></span><code>...
 "RrcMeasurementReportResultInfo": {
@@ -653,7 +656,10 @@ transaction_id = actions.trigger_handover_5g(xapp=xapp,
           }
         }
       }
-...
+    ...
+  }
+},
+"topic":"&lt;string&gt;.5G_MEAS_INFO.ENB=&lt;string&gt;.DU=&lt;string&gt;.CELL=&lt;uint&gt;.UE=&lt;string&gt;"
 </code></pre></div>
 <p>It is the responsibility of the xApp application to determine the target_cell required for the handover. Potential target cells for a UE can be determined from the Neighbour Cells listed in the following portion of a UE Measurement message.</p>
 <div class="highlight"><pre><span></span><code>...

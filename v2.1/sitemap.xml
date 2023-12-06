@@ -2,112 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/changelog/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/message_references/4G/5.2/kafka/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/message_references/5G/2.4/nats/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/message_references/5G/3.3/nats/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/message_references/5G/4.2/kafka/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/message_references/5G/4.2/nats/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/appendix_conversion/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/appendix_dockerhub/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/development_workflows/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/quick_guide/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_configuration/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_core/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_dev_environment/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_framework/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_helm_charts/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_library/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_lifecycle/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_productize/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_readme/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_rest_api/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.1/xapp-dev-guide/xapp_unittest/</loc>
-         <lastmod>2023-12-04</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
