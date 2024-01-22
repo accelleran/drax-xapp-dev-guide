@@ -99,7 +99,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../message_references/5G/4.2/kafka/">
+<a class="md-tabs__link" href="../../message_references/5G/4.3/nats/">
         Message References
       </a>
 </li>
@@ -230,6 +230,12 @@
 <nav aria-label="dRAX Commands" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#handover">
+    Handover
+  </a>
+<nav aria-label="Handover" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
 <a class="md-nav__link" href="#4g-lte-handover-command">
     4G LTE Handover command
   </a>
@@ -238,6 +244,142 @@
 <a class="md-nav__link" href="#5g-nr-handover-command-and-response">
     5G NR Handover command and response
   </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-admission-control">
+    UE Admission Control
+  </a>
+<nav aria-label="UE Admission Control" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisite">
+    Prerequisite
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#receive-messages-on-nats">
+    Receive messages on NATS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-admission-request-messages">
+    UE Admission Request messages
+  </a>
+<nav aria-label="UE Admission Request messages" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accept-ue-admission">
+    Accept UE Admission
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reject-ue-admission">
+    Reject UE Admission
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#control-admitted-ue">
+    Control Admitted UE
+  </a>
+<nav aria-label="Control Admitted UE" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-update-indication">
+    UE Update Indication
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-release-indication">
+    UE Release Indication
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-context-release">
+    UE Context release
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pdu-admission-control">
+    PDU Admission Control
+  </a>
+<nav aria-label="PDU Admission Control" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisite_1">
+    Prerequisite
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#receive-messages-on-nats_1">
+    Receive messages on NATS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pdu-session-admission-request-messages">
+    PDU Session Admission Request messages
+  </a>
+<nav aria-label="PDU Session Admission Request messages" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accept-pdu-session-admission">
+    Accept PDU Session Admission
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reject-pdu-session-admission">
+    Reject PDU Session Admission
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pdu-session-modification-messages">
+    PDU Session Modification messages
+  </a>
+<nav aria-label="PDU Session Modification messages" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accept-pdu-session-modification">
+    Accept PDU Session Modification
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reject-pdu-session-modification">
+    Reject PDU Session Modification
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#control-admitted-pdu-session">
+    Control Admitted PDU Session
+  </a>
+<nav aria-label="Control Admitted PDU Session" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pdu-session-release">
+    PDU Session Release
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -412,11 +554,31 @@
 <li class="md-nav__item md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_1" id="__nav_3_1_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_1_1">
+          version 4.3
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 4.3" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_1">
+<span class="md-nav__icon md-icon"></span>
+          version 4.3
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/5G/4.3/nats/">
+        Nats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_2" id="__nav_3_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_2">
           version 4.2
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="version 4.2" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_1_1">
+<label class="md-nav__title" for="__nav_3_1_2">
 <span class="md-nav__icon md-icon"></span>
           version 4.2
         </label>
@@ -435,13 +597,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_2" id="__nav_3_1_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_1_2">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_3" id="__nav_3_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_3">
           version 3.3
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="version 3.3" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_1_2">
+<label class="md-nav__title" for="__nav_3_1_3">
 <span class="md-nav__icon md-icon"></span>
           version 3.3
         </label>
@@ -455,13 +617,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_3" id="__nav_3_1_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_1_3">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_4" id="__nav_3_1_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_4">
           version 2.4
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="version 2.4" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_1_3">
+<label class="md-nav__title" for="__nav_3_1_4">
 <span class="md-nav__icon md-icon"></span>
           version 2.4
         </label>
@@ -601,7 +763,8 @@ logging.debug("dRAX Databus message on {topic}: {data}".format(topic=topic, data
 (topic, data) = xapp.nats().recv_data()
 </code></pre></div>
 <h2 id="drax-commands"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7</span> dRAX Commands<a class="headerlink" href="#drax-commands" title="Permanent link">⚓︎</a></h2>
-<p>From the xApp you can issue two types of commands on the dRAX NATS Databus:</p>
+<h3 id="handover"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.1</span> Handover<a class="headerlink" href="#handover" title="Permanent link">⚓︎</a></h3>
+<p>From the xApp you can issue two types of handover commands on the dRAX NATS Databus:</p>
 <ol>
 <li>
 <p>4G LTE Handover command</p>
@@ -612,7 +775,7 @@ logging.debug("dRAX Databus message on {topic}: {data}".format(topic=topic, data
 </ol>
 <p>These are both defined inside the xapp_lib.actions module.</p>
 <p><strong>NOTE:</strong> As the commands are sent over the dRAX NATS Databus, the NATS client should be set up in the xApp as described in the <a href="#drax-nats-databus">dRAX NATS Databus</a> section.</p>
-<h3 id="4g-lte-handover-command"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.1</span> 4G LTE Handover command<a class="headerlink" href="#4g-lte-handover-command" title="Permanent link">⚓︎</a></h3>
+<h4 id="4g-lte-handover-command"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.1.1</span> 4G LTE Handover command<a class="headerlink" href="#4g-lte-handover-command" title="Permanent link">⚓︎</a></h4>
 <p>dRAX enables you to issue a handover command for a set of UEs in an LTE environment from source cells to target cells. In the <em>example/core/xapp_main.py</em> example of the xApp Framework we show this in Example 4a.</p>
 <div class="highlight"><pre><span></span><code>### Example 4a: Send handover command (LTE)
 handover_list = [
@@ -661,7 +824,7 @@ actions.trigger_handover(xapp.nats(), handover_list)
 }
 </code></pre></div>
 <p>The UniqueRicId field from a UEMeasurement can be matched with the ueDraxId field from a L2 Stats message. Then the cell along with its information relating to the UE can be matched using the CELL field from the corresponding L2 Stats message.</p>
-<h3 id="5g-nr-handover-command-and-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2</span> 5G NR Handover command and response<a class="headerlink" href="#5g-nr-handover-command-and-response" title="Permanent link">⚓︎</a></h3>
+<h4 id="5g-nr-handover-command-and-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.1.2</span> 5G NR Handover command and response<a class="headerlink" href="#5g-nr-handover-command-and-response" title="Permanent link">⚓︎</a></h4>
 <details class="note">
 <summary>Supported CU Versions</summary>
 <p>This command is supported since CU 4.2, used by default from RIC 6.5.0.</p>
@@ -722,7 +885,7 @@ transaction_id = actions.trigger_handover_5g(xapp=xapp,
           },
 ...
 </code></pre></div>
-<p>Handover responses are received on the Kafka topic accelleran.drax.5g.ric.raw.ran_control_response', therefore you will also need to subscribe to this Kafka topic in the subscribe_to_topics function. The reponse will be in the following format:  </p>
+<p>Handover responses are received on the Kafka topic accelleran.drax.5g.ric.raw.ran_control_response', therefore you will also need to subscribe to this Kafka topic in the subscribe_to_topics function. The reponse will be in the following format:</p>
 <div class="highlight"><pre><span></span><code>{
   "RIC_REQUESTOR": &lt;string&gt;,
   "RIC_INSTANCE": &lt;string&gt;,
@@ -743,6 +906,370 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
     timestamp, transaction_id, requestor_id = actions.parse_ran_control_response(data)
 </code></pre></div>
 <p>The actions.parse_ran_control_response function will return the time the message was generated, the requestor_id (which is the xapp.id), and also the transaction_id so the response can be matched with the transaction_id returned by the actions.trigger_handover function from Example 4b.</p>
+<h3 id="ue-admission-control"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2</span> UE Admission Control<a class="headerlink" href="#ue-admission-control" title="Permanent link">⚓︎</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Supported CU Versions</p>
+<p>This command is supported since CU 4.3 used by default from RIC 7.0.0.</p>
+</div>
+<p>The UE Admission Control grants dRAX RIC the authority to allow or reject a User Equipment (UE) from accessing the 5G network.</p>
+<p>Based on certain criteria and by evaluating factors like network load and available resources, dRAX RIC can determine what decision to take about the UE's connection request.</p>
+<p>If a UE is accepted by dRAX RIC, the dRAX RIC will be notified when the UE information is updated or when the UE state changes.</p>
+<p>This proactive management helps prevent network congestion and ensures optimal resource allocation.</p>
+<p>Hence, it plays a crucial role in maintaining network performance, quality of service, and resource efficiency within the radio access network.</p>
+<h4 id="prerequisite"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.1</span> Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">⚓︎</a></h4>
+<p>To be able to activate this feature within dRAX RIC, some prerequisite configuration must be performed.</p>
+<div class="admonition danger">
+<p class="admonition-title">UE Admission Control prerequisite</p>
+<p>To allow dRAX RIC to have control over UE admission, the CU-CP must be configured properly.</p>
+<p>To do so, the CU-CP provides the <strong><em>ricUeAdmissionControlEnabled</em></strong> configuration flag that must be set to true.</p>
+<p>The <strong><em>ricUeAdmissionControlEnabled</em></strong> flag can be set using the dRAX Dashboard in the CU-CP feature configuration section or via the dRAX API.</p>
+<p>Once activated, the incoming UE admission request will be forwarded from the CU to the dRAX RIC and thus, will allow the dRAX RIC to have control over UE admission decisions.</p>
+</div>
+<h4 id="receive-messages-on-nats"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.2</span> Receive messages on NATS<a class="headerlink" href="#receive-messages-on-nats" title="Permanent link">⚓︎</a></h4>
+<p>From the xApp point-of-view, the application should listen the following subjects on NATS:</p>
+<ul>
+<li>*.UE-ADMISSION-REQUEST subject is used to be notified when a CU requests admission of a UE to the dRAX RIC</li>
+<li>*.UE-RELEASE-INDICATION subject is used to notify dRAX RIC when a UE context is released (triggered by the UE or forced by dRAX RIC)</li>
+<li>*.UE-INFO-UPDATE-INDICATION subject is used to notify dRAX RIC when the information state of a UE is updated</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A NATS subject is a character string used as an identifier to direct messages to the relevant subscribers within the NATS messaging system.</p>
+</div>
+<p>The following example shows how to subscribe to the NATS subjects from an xApp to be able to receive all the necessary messages for the UE Admission Control:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># NATS subscription for the UE admission example</span>
+<span class="n">xapp</span><span class="o">.</span><span class="n">nats</span><span class="p">(</span><span class="n">endpoint</span><span class="o">=</span><span class="s2">"NATS_URL_5G"</span><span class="p">)</span><span class="o">.</span><span class="n">subscribe</span><span class="p">([</span>
+  <span class="s1">'*.UE-ADMISSION-REQUEST'</span><span class="p">,</span>
+  <span class="s1">'*.UE-RELEASE-INDICATION'</span><span class="p">,</span>
+  <span class="s1">'*.UE-INFO-UPDATE-INDICATION'</span>
+<span class="p">])</span>
+</code></pre></div>
+</div>
+<p>Then, the xApp can read the UE Admission Control messages from the dRAX RIC NATS Databus:
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">=</span> <span class="n">xapp</span><span class="o">.</span><span class="n">nats</span><span class="p">()</span><span class="o">.</span><span class="n">recv_data</span><span class="p">()</span>
+</code></pre></div></p>
+<h4 id="ue-admission-request-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.3</span> UE Admission Request messages<a class="headerlink" href="#ue-admission-request-messages" title="Permanent link">⚓︎</a></h4>
+<p>When a new message is received on NATS, it is necessary to parse the message with the help of the topic field.</p>
+<p>Depending on which topic the message arrives, the processing will have to be different.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="s2">"UE-ADMISSION-REQUEST"</span> <span class="ow">in</span> <span class="n">topic</span><span class="p">:</span>
+    <span class="n">ue_adm_req</span> <span class="o">=</span> <span class="n">nr</span><span class="o">.</span><span class="n">ue_admission_request_message</span><span class="p">(</span><span class="n">encoded_data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"UE-ADMISSION-REQUEST received: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ue_adm_req</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<p>The <strong><em>ue_admission_request_message</em></strong> function is used to decode encoded messages received on the <strong><em>UE-ADMISSION-REQUEST</em></strong> subject.</p>
+<p>It takes as argument the encoded message and will return a decoded object.</p>
+<p>Here is an example of the returned object:</p>
+<div class="highlight"><pre><span></span><code><span class="n">CuCpName</span><span class="p">:</span> <span class="s2">"cucp-1"</span>
+<span class="n">DuId</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">NrCgi</span> <span class="p">{</span>
+  <span class="n">NrCellId</span><span class="p">:</span> <span class="mi">513</span>
+  <span class="n">PlmnId</span> <span class="p">{</span>
+    <span class="n">Data</span><span class="p">:</span> <span class="mi">153</span>
+    <span class="n">Data</span><span class="p">:</span> <span class="mi">249</span>
+    <span class="n">Data</span><span class="p">:</span> <span class="mi">16</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">CRnti</span><span class="p">:</span> <span class="mi">42003</span>
+<span class="n">CuCpUeId</span><span class="p">:</span> <span class="mi">14</span>
+<span class="n">DuUeId</span><span class="p">:</span> <span class="mi">1</span>
+</code></pre></div>
+<h5 id="accept-ue-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.3.1</span> Accept UE Admission<a class="headerlink" href="#accept-ue-admission" title="Permanent link">⚓︎</a></h5>
+<p>The Accept UE Admission command is the decision made by dRAX RIC to allow a specific UE to access the 5G network.</p>
+<p>Once the <strong><em>ue_admission_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to accept the new UE.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="n">err</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">ue_admission_accept</span><span class="p">(</span><span class="n">xapp</span><span class="o">=</span><span class="n">xapp</span><span class="p">,</span> <span class="n">cucp_name</span><span class="o">=</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="p">,</span> <span class="n">cucp_ue_id</span><span class="o">=</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Admission of UE </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> succeeded"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Admission of UE </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After a UE has been accepted, it is the responsibility of the xApp to keep track about the list of accepted / rejected UEs</p>
+</div>
+<h5 id="reject-ue-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.3.2</span> Reject UE Admission<a class="headerlink" href="#reject-ue-admission" title="Permanent link">⚓︎</a></h5>
+<p>The Reject UE Admission command is the decision made by dRAX RIC to deny a specific UE to access the 5G network.</p>
+<p>Once the <strong><em>ue_admission_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to reject the new UE.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="n">err</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">ue_admission_reject</span><span class="p">(</span><span class="n">xapp</span><span class="o">=</span><span class="n">xapp</span><span class="p">,</span> <span class="n">cucp_name</span><span class="o">=</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="p">,</span> <span class="n">cucp_ue_id</span><span class="o">=</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rejection of UE </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> succeeded"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rejection of UE </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h4 id="control-admitted-ue"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.4</span> Control Admitted UE<a class="headerlink" href="#control-admitted-ue" title="Permanent link">⚓︎</a></h4>
+<p>Once the UE is admitted by dRAX RIC, the xApp will be able to receive notifications about the admitted UEs state.</p>
+<h5 id="ue-update-indication"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.4.1</span> UE Update Indication<a class="headerlink" href="#ue-update-indication" title="Permanent link">⚓︎</a></h5>
+<p>The UE Update Indication message is a notification received by dRAX RIC when the state of an admitted UE changes or is updated.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show ue update information</span>
+<span class="k">if</span> <span class="s2">"UE-INFO-UPDATE-INDICATION"</span> <span class="ow">in</span> <span class="n">topic</span><span class="p">:</span>
+  <span class="n">ue_info_update</span> <span class="o">=</span> <span class="n">nr</span><span class="o">.</span><span class="n">ue_info_update_indication_message</span><span class="p">(</span><span class="n">encoded_data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"UE-INFO-UPDATE-INDICATION received: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ue_info_update</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<p>The <strong><em>ue_info_update_indication_message</em></strong> function is used to decode encoded messages received on the <strong><em>UE-INFO-UPDATE-INDICATION</em></strong> subject.</p>
+<p>It takes as argument the encoded message and will return a decoded object.</p>
+<p>Here is an example of the returned object:</p>
+<div class="highlight"><pre><span></span><code><span class="n">CuCpName</span><span class="p">:</span> <span class="s2">"cucp-1"</span>
+<span class="n">UeId</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">DuUeId</span><span class="p">:</span> <span class="mi">42002</span>
+<span class="n">CRnti</span><span class="p">:</span> <span class="mi">42002</span>
+<span class="n">DuId</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">DuGuid</span><span class="p">:</span> <span class="s2">"Kf1ap_f1_ap_0"</span>
+<span class="n">AmfGuid</span><span class="p">:</span> <span class="s2">"Kngap_ng_ap_0"</span>
+<span class="n">Guami</span> <span class="p">{</span>
+  <span class="n">PlmnIdentity</span> <span class="p">{</span>
+    <span class="n">Data</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="n">Data</span><span class="p">:</span> <span class="mi">241</span>
+    <span class="n">Data</span><span class="p">:</span> <span class="mi">16</span>
+  <span class="p">}</span>
+  <span class="n">AmfRegionId</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="n">AmfSetId</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="n">AmfPointer</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+<span class="n">NrCgiData</span> <span class="p">{</span>
+  <span class="n">NrCellId</span><span class="p">:</span> <span class="mi">17</span>
+  <span class="n">PlmnId</span> <span class="p">{</span>
+    <span class="n">Data</span><span class="p">:</span> <span class="mi">153</span>
+    <span class="n">Data</span><span class="p">:</span> <span class="mi">249</span>
+    <span class="n">Data</span><span class="p">:</span> <span class="mi">16</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="ue-release-indication"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.4.2</span> UE Release Indication<a class="headerlink" href="#ue-release-indication" title="Permanent link">⚓︎</a></h5>
+<p>The UE Release Indication message is a notification received by dRAX RIC when the communication with a UE terminates.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show ue release information</span>
+<span class="k">if</span> <span class="s2">"UE-RELEASE-INDICATION"</span> <span class="ow">in</span> <span class="n">topic</span><span class="p">:</span>
+  <span class="n">ue_release_ind</span> <span class="o">=</span> <span class="n">nr</span><span class="o">.</span><span class="n">ue_release_indication_message</span><span class="p">(</span><span class="n">encoded_data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"UE-RELEASE-INDICATION received: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ue_release_ind</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<p>The <strong><em>ue_release_indication_message</em></strong> function is used to decode encoded messages received on the <strong><em>UE-RELEASE-INDICATION</em></strong> subject.</p>
+<p>It takes as argument the encoded message and will return a decoded object.</p>
+<p>Here is an example of the returned object:</p>
+<div class="highlight"><pre><span></span><code><span class="n">CuCpName</span><span class="p">:</span> <span class="s2">"cucp-1"</span>
+<span class="n">CuCpUeId</span><span class="p">:</span> <span class="mi">24</span>
+<span class="n">RanUeId</span><span class="p">:</span> <span class="mi">1</span> <span class="c1"># Available if known</span>
+</code></pre></div>
+<h5 id="ue-context-release"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.4.3</span> UE Context release<a class="headerlink" href="#ue-context-release" title="Permanent link">⚓︎</a></h5>
+<p>The UE Context Release command is the decision made by dRAX RIC to terminate the session of a specific UE within the 5G network.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Release an accepted ue</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">ue_context_release_with_cucp_ue_id</span><span class="p">(</span><span class="n">xapp</span><span class="o">=</span><span class="n">xapp</span><span class="p">,</span> <span class="n">cucp_name</span><span class="o">=</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="p">,</span> <span class="n">cucp_ue_id</span><span class="o">=</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Release context of UE </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> succeeded"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Release context of UE </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h3 id="pdu-admission-control"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3</span> PDU Admission Control<a class="headerlink" href="#pdu-admission-control" title="Permanent link">⚓︎</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Supported CU Versions</p>
+<p>This command is supported since CU 4.3 used by default from RIC 7.0.0.</p>
+</div>
+<p>The PDU Admission Control grants dRAX RIC the authority to allow or reject a PDU session.</p>
+<p>A PDU session is, in 5G, a bidirectional communication link between the user equipment (UE) and the network, encapsulating and managing the data transmission.</p>
+<p>It plays a crucial role in maintaining data integrity and supporting diverse services within the network.</p>
+<p>Thus, based on certain criteria and by evaluating factors like network load and available resources, dRAX RIC can determine what decision to take about the traffic load and the data flows.</p>
+<p>This dynamic control allows for efficient utilization of network resources and ensures that the network can handle the traffic in a way that meets the specified performance criteria.</p>
+<p>The PDU admission feature is essential for maintaining a balance between network efficiency and quality of service, especially in environments with varying traffic loads and changing network conditions.</p>
+<p>Hence, the PDU admission control allows the dRAX RIC to adapt in real-time to the demands of different services and applications, providing an intelligent and flexible approach to managing data flows in the O-RAN architecture.</p>
+<h4 id="prerequisite_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.1</span> Prerequisite<a class="headerlink" href="#prerequisite_1" title="Permanent link">⚓︎</a></h4>
+<p>To be able to activate this feature within dRAX RIC, some prerequisite configuration must be performed.</p>
+<div class="admonition danger">
+<p class="admonition-title">PDU Admission Control prerequisite</p>
+<p>To allow dRAX RIC to have control over PDU admission, the UE Admission control feature must be activated and its prerequisite fulfilled.</p>
+<p>Reference: <a href="#ue-admission-control">UE Admission Control</a> section.</p>
+<p>:warning: The PDU Admission control cannot work without the UE Admission control turned on.</p>
+<p>Both the <strong><em>ricUeAdmissionControlEnabled</em></strong> and <strong><em>ricPduAdmissionControlEnabled</em></strong> flags can be set using the dRAX Dashboard in the CU-CP feature configuration section or via the dRAX API.</p>
+<p>Once activated, the incoming UE admission request and PDU admission request will be forwarded from the CU to the dRAX RIC and thus, will allow the dRAX RIC to have control over UE admission decisions and PDU admission decisions.</p>
+</div>
+<h4 id="receive-messages-on-nats_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.2</span> Receive messages on NATS<a class="headerlink" href="#receive-messages-on-nats_1" title="Permanent link">⚓︎</a></h4>
+<p>From the xApp point-of-view, the application should listen the following subjects on NATS:</p>
+<ul>
+<li>*.PDU-SESSION-ADM-REQ subject is used to be notified when an accepted UE requests permission from the dRAX RIC to establish a PDU session</li>
+<li>*.PDU-SESSION-MOD-REQ subject is used to be notified when an accepted UE requests permission from the dRAX RIC to modify its PDU session</li>
+<li>*.PDU-SESSION-RELEASE-IND subject is used to notify dRAX RIC when a PDU session is released</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A NATS subject is a character string used as an identifier to direct messages to the relevant subscribers within the NATS messaging system.</p>
+</div>
+<p>The following example shows how to subscribe to the NATS subjects from an xApp to be able to receive all the necessary messages for the PDU Admission Control:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># NATS subscription for the PDU session admission / modification example</span>
+<span class="n">xapp</span><span class="o">.</span><span class="n">nats</span><span class="p">(</span><span class="n">endpoint</span><span class="o">=</span><span class="s2">"NATS_URL_5G"</span><span class="p">)</span><span class="o">.</span><span class="n">subscribe</span><span class="p">([</span>
+  <span class="s1">'*.PDU-SESSION-ADM-REQ'</span><span class="p">,</span>
+  <span class="s1">'*.PDU-SESSION-MOD-REQ'</span><span class="p">,</span>
+  <span class="s1">'*.PDU-SESSION-RELEASE-IND'</span>
+<span class="p">])</span>
+</code></pre></div>
+</div>
+<p>Then, the xApp can read the PDU Admission Control messages from the dRAX RIC NATS Databus:
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">=</span> <span class="n">xapp</span><span class="o">.</span><span class="n">nats</span><span class="p">()</span><span class="o">.</span><span class="n">recv_data</span><span class="p">()</span>
+</code></pre></div></p>
+<h4 id="pdu-session-admission-request-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.3</span> PDU Session Admission Request messages<a class="headerlink" href="#pdu-session-admission-request-messages" title="Permanent link">⚓︎</a></h4>
+<p>When a new message is received on NATS, it is necessary to parse the message with the help of the topic field.</p>
+<p>Depending on which topic the message arrives, the processing will have to be different.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="s2">"PDU-SESSION-ADM-REQ"</span> <span class="ow">in</span> <span class="n">topic</span><span class="p">:</span>
+  <span class="n">pdu_session_adm_req</span> <span class="o">=</span> <span class="n">nr</span><span class="o">.</span><span class="n">pdu_session_admission_request_message</span><span class="p">(</span><span class="n">decoded_data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"PDU-SESSION-ADM-REQ received: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pdu_session_adm_req</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<p>The <strong><em>pdu_session_admission_request_message</em></strong> function is used to decode encoded messages received on the <strong><em>PDU-SESSION-ADM-REQ</em></strong> subject.</p>
+<p>It takes as argument the encoded message and will return a decoded object.</p>
+<p>Here is an example of the returned object:</p>
+<div class="highlight"><pre><span></span><code><span class="n">CuCpName</span><span class="p">:</span> <span class="s2">"cucp-1"</span>
+<span class="n">CuCpUeId</span><span class="p">:</span> <span class="mi">14</span>
+<span class="n">PduSessionResourceSetupRequestList</span> <span class="p">{</span>
+  <span class="n">items</span> <span class="p">{</span>
+    <span class="n">Id</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="n">PduSessionNasPdu</span> <span class="p">{</span>
+      <span class="n">items</span><span class="p">:</span> <span class="mi">126</span>
+      <span class="n">items</span><span class="p">:</span> <span class="mi">2</span>
+      <span class="n">items</span><span class="p">:</span> <span class="mi">178</span>
+      <span class="o">...</span>
+      <span class="n">items</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+    <span class="n">SNssai</span> <span class="p">{</span>
+      <span class="n">SST</span><span class="p">:</span> <span class="mi">1</span>
+      <span class="n">SD</span> <span class="p">{</span>
+        <span class="n">Data</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="n">Data</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="n">Data</span><span class="p">:</span> <span class="mi">0</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">ResSetupReqTransfer</span> <span class="p">{</span>
+      <span class="n">PduSessAggMaxBitrate</span> <span class="p">{</span>
+        <span class="n">Present</span><span class="p">:</span> <span class="n">true</span>
+        <span class="n">Ul</span><span class="p">:</span> <span class="mi">1073741824</span>
+        <span class="n">Dl</span><span class="p">:</span> <span class="mi">1073741824</span>
+      <span class="p">}</span>
+      <span class="n">UlNgUpTnlInfo</span> <span class="p">{</span>
+        <span class="n">TunnelAddress</span><span class="p">:</span> <span class="n">false</span>
+        <span class="o">...</span>
+        <span class="n">TunnelAddress</span><span class="p">:</span> <span class="n">true</span>
+        <span class="n">TunnelId</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="n">TunnelId</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="n">TunnelId</span><span class="p">:</span> <span class="mi">55</span>
+        <span class="n">TunnelId</span><span class="p">:</span> <span class="mi">191</span>
+      <span class="p">}</span>
+      <span class="n">PduSessionType</span><span class="p">:</span> <span class="n">PDU_SESSION_TYPE_IPv4</span>
+      <span class="n">QosFlowSetupReqList</span> <span class="p">{</span>
+        <span class="n">items</span> <span class="p">{</span>
+          <span class="n">Id</span><span class="p">:</span> <span class="mi">1</span>
+          <span class="n">QosFlowLevelQosParameters</span> <span class="p">{</span>
+            <span class="n">Fiveqi</span><span class="p">:</span> <span class="mi">9</span>
+            <span class="n">AllocationAndRetentionPriority</span> <span class="p">{</span>
+              <span class="n">PriorityLevel</span><span class="p">:</span> <span class="mi">8</span>
+              <span class="n">PreEmptionCapability</span><span class="p">:</span> <span class="n">REEMPTION_CAPA_SHALL_NOT_TRIGGER</span>
+              <span class="n">PreEmptionVulnerability</span><span class="p">:</span> <span class="n">REEMPTION_VUL_NOT_PREEMPTABLE</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="accept-pdu-session-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.3.1</span> Accept PDU Session Admission<a class="headerlink" href="#accept-pdu-session-admission" title="Permanent link">⚓︎</a></h5>
+<p>The Accept PDU Session Admission command is the decision made by dRAX RIC to allow a specific PDU session to be set.</p>
+<p>Once the <strong><em>pdu_session_admission_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to accept the new PDU session.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="n">err</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">pdu_session_admission_accept</span><span class="p">(</span><span class="n">xapp</span><span class="o">=</span><span class="n">xapp</span><span class="p">,</span> <span class="n">cucp_name</span><span class="o">=</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="p">,</span> <span class="n">cucp_ue_id</span><span class="o">=</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Admission of PDU session </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> succeeded"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Admission of PDU session </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h5 id="reject-pdu-session-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.3.2</span> Reject PDU Session Admission<a class="headerlink" href="#reject-pdu-session-admission" title="Permanent link">⚓︎</a></h5>
+<p>The Reject PDU Session Admission command is the decision made by dRAX RIC to deny a specific PDU session to be set.</p>
+<p>Once the <strong><em>pdu_session_admission_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to reject the new PDU session.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="n">err</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">pdu_session_admission_reject</span><span class="p">(</span><span class="n">xapp</span><span class="o">=</span><span class="n">xapp</span><span class="p">,</span> <span class="n">cucp_name</span><span class="o">=</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="p">,</span> <span class="n">cucp_ue_id</span><span class="o">=</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rejection of PDU session </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> succeeded"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rejection of PDU session </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h4 id="pdu-session-modification-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.4</span> PDU Session Modification messages<a class="headerlink" href="#pdu-session-modification-messages" title="Permanent link">⚓︎</a></h4>
+<p>When a new message is received on NATS, it is necessary to parse the message with the help of the topic field.</p>
+<p>Depending on which topic the message arrives, the processing will have to be different.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="s2">"PDU-SESSION-MOD-REQ"</span> <span class="ow">in</span> <span class="n">topic</span><span class="p">:</span>
+  <span class="n">pdu_session_mod_req</span> <span class="o">=</span> <span class="n">nr</span><span class="o">.</span><span class="n">pdu_session_modification_request_message</span><span class="p">(</span><span class="n">encoded_data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"PDU-SESSION-MOD-REQ received: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pdu_session_mod_req</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<p>The <strong><em>pdu_session_modification_request_message</em></strong> function is used to decode encoded messages received on the <strong><em>PDU-SESSION-MOD-REQ</em></strong> subject.</p>
+<p>It takes as argument the encoded message and will return a decoded object.</p>
+<h5 id="accept-pdu-session-modification"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.4.1</span> Accept PDU Session Modification<a class="headerlink" href="#accept-pdu-session-modification" title="Permanent link">⚓︎</a></h5>
+<p>The Accept PDU Session Modification command is the decision made by dRAX RIC to accept a specific PDU session to be set.</p>
+<p>Once the <strong><em>pdu_session_modification_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to accept the new PDU session.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="n">err</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">pdu_session_modification_accept</span><span class="p">(</span><span class="n">xapp</span><span class="o">=</span><span class="n">xapp</span><span class="p">,</span> <span class="n">cucp_name</span><span class="o">=</span><span class="n">pdu_session_mod_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="p">,</span> <span class="n">cucp_ue_id</span><span class="o">=</span><span class="n">pdu_session_mod_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Admission of PDU session modification </span><span class="si">{</span><span class="n">pdu_session_mod_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_mod_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> succeeded"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Admission of PDU session modification </span><span class="si">{</span><span class="n">pdu_session_mod_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_mod_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h5 id="reject-pdu-session-modification"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.4.2</span> Reject PDU Session Modification<a class="headerlink" href="#reject-pdu-session-modification" title="Permanent link">⚓︎</a></h5>
+<p>The Reject PDU Session Modification command is the decision made by dRAX RIC to deny a specific PDU session to be set.</p>
+<p>Once the <strong><em>pdu_session_modification_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to reject the new PDU session.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="n">err</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">pdu_session_admission_reject</span><span class="p">(</span><span class="n">xapp</span><span class="o">=</span><span class="n">xapp</span><span class="p">,</span> <span class="n">cucp_name</span><span class="o">=</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="p">,</span> <span class="n">cucp_ue_id</span><span class="o">=</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rejection of PDU session </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> succeeded"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rejection of PDU session </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h4 id="control-admitted-pdu-session"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.5</span> Control Admitted PDU Session<a class="headerlink" href="#control-admitted-pdu-session" title="Permanent link">⚓︎</a></h4>
+<p>Once the PDU session is admitted by dRAX RIC, the xApp will be able to receive notifications about the PDU session state.</p>
+<h5 id="pdu-session-release"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.5.1</span> PDU Session Release<a class="headerlink" href="#pdu-session-release" title="Permanent link">⚓︎</a></h5>
+<p>The PDU Session Release Indication message is a notification received by dRAX RIC when an admitted PDU session is released.</p>
+<p>Here is an example about how to read a PDU Session Release Indication message</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show pdu session release information</span>
+<span class="k">if</span> <span class="s2">"PDU-SESSION-RELEASE-IND"</span> <span class="ow">in</span> <span class="n">topic</span><span class="p">:</span>
+  <span class="n">pdu_session_release_ind</span> <span class="o">=</span> <span class="n">nr</span><span class="o">.</span><span class="n">pdu_session_release_indication_message</span><span class="p">(</span><span class="n">encoded_data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"PDU-SESSION-RELEASE-IND received: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pdu_session_release_ind</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<p>The <strong><em>pdu_session_release_indication_message</em></strong> function is used to decode encoded messages received on the <strong><em>PDU-SESSION-RELEASE-IND</em></strong> subject.</p>
+<p>It takes as argument the encoded message and will return a decoded object.</p>
+<p>Here is an example of the returned object:</p>
+<div class="highlight"><pre><span></span><code><span class="n">CuCpName</span><span class="p">:</span> <span class="s2">"cucp-1"</span>
+<span class="n">CuCpUeId</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">PduSessionIdList</span> <span class="p">{</span>
+  <span class="n">items</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="publish-to-drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8</span> Publish to dRAX RIC Databus<a class="headerlink" href="#publish-to-drax-ric-databus" title="Permanent link">⚓︎</a></h2>
 <p>From your xApp, you can publish data on the dRAX RIC Databus for other xApps to use as well.</p>
 <h3 id="event-based-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.1</span> Event-based publishing<a class="headerlink" href="#event-based-publishing" title="Permanent link">⚓︎</a></h3>
