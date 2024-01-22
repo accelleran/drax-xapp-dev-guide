@@ -414,11 +414,6 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#e2">
-    E2
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#use-the-drax-ric-api-gateway">
     Use the dRAX RIC API Gateway
   </a>
@@ -441,40 +436,6 @@
 <a class="md-nav__link" href="#e2-support">
     E2 Support
   </a>
-<nav aria-label="E2 Support" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#create-action-definitions">
-    Create Action Definitions
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#create-event-trigger-definition">
-    Create Event Trigger Definition
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#subscribe">
-    Subscribe
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#unsubscribe">
-    Unsubscribe
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#receive-data">
-    Receive Data
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#example">
-    Example
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -1305,8 +1266,7 @@ def periodic_publish(xapp):
 publish_thread = threading.Thread(name="PeriodicPublish", target=periodic_publish, args=(xapp,))
 publish_thread.start()
 </code></pre></div>
-<h2 id="e2"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9</span> E2<a class="headerlink" href="#e2" title="Permanent link">⚓︎</a></h2>
-<h2 id="use-the-drax-ric-api-gateway"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.10</span> Use the dRAX RIC API Gateway<a class="headerlink" href="#use-the-drax-ric-api-gateway" title="Permanent link">⚓︎</a></h2>
+<h2 id="use-the-drax-ric-api-gateway"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9</span> Use the dRAX RIC API Gateway<a class="headerlink" href="#use-the-drax-ric-api-gateway" title="Permanent link">⚓︎</a></h2>
 <p>The dRAX RIC exposes a number of APIs through the dRAX RIC API Gateway. The full documentation on all of the endpoints is available on the dRAX RIC API Gateway Swagerhub, which is exposed on the following URL:</p>
 <div class="highlight"><pre><span></span><code>http://&lt;kubernets_ip&gt;:31315/api/v1/docs
 </code></pre></div>
@@ -1340,7 +1300,7 @@ publish_thread.start()
 </ul>
 </li>
 </ul>
-<h3 id="how-to-use-the-drax-ric-api-gateway-in-general"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.10.1</span> How to use the dRAX RIC API Gateway in general<a class="headerlink" href="#how-to-use-the-drax-ric-api-gateway-in-general" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-to-use-the-drax-ric-api-gateway-in-general"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9.1</span> How to use the dRAX RIC API Gateway in general<a class="headerlink" href="#how-to-use-the-drax-ric-api-gateway-in-general" title="Permanent link">⚓︎</a></h3>
 <p>Example 6 shows how to call the API gateway on the following endpoint:</p>
 <div class="highlight"><pre><span></span><code>/discover/services/netconf
 </code></pre></div>
@@ -1356,7 +1316,7 @@ if api_response.status_code == 200:
     logging.info('Failed to load JSON, showing raw content of API response:')
     logging.info(api_response.text)
 </code></pre></div>
-<h3 id="how-to-select-only-the-port-at-which-netconf-is-exposed"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.10.2</span> How to select only the port at which NetConf is exposed<a class="headerlink" href="#how-to-select-only-the-port-at-which-netconf-is-exposed" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-to-select-only-the-port-at-which-netconf-is-exposed"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9.2</span> How to select only the port at which NetConf is exposed<a class="headerlink" href="#how-to-select-only-the-port-at-which-netconf-is-exposed" title="Permanent link">⚓︎</a></h3>
 <p>Example 7 shows how to parse the retrieved information from the dRAX RIC API Gateway. Because the information retrieved can be parsed as JSON, in python we can simply use it as a Python dictionary:</p>
 <div class="highlight"><pre><span></span><code>### Example 7: Get the ports where the netconf servers of cells are exposed
         endpoint = '/discover/services/netconf'
@@ -1374,20 +1334,13 @@ if api_response.status_code == 200:
 <div class="highlight"><pre><span></span><code>[netconf-dageraadplats] has NETCONF exposed on port [30023]
 [netconf-parking] has NETCONF exposed on port [32634]
 </code></pre></div>
-<h2 id="e2-support"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.11</span> E2 Support<a class="headerlink" href="#e2-support" title="Permanent link">⚓︎</a></h2>
-<p>The library provides the ability for an xApp to subscribe and unsubscribe to an E2 KPM Service Model provided by an E2 Termination, as well as receiving E2 KPM Reports once subscribed. All messages sent to and from the E2 Termination are sent using protobuf over NATS. The following sections describe the functions that are provided by the library to support this functionality.</p>
-<h3 id="create-action-definitions"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.11.1</span> Create Action Definitions<a class="headerlink" href="#create-action-definitions" title="Permanent link">⚓︎</a></h3>
-<p>The create_action_definition_list function creates the list of actions to be performed, which takes as parameters the granularity of measurements in milliseconds, and the list of measurements to be made.</p>
-<h3 id="create-event-trigger-definition"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.11.2</span> Create Event Trigger Definition<a class="headerlink" href="#create-event-trigger-definition" title="Permanent link">⚓︎</a></h3>
-<p>The create_event_trigger_definition function is used to specify the frequency at which measurements are reported in milliseconds.</p>
-<h3 id="subscribe"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.11.3</span> Subscribe<a class="headerlink" href="#subscribe" title="Permanent link">⚓︎</a></h3>
-<p>The subscribe function takes in the action definitions and event trigger definition and parameters and subscribes to E2 KPM Reports</p>
-<h3 id="unsubscribe"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.11.4</span> Unsubscribe<a class="headerlink" href="#unsubscribe" title="Permanent link">⚓︎</a></h3>
-<p>The unsubscribe function unsubscribes from E2 KPM Reports</p>
-<h3 id="receive-data"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.11.5</span> Receive Data<a class="headerlink" href="#receive-data" title="Permanent link">⚓︎</a></h3>
-<p>The recv_data function retrieves E2 KPM Reports</p>
-<h3 id="example"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.11.6</span> Example<a class="headerlink" href="#example" title="Permanent link">⚓︎</a></h3>
-<p>The following code snippets show how these functions should be used.</p>
+<h2 id="e2-support"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.10</span> E2 Support<a class="headerlink" href="#e2-support" title="Permanent link">⚓︎</a></h2>
+<details class="note">
+<summary>Supported RIC Versions</summary>
+<p>This feature is supported since RIC 6.4.0.</p>
+</details>
+<p>The library provides the ability for an xApp to subscribe and unsubscribe to an E2 KPM Service Model provided by an E2 Termination, as well as receiving E2 KPM Reports once subscribed. All messages sent to and from the E2 Termination are sent using protobuf over NATS.</p>
+<p>The following code snippet shows how this feature should be used.</p>
 <div class="highlight"><pre><span></span><code>### Example E2: How to subscribe to the E2 interface using the e2 client and recieve data
 from xapp_lib.e2.e2client import E2Client
 from xapp_lib.e2 import e2, e2kpm
@@ -1413,13 +1366,8 @@ client.subscribe(
     actions=actions
 )
 
+unsub_counter = 0
 while True:
-    process_e2_data(xapp, client)
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>def process_e2_data(xapp, client, unsub_counter = 1):
-    from xapp_lib.e2.e2client import E2Client
-    from xapp_lib.e2 import e2, e2kpm
-
     # If you want to send a RIC KPM Unsubscribe message, set after how many KPM Indications to send the RIC KPM Unsubscribe message
     unsub_after = 10
     # If you want to send a RIC KPM Unsubscribe message, set to True
