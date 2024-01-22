@@ -1,0 +1,1589 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://accelleran.github.io/drax-xapp-dev-guide/v2.2/message_references/5G/4.2/kafka/" rel="canonical"/>
+<link href="../../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-7.3.6" name="generator"/>
+<title>Kafka - dRAX xApp Dev Guide</title>
+<link href="../../../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../../../css/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#beacons">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="dRAX xApp Dev Guide" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            dRAX xApp Dev Guide
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Kafka
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../..">
+        Overview
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../xapp-dev-guide/quick_guide/">
+        Documentation
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="./">
+        Message References
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="dRAX xApp Dev Guide" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
+</a>
+    dRAX xApp Dev Guide
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../..">Overview</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Overview" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../changelog/">
+        Changelog
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Documentation" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/quick_guide/">
+        Quick guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/development_workflows/">
+        Development Workflows
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_dev_environment/">
+        Build your own xApp Dev Environment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_productize/">
+        Productize your xApp
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_framework/">
+        xApp Framework In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_library/">
+        xApp Library In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_unittest/">
+        xApp Unit Tests
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_readme/">
+        The xApp Documentation README.md
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_rest_api/">
+        xApp REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_configuration/">
+        xApp Configuration In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_helm_charts/">
+        xApp Helm Chart In-Depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_lifecycle/">
+        xApps Lifecycle In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_core/">
+        Writing the xApp Core in a different language
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/appendix_dockerhub/">
+        Appendix: Pushing to Dockerhub
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/appendix_conversion/">
+        Appendix: Conversion from the xApp Framework to the xApp Library
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Message References
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Message References" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Message References
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+          5G
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5G" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          5G
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_1" id="__nav_3_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_1">
+          version 4.2
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 4.2" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_1">
+<span class="md-nav__icon md-icon"></span>
+          version 4.2
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Kafka
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Kafka
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#beacons">
+    Beacons
+  </a>
+<nav aria-label="Beacons" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#du-beacon-info">
+    DU beacon info
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-up-beacon-info">
+    CU-UP beacon info
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#amf-beacon-info">
+    AMF beacon info
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-measurements">
+    UE Measurements
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#processed-performance-measurements">
+    Processed Performance Measurements
+  </a>
+<nav aria-label="Processed Performance Measurements" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-attempted-rrc-connection-establishments">
+    CU Attempted RRC Connection Establishments
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-successful-rrc-connection-establishments">
+    CU Successful RRC Connection Establishments
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-number-of-pdu-sessions-failed-to-setup">
+    CU Number of PDU sessions failed to setup
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-number-of-pdu-sessions-requested-to-setup">
+    CU Number of PDU sessions requested to setup
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-dl-gtp-throughput">
+    CU DL GTP Throughput
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-ul-gtp-throughput">
+    CU UL GTP Throughput
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-maximum-number-of-rrc-connections">
+    CU Maximum number of RRC Connections
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-ul-pdcp-sdu-loss-rate-qos">
+    CU UL PDCP SDU loss rate (QOS)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-ul-pdcp-sdu-loss-rate-s-nssai">
+    CU UL PDCP SDU loss rate (S-NSSAI)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-dl-pdcp-sdu-drop-rate-qos">
+    CU DL PDCP SDU drop rate (QOS)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-dl-pdcp-sdu-drop-rate-s-nssai">
+    CU DL PDCP SDU drop rate (S-NSSAI)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-packet-delay-average-delay-dl-in-cu-up-qos">
+    CU Packet Delay: Average delay DL in CU-UP (QOS)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-packet-delay-average-delay-dl-in-cu-up-s-nssai">
+    CU Packet Delay: Average delay DL in CU-UP (S-NSSAI)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-ss-rsrp-distribution-per-ssb">
+    CU SS RSRP Distribution per SSB
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-packet-delay-distribution-of-delay-dl-in-cu-up-qos">
+    CU Packet Delay: Distribution of delay DL in CU-UP (QOS)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-packet-delay-distribution-of-delay-dl-in-cu-up-s-nssai">
+    CU Packet Delay: Distribution of delay DL in CU-UP (S-NSSAI)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-handover-requests-counter">
+    CU Handover Requests Counter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-successful-handover-counter">
+    CU Successful Handover Counter
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#raw-performance-measurements">
+    Raw Performance Measurements
+  </a>
+<nav aria-label="Raw Performance Measurements" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrc-stats">
+    RRC stats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-cp-throughput-stats">
+    CU-CP Throughput stats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-up-throughput-stats">
+    CU-UP Throughput stats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cu-up-handover-response">
+    CU-UP Handover Response
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../nats/">
+        Nats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_2" id="__nav_3_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_2">
+          version 3.3
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 3.3" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_2">
+<span class="md-nav__icon md-icon"></span>
+          version 3.3
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.3/nats/">
+        Nats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_3" id="__nav_3_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_3">
+          version 2.4
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 2.4" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_3">
+<span class="md-nav__icon md-icon"></span>
+          version 2.4
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../2.4/nats/">
+        Nats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+          4G
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4G" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          4G
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2_1" id="__nav_3_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_1">
+          version 5.2
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 5.2" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_1">
+<span class="md-nav__icon md-icon"></span>
+          version 5.2
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../4G/5.2/kafka/">
+        Kafka
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1><span class="enumerate-headings-plugin enumerate-heading-plugin">18.</span> Kafka</h1>
+<h2 id="beacons"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.1</span> Beacons<a class="headerlink" href="#beacons" title="Permanent link">⚓︎</a></h2>
+<h3 id="du-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.1.1</span> DU beacon info<a class="headerlink" href="#du-beacon-info" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives information about the DUs connected to the CU-CP and their operational state (including [3GPP 38.473] served cell information).</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.cu_state
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "DuBeaconInfo": {
+    "DuList": {
+      "items": {
+        "0": {
+          "GnbDuId": &lt;string&gt;,
+          "State": "&lt;DuState&gt;",
+          "ServedCellList": {
+            "items": {
+              "0": {
+                "State": "&lt;CellState&gt;",
+                "NrCgi": {
+                  "NrCellId": &lt;string&gt;,
+                  "PlmnId": {
+                    "Data": {
+                      "0": &lt;uint&gt;
+                    }
+                  }
+                },
+                "Pci": &lt;uint&gt;,
+                "FivegSTac": &lt;string&gt;,
+                "SsPBCHBlockPower": &lt;int&gt;,
+                "SupportedPlmns": {
+                  "items": {
+                    "0": {
+                      "PlmnIdentity": &lt;string&gt;,
+                      "TaiSlicedSupportList": {
+                        "items": {
+                          "0": {
+                            "SNssai": {
+                              "SST": &lt;uint&gt;,
+                              "SD": {
+                                "Data": {
+                                  "0": &lt;uint&gt;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "GnbId": &lt;string&gt;,
+          "DuName": &lt;string&gt;,
+          "TransportLayerAddress": &lt;string&gt;
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+DuState
+
+Enum Values:
+NON_OPERATIONAL
+NON_OPERATIONAL_FAILURE
+OPERATIONAL
+
+Enum Type:
+CellState
+
+Enum Values:
+NOT_SUPPORTED
+ACTIVATING
+DEACTIVATING
+RESOURCE_UNAVAIL
+ACTIVATION_FAILED
+ACTIVATED
+</code></pre></div></p>
+<h3 id="cu-up-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.1.2</span> CU-UP beacon info<a class="headerlink" href="#cu-up-beacon-info" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives information about the CU-UPs connected to the CU-CP and their operation state.</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.cu_state
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "CuupBeaconInfoData": {
+    "CuupId": &lt;string&gt;,
+    "State": "&lt;CuupState&gt;",
+    "SupportedPlmns": {
+      "items": {
+        "0": {
+          "PlmnIdentity": &lt;string&gt;,
+          "TaiSlicedSupportList": {
+            "items": {
+              "0": {
+                "SNssai": {
+                  "SST": &lt;uint&gt;,
+                  "SD": {
+                    "Data": {
+                      "0": &lt;uint&gt;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "AdminState": "&lt;AdminState&gt;",
+    "Version": &lt;string&gt;,
+    "ExtraInfoList": {
+      "items": {
+        "0": {
+          "Name": &lt;string&gt;,
+          "Value": &lt;string&gt;
+        }
+      }
+    },
+    "E1InterfacesList": {
+      "items": {
+        "0": {
+          "IpAddress": &lt;string&gt;
+        }
+      }
+    },
+    "GtpuInterfacesList": {
+      "items": {
+        "0": {
+          "F1UAddress": &lt;string&gt;,
+          "NgUAddress": &lt;string&gt;
+        }
+      }
+    },
+    "CuUpName": &lt;string&gt;
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+CuupState
+
+Enum Values:
+CUUPSTATE_NON_OPERATIONAL
+CUUPSTATE_NON_OPERATIONAL_FAILURE
+CUUPSTATE_OPERATIONAL
+
+Enum Type:
+AdminState
+
+Enum Values:
+Locked
+UnLocked
+</code></pre></div></p>
+<h3 id="amf-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.1.3</span> AMF beacon info<a class="headerlink" href="#amf-beacon-info" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives information about the AMFs connected to the CU-CP.</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.cu_state
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "CuCpAmfBeaconInfo": {
+    "GnbId": &lt;uint&gt;,
+    "ServiceInfo": &lt;string&gt;,
+    "AmfList": {
+      "items": {
+        "0": {
+          "AmfName": &lt;string&gt;,
+          "State": "&lt;AmfState&gt;",
+          "AmfIpaddress": &lt;string&gt;,
+          "SupportedPlmns": {
+            "items": {
+              "0": {
+                "PlmnIdentity": {
+                  "Data": {
+                    "0": &lt;uint&gt;
+                  }
+                },
+                "SliceSupportList": {
+                  "items": {
+                    "0": {
+                      "SNssai": {
+                        "SST": &lt;uint&gt;,
+                        "SD": {
+                          "Data": {
+                            "0": &lt;uint&gt;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "AmfGuid": &lt;string&gt;
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+AmfState
+
+Enum Values:
+AMFSTATE_NOT_CONNECTED
+AMFSTATE_NOT_CONNECTED_FAILURE
+AMFSTATE_CONNECTED
+</code></pre></div></p>
+<h2 id="ue-measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.2</span> UE Measurements<a class="headerlink" href="#ue-measurements" title="Permanent link">⚓︎</a></h2>
+<p><strong>Description :</strong> These measurements contain the RSRP and RSRQ periodic measurements from serving cell.</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.ue_measurements
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "ENB": &lt;string&gt;,
+  "DU": &lt;string&gt;,
+  "CELL": &lt;string&gt;,
+  "UE": &lt;string&gt;,
+  "RrcMeasurementReportResultInfo": {
+    "GnbCuCpUeId": &lt;uint&gt;,
+    "Timestamp": &lt;string&gt;,
+    "ServingCellInfo": {
+      "NrCgi": {
+        "NrCellId": &lt;string&gt;,
+        "PlmnId": {
+          "Data": {
+            "0": &lt;uint&gt;
+          }
+        }
+      },
+      "SsbRsrpResult": &lt;uint&gt;,
+      "SsbRsrpResultPresent": &lt;bool&gt;,
+      "SsbRsrqResult": &lt;uint&gt;,
+      "SsbRsrqResultPresent": &lt;bool&gt;,
+      "SsbSinrResult": &lt;uint&gt;,
+      "SsbSinrResultPresent": &lt;bool&gt;
+    },
+    "NumberOfIncludedCells": &lt;uint&gt;,
+    "CellInfo": {
+      "0": {
+        "PhyCellId": &lt;uint&gt;,
+        "NeighbourCellInfo": {
+          "NrCgi": {
+            "NrCellId": &lt;string&gt;,
+            "PlmnId": {
+              "Data": {
+                "0": &lt;uint&gt;
+              }
+            }
+          },
+          "SsbRsrpResult": &lt;uint&gt;,
+          "SsbRsrpResultPresent": &lt;bool&gt;,
+          "SsbRsrqResult": &lt;uint&gt;,
+          "SsbRsrqResultPresent": &lt;bool&gt;,
+          "SsbSinrResult": &lt;uint&gt;,
+          "SsbSinrResultPresent": &lt;bool&gt;
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<h2 id="processed-performance-measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3</span> Processed Performance Measurements<a class="headerlink" href="#processed-performance-measurements" title="Permanent link">⚓︎</a></h2>
+<h3 id="cu-attempted-rrc-connection-establishments"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.1</span> CU Attempted RRC Connection Establishments<a class="headerlink" href="#cu-attempted-rrc-connection-establishments" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> Receipt of an RRCSetupRequest message by the gNB from the UE.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", // NRCGI converted to string
+        "CounterId": "&lt;string&gt;",  // Sub Counter with relevant establishment cause
+        "InstanceType": "CELL_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;",
+        "CounterGroup": "RRC_CONNECTION_EST_ATTEMPT"
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+CounterId
+
+Enum Values:
+RRC_CONN_EST_ATT_CAUSE_TYPE_EMERGENCY
+RRC_CONN_EST_ATT_CAUSE_TYPE_HIGH_PRIORITY_ACCESS
+RRC_CONN_EST_ATT_CAUSE_TYPE_MT_ACCESS
+RRC_CONN_EST_ATT_CAUSE_TYPE_MO_SIGNALLING
+RRC_CONN_EST_ATT_CAUSE_TYPE_MO_DATA
+RRC_CONN_EST_ATT_CAUSE_TYPE_MO_VOICE_CALL
+RRC_CONN_EST_ATT_CAUSE_TYPE_MO_VIDEO_CALL
+RRC_CONN_EST_ATT_CAUSE_TYPE_MO_SMS
+RRC_CONN_EST_ATT_CAUSE_TYPE_MPS_PRIORITY_ACCESS
+RRC_CONN_EST_ATT_CAUSE_TYPE_MCS_PRIORITY_ACCESS
+RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE6
+RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE5
+RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE4
+RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE3
+RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE2
+RRC_CONN_EST_ATT_CAUSE_TYPE_EST_SPARE1
+</code></pre></div></p>
+<h3 id="cu-successful-rrc-connection-establishments"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.2</span> CU Successful RRC Connection Establishments<a class="headerlink" href="#cu-successful-rrc-connection-establishments" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> Receipt by the gNB of an RRCSetupComplete message following a RRC connection setup request</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;",  // NRCGI converted to string
+        "CounterId": "&lt;string&gt;",   // Sub Counter with relevant establishment cause
+        "InstanceType": "CELL_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;",
+        "CounterGroup": "RRC_CONNECTION_SUCC"
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+CounterId
+
+Enum Values:
+RRC_CONNECTION_SUCC_CAUSE_TYPE_EMERGENCY
+RRC_CONNECTION_SUCC_CAUSE_TYPE_HIGH_PRIORITY_ACCESS
+RRC_CONNECTION_SUCC_CAUSE_TYPE_MT_ACCESS
+RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_SIGNALLING
+RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_DATA
+RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_VOICE_CALL
+RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_VIDEO_CALL
+RRC_CONNECTION_SUCC_CAUSE_TYPE_MO_SMS
+RRC_CONNECTION_SUCC_CAUSE_TYPE_MPS_PRIORITY_ACCESS
+RRC_CONNECTION_SUCC_CAUSE_TYPE_MCS_PRIORITY_ACCESS
+RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE6
+RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE5
+RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE4
+RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE3
+RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE2
+RRC_CONNECTION_SUCC_CAUSE_TYPE_EST_SPARE1
+</code></pre></div></p>
+<h3 id="cu-number-of-pdu-sessions-failed-to-setup"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.3</span> CU Number of PDU sessions failed to setup<a class="headerlink" href="#cu-number-of-pdu-sessions-failed-to-setup" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> Number of PDU sessions in optional IE "PDU Session Resource Failed to setup list" in NGInitialContextSetupResponse/NGInitialContextSetupFailure/NGPDUSessionResourceSetupResponse</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", // NRCGI converted to string
+        "CounterId": "&lt;string&gt;",  // Sub Counter with relevant failure cause
+        "InstanceType": "CELL_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;",
+        "CounterGroup": "NUMBER_OF_PDU_SESSIONS_FAILED_TO_SETUP"
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+CounterId
+
+Enum Values:
+RN_UNSPECIFIED
+RN_TXN_RELOC_OVERALL_EXPIRY
+RN_SUCC_HANDOVER
+RN_REL_DUE_TO_RAN_GENERATED_REASON
+RN_REL_DUE_TO_5GC_GENERATED_REASON
+RN_HANDOVER_CANCELLED
+RN_PARTIAL_HANDOVER
+RN_HANDOVER_FAILURE_IN_TARGET
+RN_HANDOVER_TARGET_NOT_ALLOWED
+RN_TNG_RELOC_OVERALL_EXPIRY
+RN_TNG_RELOC_PREP_EXPIRY
+RN_CELL_NOT_AVAIL
+RN_UNKNOWN_TARGET_ID
+RN_NO_RES_AVAIL_IN_TARGET_CELL
+RN_UNKNONN_UE_NGAP_ID
+RN_INCONSISTENT_REMOTE_UE_NGAP_ID
+RN_HO_DESIRABLE_FOR_RADIO_REASONS
+RN_TIME_CRITICAL_HO
+RN_RESOURCE_OPT_HO
+RN_REDUCE_LOAD_IN_SERVING_CELL
+RN_USER_INACTIVITY
+RN_RADIO_CONN_WITH_UE_LOST
+RN_RADIO_RES_NOT_AVAIL
+RN_INVALID_QOS_COMB
+RN_FAILURE_RADIO_INTERFACE_PROC
+RN_INTERACTION_OTHER_PROC
+RN_UNKNOWN_PDU_SESS_ID
+RN_UNKNOWN_QOS_ID
+RN_MULTIPLE_PDU_SESS_ID_INSTANCES
+RN_MULTIPLE_QOS_FLOW_ID_INSTANCES
+RN_ENCRYPTION_INTEGRITY_ALG_NOT_SUPPORTED
+RN_NG_INTRA_SYSTEM_HO_TRIGGERED
+RN_NG_INTER_SYSTEM_HO_TRIGGERED
+RN_XN_HO_TRIGGERED
+RN_NOT_SUPPORTED_5QI_VALUE
+RN_UE_CONTEXT_TRANSFER
+RN_IMS_VOICE_FALLBACK_TRIGGERED
+RN_UP_INTEGRITY_PROTECTION_NOT_POSSIBLE
+RN_UP_CONFIDENTIALITY_PROTECTION_NOT_POSSIBLE
+RN_SLICE_NOT_SUPPORTED
+RN_UE_IN_INACTIVE_NOT_REACHABLE
+RN_REDIRECTION
+RN_RES_NOT_AVAIL_FOR_SLICE
+RN_UE_MAX_INTEGRITY_PROTECTED_DATA_RATE
+RN_RELEASE_DUE_TO_CN_DETECTED_MOBILITY
+RN_N26_INTERFACE_NOT_AVAIL
+RN_RELEASE_DUE_TO_PRE_EMPTION
+RN_MULTIPLE_LOC_RPT_REF_ID_INSTANCES
+</code></pre></div></p>
+<h3 id="cu-number-of-pdu-sessions-requested-to-setup"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.4</span> CU Number of PDU sessions requested to setup<a class="headerlink" href="#cu-number-of-pdu-sessions-requested-to-setup" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> Number of PDU sessions requested in NGInitialContextSetupRequest/NGPDUSessionResourceSetupRequest</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", // NRCGI converted to string
+        "CounterId": "NUMBER_OF_PDU_SESSIONS_REQUESTED_TO_SETUP",
+        "InstanceType": "CELL_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;",
+        "SST": "&lt;uint32&gt;",        // S-NSSAI SST
+        "SD": "&lt;uint32&gt;",         // S-NSSAI SD
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-dl-gtp-throughput"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.5</span> CU DL GTP Throughput<a class="headerlink" href="#cu-dl-gtp-throughput" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> Measure of DL GTP data received during the reporting period in the observed cell. Data for all UEs (all PDU sessions) in a cell is aggregated. The reported DL_GTP_THP counter instance indicates total throughput and total samples (incremented one per second when the pdu session is active) for a UE</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", //CU-CP UE ID
+        "CounterId": "DL_GTP_THP",
+        "InstanceType": "UE_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;float32&gt;",  // THP value bytes per sec
+        "CUCP_UE_ID": "&lt;string&gt;", //CU-CP UE ID
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-ul-gtp-throughput"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.6</span> CU UL GTP Throughput<a class="headerlink" href="#cu-ul-gtp-throughput" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> Measure of UL GTP data received during the reporting period in the observed cell. Data for all UEs (all PDU sessions) in a cell is aggregated. The reported UL_GTP_THP counter instance indicates total throughput and total samples (incremented one per second when the pdu session is active) for a UE</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", //CU-CP UE ID
+        "CounterId": "UL_GTP_THP",
+        "InstanceType": "UE_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;float32&gt;",  // THP value bytes per sec
+        "CUCP_UE_ID": "&lt;string&gt;", //CU-CP UE ID
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-maximum-number-of-rrc-connections"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.7</span> CU Maximum number of RRC Connections<a class="headerlink" href="#cu-maximum-number-of-rrc-connections" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> Maximum number of users in RRC connected mode during each granularity period</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", // NRCGI converted to string
+        "CounterId": "MAXIMUM_NUMBER_OF_RRC_CONNECTIONS",
+        "InstanceType": "CELL_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;",
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-ul-pdcp-sdu-loss-rate-qos"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.8</span> CU UL PDCP SDU loss rate (QOS)<a class="headerlink" href="#cu-ul-pdcp-sdu-loss-rate-qos" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> The fraction of PDCP SDU packets which are not successfully received at gNB-CU-UP. 1000000* Number of missing UL PDCP SNs of a DRB, divided by Total number of UL PDCP SNs. This value represents packets that are not delivered to higher layers.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", // QFI
+        "CounterId": "DRB_PACKET_LOSS_UL_QOS",
+        "InstanceType": "QOS_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;",
+        "QFI": "&lt;string&gt;",
+        "CU_CP_UE_ID": "&lt;uint32&gt;", //CU-CP UE ID
+    },
+    "timestamp":  &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-ul-pdcp-sdu-loss-rate-s-nssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.9</span> CU UL PDCP SDU loss rate (S-NSSAI)<a class="headerlink" href="#cu-ul-pdcp-sdu-loss-rate-s-nssai" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> The fraction of PDCP SDU packets which are not successfully received at gNB-CU-UP. 1000000* Number of missing UL PDCP SNs of a DRB, divided by Total number of UL PDCP SNs. This value represents packets that are not delivered to higher layers.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", // S-NSSAI
+        "CounterId": "DRB_PACKET_LOSS_UL_SNSSAI",
+        "InstanceType": "SNSSAI_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;",
+        "SST": "&lt;uint32&gt;", // S-NSSAI SST
+        "SD": "&lt;uint32&gt;"   // S-NSSAI SD
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-dl-pdcp-sdu-drop-rate-qos"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.10</span> CU DL PDCP SDU drop rate (QOS)<a class="headerlink" href="#cu-dl-pdcp-sdu-drop-rate-qos" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> The fraction of PDCP SDU packets which are dropped on the downlink, due to high traffic load, traffic management etc. 1000000*Number of DL packets, for which no part has been transmitted over the F1-U or Xn-U or X2-U interface, of a data radio bearer, that are discarded in the PDCP layer, divided by Number of DL packets for data radio bearers that has entered PDCP upper SAP.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", // QFI
+        "CounterId": "DRB_PDCP_PACKET_DROP_RATE_DL_QOS",
+        "InstanceType": "QOS_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;",
+        "QFI": "&lt;string&gt;",
+        "CU_CP_UE_ID": "&lt;uint32&gt;" //CU-CP UE ID
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-dl-pdcp-sdu-drop-rate-s-nssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.11</span> CU DL PDCP SDU drop rate (S-NSSAI)<a class="headerlink" href="#cu-dl-pdcp-sdu-drop-rate-s-nssai" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> The fraction of PDCP SDU packets which are dropped on the downlink, due to high traffic load, traffic management etc. 1000000*Number of DL packets, for which no part has been transmitted over the F1-U or Xn-U or X2-U interface, of a data radio bearer, that are discarded in the PDCP layer, divided by Number of DL packets for data radio bearers that has entered PDCP upper SAP.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", // S-NSSAI
+        "CounterId": "DRB_PDCP_PACKET_DROP_RATE_DL_SNSSAI",
+        "InstanceType": "SNSSAI_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;",
+        "SST": "&lt;uint32&gt;", // S-NSSAI SST
+        "SD": "&lt;uint32&gt;"   // S-NSSAI SD
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-packet-delay-average-delay-dl-in-cu-up-qos"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.12</span> CU Packet Delay: Average delay DL in CU-UP (QOS)<a class="headerlink" href="#cu-packet-delay-average-delay-dl-in-cu-up-qos" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> The average (arithmetic mean) PDCP SDU delay on the downlink within the gNB-CU-UP for all PDCP packets. Sum of (time when sending a PDCP SDU to the gNB-DU at the egress PDCP layer on F1-U/Xn-U, minus time of arrival of the same packet at NG-U ingress IP termination) divided by total number of PDCP SDUs arriving at NG-U ingress IP termination</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;",
+        "CounterId": "AVERAGE_DELAY_DL_IN_CUUP_QOS",
+        "InstanceType": "NONE_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;", //Mean Delay in 0.1 millisecond
+        "QFI": "&lt;uint32&gt;"
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-packet-delay-average-delay-dl-in-cu-up-s-nssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.13</span> CU Packet Delay: Average delay DL in CU-UP (S-NSSAI)<a class="headerlink" href="#cu-packet-delay-average-delay-dl-in-cu-up-s-nssai" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> The average (arithmetic mean) PDCP SDU delay on the downlink within the gNB-CU-UP for all PDCP packets. Sum of (time when sending a PDCP SDU to the gNB-DU at the egress PDCP layer on F1-U/Xn-U, minus time of arrival of the same packet at NG-U ingress IP termination) divided by total number of PDCP SDUs arriving at NG-U ingress IP termination</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;",
+        "CounterId": "AVERAGE_DELAY_DL_IN_CUUP_SNSSAI",
+        "InstanceType": "NONE_TYPE",
+        "ReportingNodeId": "&lt;string&gt;",
+        "CounterValue": "&lt;uint32&gt;", // Mean Delay in 0.1 millisecond
+        "SST": "&lt;uint32&gt;", // S-NSSAI SST
+        "SD": "&lt;uint32&gt;" // S-NSSAI SD
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-ss-rsrp-distribution-per-ssb"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.14</span> CU SS RSRP Distribution per SSB<a class="headerlink" href="#cu-ss-rsrp-distribution-per-ssb" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This measurement provides the distribution of SS-RSRP per SSB (see TS 38.215) received by gNB from UEs in the cell when SS-RSRP is used for L1-RSRP as configured by reporting configurations as defined in TS 38.214, in case the L1-RSRP report function is enabled.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Reported RSRP value (range 0..127)</th>
+<th>Measured quantity value (L1 SS-RSRP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bin0</td>
+<td>127</td>
+<td>&gt;= -30 dBm</td>
+</tr>
+<tr>
+<td>Bin1</td>
+<td>126..107</td>
+<td>-31 dBm to -50dBm</td>
+</tr>
+<tr>
+<td>Bin2</td>
+<td>106..87</td>
+<td>-51 dBm to -70dBm</td>
+</tr>
+<tr>
+<td>Bin3</td>
+<td>86..67</td>
+<td>-71 dBm to -90 dBm</td>
+</tr>
+<tr>
+<td>Bin4</td>
+<td>66..47</td>
+<td>-91 dBm to -110 dBm</td>
+</tr>
+<tr>
+<td>Bin5</td>
+<td>46..27</td>
+<td>-111 dBm to -130 dBm</td>
+</tr>
+<tr>
+<td>Bin6</td>
+<td>26..7</td>
+<td>-131 dBm to -150 dBm</td>
+</tr>
+<tr>
+<td>Bin7</td>
+<td>6..0</td>
+<td>&lt;= -150 dBm</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", // ssb frequency
+        "CounterId": "SS_RSRP_DISTRIBUTION_PER_SSB",
+        "InstanceType": "SSB_FREQ_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;", // count
+        "bin": "&lt;uint32&gt;", // bin
+        "ssb": "&lt;string&gt;", //ssb frequency
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-packet-delay-distribution-of-delay-dl-in-cu-up-qos"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.15</span> CU Packet Delay: Distribution of delay DL in CU-UP (QOS)<a class="headerlink" href="#cu-packet-delay-distribution-of-delay-dl-in-cu-up-qos" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> The distribution of PDCP SDU delay on the downlink within the gNB-CU-UP, for all PDCP packets (time when sending a PDCP SDU to the gNB-DU at the egress PDCP layer on F1-U/Xn-U, minus time of arrival of the same packet at NG-U ingress IP termination) distributed in following bins</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<table>
+<thead>
+<tr>
+<th>Bin</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bin0</td>
+<td>&lt;= 5ms</td>
+</tr>
+<tr>
+<td>bin1</td>
+<td>6ms to 10ms</td>
+</tr>
+<tr>
+<td>bin2</td>
+<td>11ms to 20ms</td>
+</tr>
+<tr>
+<td>bin3</td>
+<td>21ms to 30ms</td>
+</tr>
+<tr>
+<td>..</td>
+<td></td>
+</tr>
+<tr>
+<td>bin10</td>
+<td>91ms to 100ms</td>
+</tr>
+<tr>
+<td>bin11</td>
+<td>101ms to 200ms</td>
+</tr>
+<tr>
+<td>bin12</td>
+<td>201ms to 300ms</td>
+</tr>
+<tr>
+<td>..</td>
+<td></td>
+</tr>
+<tr>
+<td>bin19</td>
+<td>901ms to 1000ms</td>
+</tr>
+<tr>
+<td>bin20</td>
+<td>&gt;1s to &lt;=2s</td>
+</tr>
+<tr>
+<td>bin21</td>
+<td>&gt;2s to &lt;=3s</td>
+</tr>
+<tr>
+<td>bin22</td>
+<td>&gt;3s to &lt;=4s</td>
+</tr>
+<tr>
+<td>bin23</td>
+<td>&gt;4s to &lt;=5s</td>
+</tr>
+<tr>
+<td>bin24</td>
+<td>&gt; 5s</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", // QFI
+        "CounterId": "DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS",
+        "InstanceType": "QOS_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;",
+        "bin": "&lt;uint32&gt;",
+        "QFI": "&lt;string&gt;"
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-packet-delay-distribution-of-delay-dl-in-cu-up-s-nssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.16</span> CU Packet Delay: Distribution of delay DL in CU-UP (S-NSSAI)<a class="headerlink" href="#cu-packet-delay-distribution-of-delay-dl-in-cu-up-s-nssai" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> The distribution of PDCP SDU delay on the downlink within the gNB-CU-UP, for all PDCP packets (time when sending a PDCP SDU to the gNB-DU at the egress PDCP layer on F1-U/Xn-U, minus time of arrival of the same packet at NG-U ingress IP termination) distributed in following bins</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<table>
+<thead>
+<tr>
+<th>Bin</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bin0</td>
+<td>&lt;= 5ms</td>
+</tr>
+<tr>
+<td>bin1</td>
+<td>6ms to 10ms</td>
+</tr>
+<tr>
+<td>bin2</td>
+<td>11ms to 20ms</td>
+</tr>
+<tr>
+<td>bin3</td>
+<td>21ms to 30ms</td>
+</tr>
+<tr>
+<td>..</td>
+<td></td>
+</tr>
+<tr>
+<td>bin10</td>
+<td>91ms to 100ms</td>
+</tr>
+<tr>
+<td>bin11</td>
+<td>101ms to 200ms</td>
+</tr>
+<tr>
+<td>bin12</td>
+<td>201ms to 300ms</td>
+</tr>
+<tr>
+<td>..</td>
+<td></td>
+</tr>
+<tr>
+<td>bin19</td>
+<td>901ms to 1000ms</td>
+</tr>
+<tr>
+<td>bin20</td>
+<td>&gt;1s to &lt;=2s</td>
+</tr>
+<tr>
+<td>bin21</td>
+<td>&gt;2s to &lt;=3s</td>
+</tr>
+<tr>
+<td>bin22</td>
+<td>&gt;3s to &lt;=4s</td>
+</tr>
+<tr>
+<td>bin23</td>
+<td>&gt;4s to &lt;=5s</td>
+</tr>
+<tr>
+<td>bin24</td>
+<td>&gt; 5s</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;", // S-NSSAI
+        "CounterId": "DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI",
+        "InstanceType": "SNSSAI_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;",
+        "bin": "&lt;uint32&gt;",
+        "SST": "&lt;uint32&gt;", // S-NSSAI SST
+        "SD": "&lt;uint32&gt;"   // S-NSSAI SD
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-handover-requests-counter"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.17</span> CU Handover Requests Counter<a class="headerlink" href="#cu-handover-requests-counter" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> Intra gNB counter incremented at both intra and inter DU handover. Incremented by one at sending of RRC Reconfiguration message to initiate the handover in the UE</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;",
+        "CounterId": "REQ_INTRA_GNB_HANDOVER_EXECUTIONS",
+        "InstanceType": "CELL_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;"
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h3 id="cu-successful-handover-counter"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.3.18</span> CU Successful Handover Counter<a class="headerlink" href="#cu-successful-handover-counter" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> Intra gNB counter incremented at both intra and inter DU handover. Incremented by one on reception of RRC Reconfiguration Complete. Also incremented by one if a successful reestablishment completes the handover</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.5g.ric.processed.pm_counters</code></p>
+<div class="highlight"><pre><span></span><code>{
+    "PmCounterReport": {
+        "InstanceId": "&lt;string&gt;",
+        "CounterId": "SUCC_INTRA_GNB_HANDOVER_EXECUTIONS",
+        "InstanceType": "CELL_TYPE",
+        "ReportingNodeId": "&lt;uint32&gt;",
+        "CounterValue": "&lt;uint32&gt;"
+    },
+    "timestamp": &lt;uint64&gt;
+}
+</code></pre></div>
+<h2 id="raw-performance-measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.4</span> Raw Performance Measurements<a class="headerlink" href="#raw-performance-measurements" title="Permanent link">⚓︎</a></h2>
+<h3 id="rrc-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.4.1</span> RRC stats<a class="headerlink" href="#rrc-stats" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives a list of raw PM counter values in CU-CP</p>
+<p>`</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div></p>
+<h3 id="cu-cp-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.4.2</span> CU-CP Throughput stats<a class="headerlink" href="#cu-cp-throughput-stats" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-CP.</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.pm_counters
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "PmReportingCucpCounterData": {
+    "ReportingNodeId": &lt;string&gt;,
+    "CounterList": {
+      "items": {
+        "0": {
+          "CounterId": "&lt;CucpCounterIdEnum&gt;",
+          "InstanceType": "&lt;InstanceTypeEnum&gt;",
+          "InstanceId": &lt;string&gt;,
+          "ValueList": {
+            "items": {
+              "0": {
+                "_key": &lt;uint&gt;,
+                "_val": &lt;uint&gt;
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+CucpCounterIdEnum
+
+Enum Values:
+RRC_CONNECTION_EST_ATTEMPT
+RRC_CONNECTION_SUCC
+REQ_INTRA_GNB_HANDOVER_EXECUTIONS
+SUCC_INTRA_GNB_HANDOVER_EXECUTIONS
+MEAN_NUMBER_OF_RRC_CONNECTIONS
+MAXIMUM_NUMBER_OF_RRC_CONNECTIONS
+NUMBER_OF_PDU_SESSIONS_REQUESTED_TO_SETUP
+NUMBER_OF_PDU_SESSIONS_FAILED_TO_SETUP
+SS_RSRP_DISTRIBUTION_PER_SSB
+NUMBER_OF_CUCP_COUNTERS
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+UE_QOS_SNSSAI_PLMN_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+QOS_SNSSAI_PLMN_TYPE
+INVALID_TYPE
+</code></pre></div></p>
+<h3 id="cu-up-throughput-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.4.3</span> CU-UP Throughput stats<a class="headerlink" href="#cu-up-throughput-stats" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message gives a list of DL/UL GTP throughput counters at CU-UP.</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.pm_counters
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "PmReportingCuupCounterData": {
+    "ReportingNodeId": &lt;string&gt;,
+    "CounterList": {
+      "items": {
+        "0": {
+          "CounterId": "&lt;CuupCounterIdEnum&gt;",
+          "InstanceType": "&lt;InstanceTypeEnum&gt;",
+          "InstanceId": &lt;string&gt;,
+          "ValueList": {
+            "items": {
+              "0": {
+                "_key": &lt;uint&gt;,
+                "_val": &lt;uint&gt;
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+UE_QOS_SNSSAI_PLMN_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+QOS_SNSSAI_PLMN_TYPE
+INVALID_TYPE
+
+Enum Type:
+CuupCounterIdEnum
+
+Enum Values:
+DL_GTP_THP
+DL_GTP_THP_UE_QOS_SNSSAI_PLMN
+UL_GTP_THP
+UL_GTP_THP_UE_QOS_SNSSAI_PLMN
+DRB_PACKET_LOSS_UL_QOS
+DRB_PACKET_LOSS_UL_SNSSAI
+DRB_PACKET_LOSS_UL_QOS_SNSSAI_PLMN
+DRB_PDCP_PACKET_DROP_RATE_DL_QOS
+DRB_PDCP_PACKET_DROP_RATE_DL_SNSSAI
+DRB_PDCP_PACKET_DROP_RATE_DL_QOS_SNSSAI_PLMN
+AVERAGE_DELAY_DL_IN_CUUP_QOS
+AVERAGE_DELAY_DL_IN_CUUP_SNSSAI
+AVERAGE_DELAY_DL_IN_CUUP_QOS_SNSSAI_PLMN
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS_SNSSAI_PLMN
+NUMBER_OF_CUUP_COUNTERS
+</code></pre></div></p>
+<h3 id="cu-up-handover-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">18.4.4</span> CU-UP Handover Response<a class="headerlink" href="#cu-up-handover-response" title="Permanent link">⚓︎</a></h3>
+<p><strong>Description :</strong> This message contains a handover response from a CU</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.5g.ric.raw.ran_control_response
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "RIC_REQUESTOR": &lt;string&gt;,
+  "RIC_INSTANCE": &lt;string&gt;,
+  "E2apRanControlRsp": {
+    "RicRequestorId": &lt;uint&gt;,
+    "RicInstanceId": &lt;uint&gt;,
+    "RicControlActionId": &lt;uint&gt;,
+    "Timestamp": &lt;string&gt;
+  },
+  "tlpublishTime__": &lt;string&gt;,
+  "spanContext__": &lt;string&gt;
+}
+</code></pre></div>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Appendix: Conversion from the xApp Framework to the xApp Library" class="md-footer__link md-footer__link--prev" href="../../../../xapp-dev-guide/appendix_conversion/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Appendix: Conversion from the xApp Framework to the xApp Library
+            </div>
+</div>
+</a>
+<a aria-label="Next: Nats" class="md-footer__link md-footer__link--next" href="../nats/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Nats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+            Material for MkDocs
+          </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tabs", "toc.integrate"], "search": "../../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../../../assets/javascripts/bundle.b1047164.min.js"></script>
+</body>
+</html>

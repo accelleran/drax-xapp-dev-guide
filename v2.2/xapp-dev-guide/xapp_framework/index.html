@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://accelleran.github.io/drax-xapp-dev-guide/v2.2/xapp-dev-guide/xapp_framework/" rel="canonical"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-7.3.6" name="generator"/>
+<title>xApp Framework In-depth - dRAX xApp Dev Guide</title>
+<link href="../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../css/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#xapp-framework-in-depth">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="dRAX xApp Dev Guide" class="md-header__button md-logo" data-md-component="logo" href="../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            dRAX xApp Dev Guide
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              xApp Framework In-depth
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        Overview
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../quick_guide/">
+        Documentation
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../message_references/5G/4.2/kafka/">
+        Message References
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="dRAX xApp Dev Guide" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
+</a>
+    dRAX xApp Dev Guide
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../..">Overview</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Overview" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../changelog/">
+        Changelog
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Documentation" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../quick_guide/">
+        Quick guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../development_workflows/">
+        Development Workflows
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_dev_environment/">
+        Build your own xApp Dev Environment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_productize/">
+        Productize your xApp
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        xApp Framework In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_library/">
+        xApp Library In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_unittest/">
+        xApp Unit Tests
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_readme/">
+        The xApp Documentation README.md
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_rest_api/">
+        xApp REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_configuration/">
+        xApp Configuration In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_helm_charts/">
+        xApp Helm Chart In-Depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_lifecycle/">
+        xApps Lifecycle In-depth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_core/">
+        Writing the xApp Core in a different language
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../appendix_dockerhub/">
+        Appendix: Pushing to Dockerhub
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../appendix_conversion/">
+        Appendix: Conversion from the xApp Framework to the xApp Library
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Message References
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Message References" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Message References
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+          5G
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5G" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          5G
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_1" id="__nav_3_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_1">
+          version 4.2
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 4.2" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_1">
+<span class="md-nav__icon md-icon"></span>
+          version 4.2
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/5G/4.2/kafka/">
+        Kafka
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/5G/4.2/nats/">
+        Nats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_2" id="__nav_3_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_2">
+          version 3.3
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 3.3" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_2">
+<span class="md-nav__icon md-icon"></span>
+          version 3.3
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/5G/3.3/nats/">
+        Nats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1_3" id="__nav_3_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_3">
+          version 2.4
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 2.4" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_3">
+<span class="md-nav__icon md-icon"></span>
+          version 2.4
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/5G/2.4/nats/">
+        Nats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+          4G
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4G" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          4G
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2_1" id="__nav_3_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_1">
+          version 5.2
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="version 5.2" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_1">
+<span class="md-nav__icon md-icon"></span>
+          version 5.2
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/4G/5.2/kafka/">
+        Kafka
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="xapp-framework-in-depth"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.</span> xApp Framework In-depth<a class="headerlink" href="#xapp-framework-in-depth" title="Permanent link">⚓︎</a></h1>
+<p>To accelerate the development of xApps, Accelleran has created the xApp Framework which is available on GitHub: <a href="https://github.com/accelleran/xapp-framework-package">https://github.com/accelleran/xapp-framework-package</a>. In this repository, the xApp developer has access to the xApp Library under <em>xapp_core/xapp_lib</em>. The developer can explore the xApp Library files to get familiar with the different methods and abstractions available. We also cover what the xApp Library comes with in the <a href="../xapp_library/#xapp-library-in-depth">xApp Library In-depth</a> section.</p>
+<p>Also, in the repository, we provide an example xApp in the <em>example</em> folder. Here, we provide template Python files which use the xApp Library and include examples of usage. In the _example _folder we provide the Dockerfiles, readme and requirements files. The Dockerfiles (one for production and another for development mode) that can be used on the xApp example to build the xApp Core. An example README.md file used for documentation is also provided, more details on it can be found in the <a href="../xapp_readme/#the-xapp-documentation-readmemd">The xApp Documentation README.md</a> section. The requirements.txt contains the python required packages for the xApp to run properly. This file is used during the build process of the xApp Core to install all the required packages in the Docker image, including the xApp Library. This is why credentials are also required to be passed to the build process, as explained in the <a href="../xapp_dev_environment/#build-your-own-xapp-dev-environment">Build your own xApp Dev Environment</a> and <a href="../xapp_productize/#productize-your-xapp">Productize your xApp</a> sections.</p>
+<p>In the <em>example/core _folder, we provide the example python code. The xapp_main.py file is the main python file where the xApp is started. In this example file, you can check how the xApp Builder is used, how to retrieve data from Kafka, as well as different examples on the usage. Also, the configuration file xapp_metadata.json is provided in the _example/core</em> folder, on which more details can be found in the <a href="../xapp_configuration/#xapp-configuration-in-depth">xApp Configuration In-depth</a> section. The restapi.py python file is provided in the <em>example/core</em> folder that shows an example of how to add custom API endpoints to the xApp, more details can be found in the <a href="../xapp_rest_api/#xapp-rest-api">xApp REST API</a> section.</p>
+<p>Finally, the example xApp also has the xApp Helm Chart in the _example _folder which contains the necessary minimum to deploy the xApp Framework in Kubernetes and seamlessly integrate it with the dRAX RIC. Details on the xApp Helm Chart can be found in the <a href="../xapp_helm_charts/#xapp-helm-chart-in-depth">xApp Helm Chart In-Depth</a> section. The developer is of course free to explore the xApp Helm Chart and add features, such as adding more Docker images to be deployed along the xApp in advanced scenarios. We cover this in the <a href="../xapp_helm_charts/#how-to-add-another-microservice-helm-chart-to-the-xapp">How to add another microservice helm chart to the xApp</a> section. The xapp_config.json and xapp_endpoints.json are configuration files created by the xApp Helm Chart and they will be stored in the _config _folder. More information about those configuration files and how to edit them can be found in the <a href="../xapp_configuration/#xapp-configuration-in-depth">xApp Configuration In-depth</a> section.</p>
+<p>The dRAX xApp Framework consists of the following components, which are shown below:</p>
+<ol>
+<li>The xApp Library - a Python library which interfaces with the dRAX RIC platform</li>
+<li>The xApp Database - Redis server for storage of configuration data</li>
+<li>The xApp Core - the core logic of the xApp written by the developer</li>
+<li>The xApp Helm Chart - a Helm Chart used to deploy the xApp and integrate it with dRAX RIC</li>
+</ol>
+<p><img align="middle" alt="dRAX xApps Framework" src="../../images/xapps_framework_diagram.png" width="500px"/></p>
+<p>The xApp framework is built using a microservice oriented architecture. The xApp Database and the xApp Core are Docker images, which are deployed using a Helm Chart, and orchestrated via Kubernetes. The xApp Database is used to store the configuration of the xApp, and can be used by the developer to store other data. The xApp Core is a container that includes the xApp Library. The xApp Library is a Python library that is the main part of the xApp Framework. The xApp Library is created in a way that abstracts how the xApp interfaces with the dRAX RIC. Different hooks are pre-built, such as the connections to the dRAX Databuses (NATS, Kafka), the API endpoints for communication to the dRAX SMO layer (dRAX Dashboard), methods to send dRAX commands (handover, sub-band masking), etc. These methods abstract the lower level details (such as URLs, ports, generating protobuf command messages, etc.) so that the developer does not need to worry about them, and can focus on the functionality and algorithms they are implementing.</p>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Productize your xApp" class="md-footer__link md-footer__link--prev" href="../xapp_productize/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Productize your xApp
+            </div>
+</div>
+</a>
+<a aria-label="Next: xApp Library In-depth" class="md-footer__link md-footer__link--next" href="../xapp_library/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              xApp Library In-depth
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+            Material for MkDocs
+          </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tabs", "toc.integrate"], "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+</body>
+</html>
