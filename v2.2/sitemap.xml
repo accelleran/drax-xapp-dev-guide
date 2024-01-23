@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.2/message_references/5G/4.3/kafka/</loc>
+         <lastmod>2024-01-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v2.2/message_references/5G/4.3/nats/</loc>
          <lastmod>2024-01-23</lastmod>
          <changefreq>daily</changefreq>
