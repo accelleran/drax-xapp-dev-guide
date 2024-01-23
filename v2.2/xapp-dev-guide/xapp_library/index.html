@@ -1152,7 +1152,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Message reference: <a href="../message_references/5G/4.3/nats/#pdusessionadmissionrequestdata">PduSessionAdmissionRequestData</a></p>
+<p>Message reference: <a href="../../message_references/5G/4.3/nats/#pdusessionadmissionrequestdata">PduSessionAdmissionRequestData</a></p>
 <h5 id="accept-pdu-session-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.3.1</span> Accept PDU Session Admission<a class="headerlink" href="#accept-pdu-session-admission" title="Permanent link">⚓︎</a></h5>
 <p>The Accept PDU Session Admission command is the decision made by dRAX RIC to allow a specific PDU session to be set.</p>
 <p>Once the <strong><em>pdu_session_admission_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to accept the new PDU session.</p>
@@ -1189,7 +1189,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 </div>
 <p>The <strong><em>pdu_session_modification_request_message</em></strong> function is used to decode encoded messages received on the <strong><em>PDU-SESSION-MOD-REQ</em></strong> subject.</p>
 <p>It takes as argument the encoded message and will return a decoded object.</p>
-<p>Message reference: <a href="../message_references/5G/4.3/nats/#pdusessionmodificationrequestdata">PduSessionModificationRequestData</a></p>
+<p>Message reference: <a href="../../message_references/5G/4.3/nats/#pdusessionmodificationrequestdata">PduSessionModificationRequestData</a></p>
 <h5 id="accept-pdu-session-modification"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.4.1</span> Accept PDU Session Modification<a class="headerlink" href="#accept-pdu-session-modification" title="Permanent link">⚓︎</a></h5>
 <p>The Accept PDU Session Modification command is the decision made by dRAX RIC to accept a specific PDU session to be set.</p>
 <p>Once the <strong><em>pdu_session_modification_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to accept the new PDU session.</p>
@@ -1236,7 +1236,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
   <span class="n">items</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Message reference: <a href="../message_references/5G/4.3/nats/#pdusessionreleaseindicationdata">PduSessionReleaseIndicationData</a></p>
+<p>Message reference: <a href="../../message_references/5G/4.3/nats/#pdusessionreleaseindicationdata">PduSessionReleaseIndicationData</a></p>
 <h2 id="publish-to-drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8</span> Publish to dRAX RIC Databus<a class="headerlink" href="#publish-to-drax-ric-databus" title="Permanent link">⚓︎</a></h2>
 <p>From your xApp, you can publish data on the dRAX RIC Databus for other xApps to use as well.</p>
 <h3 id="event-based-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.1</span> Event-based publishing<a class="headerlink" href="#event-based-publishing" title="Permanent link">⚓︎</a></h3>
