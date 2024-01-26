@@ -183,6 +183,11 @@
         xApp Library In-depth
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_async_library/">
+        xApp Async Library In-depth
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -421,14 +426,14 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="xapp-unit-tests"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.</span> xApp Unit Tests<a class="headerlink" href="#xapp-unit-tests" title="Permanent link">⚓︎</a></h1>
+<h1 id="xapp-unit-tests"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.</span> xApp Unit Tests<a class="headerlink" href="#xapp-unit-tests" title="Permanent link">⚓︎</a></h1>
 <p>When developing an xApp, you may want to ensure that your code runs as it should at every development step and does not break the links between your different modules in your system,</p>
 <p>To guarantee a correct behaviour of your xApp and its relations, you can provide some stubs and mocks to assist the testing of your different blocks,</p>
 <p>Stubs and mocks are predefined methods/objects that simulate the behaviour of a real methods/objects and expect a specific way of working,</p>
 <p>This approach will help you to secure your code and protect it from breaking changes and unwanted behaviour during your development cycle,</p>
 <p>In this context, each block should be tested independently to isolate the issues that may happen and thus demonstrate that the individual parts behave flawlessly,</p>
 <p>Some of the different blocks that you might use when developing an xApp to interact with dRax components are already available inside of the the xApp framework,</p>
-<h2 id="xapp-testing-framework"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.1</span> xApp testing framework<a class="headerlink" href="#xapp-testing-framework" title="Permanent link">⚓︎</a></h2>
+<h2 id="xapp-testing-framework"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.1</span> xApp testing framework<a class="headerlink" href="#xapp-testing-framework" title="Permanent link">⚓︎</a></h2>
 <p>In most cases, an xApp will use predefined interfaces to interact with the dRax components,</p>
 <p>The xApp might want, for instance, to read values from nats and/or kafka, to set fields in redis or to assure that its configuration is correct,</p>
 <p>For all these functionalities and much more, all the dRax interfaces are already mocked for you to simplify your tests and speedup your testing process,</p>
@@ -443,7 +448,7 @@
 </ul>
 <p>Examples of using the unit tests are available in the tests folder available when creating an xapp: <a href="/drax-xapp-dev-guide/xapp-dev-guide/development_workflows#development-workflows">Development Workflows</a></p>
 <p>To use the xapp framework, go in the tests folder of your deployed xapp and follow the next steps,</p>
-<h2 id="setup-the-virtual-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.2</span> Setup the virtual environment<a class="headerlink" href="#setup-the-virtual-environment" title="Permanent link">⚓︎</a></h2>
+<h2 id="setup-the-virtual-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.2</span> Setup the virtual environment<a class="headerlink" href="#setup-the-virtual-environment" title="Permanent link">⚓︎</a></h2>
 <p>The virtual environment is used to make sure that your suite of tests works independently from your current environment,</p>
 <p>It creates an isolated environment to protect against local packages interferences and to guarantee packages versioning installation,</p>
 <p>Follow the steps to setup your own virtual environment and install the packages, python3.9 is required</p>
@@ -464,7 +469,7 @@
 pip install -r tests/requirements.txt
 </code></pre></div></p>
 <p>/!\ Once your virtual environment is setup and the packages installed, next time you want to run the tests you can simply reactivate your environment, no need to go over all the previous steps again /!\</p>
-<h2 id="run-pytest"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.3</span> Run pytest<a class="headerlink" href="#run-pytest" title="Permanent link">⚓︎</a></h2>
+<h2 id="run-pytest"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3</span> Run pytest<a class="headerlink" href="#run-pytest" title="Permanent link">⚓︎</a></h2>
 <p>To be able to run your tests, make sure that your virtual environment has been setup according to the previous section: <a href="./#setup-the-virtual-environment">Setup the virtual environment</a></p>
 <p>Also, you should make sure that your virtual environment is activated,</p>
 <p>If not, run your virtual environment:
@@ -504,7 +509,7 @@ scenario_test.py ...                                                            
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: xApp Library In-depth" class="md-footer__link md-footer__link--prev" href="../xapp_library/" rel="prev">
+<a aria-label="Previous: xApp Async Library In-depth" class="md-footer__link md-footer__link--prev" href="../xapp_async_library/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -513,7 +518,7 @@ scenario_test.py ...                                                            
 <span class="md-footer__direction">
                 Previous
               </span>
-              xApp Library In-depth
+              xApp Async Library In-depth
             </div>
 </div>
 </a>

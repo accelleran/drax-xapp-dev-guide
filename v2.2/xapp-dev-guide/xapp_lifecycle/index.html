@@ -184,6 +184,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_async_library/">
+        xApp Async Library In-depth
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../xapp_unittest/">
         xApp Unit Tests
       </a>
@@ -459,7 +464,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="xapps-lifecycle-in-depth"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.</span> xApps Lifecycle In-depth<a class="headerlink" href="#xapps-lifecycle-in-depth" title="Permanent link">⚓︎</a></h1>
+<h1 id="xapps-lifecycle-in-depth"><span class="enumerate-headings-plugin enumerate-heading-plugin">15.</span> xApps Lifecycle In-depth<a class="headerlink" href="#xapps-lifecycle-in-depth" title="Permanent link">⚓︎</a></h1>
 <p>In this section we will explain the lifecycle of the xApps in the RIC.</p>
 <table>
 <tr>
@@ -472,9 +477,9 @@
    </td>
 </tr>
 </table>
-<h2 id="service-monitor-and-service-orchestrator-roles"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.1</span> Service Monitor and Service Orchestrator roles<a class="headerlink" href="#service-monitor-and-service-orchestrator-roles" title="Permanent link">⚓︎</a></h2>
+<h2 id="service-monitor-and-service-orchestrator-roles"><span class="enumerate-headings-plugin enumerate-heading-plugin">15.1</span> Service Monitor and Service Orchestrator roles<a class="headerlink" href="#service-monitor-and-service-orchestrator-roles" title="Permanent link">⚓︎</a></h2>
 <p>Part of the dRAX RIC are the Service Monitor and Service Orchestrator which play a key role in the xApp lifecycle management.</p>
-<h3 id="service-orchestrator"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.1.1</span> Service Orchestrator<a class="headerlink" href="#service-orchestrator" title="Permanent link">⚓︎</a></h3>
+<h3 id="service-orchestrator"><span class="enumerate-headings-plugin enumerate-heading-plugin">15.1.1</span> Service Orchestrator<a class="headerlink" href="#service-orchestrator" title="Permanent link">⚓︎</a></h3>
 <p>The Service Orchestrator is a service of the dRAX RIC which has a number of tools at its disposal. It contains a Kubernetes client as well as a Helm client, enabling it to deploy Kubernetes resources. It is exposed through the dRAX RIC API Gateway on endpoint with two methods (POST to deploy an xApp or DELETE to delete an xApp):</p>
 <ul>
 <li>/deployment/xapp</li>
@@ -489,19 +494,19 @@
 <li>Using a remote Helm repository</li>
 </ul>
 <p>In both cases, you can also send the optional values.yaml file with specific xApp configuration options.</p>
-<h3 id="service-monitor"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.1.2</span> Service Monitor<a class="headerlink" href="#service-monitor" title="Permanent link">⚓︎</a></h3>
+<h3 id="service-monitor"><span class="enumerate-headings-plugin enumerate-heading-plugin">15.1.2</span> Service Monitor<a class="headerlink" href="#service-monitor" title="Permanent link">⚓︎</a></h3>
 <p>The Service Monitor is equipped with the Kubernetes client, so it's able to monitor all the deployed resources. Therefore the Service Monitor is used for:</p>
 <ul>
 <li>xApp discovery</li>
 <li>Retrieving relevant configuration options of dRAX RIC resources, such as services, ports, etc.</li>
 </ul>
-<h2 id="onboarding"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.2</span> Onboarding<a class="headerlink" href="#onboarding" title="Permanent link">⚓︎</a></h2>
+<h2 id="onboarding"><span class="enumerate-headings-plugin enumerate-heading-plugin">15.2</span> Onboarding<a class="headerlink" href="#onboarding" title="Permanent link">⚓︎</a></h2>
 <p>There are 2 ways of onboarding an xApp:</p>
 <ul>
 <li>Through the dRAX Dashboard</li>
 <li>By using the Service Orchestrator endpoint via the dRAX RIC API Gateway</li>
 </ul>
-<h3 id="using-the-drax-dashboard"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.2.1</span> Using the dRAX Dashboard<a class="headerlink" href="#using-the-drax-dashboard" title="Permanent link">⚓︎</a></h3>
+<h3 id="using-the-drax-dashboard"><span class="enumerate-headings-plugin enumerate-heading-plugin">15.2.1</span> Using the dRAX Dashboard<a class="headerlink" href="#using-the-drax-dashboard" title="Permanent link">⚓︎</a></h3>
 <p>Go to the dRAX dashboard, which by default is on port 31315:</p>
 <div class="highlight"><pre><span></span><code>http://&lt;kubernetes_ip&gt;:31315
 </code></pre></div>
@@ -532,7 +537,7 @@
 <li>An option to also upload a values.yaml file</li>
 </ul>
 <p>Once the details are filled in, click “Submit”, and your xApp will be deployed.</p>
-<h3 id="using-the-service-orchestrator-endpoint-via-the-drax-ric-api-gateway"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.2.2</span> Using the Service Orchestrator endpoint via the dRAX RIC API Gateway<a class="headerlink" href="#using-the-service-orchestrator-endpoint-via-the-drax-ric-api-gateway" title="Permanent link">⚓︎</a></h3>
+<h3 id="using-the-service-orchestrator-endpoint-via-the-drax-ric-api-gateway"><span class="enumerate-headings-plugin enumerate-heading-plugin">15.2.2</span> Using the Service Orchestrator endpoint via the dRAX RIC API Gateway<a class="headerlink" href="#using-the-service-orchestrator-endpoint-via-the-drax-ric-api-gateway" title="Permanent link">⚓︎</a></h3>
 <p>As described before, we use the Service Orchestrator to deploy the dRAX RIC xApps. The method described before, using the dRAX Dashboard, also in the background uses the Service Orchestrator. Therefore, you may also choose to deploy an xApp directly using the Service Orchestrator by using its API endpoint via the dRAX RIC API Gateway. Details on the contents of the API are on the dRAX RIC API Gateway Swagger:</p>
 <div class="highlight"><pre><span></span><code>http://&lt;kubernets_ip&gt;:31315/api/v1/docs
 </code></pre></div>
@@ -573,7 +578,7 @@
 </code></pre></div>
     specifies the optional values.yaml file and its location</li>
 </ul>
-<h2 id="discovery"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.3</span> Discovery<a class="headerlink" href="#discovery" title="Permanent link">⚓︎</a></h2>
+<h2 id="discovery"><span class="enumerate-headings-plugin enumerate-heading-plugin">15.3</span> Discovery<a class="headerlink" href="#discovery" title="Permanent link">⚓︎</a></h2>
 <p>Once the xApp is deployed, the dRAX Service Monitor automatically registers the xApp as deployed using predefined labels in the xApp Kubernetes objects. This information is gathered by the dRAX RIC API Gateway and is used by the dRAX Dashboard where the new xApp appears in the <strong>xApps Management</strong> tab. From here, the user can control and configure the xApp.</p>
 <p>A user can also get this information programmatically via the dRAX RIC API Gateway. Endpoints are available to:</p>
 <ul>
@@ -585,7 +590,7 @@
 <div class="highlight"><pre><span></span><code>http://&lt;kubernets_ip&gt;:31315/api/v1/docs
 </code></pre></div>
 <p>Just substitute ≶kubernetes_ip&gt; with the advertise address of your Kubernetes cluster.</p>
-<h2 id="configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.4</span> Configuration<a class="headerlink" href="#configuration" title="Permanent link">⚓︎</a></h2>
+<h2 id="configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">15.4</span> Configuration<a class="headerlink" href="#configuration" title="Permanent link">⚓︎</a></h2>
 <p>Details on how the xApps are configured can be found in the <a href="../xapp_configuration/#xapp-configuration-in-depth">xApp Configuration In-depth</a> section. Here we summarize that the xApp can be configured:</p>
 <ul>
 <li>On deployment time using the xApp Helm Chart values.yaml file</li>
@@ -593,7 +598,7 @@
 <li>During runtime through the xApps’ API, which can be reached through the dRAX RIC API Gateway</li>
 </ul>
 <p>The configuration description can be found in the <a href="../xapp_configuration/#xapp-configuration-in-depth">xApp Configuration In-depth</a> section.</p>
-<h2 id="uninstallation"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.5</span> Uninstallation<a class="headerlink" href="#uninstallation" title="Permanent link">⚓︎</a></h2>
+<h2 id="uninstallation"><span class="enumerate-headings-plugin enumerate-heading-plugin">15.5</span> Uninstallation<a class="headerlink" href="#uninstallation" title="Permanent link">⚓︎</a></h2>
 <p>Uninstalling an xApp in the dRAX RIC can be done in 2 ways:</p>
 <ul>
 <li>Using the dRAX Dashboard</li>
