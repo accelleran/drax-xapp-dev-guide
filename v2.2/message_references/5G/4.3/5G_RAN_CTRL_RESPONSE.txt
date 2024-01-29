@@ -1,0 +1,17 @@
+<!--topic-start-->
+accelleran.drax.5g.ric.raw.ran_control_response
+<!--topic-end-->
+<!--json-start-->
+{
+  "RIC_REQUESTOR": <string>,
+  "RIC_INSTANCE": <string>,
+  "E2apRanControlRsp": {
+    "RicRequestorId": <uint>,
+    "RicInstanceId": <uint>,
+    "RicControlActionId": <uint>,
+    "Timestamp": <string>
+  },
+  "tlpublishTime__": <string>,
+  "spanContext__": <string>
+}
+<!--json-end-->

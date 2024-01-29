@@ -1,0 +1,78 @@
+<!--topic-start-->
+accelleran.drax.5g.ric.raw.cu_state
+<!--topic-end-->
+<!--json-start-->
+{
+  "CuupBeaconInfoData": {
+    "CuupId": <string>,
+    "State": "<CuupState>",
+    "SupportedPlmns": {
+      "items": {
+        "0": {
+          "PlmnIdentity": <string>,
+          "TaiSlicedSupportList": {
+            "items": {
+              "0": {
+                "SNssai": {
+                  "SST": <uint>,
+                  "SD": {
+                    "Data": {
+                      "0": <uint>
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "AdminState": "<AdminState>",
+    "Version": <string>,
+    "ExtraInfoList": {
+      "items": {
+        "0": {
+          "Name": <string>,
+          "Value": <string>
+        }
+      }
+    },
+    "E1InterfacesList": {
+      "items": {
+        "0": {
+          "IpAddress": <string>
+        }
+      }
+    },
+    "GtpuInterfacesList": {
+      "items": {
+        "0": {
+          "F1UAddress": <string>,
+          "NgUAddress": <string>
+        }
+      }
+    },
+    "CuUpName": <string>
+  },
+  "tlpublishTime__": <string>,
+  "spanContext__": <string>
+}
+<!--json-end-->
+<!--enum-start-->
+
+Enum Type:
+CuupState
+
+Enum Values:
+CUUPSTATE_NON_OPERATIONAL
+CUUPSTATE_NON_OPERATIONAL_FAILURE
+CUUPSTATE_OPERATIONAL
+
+Enum Type:
+AdminState
+
+Enum Values:
+Locked
+UnLocked
+
+<!--enum-end-->

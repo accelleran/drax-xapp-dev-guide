@@ -1,0 +1,14 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.service_discovery
+<!--topic-end-->
+<!--json-start-->
+{
+  "ueDraxId": <string>,
+  "ueRicId": <string>,
+  "Rc4gDatamodelRequest": {
+    "CellFilter": <string>
+  },
+  "tlpublishTime__": <string>,
+  "timestamp": <int>
+}
+<!--json-end-->

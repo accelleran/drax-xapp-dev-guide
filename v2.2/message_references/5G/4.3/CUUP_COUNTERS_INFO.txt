@@ -1,0 +1,69 @@
+<!--topic-start-->
+accelleran.drax.5g.ric.raw.pm_counters
+<!--topic-end-->
+<!--json-start-->
+{
+  "PmReportingCuupCounterData": {
+    "ReportingNodeId": <string>,
+    "CounterList": {
+      "items": {
+        "0": {
+          "CounterId": "<CuupCounterIdEnum>",
+          "InstanceType": "<InstanceTypeEnum>",
+          "InstanceId": <string>,
+          "ValueList": {
+            "items": {
+              "0": {
+                "_key": <uint>,
+                "_val": <uint>
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tlpublishTime__": <string>,
+  "spanContext__": <string>
+}
+<!--json-end-->
+<!--enum-start-->
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+UE_QOS_SNSSAI_PLMN_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+QOS_SNSSAI_PLMN_TYPE
+INVALID_TYPE
+
+Enum Type:
+CuupCounterIdEnum
+
+Enum Values:
+DL_GTP_THP
+DL_GTP_THP_UE_QOS_SNSSAI_PLMN
+UL_GTP_THP
+UL_GTP_THP_UE_QOS_SNSSAI_PLMN
+DRB_PACKET_LOSS_UL_QOS
+DRB_PACKET_LOSS_UL_SNSSAI
+DRB_PACKET_LOSS_UL_QOS_SNSSAI_PLMN
+DRB_PDCP_PACKET_DROP_RATE_DL_QOS
+DRB_PDCP_PACKET_DROP_RATE_DL_SNSSAI
+DRB_PDCP_PACKET_DROP_RATE_DL_QOS_SNSSAI_PLMN
+AVERAGE_DELAY_DL_IN_CUUP_QOS
+AVERAGE_DELAY_DL_IN_CUUP_SNSSAI
+AVERAGE_DELAY_DL_IN_CUUP_QOS_SNSSAI_PLMN
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI
+DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS_SNSSAI_PLMN
+NUMBER_OF_CUUP_COUNTERS
+
+<!--enum-end-->

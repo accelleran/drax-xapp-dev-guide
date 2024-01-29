@@ -1,0 +1,230 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.service_discovery
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB": <string>,
+  "CELL": <string>,
+  "UE": <string>,
+  "ueDraxId": <string>,
+  "ueRicId": <string>,
+  "Guid": <string>,
+  "EnbUeAdmissionResponse": {
+    "Result": "<OranAdmissionResultCode>",
+    "GlobalUeIdentity": <uint>,
+    "MeasurementInfoPresent": <bool>,
+    "MeasurementObjectInfo": {
+      "CarrierFreqChannelNo": <uint>,
+      "AllowedMeasurementBandwidth": "<AllowedMeasurementBandwidth>",
+      "PresenceAntennaPort1": <bool>,
+      "NeighCellConfig": "<NeighCellConfig>"
+    },
+    "MeasurementReportInfoPresent": <bool>,
+    "MeasurementReportInfo": {
+      "RrcMeasurementType": "<RrcMeasurmentTypeEnum>",
+      "GenericInfo": {
+        "Enable": <bool>,
+        "TriggerQuantity": "<TriggerQuantity>",
+        "ReportQuantity": "<ReportQuantity>",
+        "MaximumReportCells": <uint>,
+        "ReportInterval": "<ReportInterval>",
+        "ReportAmount": "<ReportAmount>"
+      },
+      "RrcA2MeasurementInfo": {
+        "Threshold": <uint>,
+        "Hysteresis": <uint>,
+        "TimeToTrigger": "<TimeToTrigger>"
+      },
+      "RrcA3MeasurementInfo": {
+        "ReportOnLeave": <bool>,
+        "Threshold": <int>,
+        "Hysteresis": <uint>,
+        "TimeToTrigger": "<TimeToTrigger>"
+      },
+      "RrcA4MeasurementInfo": {
+        "Threshold": <uint>,
+        "Hysteresis": <uint>,
+        "TimeToTrigger": "<TimeToTrigger>"
+      },
+      "RrcA5MeasurementInfo": {
+        "Threshold1": <uint>,
+        "Threshold2": <uint>,
+        "Hysteresis": <uint>,
+        "TimeToTrigger": "<TimeToTrigger>"
+      },
+      "RrcPeriodicMeasurementInfo": {
+        "RrcMeasurementPeriodicType": "<RrcPeriodicMeasurmentTypeEnum>",
+        "LocationInfo": <bool>
+      }
+    }
+  },
+  "tlpublishTime__": <string>,
+  "timestamp": <int>
+}
+<!--json-end-->
+<!--enum-start-->
+
+Enum Type:
+ReportQuantity
+
+Enum Values:
+dsAccelleranLteUeMeasurements_report_quantity_same_as_trigger_quantity
+dsAccelleranLteUeMeasurements_report_quantity_both
+
+Enum Type:
+ReportAmount
+
+Enum Values:
+dsAccelleranLteUeMeasurements_report_amount_1
+dsAccelleranLteUeMeasurements_report_amount_2
+dsAccelleranLteUeMeasurements_report_amount_4
+dsAccelleranLteUeMeasurements_report_amount_8
+dsAccelleranLteUeMeasurements_report_amount_16
+dsAccelleranLteUeMeasurements_report_amount_32
+dsAccelleranLteUeMeasurements_report_amount_64
+dsAccelleranLteUeMeasurements_report_amount_infinity
+
+Enum Type:
+AllowedMeasurementBandwidth
+
+Enum Values:
+dsAccelleranLteTypes_allowed_measurement_bandwidth_unknown
+dsAccelleranLteTypes_allowed_measurement_bandwidth_6
+dsAccelleranLteTypes_allowed_measurement_bandwidth_15
+dsAccelleranLteTypes_allowed_measurement_bandwidth_25
+dsAccelleranLteTypes_allowed_measurement_bandwidth_50
+dsAccelleranLteTypes_allowed_measurement_bandwidth_75
+dsAccelleranLteTypes_allowed_measurement_bandwidth_100
+
+Enum Type:
+TriggerQuantity
+
+Enum Values:
+dsAccelleranLteUeMeasurements_trigger_quantity_rsrp
+dsAccelleranLteUeMeasurements_trigger_quantity_rsrq
+
+Enum Type:
+RrcMeasurmentTypeEnum
+
+Enum Values:
+rrcMeasurementType_periodic
+rrcMeasurementType_a2
+rrcMeasurementType_a3
+rrcMeasurementType_a4
+rrcMeasurementType_a5
+
+Enum Type:
+ReportInterval
+
+Enum Values:
+dsAccelleranLteUeMeasurements_report_interval_ms120
+dsAccelleranLteUeMeasurements_report_interval_ms240
+dsAccelleranLteUeMeasurements_report_interval_ms480
+dsAccelleranLteUeMeasurements_report_interval_ms640
+dsAccelleranLteUeMeasurements_report_interval_ms1024
+dsAccelleranLteUeMeasurements_report_interval_ms2048
+dsAccelleranLteUeMeasurements_report_interval_ms5120
+dsAccelleranLteUeMeasurements_report_interval_ms10240
+dsAccelleranLteUeMeasurements_report_interval_min1
+dsAccelleranLteUeMeasurements_report_interval_min6
+dsAccelleranLteUeMeasurements_report_interval_min12
+dsAccelleranLteUeMeasurements_report_interval_min30
+dsAccelleranLteUeMeasurements_report_interval_min60
+
+Enum Type:
+TimeToTrigger
+
+Enum Values:
+dsAccelleranLteUeMeasurements_time_to_trigger_unknown
+dsAccelleranLteUeMeasurements_time_to_trigger_0
+dsAccelleranLteUeMeasurements_time_to_trigger_40
+dsAccelleranLteUeMeasurements_time_to_trigger_64
+dsAccelleranLteUeMeasurements_time_to_trigger_80
+dsAccelleranLteUeMeasurements_time_to_trigger_100
+dsAccelleranLteUeMeasurements_time_to_trigger_128
+dsAccelleranLteUeMeasurements_time_to_trigger_160
+dsAccelleranLteUeMeasurements_time_to_trigger_256
+dsAccelleranLteUeMeasurements_time_to_trigger_320
+dsAccelleranLteUeMeasurements_time_to_trigger_480
+dsAccelleranLteUeMeasurements_time_to_trigger_512
+dsAccelleranLteUeMeasurements_time_to_trigger_640
+dsAccelleranLteUeMeasurements_time_to_trigger_1024
+dsAccelleranLteUeMeasurements_time_to_trigger_1280
+dsAccelleranLteUeMeasurements_time_to_trigger_2560
+dsAccelleranLteUeMeasurements_time_to_trigger_5120
+dsAccelleranLteUeMeasurements_time_to_trigger_unknown
+dsAccelleranLteUeMeasurements_time_to_trigger_0
+dsAccelleranLteUeMeasurements_time_to_trigger_40
+dsAccelleranLteUeMeasurements_time_to_trigger_64
+dsAccelleranLteUeMeasurements_time_to_trigger_80
+dsAccelleranLteUeMeasurements_time_to_trigger_100
+dsAccelleranLteUeMeasurements_time_to_trigger_128
+dsAccelleranLteUeMeasurements_time_to_trigger_160
+dsAccelleranLteUeMeasurements_time_to_trigger_256
+dsAccelleranLteUeMeasurements_time_to_trigger_320
+dsAccelleranLteUeMeasurements_time_to_trigger_480
+dsAccelleranLteUeMeasurements_time_to_trigger_512
+dsAccelleranLteUeMeasurements_time_to_trigger_640
+dsAccelleranLteUeMeasurements_time_to_trigger_1024
+dsAccelleranLteUeMeasurements_time_to_trigger_1280
+dsAccelleranLteUeMeasurements_time_to_trigger_2560
+dsAccelleranLteUeMeasurements_time_to_trigger_5120
+dsAccelleranLteUeMeasurements_time_to_trigger_unknown
+dsAccelleranLteUeMeasurements_time_to_trigger_0
+dsAccelleranLteUeMeasurements_time_to_trigger_40
+dsAccelleranLteUeMeasurements_time_to_trigger_64
+dsAccelleranLteUeMeasurements_time_to_trigger_80
+dsAccelleranLteUeMeasurements_time_to_trigger_100
+dsAccelleranLteUeMeasurements_time_to_trigger_128
+dsAccelleranLteUeMeasurements_time_to_trigger_160
+dsAccelleranLteUeMeasurements_time_to_trigger_256
+dsAccelleranLteUeMeasurements_time_to_trigger_320
+dsAccelleranLteUeMeasurements_time_to_trigger_480
+dsAccelleranLteUeMeasurements_time_to_trigger_512
+dsAccelleranLteUeMeasurements_time_to_trigger_640
+dsAccelleranLteUeMeasurements_time_to_trigger_1024
+dsAccelleranLteUeMeasurements_time_to_trigger_1280
+dsAccelleranLteUeMeasurements_time_to_trigger_2560
+dsAccelleranLteUeMeasurements_time_to_trigger_5120
+dsAccelleranLteUeMeasurements_time_to_trigger_unknown
+dsAccelleranLteUeMeasurements_time_to_trigger_0
+dsAccelleranLteUeMeasurements_time_to_trigger_40
+dsAccelleranLteUeMeasurements_time_to_trigger_64
+dsAccelleranLteUeMeasurements_time_to_trigger_80
+dsAccelleranLteUeMeasurements_time_to_trigger_100
+dsAccelleranLteUeMeasurements_time_to_trigger_128
+dsAccelleranLteUeMeasurements_time_to_trigger_160
+dsAccelleranLteUeMeasurements_time_to_trigger_256
+dsAccelleranLteUeMeasurements_time_to_trigger_320
+dsAccelleranLteUeMeasurements_time_to_trigger_480
+dsAccelleranLteUeMeasurements_time_to_trigger_512
+dsAccelleranLteUeMeasurements_time_to_trigger_640
+dsAccelleranLteUeMeasurements_time_to_trigger_1024
+dsAccelleranLteUeMeasurements_time_to_trigger_1280
+dsAccelleranLteUeMeasurements_time_to_trigger_2560
+dsAccelleranLteUeMeasurements_time_to_trigger_5120
+
+Enum Type:
+RrcPeriodicMeasurmentTypeEnum
+
+Enum Values:
+rrcMeasurementPeriodicType_strongestCells
+rrcMeasurementPeriodicType_cgi
+
+Enum Type:
+OranAdmissionResultCode
+
+Enum Values:
+ORAN_ACCEPT
+ORAN_DENY
+
+Enum Type:
+NeighCellConfig
+
+Enum Values:
+dsAccelleranLteTypes_neigh_cell_config_different_mbsfn_subrame_alloc
+dsAccelleranLteTypes_neigh_cell_config_same_mbsfn_subrame_alloc
+dsAccelleranLteTypes_neigh_cell_config_no_mbsfn_subrames
+dsAccelleranLteTypes_neigh_cell_config_different_ul_dl_subframe_alloc
+
+<!--enum-end-->

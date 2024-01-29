@@ -638,6 +638,14 @@
 </code></pre></div>
 <p><strong>Enumeration description :</strong>
 <div class="highlight"><pre><span></span><code>Enum Type:
+DuState
+
+Enum Values:
+NON_OPERATIONAL
+NON_OPERATIONAL_FAILURE
+OPERATIONAL
+
+Enum Type:
 CellState
 
 Enum Values:
@@ -647,14 +655,6 @@ DEACTIVATING
 RESOURCE_UNAVAIL
 ACTIVATION_FAILED
 ACTIVATED
-
-Enum Type:
-DuState
-
-Enum Values:
-NON_OPERATIONAL
-NON_OPERATIONAL_FAILURE
-OPERATIONAL
 </code></pre></div></p>
 <h3 id="cu-cp-beacon-info"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.1.2</span> CU-CP beacon info<a class="headerlink" href="#cu-cp-beacon-info" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message gives information about the operation state of the CU-CP.</p>
@@ -1610,6 +1610,21 @@ INVALID_TYPE
 </code></pre></div>
 <p><strong>Enumeration description :</strong>
 <div class="highlight"><pre><span></span><code>Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+UE_QOS_SNSSAI_PLMN_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+QOS_SNSSAI_PLMN_TYPE
+INVALID_TYPE
+
+Enum Type:
 CuupCounterIdEnum
 
 Enum Values:
@@ -1630,21 +1645,6 @@ DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS
 DISTRIBUTION_OF_DELAY_DL_IN_CUUP_SNSSAI
 DISTRIBUTION_OF_DELAY_DL_IN_CUUP_QOS_SNSSAI_PLMN
 NUMBER_OF_CUUP_COUNTERS
-
-Enum Type:
-InstanceTypeEnum
-
-Enum Values:
-NONE_TYPE
-CELL_TYPE
-AMF_TYPE
-UE_TYPE
-UE_QOS_SNSSAI_PLMN_TYPE
-SSB_FREQ_TYPE
-QOS_TYPE
-SNSSAI_TYPE
-QOS_SNSSAI_PLMN_TYPE
-INVALID_TYPE
 </code></pre></div></p>
 <h3 id="cu-up-handover-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">19.4.4</span> CU-UP Handover Response<a class="headerlink" href="#cu-up-handover-response" title="Permanent link">⚓︎</a></h3>
 <p><strong>Description :</strong> This message contains a handover response from a CU</p>

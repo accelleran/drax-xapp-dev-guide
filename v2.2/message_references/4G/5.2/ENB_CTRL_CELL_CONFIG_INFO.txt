@@ -1,0 +1,104 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.service_discovery
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB": <string>,
+  "CELL": <string>,
+  "ueDraxId": <string>,
+  "ueRicId": <string>,
+  "Guid": <string>,
+  "EnbCellConfigurationInfo": {
+    "CellData": {
+      "EutranBand": "<SupportedEutraBands>",
+      "CellDuplexMode": "<DuplexMode>",
+      "CellPci": <uint>,
+      "CellIdentity": <uint>,
+      "CellEnbMode": "<ApplicationMode>",
+      "PlmnIdString": {
+        "Mnc": <string>,
+        "Mcc": <string>,
+        "MncLength": <uint>
+      },
+      "CellPreferredDlEarfcn": <uint>,
+      "CellTrackingAreaCode": <uint>
+    },
+    "CellUplinkEarfcn": <uint>,
+    "CellDownlinkEarfcn": <uint>
+  },
+  "tlpublishTime__": <string>,
+  "timestamp": <int>
+}
+<!--json-end-->
+<!--enum-start-->
+
+Enum Type:
+SupportedEutraBands
+
+Enum Values:
+EUTRA_BAND_UNKNOWN
+EUTRA_BAND_1
+EUTRA_BAND_2
+EUTRA_BAND_3
+EUTRA_BAND_4
+EUTRA_BAND_5
+EUTRA_BAND_6
+EUTRA_BAND_7
+EUTRA_BAND_8
+EUTRA_BAND_9
+EUTRA_BAND_10
+EUTRA_BAND_11
+EUTRA_BAND_12
+EUTRA_BAND_13
+EUTRA_BAND_14
+EUTRA_BAND_17
+EUTRA_BAND_18
+EUTRA_BAND_19
+EUTRA_BAND_20
+EUTRA_BAND_21
+EUTRA_BAND_22
+EUTRA_BAND_23
+EUTRA_BAND_24
+EUTRA_BAND_25
+EUTRA_BAND_26
+EUTRA_BAND_27
+EUTRA_BAND_28
+EUTRA_BAND_33
+EUTRA_BAND_34
+EUTRA_BAND_35
+EUTRA_BAND_36
+EUTRA_BAND_37
+EUTRA_BAND_38
+EUTRA_BAND_39
+EUTRA_BAND_40
+EUTRA_BAND_41
+EUTRA_BAND_42
+EUTRA_BAND_43
+EUTRA_BAND_44
+EUTRA_BAND_45
+EUTRA_BAND_46
+EUTRA_BAND_47
+EUTRA_BAND_48
+EUTRA_BAND_49
+EUTRA_BAND_50
+EUTRA_BAND_51
+EUTRA_BAND_52
+EUTRA_BAND_53
+EUTRA_BAND_68
+
+Enum Type:
+DuplexMode
+
+Enum Values:
+applicationDuplexMode_tdd
+applicationDuplexMode_fdd
+applicationDuplexMode_undefined
+
+Enum Type:
+ApplicationMode
+
+Enum Values:
+applicationEnbMode_residential
+applicationEnbMode_enterprise
+
+<!--enum-end-->
