@@ -3,15 +3,15 @@ accelleran.drax.5g.ric.raw.ran_control_response
 <!--topic-end-->
 <!--json-start-->
 {
-  "RIC_REQUESTOR": <string>,
-  "RIC_INSTANCE": <string>,
-  "E2apRanControlRsp": {
-    "RicRequestorId": <uint>,
-    "RicInstanceId": <uint>,
-    "RicControlActionId": <uint>,
-    "Timestamp": <string>
+  "RIC_REQUESTOR":  <string>,
+  "RIC_INSTANCE":  <string>,
+  "E2apRanControlRsp":  {
+    "RicRequestorId":  <uint>,
+    "RicInstanceId":  <uint>,
+    "RicControlActionId":  <uint>,
+    "Timestamp":  <uint>
   },
-  "tlpublishTime__": <string>,
-  "spanContext__": <string>
+  "tlpublishTime__":  <uint>,
+  "spanContext__":  <bytes>
 }
 <!--json-end-->

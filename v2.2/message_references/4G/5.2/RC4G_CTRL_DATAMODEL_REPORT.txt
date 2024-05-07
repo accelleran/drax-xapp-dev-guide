@@ -3,35 +3,35 @@ accelleran.drax.4g.ric.raw.service_discovery
 <!--topic-end-->
 <!--json-start-->
 {
-  "ueDraxId": <string>,
-  "ueRicId": <string>,
-  "Rc4gDataModel": {
-    "NumberOfCells": <uint>,
-    "CellInfo": {
+  "ueDraxId":  <string>,
+  "ueRicId":  <string>,
+  "Rc4gDataModel":  {
+    "NumberOfCells":  <uint>,
+    "CellInfo":  {
       "0": {
-        "CellId": <string>,
-        "EutranBand": "<SupportedEutraBands>",
-        "CellPci": <uint>,
-        "CellIdentity": <uint>,
-        "PlmnIdString": {
-          "Mnc": <string>,
-          "Mcc": <string>,
-          "MncLength": <uint>
+        "CellId":  <string>,
+        "EutranBand":  "<SupportedEutraBands>",
+        "CellPci":  <uint>,
+        "CellIdentity":  <uint>,
+        "PlmnIdString":  {
+          "Mnc":  <bytes>,
+          "Mcc":  <bytes>,
+          "MncLength":  <uint>
         },
-        "CellTrackingAreaCode": <uint>,
-        "OnAir": <bool>
+        "CellTrackingAreaCode":  <uint>,
+        "OnAir":  <bool>
       }
     },
-    "NumberOfUes": <uint>,
-    "UeInfo": {
+    "NumberOfUes":  <uint>,
+    "UeInfo":  {
       "0": {
-        "UniqueRicId": <string>,
-        "CellId": <string>
+        "UniqueRicId":  <string>,
+        "CellId":  <string>
       }
     }
   },
-  "tlpublishTime__": <string>,
-  "timestamp": <int>
+  "tlpublishTime__":  <uint>,
+  "timestamp":  <int>
 }
 <!--json-end-->
 <!--enum-start-->

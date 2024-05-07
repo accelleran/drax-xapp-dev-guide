@@ -3,24 +3,24 @@ accelleran.drax.5g.ric.raw.cu_state
 <!--topic-end-->
 <!--json-start-->
 {
-  "CucpBeaconInfo": {
-    "CucpId": <string>,
-    "State": "<CucpState>",
-    "ServedPlmns": {
-      "items": {
+  "CucpBeaconInfo":  {
+    "CucpId":  <uint>,
+    "State":  "<CucpState>",
+    "ServedPlmns":  {
+      "items":  {
         "0": {
-          "PlmnIdentity": {
-            "Data": {
+          "PlmnIdentity":  {
+            "Data":  {
               "0": <uint>
             }
           },
-          "TaiSlicedSupportList": {
-            "items": {
+          "TaiSlicedSupportList":  {
+            "items":  {
               "0": {
-                "SNssai": {
-                  "SST": <uint>,
-                  "SD": {
-                    "Data": {
+                "SNssai":  {
+                  "SST":  <uint>,
+                  "SD":  {
+                    "Data":  {
                       "0": <uint>
                     }
                   }
@@ -31,41 +31,41 @@ accelleran.drax.5g.ric.raw.cu_state
         }
       }
     },
-    "AdminState": "<AdminState>",
-    "NatsUrl": <string>,
-    "RedisIp": <string>,
-    "RedisPort": <uint>,
-    "Version": <string>,
-    "ExtraInfoList": {
-      "items": {
+    "AdminState":  "<AdminState>",
+    "NatsUrl":  <string>,
+    "RedisIp":  <string>,
+    "RedisPort":  <uint>,
+    "Version":  <string>,
+    "ExtraInfoList":  {
+      "items":  {
         "0": {
-          "Name": <string>,
-          "Value": <string>
+          "Name":  <string>,
+          "Value":  <string>
         }
       }
     },
-    "GnbIdLength": <uint>,
-    "AmfList": {
-      "items": {
+    "GnbIdLength":  <uint>,
+    "AmfList":  {
+      "items":  {
         "0": {
-          "AmfName": <string>,
-          "State": "<AmfState>",
-          "AmfIpaddress": <string>,
-          "SupportedPlmns": {
-            "items": {
+          "AmfName":  <string>,
+          "State":  "<AmfState>",
+          "AmfIpaddress":  <string>,
+          "SupportedPlmns":  {
+            "items":  {
               "0": {
-                "PlmnIdentity": {
-                  "Data": {
+                "PlmnIdentity":  {
+                  "Data":  {
                     "0": <uint>
                   }
                 },
-                "SliceSupportList": {
-                  "items": {
+                "SliceSupportList":  {
+                  "items":  {
                     "0": {
-                      "SNssai": {
-                        "SST": <uint>,
-                        "SD": {
-                          "Data": {
+                      "SNssai":  {
+                        "SST":  <uint>,
+                        "SD":  {
+                          "Data":  {
                             "0": <uint>
                           }
                         }
@@ -76,14 +76,14 @@ accelleran.drax.5g.ric.raw.cu_state
               }
             }
           },
-          "AmfGuid": <string>
+          "AmfGuid":  <string>
         }
       }
     },
-    "CuCpName": <string>
+    "CuCpName":  <string>
   },
-  "tlpublishTime__": <string>,
-  "spanContext__": <string>
+  "tlpublishTime__":  <uint>,
+  "spanContext__":  <bytes>
 }
 <!--json-end-->
 <!--enum-start-->

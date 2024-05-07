@@ -3,19 +3,19 @@ accelleran.drax.5g.ric.raw.pm_counters
 <!--topic-end-->
 <!--json-start-->
 {
-  "PmReportingCucpCounterData": {
-    "ReportingNodeId": <string>,
-    "CounterList": {
-      "items": {
+  "PmReportingCucpCounterData":  {
+    "ReportingNodeId":  <uint>,
+    "CounterList":  {
+      "items":  {
         "0": {
-          "CounterId": "<CucpCounterIdEnum>",
-          "InstanceType": "<InstanceTypeEnum>",
-          "InstanceId": <string>,
-          "ValueList": {
-            "items": {
+          "CounterId":  "<CucpCounterIdEnum>",
+          "InstanceType":  "<InstanceTypeEnum>",
+          "InstanceId":  <string>,
+          "ValueList":  {
+            "items":  {
               "0": {
-                "_key": <uint>,
-                "_val": <uint>
+                "_key":  <uint>,
+                "_val":  <uint>
               }
             }
           }
@@ -23,8 +23,8 @@ accelleran.drax.5g.ric.raw.pm_counters
       }
     }
   },
-  "tlpublishTime__": <string>,
-  "spanContext__": <string>
+  "tlpublishTime__":  <uint>,
+  "spanContext__":  <bytes>
 }
 <!--json-end-->
 <!--enum-start-->

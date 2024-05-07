@@ -3,38 +3,38 @@ accelleran.drax.5g.ric.raw.cu_state
 <!--topic-end-->
 <!--json-start-->
 {
-  "DuBeaconInfo": {
-    "DuList": {
-      "items": {
+  "DuBeaconInfo":  {
+    "DuList":  {
+      "items":  {
         "0": {
-          "GnbDuId": <string>,
-          "State": "<DuState>",
-          "ServedCellList": {
-            "items": {
+          "GnbDuId":  <uint>,
+          "State":  "<DuState>",
+          "ServedCellList":  {
+            "items":  {
               "0": {
-                "State": "<CellState>",
-                "NrCgi": {
-                  "NrCellId": <string>,
-                  "PlmnId": {
-                    "Data": {
+                "State":  "<CellState>",
+                "NrCgi":  {
+                  "NrCellId":  <uint>,
+                  "PlmnId":  {
+                    "Data":  {
                       "0": <uint>
                     }
                   }
                 },
-                "Pci": <uint>,
-                "FivegSTac": <string>,
-                "SsPBCHBlockPower": <int>,
-                "SupportedPlmns": {
-                  "items": {
+                "Pci":  <uint>,
+                "FivegSTac":  <string>,
+                "SsPBCHBlockPower":  <int>,
+                "SupportedPlmns":  {
+                  "items":  {
                     "0": {
-                      "PlmnIdentity": <string>,
-                      "TaiSlicedSupportList": {
-                        "items": {
+                      "PlmnIdentity":  <string>,
+                      "TaiSlicedSupportList":  {
+                        "items":  {
                           "0": {
-                            "SNssai": {
-                              "SST": <uint>,
-                              "SD": {
-                                "Data": {
+                            "SNssai":  {
+                              "SST":  <uint>,
+                              "SD":  {
+                                "Data":  {
                                   "0": <uint>
                                 }
                               }
@@ -48,26 +48,18 @@ accelleran.drax.5g.ric.raw.cu_state
               }
             }
           },
-          "GnbId": <string>,
-          "DuName": <string>,
-          "TransportLayerAddress": <string>
+          "GnbId":  <uint>,
+          "DuName":  <string>,
+          "TransportLayerAddress":  <string>
         }
       }
     }
   },
-  "tlpublishTime__": <string>,
-  "spanContext__": <string>
+  "tlpublishTime__":  <uint>,
+  "spanContext__":  <bytes>
 }
 <!--json-end-->
 <!--enum-start-->
-
-Enum Type:
-DuState
-
-Enum Values:
-NON_OPERATIONAL
-NON_OPERATIONAL_FAILURE
-OPERATIONAL
 
 Enum Type:
 CellState
@@ -79,5 +71,13 @@ DEACTIVATING
 RESOURCE_UNAVAIL
 ACTIVATION_FAILED
 ACTIVATED
+
+Enum Type:
+DuState
+
+Enum Values:
+NON_OPERATIONAL
+NON_OPERATIONAL_FAILURE
+OPERATIONAL
 
 <!--enum-end-->

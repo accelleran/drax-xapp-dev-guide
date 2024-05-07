@@ -3,29 +3,29 @@ accelleran.drax.5g.ric.raw.cu_state
 <!--topic-end-->
 <!--json-start-->
 {
-  "CuCpCuupBeaconInfo": {
-    "GnbId": <uint>,
-    "ServiceInfo": <string>,
-    "CuUpList": {
-      "items": {
+  "CuCpCuupBeaconInfo":  {
+    "GnbId":  <uint>,
+    "ServiceInfo":  <string>,
+    "CuUpList":  {
+      "items":  {
         "0": {
-          "GnbCuupId": <string>,
-          "State": "<CuupState>",
-          "SupportedPlmns": {
-            "items": {
+          "GnbCuupId":  <uint>,
+          "State":  "<CuupState>",
+          "SupportedPlmns":  {
+            "items":  {
               "0": {
-                "PlmnIdentity": {
-                  "Data": {
+                "PlmnIdentity":  {
+                  "Data":  {
                     "0": <uint>
                   }
                 },
-                "SliceSupportList": {
-                  "items": {
+                "SliceSupportList":  {
+                  "items":  {
                     "0": {
-                      "SNssai": {
-                        "SST": <uint>,
-                        "SD": {
-                          "Data": {
+                      "SNssai":  {
+                        "SST":  <uint>,
+                        "SD":  {
+                          "Data":  {
                             "0": <uint>
                           }
                         }
@@ -36,14 +36,14 @@ accelleran.drax.5g.ric.raw.cu_state
               }
             }
           },
-          "CuupGuid": <string>,
-          "CuupName": <string>
+          "CuupGuid":  <string>,
+          "CuupName":  <string>
         }
       }
     }
   },
-  "tlpublishTime__": <string>,
-  "spanContext__": <string>
+  "tlpublishTime__":  <uint>,
+  "spanContext__":  <bytes>
 }
 <!--json-end-->
 <!--enum-start-->

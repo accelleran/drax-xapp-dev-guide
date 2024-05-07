@@ -3,20 +3,20 @@ accelleran.drax.5g.ric.raw.cu_state
 <!--topic-end-->
 <!--json-start-->
 {
-  "CuupBeaconInfoData": {
-    "CuupId": <string>,
-    "State": "<CuupState>",
-    "SupportedPlmns": {
-      "items": {
+  "CuupBeaconInfoData":  {
+    "CuupId":  <uint>,
+    "State":  "<CuupState>",
+    "SupportedPlmns":  {
+      "items":  {
         "0": {
-          "PlmnIdentity": <string>,
-          "TaiSlicedSupportList": {
-            "items": {
+          "PlmnIdentity":  <string>,
+          "TaiSlicedSupportList":  {
+            "items":  {
               "0": {
-                "SNssai": {
-                  "SST": <uint>,
-                  "SD": {
-                    "Data": {
+                "SNssai":  {
+                  "SST":  <uint>,
+                  "SD":  {
+                    "Data":  {
                       "0": <uint>
                     }
                   }
@@ -27,35 +27,35 @@ accelleran.drax.5g.ric.raw.cu_state
         }
       }
     },
-    "AdminState": "<AdminState>",
-    "Version": <string>,
-    "ExtraInfoList": {
-      "items": {
+    "AdminState":  "<AdminState>",
+    "Version":  <string>,
+    "ExtraInfoList":  {
+      "items":  {
         "0": {
-          "Name": <string>,
-          "Value": <string>
+          "Name":  <string>,
+          "Value":  <string>
         }
       }
     },
-    "E1InterfacesList": {
-      "items": {
+    "E1InterfacesList":  {
+      "items":  {
         "0": {
-          "IpAddress": <string>
+          "IpAddress":  <string>
         }
       }
     },
-    "GtpuInterfacesList": {
-      "items": {
+    "GtpuInterfacesList":  {
+      "items":  {
         "0": {
-          "F1UAddress": <string>,
-          "NgUAddress": <string>
+          "F1UAddress":  <string>,
+          "NgUAddress":  <string>
         }
       }
     },
-    "CuUpName": <string>
+    "CuUpName":  <string>
   },
-  "tlpublishTime__": <string>,
-  "spanContext__": <string>
+  "tlpublishTime__":  <uint>,
+  "spanContext__":  <bytes>
 }
 <!--json-end-->
 <!--enum-start-->

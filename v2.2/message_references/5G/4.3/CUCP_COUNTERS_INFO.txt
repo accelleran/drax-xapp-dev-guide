@@ -3,19 +3,19 @@ accelleran.drax.5g.ric.raw.pm_counters
 <!--topic-end-->
 <!--json-start-->
 {
-  "PmReportingCucpCounterData": {
-    "ReportingNodeId": <string>,
-    "CounterList": {
-      "items": {
+  "PmReportingCucpCounterData":  {
+    "ReportingNodeId":  <uint>,
+    "CounterList":  {
+      "items":  {
         "0": {
-          "CounterId": "<CucpCounterIdEnum>",
-          "InstanceType": "<InstanceTypeEnum>",
-          "InstanceId": <string>,
-          "ValueList": {
-            "items": {
+          "CounterId":  "<CucpCounterIdEnum>",
+          "InstanceType":  "<InstanceTypeEnum>",
+          "InstanceId":  <string>,
+          "ValueList":  {
+            "items":  {
               "0": {
-                "_key": <uint>,
-                "_val": <uint>
+                "_key":  <uint>,
+                "_val":  <uint>
               }
             }
           }
@@ -23,11 +23,26 @@ accelleran.drax.5g.ric.raw.pm_counters
       }
     }
   },
-  "tlpublishTime__": <string>,
-  "spanContext__": <string>
+  "tlpublishTime__":  <uint>,
+  "spanContext__":  <bytes>
 }
 <!--json-end-->
 <!--enum-start-->
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+UE_QOS_SNSSAI_PLMN_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+QOS_SNSSAI_PLMN_TYPE
+INVALID_TYPE
 
 Enum Type:
 CucpCounterIdEnum
@@ -50,20 +65,5 @@ SUCC_INTER_GNB_HANDOVER_ALLOCATIONS
 FAILED_INTER_GNB_HANDOVER_ALLOCATIONS
 REQ_INTER_GNB_HANDOVER_EXECUTIONS
 NUMBER_OF_CUCP_COUNTERS
-
-Enum Type:
-InstanceTypeEnum
-
-Enum Values:
-NONE_TYPE
-CELL_TYPE
-AMF_TYPE
-UE_TYPE
-UE_QOS_SNSSAI_PLMN_TYPE
-SSB_FREQ_TYPE
-QOS_TYPE
-SNSSAI_TYPE
-QOS_SNSSAI_PLMN_TYPE
-INVALID_TYPE
 
 <!--enum-end-->

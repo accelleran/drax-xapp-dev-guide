@@ -3,31 +3,31 @@ accelleran.drax.4g.ric.raw.service_discovery
 <!--topic-end-->
 <!--json-start-->
 {
-  "ENB": <string>,
-  "CELL": <string>,
-  "ueDraxId": <string>,
-  "ueRicId": <string>,
-  "Guid": <string>,
-  "EnbCellConfigurationInfo": {
-    "CellData": {
-      "EutranBand": "<SupportedEutraBands>",
-      "CellDuplexMode": "<DuplexMode>",
-      "CellPci": <uint>,
-      "CellIdentity": <uint>,
-      "CellEnbMode": "<ApplicationMode>",
-      "PlmnIdString": {
-        "Mnc": <string>,
-        "Mcc": <string>,
-        "MncLength": <uint>
+  "ENB":  <string>,
+  "CELL":  <string>,
+  "ueDraxId":  <string>,
+  "ueRicId":  <string>,
+  "Guid":  <string>,
+  "EnbCellConfigurationInfo":  {
+    "CellData":  {
+      "EutranBand":  "<SupportedEutraBands>",
+      "CellDuplexMode":  "<DuplexMode>",
+      "CellPci":  <uint>,
+      "CellIdentity":  <uint>,
+      "CellEnbMode":  "<ApplicationMode>",
+      "PlmnIdString":  {
+        "Mnc":  <bytes>,
+        "Mcc":  <bytes>,
+        "MncLength":  <uint>
       },
-      "CellPreferredDlEarfcn": <uint>,
-      "CellTrackingAreaCode": <uint>
+      "CellPreferredDlEarfcn":  <uint>,
+      "CellTrackingAreaCode":  <uint>
     },
-    "CellUplinkEarfcn": <uint>,
-    "CellDownlinkEarfcn": <uint>
+    "CellUplinkEarfcn":  <uint>,
+    "CellDownlinkEarfcn":  <uint>
   },
-  "tlpublishTime__": <string>,
-  "timestamp": <int>
+  "tlpublishTime__":  <uint>,
+  "timestamp":  <int>
 }
 <!--json-end-->
 <!--enum-start-->

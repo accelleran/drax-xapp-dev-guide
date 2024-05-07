@@ -3,25 +3,25 @@ accelleran.drax.4g.ric.raw.service_discovery
 <!--topic-end-->
 <!--json-start-->
 {
-  "ENB": <string>,
-  "ueDraxId": <string>,
-  "ueRicId": <string>,
-  "EnbCellAnnouncement": {
-    "EutranBand": "<SupportedEutraBands>",
-    "CellDuplexMode": "<DuplexMode>",
-    "CellPci": <uint>,
-    "CellIdentity": <uint>,
-    "CellEnbMode": "<ApplicationMode>",
-    "PlmnIdString": {
-      "Mnc": <string>,
-      "Mcc": <string>,
-      "MncLength": <uint>
+  "ENB":  <string>,
+  "ueDraxId":  <string>,
+  "ueRicId":  <string>,
+  "EnbCellAnnouncement":  {
+    "EutranBand":  "<SupportedEutraBands>",
+    "CellDuplexMode":  "<DuplexMode>",
+    "CellPci":  <uint>,
+    "CellIdentity":  <uint>,
+    "CellEnbMode":  "<ApplicationMode>",
+    "PlmnIdString":  {
+      "Mnc":  <bytes>,
+      "Mcc":  <bytes>,
+      "MncLength":  <uint>
     },
-    "CellPreferredDlEarfcn": <uint>,
-    "CellTrackingAreaCode": <uint>
+    "CellPreferredDlEarfcn":  <uint>,
+    "CellTrackingAreaCode":  <uint>
   },
-  "tlpublishTime__": <string>,
-  "timestamp": <int>
+  "tlpublishTime__":  <uint>,
+  "timestamp":  <int>
 }
 <!--json-end-->
 <!--enum-start-->

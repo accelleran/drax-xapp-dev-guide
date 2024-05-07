@@ -3,104 +3,104 @@ accelleran.drax.4g.ric.raw.service_discovery
 <!--topic-end-->
 <!--json-start-->
 {
-  "ENB": <string>,
-  "CELL": <string>,
-  "UE": <string>,
-  "ueDraxId": <string>,
-  "ueRicId": <string>,
-  "Guid": <string>,
-  "EnbUeAdmissionRequest": {
-    "CellIndex": <uint>,
-    "GlobalUeIdentity": <uint>,
-    "EnbUeIdBase": <uint>,
-    "EnbUeIdCycle": <uint>,
-    "UeIdentity": <uint>,
-    "WsUeIdentity": <uint>,
-    "ConnectionRequest": {
-      "Crnti": <uint>,
-      "UeMsg3": {
-        "MessageLength": <uint>,
-        "MessageData": <string>
+  "ENB":  <string>,
+  "CELL":  <string>,
+  "UE":  <string>,
+  "ueDraxId":  <string>,
+  "ueRicId":  <string>,
+  "Guid":  <string>,
+  "EnbUeAdmissionRequest":  {
+    "CellIndex":  <uint>,
+    "GlobalUeIdentity":  <uint>,
+    "EnbUeIdBase":  <uint>,
+    "EnbUeIdCycle":  <uint>,
+    "UeIdentity":  <uint>,
+    "WsUeIdentity":  <uint>,
+    "ConnectionRequest":  {
+      "Crnti":  <uint>,
+      "UeMsg3":  {
+        "MessageLength":  <uint>,
+        "MessageData":  <bytes>
       },
-      "InitialUeIdentity": {
-        "IdentityType": "<RrcInitialUeIdentity>",
-        "STmsi": {
-          "Mmec": <uint>,
-          "Mtmsi": <string>
+      "InitialUeIdentity":  {
+        "IdentityType":  "<RrcInitialUeIdentity>",
+        "STmsi":  {
+          "Mmec":  <uint>,
+          "Mtmsi":  <bytes>
         },
-        "RandomValue": <string>
+        "RandomValue":  <uint>
       }
     },
-    "HandInInformation": {
-      "RemoteConectionId": <uint>,
-      "MmeUeId": <uint>,
-      "SelectedPlmnId": <uint>,
-      "HandoverType": "<HandoverType>",
-      "UeSecurityCapabilityInfo": {
-        "encryptionAlgo": {
-          "PRESENT_eea0": <bool>,
-          "PRESENT_eea1": <bool>,
-          "PRESENT_eea2": <bool>
+    "HandInInformation":  {
+      "RemoteConectionId":  <uint>,
+      "MmeUeId":  <uint>,
+      "SelectedPlmnId":  <uint>,
+      "HandoverType":  "<HandoverType>",
+      "UeSecurityCapabilityInfo":  {
+        "encryptionAlgo":  {
+          "PRESENT_eea0":  <bool>,
+          "PRESENT_eea1":  <bool>,
+          "PRESENT_eea2":  <bool>
         },
-        "integrityProtectAlgo": {
-          "PRESENT_eia0": <bool>,
-          "PRESENT_eia1": <bool>,
-          "PRESENT_eia2": <bool>
+        "integrityProtectAlgo":  {
+          "PRESENT_eia0":  <bool>,
+          "PRESENT_eia1":  <bool>,
+          "PRESENT_eia2":  <bool>
         }
       },
-      "ErbSetupList": {
-        "NumberOfConfigs": <uint>,
-        "Configuration": {
+      "ErbSetupList":  {
+        "NumberOfConfigs":  <uint>,
+        "Configuration":  {
           "0": {
-            "BearerId": <uint>,
-            "QciInfo": {
-              "Qci": <uint>,
-              "MaximumUplinkBitRate": <string>,
-              "MaximumDownlinkBitRate": <string>,
-              "GuaranteedUplinkBitRate": <string>,
-              "GuaranteedDownlinkBitRate": <string>
+            "BearerId":  <uint>,
+            "QciInfo":  {
+              "Qci":  <uint>,
+              "MaximumUplinkBitRate":  <uint>,
+              "MaximumDownlinkBitRate":  <uint>,
+              "GuaranteedUplinkBitRate":  <uint>,
+              "GuaranteedDownlinkBitRate":  <uint>
             },
-            "MmeTransportAddress": {
-              "type": "<IpAddrType_e>",
-              "in4Addr": <uint>,
-              "in6Addr": <string>
+            "MmeTransportAddress":  {
+              "type":  "<IpAddrType_e>",
+              "in4Addr":  <uint>,
+              "in6Addr":  <bytes>
             },
-            "GtpTunnelEmdpointId": <uint>,
-            "DownlinkForwardEnabled": <bool>,
-            "UplinkForwardEnabled": <bool>
+            "GtpTunnelEmdpointId":  <uint>,
+            "DownlinkForwardEnabled":  <bool>,
+            "UplinkForwardEnabled":  <bool>
           }
         }
       },
-      "NextHopChainingCount": <uint>,
-      "UeSecurityKey": {
-        "Key": <string>
+      "NextHopChainingCount":  <uint>,
+      "UeSecurityKey":  {
+        "Key":  <bytes>
       },
-      "HandoverPrepEncoded": {
-        "MessageLength": <uint>,
-        "MessageData": <string>
+      "HandoverPrepEncoded":  {
+        "MessageLength":  <uint>,
+        "MessageData":  <bytes>
       },
-      "SourceECgi": {
-        "CellIdentity": <uint>,
-        "CellPlmnid": {
-          "Mnc": <string>,
-          "Mcc": <string>,
-          "MncLength": <uint>
+      "SourceECgi":  {
+        "CellIdentity":  <uint>,
+        "CellPlmnid":  {
+          "Mnc":  <bytes>,
+          "Mcc":  <bytes>,
+          "MncLength":  <uint>
         }
       },
-      "Crnti": <uint>
+      "Crnti":  <uint>
     },
-    "EstablishmentCause": "<SessionEstablishmentCause>",
-    "Ecgi": {
-      "CellIdentity": <uint>,
-      "CellPlmnid": {
-        "Mnc": <string>,
-        "Mcc": <string>,
-        "MncLength": <uint>
+    "EstablishmentCause":  "<SessionEstablishmentCause>",
+    "Ecgi":  {
+      "CellIdentity":  <uint>,
+      "CellPlmnid":  {
+        "Mnc":  <bytes>,
+        "Mcc":  <bytes>,
+        "MncLength":  <uint>
       }
     }
   },
-  "tlpublishTime__": <string>,
-  "timestamp": <int>
+  "tlpublishTime__":  <uint>,
+  "timestamp":  <int>
 }
 <!--json-end-->
 <!--enum-start-->

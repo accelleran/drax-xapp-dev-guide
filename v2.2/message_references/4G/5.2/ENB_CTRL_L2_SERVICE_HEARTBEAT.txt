@@ -3,17 +3,17 @@ accelleran.drax.4g.ric.raw.service_discovery
 <!--topic-end-->
 <!--json-start-->
 {
-  "ENB": <string>,
-  "ueDraxId": <string>,
-  "ueRicId": <string>,
-  "EnbL2ServiceHeartbeat": {
-    "HeartbeatInfo": {
-      "ComponentId": <string>,
-      "DatastoreAvailable": <bool>,
-      "Interval": <uint>
+  "ENB":  <string>,
+  "ueDraxId":  <string>,
+  "ueRicId":  <string>,
+  "EnbL2ServiceHeartbeat":  {
+    "HeartbeatInfo":  {
+      "ComponentId":  <string>,
+      "DatastoreAvailable":  <bool>,
+      "Interval":  <uint>
     }
   },
-  "tlpublishTime__": <string>,
-  "timestamp": <int>
+  "tlpublishTime__":  <uint>,
+  "timestamp":  <int>
 }
 <!--json-end-->
