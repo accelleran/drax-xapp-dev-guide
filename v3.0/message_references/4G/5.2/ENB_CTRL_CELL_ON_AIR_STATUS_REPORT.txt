@@ -1,0 +1,17 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.service_discovery
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB":  <string>,
+  "CELL":  <string>,
+  "ueDraxId":  <string>,
+  "ueRicId":  <string>,
+  "Guid":  <string>,
+  "EnbCellOnAirStatusReport":  {
+    "OnAirStatus":  <bool>
+  },
+  "tlpublishTime__":  <uint>,
+  "timestamp":  <int>
+}
+<!--json-end-->

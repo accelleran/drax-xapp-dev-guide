@@ -1,0 +1,55 @@
+<!--topic-start-->
+accelleran.drax.5g.ric.raw.ue_measurements
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB":  <string>,
+  "DU":  <string>,
+  "CELL":  <string>,
+  "UE":  <string>,
+  "RrcMeasurementReportResultInfo":  {
+    "GnbCuCpUeId":  <uint>,
+    "Timestamp":  <uint>,
+    "ServingCellInfo":  {
+      "NrCgi":  {
+        "NrCellId":  <uint>,
+        "PlmnId":  {
+          "Data":  {
+            "0": <uint>
+          }
+        }
+      },
+      "SsbRsrpResult":  <uint>,
+      "SsbRsrpResultPresent":  <bool>,
+      "SsbRsrqResult":  <uint>,
+      "SsbRsrqResultPresent":  <bool>,
+      "SsbSinrResult":  <uint>,
+      "SsbSinrResultPresent":  <bool>
+    },
+    "NumberOfIncludedCells":  <uint>,
+    "CellInfo":  {
+      "0": {
+        "PhyCellId":  <uint>,
+        "NeighbourCellInfo":  {
+          "NrCgi":  {
+            "NrCellId":  <uint>,
+            "PlmnId":  {
+              "Data":  {
+                "0": <uint>
+              }
+            }
+          },
+          "SsbRsrpResult":  <uint>,
+          "SsbRsrpResultPresent":  <bool>,
+          "SsbRsrqResult":  <uint>,
+          "SsbRsrqResultPresent":  <bool>,
+          "SsbSinrResult":  <uint>,
+          "SsbSinrResultPresent":  <bool>
+        }
+      }
+    }
+  },
+  "tlpublishTime__":  <uint>,
+  "spanContext__":  <bytes>
+}
+<!--json-end-->

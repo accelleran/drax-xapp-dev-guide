@@ -1,0 +1,37 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.ue_measurements
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB":  <string>,
+  "CELL":  <string>,
+  "UE":  <string>,
+  "ueDraxId":  <string>,
+  "ueRicId":  <string>,
+  "Rc4gUeMeasurement":  {
+    "UniqueRicId":  <string>,
+    "CellId":  <string>,
+    "AttachedCellId":  <string>,
+    "Rsrp":  <uint>,
+    "Rsrq":  <uint>,
+    "EllipsoidPointR10":  {
+      "EncodedAsn1Length":  <uint>,
+      "EncodedAsn1Body":  <bytes>
+    },
+    "EllipsoidPointWithAltitudeR10":  {
+      "EncodedAsn1Length":  <uint>,
+      "EncodedAsn1Body":  <bytes>
+    },
+    "HorizontalVelocityR10":  {
+      "EncodedAsn1Length":  <uint>,
+      "EncodedAsn1Body":  <bytes>
+    },
+    "GnssTodMsecR10":  {
+      "EncodedAsn1Length":  <uint>,
+      "EncodedAsn1Body":  <bytes>
+    }
+  },
+  "tlpublishTime__":  <uint>,
+  "timestamp":  <int>
+}
+<!--json-end-->

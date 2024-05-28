@@ -1,0 +1,24 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.ue_measurements
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB":  <string>,
+  "CELL":  <string>,
+  "UE":  <string>,
+  "ueDraxId":  <string>,
+  "ueRicId":  <string>,
+  "EnbStatsL2StatsValues":  {
+    "Report":  {
+      "DschThroughput":  <uint>,
+      "UschThroughput":  <uint>,
+      "DownlinkBler":  <uint>,
+      "UplinkBler":  <uint>,
+      "TimingAdvance":  <uint>,
+      "UlSinr":  <uint>
+    }
+  },
+  "tlpublishTime__":  <uint>,
+  "timestamp":  <int>
+}
+<!--json-end-->

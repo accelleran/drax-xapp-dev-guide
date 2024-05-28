@@ -1,0 +1,69 @@
+<!--topic-start-->
+accelleran.drax.5g.ric.raw.pm_counters
+<!--topic-end-->
+<!--json-start-->
+{
+  "PmReportingCucpCounterData":  {
+    "ReportingNodeId":  <uint>,
+    "CounterList":  {
+      "items":  {
+        "0": {
+          "CounterId":  "<CucpCounterIdEnum>",
+          "InstanceType":  "<InstanceTypeEnum>",
+          "InstanceId":  <string>,
+          "ValueList":  {
+            "items":  {
+              "0": {
+                "_key":  <uint>,
+                "_val":  <uint>
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tlpublishTime__":  <uint>,
+  "spanContext__":  <bytes>
+}
+<!--json-end-->
+<!--enum-start-->
+
+Enum Type:
+InstanceTypeEnum
+
+Enum Values:
+NONE_TYPE
+CELL_TYPE
+AMF_TYPE
+UE_TYPE
+UE_QOS_SNSSAI_PLMN_TYPE
+SSB_FREQ_TYPE
+QOS_TYPE
+SNSSAI_TYPE
+QOS_SNSSAI_PLMN_TYPE
+INVALID_TYPE
+
+Enum Type:
+CucpCounterIdEnum
+
+Enum Values:
+RRC_CONNECTION_EST_ATTEMPT
+RRC_CONNECTION_SUCC
+REQ_INTRA_GNB_HANDOVER_EXECUTIONS
+SUCC_INTRA_GNB_HANDOVER_EXECUTIONS
+MEAN_NUMBER_OF_RRC_CONNECTIONS
+MAXIMUM_NUMBER_OF_RRC_CONNECTIONS
+NUMBER_OF_PDU_SESSIONS_REQUESTED_TO_SETUP
+NUMBER_OF_PDU_SESSIONS_FAILED_TO_SETUP
+SS_RSRP_DISTRIBUTION_PER_SSB
+REQ_INTER_GNB_HANDOVER_PREPARATIONS
+SUCC_INTER_GNB_HANDOVER_PREPARATIONS
+FAILED_INTER_GNB_HANDOVER_PREPARATIONS
+REQ_INTER_GNB_HANDOVER_ALLOCATIONS
+SUCC_INTER_GNB_HANDOVER_ALLOCATIONS
+FAILED_INTER_GNB_HANDOVER_ALLOCATIONS
+REQ_INTER_GNB_HANDOVER_EXECUTIONS
+NUMBER_OF_CUCP_COUNTERS
+
+<!--enum-end-->

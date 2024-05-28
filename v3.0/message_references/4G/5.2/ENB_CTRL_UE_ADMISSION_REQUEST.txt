@@ -1,0 +1,149 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.service_discovery
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB":  <string>,
+  "CELL":  <string>,
+  "UE":  <string>,
+  "ueDraxId":  <string>,
+  "ueRicId":  <string>,
+  "Guid":  <string>,
+  "EnbUeAdmissionRequest":  {
+    "CellIndex":  <uint>,
+    "GlobalUeIdentity":  <uint>,
+    "EnbUeIdBase":  <uint>,
+    "EnbUeIdCycle":  <uint>,
+    "UeIdentity":  <uint>,
+    "WsUeIdentity":  <uint>,
+    "ConnectionRequest":  {
+      "Crnti":  <uint>,
+      "UeMsg3":  {
+        "MessageLength":  <uint>,
+        "MessageData":  <bytes>
+      },
+      "InitialUeIdentity":  {
+        "IdentityType":  "<RrcInitialUeIdentity>",
+        "STmsi":  {
+          "Mmec":  <uint>,
+          "Mtmsi":  <bytes>
+        },
+        "RandomValue":  <uint>
+      }
+    },
+    "HandInInformation":  {
+      "RemoteConectionId":  <uint>,
+      "MmeUeId":  <uint>,
+      "SelectedPlmnId":  <uint>,
+      "HandoverType":  "<HandoverType>",
+      "UeSecurityCapabilityInfo":  {
+        "encryptionAlgo":  {
+          "PRESENT_eea0":  <bool>,
+          "PRESENT_eea1":  <bool>,
+          "PRESENT_eea2":  <bool>
+        },
+        "integrityProtectAlgo":  {
+          "PRESENT_eia0":  <bool>,
+          "PRESENT_eia1":  <bool>,
+          "PRESENT_eia2":  <bool>
+        }
+      },
+      "ErbSetupList":  {
+        "NumberOfConfigs":  <uint>,
+        "Configuration":  {
+          "0": {
+            "BearerId":  <uint>,
+            "QciInfo":  {
+              "Qci":  <uint>,
+              "MaximumUplinkBitRate":  <uint>,
+              "MaximumDownlinkBitRate":  <uint>,
+              "GuaranteedUplinkBitRate":  <uint>,
+              "GuaranteedDownlinkBitRate":  <uint>
+            },
+            "MmeTransportAddress":  {
+              "type":  "<IpAddrType_e>",
+              "in4Addr":  <uint>,
+              "in6Addr":  <bytes>
+            },
+            "GtpTunnelEmdpointId":  <uint>,
+            "DownlinkForwardEnabled":  <bool>,
+            "UplinkForwardEnabled":  <bool>
+          }
+        }
+      },
+      "NextHopChainingCount":  <uint>,
+      "UeSecurityKey":  {
+        "Key":  <bytes>
+      },
+      "HandoverPrepEncoded":  {
+        "MessageLength":  <uint>,
+        "MessageData":  <bytes>
+      },
+      "SourceECgi":  {
+        "CellIdentity":  <uint>,
+        "CellPlmnid":  {
+          "Mnc":  <bytes>,
+          "Mcc":  <bytes>,
+          "MncLength":  <uint>
+        }
+      },
+      "Crnti":  <uint>
+    },
+    "EstablishmentCause":  "<SessionEstablishmentCause>",
+    "Ecgi":  {
+      "CellIdentity":  <uint>,
+      "CellPlmnid":  {
+        "Mnc":  <bytes>,
+        "Mcc":  <bytes>,
+        "MncLength":  <uint>
+      }
+    }
+  },
+  "tlpublishTime__":  <uint>,
+  "timestamp":  <int>
+}
+<!--json-end-->
+<!--enum-start-->
+
+Enum Type:
+RrcInitialUeIdentity
+
+Enum Values:
+stackRrcInitialUeIdentityChoice_none
+stackRrcInitialUeIdentityChoice_stmsi
+stackRrcInitialUeIdentityChoice_randomval
+
+Enum Type:
+HandoverType
+
+Enum Values:
+handoverType_intreLte
+handoverType_lteToUtran
+handoverType_lteToGeran
+handoverType_utranToLte
+handoverType_geranToTte
+handoverType_invalid
+
+Enum Type:
+IpAddrType_e
+
+Enum Values:
+IpAddrType_unknown
+IpAddrType_IPv4
+IpAddrType_IPv6
+IpAddrType_both
+
+Enum Type:
+SessionEstablishmentCause
+
+Enum Values:
+sessionEstablishmentCauseType_none
+sessionEstablishmentCauseType_emergency
+sessionEstablishmentCauseType_highPriorityAccess
+sessionEstablishmentCauseType_mtAccess
+sessionEstablishmentCauseType_moSignalling
+sessionEstablishmentCauseType_moData
+sessionEstablishmentCauseType_delayTolerantAccess
+sessionEstablishmentCauseType_handIn
+
+<!--enum-end-->

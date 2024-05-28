@@ -1,0 +1,53 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.service_discovery
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB":  <string>,
+  "CELL":  <string>,
+  "UE":  <string>,
+  "ueDraxId":  <string>,
+  "ueRicId":  <string>,
+  "Guid":  <string>,
+  "EnbUeStatusIndication":  {
+    "UeIdx":  <uint>,
+    "StatusType":  "<OranUeStatusType>",
+    "Outcome":  "<CommonResult>",
+    "Crnti":  <uint>,
+    "SourceECgi":  {
+      "CellIdentity":  <uint>,
+      "CellPlmnid":  {
+        "Mnc":  <bytes>,
+        "Mcc":  <bytes>,
+        "MncLength":  <uint>
+      }
+    }
+  },
+  "tlpublishTime__":  <uint>,
+  "timestamp":  <int>
+}
+<!--json-end-->
+<!--enum-start-->
+
+Enum Type:
+OranUeStatusType
+
+Enum Values:
+ORAN_INVALID_STATUSTYPE
+ORAN_UE_ADD
+ORAN_UE_DELETE
+ORAN_UE_CONFIG
+
+Enum Type:
+CommonResult
+
+Enum Values:
+RESULT_SUCCESS
+RESULT_FAILURE
+RESULT_PARTIAL_SUCCESS
+RESULT_INPROGRESS
+RESULT_OTHER
+RESULT_NO_RESULTS
+RESULT_MAX
+
+<!--enum-end-->

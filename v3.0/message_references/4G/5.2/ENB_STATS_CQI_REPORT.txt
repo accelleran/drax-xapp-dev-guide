@@ -1,0 +1,27 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.ue_measurements
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB":  <string>,
+  "CELL":  <string>,
+  "UE":  <string>,
+  "ueDraxId":  <string>,
+  "ueRicId":  <string>,
+  "EnbStatsCqiReportValues":  {
+    "Report":  {
+      "WidebandCqi":  <uint>,
+      "CodeblockId":  <uint>,
+      "CqiList":  {
+        "0": <uint>
+      },
+      "CqiListSize":  <uint>,
+      "RankIndication":  <uint>,
+      "TransmissionMode":  <uint>,
+      "UeEdge":  <uint>
+    }
+  },
+  "tlpublishTime__":  <uint>,
+  "timestamp":  <int>
+}
+<!--json-end-->
