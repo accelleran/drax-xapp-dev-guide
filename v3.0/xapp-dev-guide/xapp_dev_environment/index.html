@@ -228,6 +228,31 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#inject-docker-image-into-drax">
+<span class="md-ellipsis">
+      Inject Docker image into dRAX
+    </span>
+</a>
+<nav aria-label="Inject Docker image into dRAX" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#save-docker-image-to-file">
+<span class="md-ellipsis">
+      Save Docker image to file
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#load-docker-image-into-containerd">
+<span class="md-ellipsis">
+      Load Docker image into ContainerD
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#prepare-the-xapp-helm-chart">
 <span class="md-ellipsis">
       Prepare the xApp Helm Chart
@@ -240,6 +265,31 @@
       Deploy your xApp in Developer Mode
     </span>
 </a>
+<nav aria-label="Deploy your xApp in Developer Mode" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploy-xapp-using-the-helm-install-command">
+<span class="md-ellipsis">
+      Deploy xApp using the helm install command
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploy-xapp-using-the-drax-api">
+<span class="md-ellipsis">
+      Deploy xApp using the dRAX API
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploy-xapp-using-the-drax-dashboard">
+<span class="md-ellipsis">
+      Deploy xApp using the dRAX Dashboard
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#optional-mount-a-host-folder-inside-your-xapp">
@@ -247,6 +297,31 @@
       (Optional) Mount a host folder inside your xApp
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alternative-not-using-the-drax-host-machine">
+<span class="md-ellipsis">
+      (Alternative) Not using the dRAX Host Machine
+    </span>
+</a>
+<nav aria-label="(Alternative) Not using the dRAX Host Machine" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#xapp-core-docker-image">
+<span class="md-ellipsis">
+      xApp Core Docker Image
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#xapp-helm-chart">
+<span class="md-ellipsis">
+      xApp Helm Chart
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -545,7 +620,9 @@
 <li>Add certain files or packages to the xApp Core</li>
 </ul>
 <p>In such cases, deploying the xApp Dev Environment will not be sufficient, as you don’t have such options. However, in this case you can create your own xApp Core Docker image, including any additional files you need to it, as well as edit the default xApp Helm Chart to create one specific to your xApp, including any additional Docker images. You can then enable the Developer Mode on your own xApp to have the same options as in the xApp Dev Environment.</p>
-<p>In the following subsection, we assume that you are on the dRAX host machine, so the Docker image built will already be present on the dRAX machine, as well as the helm chart.</p>
+<p>In the following subsection, we assume that you are on the dRAX host machine, since it contains all the necessary tools pre-installed. If you are not working on the dRAX Host Machine, please check section <a href="./#alternative-not-using-the-drax-host-machine">(Alternative) Not using the dRAX Host Machine</a> for details   </p>
+<p>NOTE: Since upgrading to the latest version of Kubernetes, we are now using ContainerD as the container runtime for Kubernetes.
+This means that you can still build your docker images using the docker tools, but you will have to then inject them into the ContainerD runtime. </p>
 <h2 id="clone-the-xapp-framework-git-repository"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1</span> Clone the xApp Framework Git repository<a class="headerlink" href="#clone-the-xapp-framework-git-repository" title="Permanent link">⚓︎</a></h2>
 <p>To do so, you can first clone the xApp Framework GitHub repository:</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/accelleran/xapp-framework-package.git
@@ -569,7 +646,17 @@ sudo docker build -t my-xapp:0.1.0 --build-arg username=&lt;GITHUB_USERNAME&gt; 
 <li><code>&lt;GITHUB_USERNAME&gt;</code>: Replace this with the GitHub username that has access to the xApp Framework GitHub repository</li>
 <li><code>&lt;GITHUB_TOKEN&gt;</code>: This is the security token of your GitHub account</li>
 </ul>
-<h2 id="prepare-the-xapp-helm-chart"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3</span> Prepare the xApp Helm Chart<a class="headerlink" href="#prepare-the-xapp-helm-chart" title="Permanent link">⚓︎</a></h2>
+<h2 id="inject-docker-image-into-drax"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3</span> Inject Docker image into dRAX<a class="headerlink" href="#inject-docker-image-into-drax" title="Permanent link">⚓︎</a></h2>
+<p>Once your Docker image is built, it needs to be injected into the dRAX system, specifically it needs to be added to the ContainerD registry.</p>
+<h3 id="save-docker-image-to-file"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3.1</span> Save Docker image to file<a class="headerlink" href="#save-docker-image-to-file" title="Permanent link">⚓︎</a></h3>
+<p>To do this, we first need to save the image to a file using the Docker save command (more info on this command can be found <a href="https://docs.docker.com/reference/cli/docker/image/save/">on the following link</a>. Here we can use the following command to save the Docker image to a tar file (assuming that the name of the docker image was my-xapp as used in the example in the previous section):</p>
+<div class="highlight"><pre><span></span><code>sudo docker save my-xapp &gt; my-xapp.tar
+</code></pre></div>
+<h3 id="load-docker-image-into-containerd"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3.2</span> Load Docker image into ContainerD<a class="headerlink" href="#load-docker-image-into-containerd" title="Permanent link">⚓︎</a></h3>
+<p>Now that you have your xApp Core Docker image in a file, you can inject it into ContainerD using the following command:</p>
+<div class="highlight"><pre><span></span><code>sudo ctr -n=k8s.io image import my-xapp.tar
+</code></pre></div>
+<h2 id="prepare-the-xapp-helm-chart"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.4</span> Prepare the xApp Helm Chart<a class="headerlink" href="#prepare-the-xapp-helm-chart" title="Permanent link">⚓︎</a></h2>
 <p>Once the Docker image is built, we need to prepare the xApp Helm Chart. The default xApp helm Chart is available in the example folder of the xApp Framework Git repository. Therefore, go to the following folder:</p>
 <div class="highlight"><pre><span></span><code>cd example/helm_chart/xapp
 </code></pre></div>
@@ -583,14 +670,53 @@ image:
 ...
 </code></pre></div>
 <p>You are of course free to now edit the xApp Helm Chart in any way you see fit, for example adding another Docker image to it, which we explain in the section <a href="../xapp_helm_charts/#how-to-add-another-microservice-helm-chart-to-the-xapp">How to add another microservice helm chart to the xApp</a>.</p>
-<h2 id="deploy-your-xapp-in-developer-mode"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.4</span> Deploy your xApp in Developer Mode<a class="headerlink" href="#deploy-your-xapp-in-developer-mode" title="Permanent link">⚓︎</a></h2>
-<p>You can now deploy your xApp in Developer Mode, which will grant you the same options as the xApp Dev Environment. Your xApp will be deployed as a sandbox environment, which you can access, further develop and debug, start or stop the xApp, etc.</p>
-<p>To do so, run the following command on the dRAX host machine:</p>
-<div class="highlight"><pre><span></span><code>helm install &lt;xapp-name&gt; /path/to/xAppHelmChartFolder --set developerMode.enabled=true --set-string global.kubeIp=&lt;drax-host-ip&gt;
+<p>You can now package your xApp Helm Chart which will generate a .tgz file:</p>
+<div class="highlight"><pre><span></span><code>helm package example/helm_chart/xapp
 </code></pre></div>
-<p><strong>NOTE:</strong> You can give the deployment any generic name you want by changing the &lt;xapp-name&gt;. When deploying from the command line, using helm install, we also have to supply the dRAX Host IP as the global.kubeIp parameter in helm.</p>
+<h2 id="deploy-your-xapp-in-developer-mode"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5</span> Deploy your xApp in Developer Mode<a class="headerlink" href="#deploy-your-xapp-in-developer-mode" title="Permanent link">⚓︎</a></h2>
+<p>You can now deploy your xApp in Developer Mode, which will grant you the same options as the xApp Dev Environment. Your xApp will be deployed as a sandbox environment, which you can access, further develop and debug, start or stop the xApp, etc.</p>
 <p>From this point on, you can use any of the development workflows as described in the <a href="../development_workflows/#development-workflows">Development Workflows</a> section.</p>
-<h2 id="optional-mount-a-host-folder-inside-your-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5</span> (Optional) Mount a host folder inside your xApp<a class="headerlink" href="#optional-mount-a-host-folder-inside-your-xapp" title="Permanent link">⚓︎</a></h2>
+<p>You can deploy the xApp on dRAX in a couple of ways.</p>
+<h3 id="deploy-xapp-using-the-helm-install-command"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5.1</span> Deploy xApp using the helm install command<a class="headerlink" href="#deploy-xapp-using-the-helm-install-command" title="Permanent link">⚓︎</a></h3>
+<p>To deploy the xApp using the helm install command, you can run the following command on the dRAX host machine:</p>
+<div class="highlight"><pre><span></span><code>helm install &lt;xapp-name&gt; /path/to/xAppHelmChart.tgz --set developerMode.enabled=true --set-string global.kubeIp=&lt;drax-host-ip&gt;
+</code></pre></div>
+<p><strong>NOTE 1:</strong> You can give the deployment any generic name you want by changing the &lt;xapp-name&gt;. When deploying from the command line, using helm install, we also have to supply the dRAX Host IP as the global.kubeIp parameter in helm.</p>
+<p><strong>NOTE 2:</strong> YOu can also point to the path of the xApp helm Chart folder if it is on the dRAX Host Machine. </p>
+<h3 id="deploy-xapp-using-the-drax-api"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5.2</span> Deploy xApp using the dRAX API<a class="headerlink" href="#deploy-xapp-using-the-drax-api" title="Permanent link">⚓︎</a></h3>
+<p>You can deploy the xApp using the dRAX API. Specifically using the <strong>deployment/xapp</strong> API endpoint. </p>
+<p>You will need to set the Developer Mode using a Helm Chart values file. Each Helm Chart, including the xApp Helm Chart, has its default values.yaml file (which you can see in example/helm_chart/xapp). 
+You can either copy that file and edit it, or create a reduced version of the file by specifying just the fild that change (in this case the developer mode). Therefore, your values.yaml file can look like:</p>
+<div class="highlight"><pre><span></span><code>developerMode:
+  enabled: true
+  devPassword: "password1!"
+</code></pre></div>
+<p>Let's assume you save this into a my-xapp-values.yaml file. You can now deploy the xApp using the following API (here is an example curl command):</p>
+<div class="highlight"><pre><span></span><code>curl -X 'POST' \
+'http://&lt;drax-host-machine&gt;:31315/api/deployment/xapp' \
+-H 'accept: */*' \
+-H 'Content-Type: multipart/form-data' \
+-F 'file=@my-xapp.tgz;type=application/x-compressed-tar' \
+-F 'values=@my-xapp-values.yaml;type=application/x-yaml' \
+-F 'xAppForm={"xAppName":"my-xapp","organization":"Accelleran","team":"dRAX","version":"0.1.0","owner":"dRAX","method":"Upload Helm Chart","namespace":"default"}'
+</code></pre></div>
+<p>Here, as you can see you need to fill in the xApp Form part, by providing your xAppName, organisation, team, version, owner. Leave the method and namespace as is.</p>
+<h3 id="deploy-xapp-using-the-drax-dashboard"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5.3</span> Deploy xApp using the dRAX Dashboard<a class="headerlink" href="#deploy-xapp-using-the-drax-dashboard" title="Permanent link">⚓︎</a></h3>
+<p>You can also deploy your xApp using the dRAX Dashboard in a more visual, GUI way. </p>
+<p>You also need to prepare your my-xapp-values.yaml file in the same way as done in section <a href="./#deploy-xapp-using-the-drax-api">Deploy xApp using the dRAX API</a>.</p>
+<p>Navigate to the dRAX Dashboard on port 31315 on the dRAX Host Machine. Next, click the xApp Deployment button on the left side menu. </p>
+<p>Select the Upload Helm Chart from the Deployment method drop down menu.</p>
+<p>Next fill in the x/rApp Metadata:
+- xApp Name - Choose a name for your x/rApp
+- Organisation - Input the name of your organisation
+- Team - Input the name of your team
+- Version - Input the version of the x/rApp
+- Owner - Input the name of the Owner/Deployer
+- Namespace - We use the default namespace in Kubernetes, and this should only be changed in advanced cases and if you know what you are doing!</p>
+<p>Next click the <strong>Choose a file</strong> button to select and upload your x/rApp Helm Chart .tgz file. </p>
+<p>You can click the <strong>Choose a file (Optional Values file)</strong> to select and upload the my-xapp-values.yaml file for the x/rApp Helm Chart.</p>
+<p>Finally, click the <strong>Submit</strong> button to deploy the x/rApp.</p>
+<h2 id="optional-mount-a-host-folder-inside-your-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.6</span> (Optional) Mount a host folder inside your xApp<a class="headerlink" href="#optional-mount-a-host-folder-inside-your-xapp" title="Permanent link">⚓︎</a></h2>
 <p>The xApp Helm Chart also has an optional feature, which is to mount a folder from the dRAX host machine inside the xApp Core container. This can be useful:</p>
 <ul>
 <li>The files located in that mounted folder will be shared between the host and xApp Core</li>
@@ -604,6 +730,16 @@ image:
 <div class="highlight"><pre><span></span><code>/home/xapp/xapp_core/dev.
 </code></pre></div>
 <p>You can, for example, mount the whole example folder from the xApp Framework git repository, making the python files automatically saved on the host machine. This way even if you delete the xApp, your code will be preserved. Also, if you deploy another xApp, you can mount the same folder into it, getting your code into the second xApp automatically.</p>
+<h2 id="alternative-not-using-the-drax-host-machine"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.7</span> (Alternative) Not using the dRAX Host Machine<a class="headerlink" href="#alternative-not-using-the-drax-host-machine" title="Permanent link">⚓︎</a></h2>
+<h3 id="xapp-core-docker-image"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.7.1</span> xApp Core Docker Image<a class="headerlink" href="#xapp-core-docker-image" title="Permanent link">⚓︎</a></h3>
+<p>In case you are not on the dRAX Host Machine, you will have to install the following dependencies:
+- docker (more details can be found on <a href="https://docs.docker.com/desktop/">Docker's official page</a>)</p>
+<p>Once this is done, you can proceed with <a href="./#clone-the-xapp-framework-git-repository">cloning the xApp Framework repo</a>, <a href="./#edit-and-build-your-xapp-core-docker-image">edit and build your image locally</a> and <a href="./#save-docker-image-to-file">save the Docker image in a file</a>.</p>
+<p>You then need to copy the my-xapp.tar (or however you called it) file over to the dRAX Host Machine.</p>
+<p>Once the file is on the dRAX Host Machine, you then need to <a href="./#load-docker-image-into-containerd">load the file into ContainerD on the dRAX Host Machine</a>. This means that this parts needs to be done on the dRAX Host Machine.</p>
+<h3 id="xapp-helm-chart"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.7.2</span> xApp Helm Chart<a class="headerlink" href="#xapp-helm-chart" title="Permanent link">⚓︎</a></h3>
+<p>As for the <a href="./#prepare-the-xapp-helm-chart">xApp Helm Chart</a>, you can also prepare the Helm chart on a different machine, however you need to copy it over to the dRAX Host Machine if you want to <a href="./#deploy-xapp-using-the-helm-install-command">deploy the xApp using the helm install command</a>.</p>
+<p>You can however also <a href="./#deploy-xapp-using-the-drax-api">deploy your xApps programmatically using the dRAX API</a> or <a href="./#deploy-xapp-using-the-drax-dashboard">via the dRAX Dashboard in a visual way</a>. In these cases you do not have to copy over the xApp Helm Chart.</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

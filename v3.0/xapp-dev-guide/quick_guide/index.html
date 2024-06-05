@@ -207,6 +207,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#accessing-the-xapp-dev-environment">
+<span class="md-ellipsis">
+      Accessing the xApp Dev Environment
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#start-the-xapp-in-the-development-environment">
 <span class="md-ellipsis">
       Start the xApp in the development environment
@@ -536,7 +543,7 @@
 <p>The xApp Dev Environment can be easily deployed in a user friendly way via the dRAX Dashboard. Open the dRAX Dashboard, and using the left hand side tabs navigate to: <strong>New Deployment -&gt; xApp Deployment</strong>.</p>
 <p>In the newly opened form, from the Method drop-down menu, select <strong>Deploy xApp Development Environment</strong>. Next, fill in the metadata fields, such as your xApps name, organization team, etc. The Version field indicates which version of the xApp Dev Environment to use. Leave this at “latest”, as this automatically picks the latest stable version of the xApp Dev Environment for your version of dRAX. Finally, the xApp Dev Environment also has the possibility to be accessed via ssh from remote. Therefore, you have to set the ssh password which will be used in the <strong>Developer SSH Password</strong> field.</p>
 <p>Note: Enter a password between 7 to 15 characters which contains at least one numeric digit and a special character. Click the Submit button to deploy the xApp Dev Environment.</p>
-<p>Accessing the xApp Dev Environment</p>
+<h2 id="accessing-the-xapp-dev-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2</span> Accessing the xApp Dev Environment<a class="headerlink" href="#accessing-the-xapp-dev-environment" title="Permanent link">⚓︎</a></h2>
 <p>Once you deploy the xApp Dev Env, you can check if all its pods are deployed. The xApp pods have a naming convention based on the metadata you provided: &lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;</p>
 <p>This can be used to filter the pods in the kubectl command:</p>
 <div class="highlight"><pre><span></span><code>kubectl get pods
@@ -551,13 +558,13 @@
 <p>The xApp Core is located under the &lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt; pod, so to access the development environment you can:</p>
 <div class="highlight"><pre><span></span><code>kubectl exec -it &lt;pod_name&gt; -- /bin/bash
 </code></pre></div>
-<h2 id="start-the-xapp-in-the-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2</span> Start the xApp in the development environment<a class="headerlink" href="#start-the-xapp-in-the-development-environment" title="Permanent link">⚓︎</a></h2>
-<p>Finally you can start your xApp by issuing the following command inside the container:</p>
+<h2 id="start-the-xapp-in-the-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.3</span> Start the xApp in the development environment<a class="headerlink" href="#start-the-xapp-in-the-development-environment" title="Permanent link">⚓︎</a></h2>
+<p>Finally, you can start your xApp by issuing the following command inside the container:</p>
 <div class="highlight"><pre><span></span><code>python3 xapp_main.py
 </code></pre></div>
-<h2 id="edit-the-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.3</span> Edit the xApp<a class="headerlink" href="#edit-the-xapp" title="Permanent link">⚓︎</a></h2>
+<h2 id="edit-the-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4</span> Edit the xApp<a class="headerlink" href="#edit-the-xapp" title="Permanent link">⚓︎</a></h2>
 <p>The developer is free to edit the xapp_main.py and create other .py files. You can stop the currently running xapp_main.py, edit the files and restart the xApp again. This allows you to work in a sandbox environment, all fully integrated into dRAX, and focus only on the functionality you bring.</p>
-<h2 id="how-to-uninstall-the-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4</span> How to uninstall the xApp<a class="headerlink" href="#how-to-uninstall-the-xapp" title="Permanent link">⚓︎</a></h2>
+<h2 id="how-to-uninstall-the-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.5</span> How to uninstall the xApp<a class="headerlink" href="#how-to-uninstall-the-xapp" title="Permanent link">⚓︎</a></h2>
 <p>You can simply delete the xApp Dev Environment by clicking the <strong>Uninstall</strong> button on the xApp Overview page on the dRAX Dashboard. Navigate to <strong>xApp Management -&gt; Overview</strong>.</p>
 <p><strong>NOTE: </strong>Please note that any changes will be lost once the sandbox deployment is removed. Therefore it is important to backup your work before deleting the xApp Dev Environment. In the xApp Dev Environment container, we have also pre-installed git, so you are free to use it to backup your code to a remote Git repository. In the following section we will explore how to move from the xApp Dev Environment to a productized xApp.</p>
 </article>
