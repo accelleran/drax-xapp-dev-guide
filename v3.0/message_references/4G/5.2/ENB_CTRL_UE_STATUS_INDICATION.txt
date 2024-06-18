@@ -30,15 +30,6 @@ accelleran.drax.4g.ric.raw.service_discovery
 <!--enum-start-->
 
 Enum Type:
-OranUeStatusType
-
-Enum Values:
-ORAN_INVALID_STATUSTYPE
-ORAN_UE_ADD
-ORAN_UE_DELETE
-ORAN_UE_CONFIG
-
-Enum Type:
 CommonResult
 
 Enum Values:
@@ -49,5 +40,14 @@ RESULT_INPROGRESS
 RESULT_OTHER
 RESULT_NO_RESULTS
 RESULT_MAX
+
+Enum Type:
+OranUeStatusType
+
+Enum Values:
+ORAN_INVALID_STATUSTYPE
+ORAN_UE_ADD
+ORAN_UE_DELETE
+ORAN_UE_CONFIG
 
 <!--enum-end-->

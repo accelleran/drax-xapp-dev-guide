@@ -3,48 +3,9 @@ accelleran.drax.5g.ric.raw.cu_state
 <!--topic-end-->
 <!--json-start-->
 {
-  "CucpBeaconInfo":  {
-    "CucpId":  <uint>,
-    "State":  "<CucpState>",
-    "ServedPlmns":  {
-      "items":  {
-        "0": {
-          "PlmnIdentity":  {
-            "Data":  {
-              "0": <uint>
-            }
-          },
-          "TaiSlicedSupportList":  {
-            "items":  {
-              "0": {
-                "SNssai":  {
-                  "SST":  <uint>,
-                  "SD":  {
-                    "Data":  {
-                      "0": <uint>
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "AdminState":  "<AdminState>",
-    "NatsUrl":  <string>,
-    "RedisIp":  <string>,
-    "RedisPort":  <uint>,
-    "Version":  <string>,
-    "ExtraInfoList":  {
-      "items":  {
-        "0": {
-          "Name":  <string>,
-          "Value":  <string>
-        }
-      }
-    },
-    "GnbIdLength":  <uint>,
+  "CuCpAmfBeaconInfo":  {
+    "GnbId":  <uint>,
+    "ServiceInfo":  <string>,
     "AmfList":  {
       "items":  {
         "0": {
@@ -79,8 +40,7 @@ accelleran.drax.5g.ric.raw.cu_state
           "AmfGuid":  <string>
         }
       }
-    },
-    "CuCpName":  <string>
+    }
   },
   "tlpublishTime__":  <uint>,
   "spanContext__":  <bytes>
@@ -95,20 +55,5 @@ Enum Values:
 AMFSTATE_NOT_CONNECTED
 AMFSTATE_NOT_CONNECTED_FAILURE
 AMFSTATE_CONNECTED
-
-Enum Type:
-CucpState
-
-Enum Values:
-NON_OPERATIONAL
-NON_OPERATIONAL_FAILURE
-OPERATIONAL
-
-Enum Type:
-AdminState
-
-Enum Values:
-Locked
-UnLocked
 
 <!--enum-end-->

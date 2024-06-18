@@ -89,14 +89,6 @@ accelleran.drax.5g.ric.raw.cu_state
 <!--enum-start-->
 
 Enum Type:
-AmfState
-
-Enum Values:
-AMFSTATE_NOT_CONNECTED
-AMFSTATE_NOT_CONNECTED_FAILURE
-AMFSTATE_CONNECTED
-
-Enum Type:
 CucpState
 
 Enum Values:
@@ -110,5 +102,13 @@ AdminState
 Enum Values:
 Locked
 UnLocked
+
+Enum Type:
+AmfState
+
+Enum Values:
+AMFSTATE_NOT_CONNECTED
+AMFSTATE_NOT_CONNECTED_FAILURE
+AMFSTATE_CONNECTED
 
 <!--enum-end-->
