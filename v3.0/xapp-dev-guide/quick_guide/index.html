@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://accelleran.github.io/drax-xapp-dev-guide/v3.0/xapp-dev-guide/quick_guide/" rel="canonical"/>
-<link href="../../changelog/" rel="prev"/>
+<link href="../intro/" rel="prev"/>
 <link href="../development_workflows/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.21" name="generator"/>
@@ -103,7 +103,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="./">
+<a class="md-tabs__link" href="../intro/">
           
   
     
@@ -180,6 +180,13 @@
             Documentation
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -200,37 +207,41 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deploy-the-xapp-dev-environment">
+<a class="md-nav__link" href="#deploy-the-xrapp-development-environment">
 <span class="md-ellipsis">
-      Deploy the xApp Dev Environment
+      Deploy the x/rApp Development Environment
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#accessing-the-xapp-dev-environment">
+<a class="md-nav__link" href="#accessing-the-xrapp-development-environment">
 <span class="md-ellipsis">
-      Accessing the xApp Dev Environment
+      Accessing the x/rApp Development Environment
+    </span>
+</a>
+<nav aria-label="Accessing the x/rApp Development Environment" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#discover-xrapp-development-environment-ssh-port">
+<span class="md-ellipsis">
+      Discover x/rApp Development Environment SSH Port
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#start-the-xapp-in-the-development-environment">
+<a class="md-nav__link" href="#ssh-into-the-xrapp-development-environment">
 <span class="md-ellipsis">
-      Start the xApp in the development environment
+      SSH into the x/rApp Development Environment
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#edit-the-xapp">
-<span class="md-ellipsis">
-      Edit the xApp
-    </span>
-</a>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-to-uninstall-the-xapp">
+<a class="md-nav__link" href="#how-to-uninstall-the-xrapp-development-environment">
 <span class="md-ellipsis">
-      How to uninstall the xApp
+      How to uninstall the x/rApp Development Environment
     </span>
 </a>
 </li>
@@ -247,7 +258,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../xapp_dev_environment/">
 <span class="md-ellipsis">
-    Build your own xApp Dev Environment
+    Build your own x/rApp Development Environment
   </span>
 </a>
 </li>
@@ -609,14 +620,29 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="quick-guide"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.</span> Quick guide<a class="headerlink" href="#quick-guide" title="Permanent link">⚓︎</a></h1>
-<p>This section introduces you to a development sandbox called the xApp Dev Environment, which can be easily deployed on an existing dRAX installation, in order to gain familiarity with the capabilities of our xApp Framework. We have basically created a Hello-World example inside of the xApp Core using the xApp Library, built a Docker image and prepared a remotely available Helm Chart.</p>
-<h2 id="deploy-the-xapp-dev-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.1</span> Deploy the xApp Dev Environment<a class="headerlink" href="#deploy-the-xapp-dev-environment" title="Permanent link">⚓︎</a></h2>
-<p>The xApp Dev Environment can be easily deployed in a user friendly way via the dRAX Dashboard. Open the dRAX Dashboard, and using the left hand side tabs navigate to: <strong>New Deployment -&gt; xApp Deployment</strong>.</p>
-<p>In the newly opened form, from the Method drop-down menu, select <strong>Deploy xApp Development Environment</strong>. Next, fill in the metadata fields, such as your xApps name, organization team, etc. The Version field indicates which version of the xApp Dev Environment to use. Leave this at “latest”, as this automatically picks the latest stable version of the xApp Dev Environment for your version of dRAX. Finally, the xApp Dev Environment also has the possibility to be accessed via ssh from remote. Therefore, you have to set the ssh password which will be used in the <strong>Developer SSH Password</strong> field.</p>
-<p>Note: Enter a password between 7 to 15 characters which contains at least one numeric digit and a special character. Click the Submit button to deploy the xApp Dev Environment.</p>
-<h2 id="accessing-the-xapp-dev-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2</span> Accessing the xApp Dev Environment<a class="headerlink" href="#accessing-the-xapp-dev-environment" title="Permanent link">⚓︎</a></h2>
-<p>Once you deploy the xApp Dev Env, you can check if all its pods are deployed. The xApp pods have a naming convention based on the metadata you provided: &lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;</p>
+<h1 id="quick-guide"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.</span> Quick guide<a class="headerlink" href="#quick-guide" title="Permanent link">⚓︎</a></h1>
+<p>In this section we introduce you to a development sandbox called the x/rApp Development Environment, which can be easily deployed on an existing dRAX installation. The x/rApp Development Environment can be deployed with a click of a button and easily accessed using SSH. Once accessed, you will have the x/rApp Template at your disposal to start developing you x/rApp without any further pre-requirement steps.</p>
+<h2 id="deploy-the-xrapp-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1</span> Deploy the x/rApp Development Environment<a class="headerlink" href="#deploy-the-xrapp-development-environment" title="Permanent link">⚓︎</a></h2>
+<p>The x/rApp Development Environment can be easily deployed in a user friendly way via the dRAX Dashboard. Open the dRAX Dashboard, and using the left hand side tabs navigate to: <strong>RIC -&gt; xApp Deployment</strong>.</p>
+<p>In the newly opened form, from the Deploy Method drop-down menu, select <strong>Deploy xApp Development Environment</strong>. </p>
+<p>Next, fill in the metadata fields, such as your xApps name, organization team, etc. The Version field indicates which version of the x/rApp Development Environment to use. Leave this at “latest”, as this automatically picks the latest stable version of the x/rApp Development Environment for your version of dRAX. </p>
+<p>Finally, since the x/rApp Development Environment is accessed using SSH, you have to set the SSH password which will be used. Set the SSH password in the <strong>Developer SSH Password</strong> field.</p>
+<div class="highlight"><pre><span></span><code>Note: Enter a password between 7 to 15 characters which contains at least one numeric digit and a special character.
+</code></pre></div>
+<p>Lastly, click the <strong>Submit</strong> button to deploy the x/rApp Development Environment.</p>
+<h2 id="accessing-the-xrapp-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2</span> Accessing the x/rApp Development Environment<a class="headerlink" href="#accessing-the-xrapp-development-environment" title="Permanent link">⚓︎</a></h2>
+<p>Once the x/rApp Development Environment is deployed, you will need to discovery its SSH port so that you can SSH into it.</p>
+<h3 id="discover-xrapp-development-environment-ssh-port"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2.1</span> Discover x/rApp Development Environment SSH Port<a class="headerlink" href="#discover-xrapp-development-environment-ssh-port" title="Permanent link">⚓︎</a></h3>
+<p>To discover the x/rApp Development Environment SSH Port, open the dRAX Dashboard and navigate to the <strong>RIC -&gt; xApp Overview</strong> tab on the left hand menu. In the <strong>xApps</strong> list, find your x/rApp based on the xApp Name, organization and team name that you have entered during x/rApp Deployment. </p>
+<p>Next, click the <strong>Show</strong> button under the Service column. This will show you all the services that the x/rApp has. One of those services is the <strong>xapp-dev-ssh</strong> service which is the SSH used for accessing the x/rApp Development Environment. Note down the port number under the NodePort column as this is the port number that is exposed outside of Kubernetes. </p>
+<div class="highlight"><pre><span></span><code>NOTE: The NodePort is a randomly assigned port number in the range of 30000-32000.
+</code></pre></div>
+<h3 id="ssh-into-the-xrapp-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2.2</span> SSH into the x/rApp Development Environment<a class="headerlink" href="#ssh-into-the-xrapp-development-environment" title="Permanent link">⚓︎</a></h3>
+<p>You can now access the x/rApp Development Environment by simply SSHing into it:</p>
+<div class="highlight"><pre><span></span><code>ssh -p &lt;xapp-dev-ssh&gt; xapp@&lt;drax-ip-address&gt;
+</code></pre></div>
+<p>Using the -p option, you can specify the SSH port, which we discvered in the previous step. The username in the x/rApp Development Environment is always <strong>xapp</strong>, and you have to connect to the IP address where your dRAX RIC, or specifically your x/rApp, is running.</p>
+<p>&lt;!-- Once you deploy the xApp Dev Env, you can check if all its pods are deployed. The xApp pods have a naming convention based on the metadata you provided: &lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;</p>
 <p>This can be used to filter the pods in the kubectl command:</p>
 <div class="highlight"><pre><span></span><code>kubectl get pods
 </code></pre></div>
@@ -628,17 +654,36 @@
 <li>&lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;-xapp-redis</li>
 </ul>
 <p>The xApp Core is located under the &lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt; pod, so to access the development environment you can:</p>
-<div class="highlight"><pre><span></span><code>kubectl exec -it &lt;pod_name&gt; -- /bin/bash
+<p><div class="highlight"><pre><span></span><code>kubectl exec -it &lt;pod_name&gt; -- /bin/bash
+~~~ --&gt;
+
+## Start the x/rApp in the x/rApp Development Environment
+
+You are now SSHed into the x/rApp Development Environment. You will be in the home folder by default, where you have the **xapp** folder. Inside that **xapp** folder you have the x/rApp Template. 
+
+To start your x/rApp, you can go to the xapp/core folder and start the xapp_main.py Python file:
+
+    cd xapp/core
+    python3 xapp_main.py
+
+## Edit the x/rApp
+
+The developer is free to edit the xapp_main.py and create other .py files. You can stop the currently running xapp_main.py, edit the files and restart the x/rApp again. This allows you to work in a sandbox environment, all fully integrated into dRAX, and focus only on the functionality you bring.
+
+Please check the [Development Workflows](development_workflows.md) section which explain different approaches to accessing the x/rApp Development Environment and best development practices.
+
+## [IMPORTANT] Backup your x/rApp code
+The x/rApp Development Environment has git pre-installed. To avoid losing your work, we strongly suggest that you immediately push your code to your remote Git Repository. Git is already initialized in the **xapp** folder, therefore you can just add your remote and push the code:
+
+    git add .
+    git commit -m "first commit"
+    git remote add origin &lt;your-git-url&gt;
+    git push -u origin main
 </code></pre></div>
-<h2 id="start-the-xapp-in-the-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.3</span> Start the xApp in the development environment<a class="headerlink" href="#start-the-xapp-in-the-development-environment" title="Permanent link">⚓︎</a></h2>
-<p>Finally, you can start your xApp by issuing the following command inside the container:</p>
-<div class="highlight"><pre><span></span><code>python3 xapp_main.py
-</code></pre></div>
-<h2 id="edit-the-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4</span> Edit the xApp<a class="headerlink" href="#edit-the-xapp" title="Permanent link">⚓︎</a></h2>
-<p>The developer is free to edit the xapp_main.py and create other .py files. You can stop the currently running xapp_main.py, edit the files and restart the xApp again. This allows you to work in a sandbox environment, all fully integrated into dRAX, and focus only on the functionality you bring.</p>
-<h2 id="how-to-uninstall-the-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.5</span> How to uninstall the xApp<a class="headerlink" href="#how-to-uninstall-the-xapp" title="Permanent link">⚓︎</a></h2>
-<p>You can simply delete the xApp Dev Environment by clicking the <strong>Uninstall</strong> button on the xApp Overview page on the dRAX Dashboard. Navigate to <strong>xApp Management -&gt; Overview</strong>.</p>
-<p><strong>NOTE: </strong>Please note that any changes will be lost once the sandbox deployment is removed. Therefore it is important to backup your work before deleting the xApp Dev Environment. In the xApp Dev Environment container, we have also pre-installed git, so you are free to use it to backup your code to a remote Git repository. In the following section we will explore how to move from the xApp Dev Environment to a productized xApp.</p>
+NOTE: Please note that any changes will be lost once the sandbox deployment is removed. Therefore it is important to backup your work before deleting the x/rApp Development Environment. 
+~~~</p>
+<h2 id="how-to-uninstall-the-xrapp-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.3</span> How to uninstall the x/rApp Development Environment<a class="headerlink" href="#how-to-uninstall-the-xrapp-development-environment" title="Permanent link">⚓︎</a></h2>
+<p>You can simply delete the x/rApp Development Environment by clicking the <strong>Uninstall</strong> button on the <strong>xApp Overview</strong> page on the dRAX Dashboard. </p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -650,7 +695,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Changelog" class="md-footer__link md-footer__link--prev" href="../../changelog/">
+<a aria-label="Previous: Introduction" class="md-footer__link md-footer__link--prev" href="../intro/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -659,7 +704,7 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                Changelog
+                Introduction
               </div>
 </div>
 </a>

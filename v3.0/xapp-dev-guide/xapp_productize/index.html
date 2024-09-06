@@ -103,7 +103,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../quick_guide/">
+<a class="md-tabs__link" href="../intro/">
           
   
     
@@ -181,6 +181,13 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../quick_guide/">
 <span class="md-ellipsis">
     Quick guide
@@ -197,7 +204,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../xapp_dev_environment/">
 <span class="md-ellipsis">
-    Build your own xApp Dev Environment
+    Build your own x/rApp Development Environment
   </span>
 </a>
 </li>
@@ -623,24 +630,24 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="productize-your-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.</span> Productize your xApp<a class="headerlink" href="#productize-your-xapp" title="Permanent link">⚓︎</a></h1>
+<h1 id="productize-your-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.</span> Productize your xApp<a class="headerlink" href="#productize-your-xapp" title="Permanent link">⚓︎</a></h1>
 <p>When the developers are happy with a version of the xApp, they can prepare it for production mode. This means that we won’t use the developer mode options in the xApp Helm Chart, which will result in the xApp starting immediately on deployment, as opposed to creating a sandbox which the developer mode does. Also, this means we can prepare the Docker image using the Dockerfile instead of Dockerfile.dev.</p>
-<h2 id="prepare-your-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1</span> Prepare your xApp<a class="headerlink" href="#prepare-your-xapp" title="Permanent link">⚓︎</a></h2>
-<p>We assume you have already cloned the xApp Framework Git repository, and have edited your code and helm chart using the xApp Dev Environment and workflows in the <a href="../development_workflows/#development-workflows">Development Workflows</a> section or creating your own xApp Development Environment from section <a href="../xapp_dev_environment/#build-your-own-xapp-dev-environment">Build your own xApp Dev Env</a>. We will now first prepare everything for productizing the xApp.</p>
+<h2 id="prepare-your-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.1</span> Prepare your xApp<a class="headerlink" href="#prepare-your-xapp" title="Permanent link">⚓︎</a></h2>
+<p>We assume you have already cloned the xApp Framework Git repository, and have edited your code and helm chart using the xApp Dev Environment and workflows in the <a href="../development_workflows/#development-workflows">Development Workflows</a> section or creating your own xApp Development Environment from section <a href="../xapp_dev_environment/#build-your-own-xrapp-development-environment">Build your own xApp Dev Env</a>. We will now first prepare everything for productizing the xApp.</p>
 <p>The python files that you have developed should be readily available. This includes the mandatory xapp_main.py which is the main python file to start the xApp.</p>
-<h2 id="build-xapp-core-docker-image"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2</span> Build xApp Core Docker image<a class="headerlink" href="#build-xapp-core-docker-image" title="Permanent link">⚓︎</a></h2>
+<h2 id="build-xapp-core-docker-image"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.2</span> Build xApp Core Docker image<a class="headerlink" href="#build-xapp-core-docker-image" title="Permanent link">⚓︎</a></h2>
 <p>Use the Dockerfile (not the Dockerfile.dev) from the example folder of the xApp Framework. Edit it so that it copies over all your files into the xApp Core Docker image. Finally issue the build command:</p>
 <div class="highlight"><pre><span></span><code>sudo docker build -t my-xapp:1.0.0 --build-arg username=&lt;GITHUB_USERNAME&gt; --build-arg token=&lt;GITHUB_TOKEN&gt; -f Dockerfile .
 </code></pre></div>
 <p><strong>NOTE:</strong> The . at the end specifies the Docker build context, hence it should point to where you python files are located.</p>
-<h2 id="optional-make-xapp-core-docker-image-globally-available"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.3</span> (Optional) Make xApp Core Docker image globally available<a class="headerlink" href="#optional-make-xapp-core-docker-image-globally-available" title="Permanent link">⚓︎</a></h2>
+<h2 id="optional-make-xapp-core-docker-image-globally-available"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.3</span> (Optional) Make xApp Core Docker image globally available<a class="headerlink" href="#optional-make-xapp-core-docker-image-globally-available" title="Permanent link">⚓︎</a></h2>
 <p>When you build the xApp Core Docker image, it will be available on the dRAX host machine. However, if you decide to install the xApp on another dRAX instance, you will have to:</p>
 <ul>
 <li>Either move the xApp Core Docker image to the new machine OR</li>
 <li>Upload the xApp Core Docker image to a Docker image repository, such as Dockerhub to make it globally available</li>
 </ul>
 <p>We provide a guide on how to do so in the section on <a href="../appendix_dockerhub/#appendix-pushing-to-dockerhub">Pushing to Dockerhub</a>.</p>
-<h2 id="prepare-xapp-helm-chart"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4</span> Prepare xApp Helm Chart<a class="headerlink" href="#prepare-xapp-helm-chart" title="Permanent link">⚓︎</a></h2>
+<h2 id="prepare-xapp-helm-chart"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.4</span> Prepare xApp Helm Chart<a class="headerlink" href="#prepare-xapp-helm-chart" title="Permanent link">⚓︎</a></h2>
 <p>Next, we need to prepare the xApp helm Chart. Assuming you have already edited your xApp Helm chart, locate it, and make the following edits as well. Edit the values.yaml file to point to the xApp Core Docker image, either local or global one in a Docker image repository:</p>
 <div class="highlight"><pre><span></span><code>...
 # Image settings for the xApp Core
@@ -666,14 +673,14 @@ appVersion: &lt;xapp-version&gt;
 ...
 </code></pre></div>
 <p><strong>NOTE: </strong>The appVersion refers to the version of the xApp Core Docker image, while the version field is the version of the xApp helm Chart. The version of the Helm Chart is used when deploying the xApp (so it is used as the --version flag in the helm install command, or in the Version field on the xApp Deployment page of the dRAX Dashboard).</p>
-<h2 id="package-the-helm-chart"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5</span> Package the Helm chart<a class="headerlink" href="#package-the-helm-chart" title="Permanent link">⚓︎</a></h2>
+<h2 id="package-the-helm-chart"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5</span> Package the Helm chart<a class="headerlink" href="#package-the-helm-chart" title="Permanent link">⚓︎</a></h2>
 <p>Package the Helm chart in a .tgz file using:</p>
 <div class="highlight"><pre><span></span><code>helm package /helm_chart/xapp
 </code></pre></div>
 <p>This will create the .tgz xApp Helm chart package, which will also have the version of the xApp. You can now use this .tgz file to deploy your helm chart, either by issuing the helm install command on this file (and specifying the global.kubeIp), or using the Upload Helm chart deployment method from the dRAX Dashboard.</p>
-<h2 id="optional-upload-the-xapp-helm-chart-to-a-helm-repository"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.6</span> (Optional) Upload the xApp Helm Chart to a Helm Repository<a class="headerlink" href="#optional-upload-the-xapp-helm-chart-to-a-helm-repository" title="Permanent link">⚓︎</a></h2>
+<h2 id="optional-upload-the-xapp-helm-chart-to-a-helm-repository"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.6</span> (Optional) Upload the xApp Helm Chart to a Helm Repository<a class="headerlink" href="#optional-upload-the-xapp-helm-chart-to-a-helm-repository" title="Permanent link">⚓︎</a></h2>
 <p>You can also create a Helm Chart repository, or use a pre-existing one, and add the xApp Helm Chart .tgz file to it. This way you can make it globally available. Now, from the dRAX Dashboard you can also use the Remote Helm Chart Repository deployment method for an xApp. How to create a Helm Chart repository is out of this document's scope.</p>
-<h2 id="use-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.7</span> Use xApp<a class="headerlink" href="#use-xapp" title="Permanent link">⚓︎</a></h2>
+<h2 id="use-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.7</span> Use xApp<a class="headerlink" href="#use-xapp" title="Permanent link">⚓︎</a></h2>
 <p>You can now share your xApp with the world. We recommend that you upload your xApp Core Docker image to a Docker image repository (such as Dockerhub) and make your own Helm Chart repository to expose your xApp helm Chart. This way anyone, anywhere can use your xApp if you grant them permissions.</p>
 <p>All other scenarios will either require you to copy the xApp Core Docker image to the dRAX host machine, and/or copy the xApp helm chart to the dRAX host.</p>
 </article>
@@ -687,7 +694,7 @@ appVersion: &lt;xapp-version&gt;
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Build your own xApp Dev Environment" class="md-footer__link md-footer__link--prev" href="../xapp_dev_environment/">
+<a aria-label="Previous: Build your own x/rApp Development Environment" class="md-footer__link md-footer__link--prev" href="../xapp_dev_environment/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -696,7 +703,7 @@ appVersion: &lt;xapp-version&gt;
                 Previous
               </span>
 <div class="md-ellipsis">
-                Build your own xApp Dev Environment
+                Build your own x/rApp Development Environment
               </div>
 </div>
 </a>

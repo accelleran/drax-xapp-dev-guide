@@ -103,7 +103,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../quick_guide/">
+<a class="md-tabs__link" href="../intro/">
           
   
     
@@ -181,6 +181,13 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../quick_guide/">
 <span class="md-ellipsis">
     Quick guide
@@ -207,33 +214,12 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#development-in-the-container">
+<a class="md-nav__link" href="#recommended-using-visual-studio-code-for-an-integrated-development-environment">
 <span class="md-ellipsis">
-      Development in the container
+      [RECOMMENDED] Using Visual Studio Code for an integrated development environment
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#using-ssh-to-access-container">
-<span class="md-ellipsis">
-      Using ssh to access container
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#using-local-ide-to-edit-xapp-dev-environment-files">
-<span class="md-ellipsis">
-      Using local IDE to edit xApp Dev Environment files
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#using-visual-studio-code-for-an-integrated-development-environment">
-<span class="md-ellipsis">
-      Using Visual Studio Code for an integrated development environment
-    </span>
-</a>
-<nav aria-label="Using Visual Studio Code for an integrated development environment" class="md-nav">
+<nav aria-label="[RECOMMENDED] Using Visual Studio Code for an integrated development environment" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#install-vs-code">
@@ -280,13 +266,20 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-local-ide-to-edit-xrapp-development-environment-files">
+<span class="md-ellipsis">
+      Using local IDE to edit x/rApp Development Environment files
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../xapp_dev_environment/">
 <span class="md-ellipsis">
-    Build your own xApp Dev Environment
+    Build your own x/rApp Development Environment
   </span>
 </a>
 </li>
@@ -648,30 +641,66 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="development-workflows"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.</span> Development Workflows<a class="headerlink" href="#development-workflows" title="Permanent link">⚓︎</a></h1>
-<p>The xApp Dev Environment described in the <a href="../quick_guide/#quick-guide">Quick Guide</a> section is a great way to quickly deploy the full xApp Framework, with the xApp Library in place and the xApp fully integrated into dRAX. In this section, we will explain the different workflows you can use in the development cycle.</p>
-<h2 id="development-in-the-container"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1</span> Development in the container<a class="headerlink" href="#development-in-the-container" title="Permanent link">⚓︎</a></h2>
-<p>Once the xApp Dev Environment is deployed, you can access the xApp Dev Environment container as described in the <a href="../quick_guide/#quick-guide">Quick Guide</a> section:</p>
+<h1 id="development-workflows"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.</span> Development Workflows<a class="headerlink" href="#development-workflows" title="Permanent link">⚓︎</a></h1>
+<p>The x/rApp Development Environment described in the <a href="../quick_guide/#quick-guide">Quick Guide</a> section is a great way to quickly and easily start developing x/rApps. In this section, we will explain the different workflows you can use in the development cycle. Before proceeding, you will need to deploy the x/rApp Development Environment and discover its SSH port as explained in the <a href="../quick_guide/#quick-guide">Quick Guide</a> section.</p>
+<h2 id="recommended-using-visual-studio-code-for-an-integrated-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1</span> [RECOMMENDED] Using Visual Studio Code for an integrated development environment<a class="headerlink" href="#recommended-using-visual-studio-code-for-an-integrated-development-environment" title="Permanent link">⚓︎</a></h2>
+<p>You can use Visual Studio Code to get an integrated development environment. Visual Studio Code has the "remote-ssh" extension which lets you connect to a remote ssh host, access the remote files in the user friendly text editor of VS Code, and have a terminal open to the remote host.</p>
+<h3 id="install-vs-code"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.1</span> Install VS Code<a class="headerlink" href="#install-vs-code" title="Permanent link">⚓︎</a></h3>
+<p>You can download the VS Code from: <a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></p>
+<h3 id="install-remote-ssh-in-vs-code"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.2</span> Install Remote-SSH in VS Code<a class="headerlink" href="#install-remote-ssh-in-vs-code" title="Permanent link">⚓︎</a></h3>
+<p>You need to install the remote-ssh extension in VS Code, and configure it to connect to your x/rApp Development Environment (taking into account the ssh password and port used).</p>
+<p>In the left hand menu, select the Extensions tab. Search for Remote-SSH and install the extension.</p>
+<h3 id="adding-the-xapp-dev-environment-as-new-ssh-host"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.3</span> Adding the xApp Dev Environment as new SSH host<a class="headerlink" href="#adding-the-xapp-dev-environment-as-new-ssh-host" title="Permanent link">⚓︎</a></h3>
+<p>Next, click F1 on the keyboard to open the Command Pallete (or VSCode -&gt; View -&gt; Command Palette). Now start typing "remote-ssh add new" and select the option that appears: "Remote-SSH: Add New SSH Host…".</p>
+<p>Follow the instruction to enter the ssh command:</p>
+<div class="highlight"><pre><span></span><code>ssh -p &lt;xapp-dev-ssh&gt; xapp@&lt;drax-ip-address&gt;
+</code></pre></div>
+<p>You will be asked to supply a ssh config file. Since we will use the password for ssh, you can just pick the default one. Or if you know what you are doing, you can create or select your ssh config file.</p>
+<h3 id="connecting-to-xapp-dev-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.4</span> Connecting to xApp Dev Environment<a class="headerlink" href="#connecting-to-xapp-dev-environment" title="Permanent link">⚓︎</a></h3>
+<p>You can now find the newly added host, your x/rApp Development Environment, in the “Remote Explorer” tab on the left. You will see the host and can click on it to connect. You will be asked for the ssh password in the process (you might be asked for the ssh password a couple of times which is normal).</p>
+<h3 id="adding-a-ssh-key-to-the-xapp-dev-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.5</span> Adding a SSH key to the xApp Dev Environment<a class="headerlink" href="#adding-a-ssh-key-to-the-xapp-dev-environment" title="Permanent link">⚓︎</a></h3>
+<p>You can of course add your public ssh key to the x/rApp Development Environment and then use that in the ssh config file of VS Code Remote-SSH, which makes the connection process easier. Of course you have to keep in mind that once the x/rApp Development Environment is deleted, all your data in the x/rApp Development Environment including the ssh key will be deleted. When deploying a new x/rApp Development Environment, you have to set up the ssh key again.</p>
+<h3 id="troubleshooting"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.6</span> Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">⚓︎</a></h3>
+<p>There is a known issue if you try to connect to the remote x/rApp Development Environment using the remote-ssh extension in VS Code. When you try to connect, you can get an error message:</p>
+<p>“Could not establish connection to “10.8.0.1”: Downloading VS Code Server failed - please install either curl or wget on the remote”</p>
+<p>To resolve it, you need to kill the VS Code server on the remote using the following command:</p>
+<p>VSCode -&gt; View -&gt; Command Palette -&gt; input "remote" -&gt; Select Remote-SSH: Kill VS Code Server on Host…</p>
+<p>You can then select the IP address of your x/rApp Development Environment, and will be required to enter the ssh password. Once the process completes, reconnect to the remote ssh again and it should work this time.</p>
+<!-- ## Development in the container
+
+The x/rApp Development Environment can be accessed the xApp Dev Environment container as described in the [Quick Guide](quick_guide.md#quick-guide) section:
+
 <div class="highlight"><pre><span></span><code>kubectl exec -it &lt;pod_name&gt; -- /bin/bash
 </code></pre></div>
-<p>As part of the xApp Dev Environment, we have pre-installed tools such as:</p>
-<ul>
-<li>vim</li>
-<li>nano</li>
-<li>Git</li>
-</ul>
-<p>You are of course free to install any additional packages. This initial set should be enough to get you started in editing the xApp python files and backing up your code to Git. You can start the xApp by running:</p>
+
+As part of the xApp Dev Environment, we have pre-installed tools such as:
+
+* vim
+* nano
+* Git
+
+You are of course free to install any additional packages. This initial set should be enough to get you started in editing the xApp python files and backing up your code to Git. You can start the xApp by running:
+
 <div class="highlight"><pre><span></span><code>python3 xapp_main.py
+~~~ --&gt;
+
+## Using simple ssh to access the x/rApp Development Environment
+
+As described in the [Quick Guide](quick_guide.md#quick-guide) section, you can use SSH to access your x/rApp Development Environment:
+
+    ssh -p &lt;xapp-dev-ssh&gt; xapp@&lt;drax-ip-address&gt;
+
+Using the -p option, you can specify the SSH port, which we discvered in the previous step. The username in the x/rApp Development Environment is always **xapp**, and you have to connect to the IP address where your dRAX RIC, or specifically your x/rApp, is running.
+
+&lt;!-- First, discover which port is used on the host machine as the ssh port for your xApp Dev environment. You can do this by going to the dRAX Dashboard and navigating to **xApps Management -&gt; Overview**. Find you xApp Dev Environment, and click the **Show** button under the **Services** column. You should see multiple services associated with your xApp, one of which should be the **dev-ssh** service. You will find the port on which this service is exposed under the **NodePort** column (it will be in the range of 30 000 - 32 000). You can now ssh into your xApp Dev Environment by using the IP of the dRAX host machine, the dev-ssh service nodePort, and the SSH Password set during the deployment of the xApp Dev Environment:
 </code></pre></div>
-<h2 id="using-ssh-to-access-container"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2</span> Using ssh to access container<a class="headerlink" href="#using-ssh-to-access-container" title="Permanent link">⚓︎</a></h2>
-<p>If for any reason you don’t have access to the dRAX host machine or the kubectl command, you can also access the xApp Dev Environment using ssh. First, discover which port is used on the host machine as the ssh port for your xApp Dev environment. You can do this by going to the dRAX Dashboard and navigating to <strong>xApps Management -&gt; Overview</strong>. Find you xApp Dev Environment, and click the <strong>Show</strong> button under the <strong>Services</strong> column. You should see multiple services associated with your xApp, one of which should be the <strong>dev-ssh</strong> service. You will find the port on which this service is exposed under the <strong>NodePort</strong> column (it will be in the range of 30 000 - 32 000). You can now ssh into your xApp Dev Environment by using the IP of the dRAX host machine, the dev-ssh service nodePort, and the SSH Password set during the deployment of the xApp Dev Environment:</p>
-<div class="highlight"><pre><span></span><code>ssh -p &lt;dev-ssh-nodeport&gt; xapp@&lt;drax-host-ip&gt;
+ssh -p <dev-ssh-nodeport> xapp@<drax-host-ip>
+<div class="highlight"><pre><span></span><code>You now have access to the python files in the xApp Core which are located in _/home/xapp/xapp_core _inside the container. You can edit the python files and start the xApp as normal using:
 </code></pre></div>
-<p>You now have access to the python files in the xApp Core which are located in _/home/xapp/xapp_core _inside the container. You can edit the python files and start the xApp as normal using:</p>
-<div class="highlight"><pre><span></span><code>python3 xapp_main.py
-</code></pre></div>
-<h2 id="using-local-ide-to-edit-xapp-dev-environment-files"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.3</span> Using local IDE to edit xApp Dev Environment files<a class="headerlink" href="#using-local-ide-to-edit-xapp-dev-environment-files" title="Permanent link">⚓︎</a></h2>
-<p>As an xApp developer, it is often easier to develop the xApp in an IDE or user-friendly text editor. You may use a tool called sshfs to mount the files from the xApp Dev Environment container onto your local machine. This way you can edit the files locally in any text editor you want, and the changes will also take effect in the dRAX Dev Environment. Of course, you still need to access the xApp Dev Environment of ssh into it to actually start or stop the xApp!</p>
+python3 xapp_main.py
+~~~ -->
+<h2 id="using-local-ide-to-edit-xrapp-development-environment-files"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2</span> Using local IDE to edit x/rApp Development Environment files<a class="headerlink" href="#using-local-ide-to-edit-xrapp-development-environment-files" title="Permanent link">⚓︎</a></h2>
+<p>As an x/rApp Developer, it is often easier to develop the xApp in an IDE or user-friendly text editor. You may use a tool called sshfs to mount the files from the x/rApp Development Environment onto your local machine. This way you can edit the files locally in any text editor you want, and the changes will also take effect in the x/rApp Development Environment. Of course, you still need to access the x/rApp Development Environment using ssh to actually start or stop the x/rApp!</p>
 <p>You can install sshfs using the following command:</p>
 <div class="highlight"><pre><span></span><code>sudo apt install -y sshfs
 </code></pre></div>
@@ -679,33 +708,9 @@
 <div class="highlight"><pre><span></span><code>mkdir /path/to/xapp-dev-file
 </code></pre></div>
 <p>Finally use the sshfs command to mount the files:</p>
-<div class="highlight"><pre><span></span><code>sshfs -p &lt;dev-ssh-node-port&gt; xapp@&lt;drax-host-ip&gt;:/home/xapp/xapp_core /path/to/xapp-dev-files
+<div class="highlight"><pre><span></span><code>sshfs -p &lt;xapp-dev-ssh&gt; xapp@&lt;drax-ip-address&gt;:/home/xapp /path/to/xapp-dev-files
 </code></pre></div>
-<p>The xapp_core files will now be available in the "xapp-dev-files" folder you just created.</p>
-<p><strong>NOTE:</strong> You still have to access the xApp Development Environment via kubectl or ssh into it in order to run the actual xApp with the "python3 xapp_main.py" command.</p>
-<h2 id="using-visual-studio-code-for-an-integrated-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4</span> Using Visual Studio Code for an integrated development environment<a class="headerlink" href="#using-visual-studio-code-for-an-integrated-development-environment" title="Permanent link">⚓︎</a></h2>
-<p>You can use Visual Studio Code to get an integrated development environment. Visual Studio Code has the "remote-ssh" extension which lets you connect to a remote ssh host, access the remote files in the user friendly text editor of VS Code, and have a terminal open to the remote host.</p>
-<h3 id="install-vs-code"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4.1</span> Install VS Code<a class="headerlink" href="#install-vs-code" title="Permanent link">⚓︎</a></h3>
-<p>You can download the VS Code from: <a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></p>
-<h3 id="install-remote-ssh-in-vs-code"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4.2</span> Install Remote-SSH in VS Code<a class="headerlink" href="#install-remote-ssh-in-vs-code" title="Permanent link">⚓︎</a></h3>
-<p>You need to install the remote-ssh extension in VS Code, and configure it to connect to your xApp Dev Environment (taking into account the ssh password and port used).</p>
-<p>In the left hand menu, select the Extensions tab. Search for Remote-SSH and install the extension.</p>
-<h3 id="adding-the-xapp-dev-environment-as-new-ssh-host"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4.3</span> Adding the xApp Dev Environment as new SSH host<a class="headerlink" href="#adding-the-xapp-dev-environment-as-new-ssh-host" title="Permanent link">⚓︎</a></h3>
-<p>Next, click F1 on the keyboard to open the Command Pallete (or VSCode -&gt; View -&gt; Command Palette). Now start typing "remote-ssh add new" and select the option that appears: "Remote-SSH: Add New SSH Host…".</p>
-<p>Follow the instruction to enter the ssh command:</p>
-<div class="highlight"><pre><span></span><code>ssh -p &lt;dev-ssh-port&gt; xapp@&lt;drax-host-ip&gt;
-</code></pre></div>
-<p>You will be asked to supply a ssh config file. Since we will use the password for ssh, you can just pick the default one. Or if you know what you are doing, you can create or select your ssh config file.</p>
-<h3 id="connecting-to-xapp-dev-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4.4</span> Connecting to xApp Dev Environment<a class="headerlink" href="#connecting-to-xapp-dev-environment" title="Permanent link">⚓︎</a></h3>
-<p>You can now find the newly added host, or your xApp Dev Environment, in the “Remote Explorer” tab on the left. You will see the host and can click on it to connect. You will be asked for the ssh password in the process (you might be asked for the ssh password a couple of times which is normal).</p>
-<h3 id="adding-a-ssh-key-to-the-xapp-dev-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4.5</span> Adding a SSH key to the xApp Dev Environment<a class="headerlink" href="#adding-a-ssh-key-to-the-xapp-dev-environment" title="Permanent link">⚓︎</a></h3>
-<p>You can of course add your public ssh key to the xApp Dev Environment and then use that in the ssh config file of VS Code Remote-SSH, which makes the connection process easier. Of course you have to keep in mind that once the xApp Dev environment is deleted, all your data in the xApp Dev Environment including the ssh key will be deleted. When deploying a new xApp Dev Environment, you have to set up the ssh key again.</p>
-<h3 id="troubleshooting"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4.6</span> Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">⚓︎</a></h3>
-<p>There is a known issue if you try to connect to the remote xApp Dev Environment using the remote-ssh extension in VS Code. When you try to connect, you can get an error message:</p>
-<p>“Could not establish connection to “10.8.0.1”: Downloading VS Code Server failed - please install either curl or wget on the remote”</p>
-<p>To resolve it, you need to kill the VS Code server on the remote using the following command:</p>
-<p>VSCode -&gt; View -&gt; Command Palette -&gt; input "remote" -&gt; Select Remote-SSH: Kill VS Code Server on Host…</p>
-<p>You can then select the IP address of your xApp Dev Environment, and will be required to enter the ssh password. Once the process completes, reconnect to the remote ssh again and it should work this time.</p>
+<p>The x/rApp files will now be available in the "xapp-dev-files" folder you just created. You of course still have to SSH into the x/rApp Development Environment to start and sto pyour x/rApp as described in the <a href="./#using-simple-ssh-to-access-the-xrapp-development-environment">Using simple ssh to access the x/rApp Development Environment</a> section.</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -730,13 +735,13 @@
               </div>
 </div>
 </a>
-<a aria-label="Next: Build your own xApp Dev Environment" class="md-footer__link md-footer__link--next" href="../xapp_dev_environment/">
+<a aria-label="Next: Build your own x/rApp Development Environment" class="md-footer__link md-footer__link--next" href="../xapp_dev_environment/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Build your own xApp Dev Environment
+                Build your own x/rApp Development Environment
               </div>
 </div>
 <div class="md-footer__button md-icon">

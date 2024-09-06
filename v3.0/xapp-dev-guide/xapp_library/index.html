@@ -103,7 +103,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../quick_guide/">
+<a class="md-tabs__link" href="../intro/">
           
   
     
@@ -181,6 +181,13 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../quick_guide/">
 <span class="md-ellipsis">
     Quick guide
@@ -197,7 +204,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../xapp_dev_environment/">
 <span class="md-ellipsis">
-    Build your own xApp Dev Environment
+    Build your own x/rApp Development Environment
   </span>
 </a>
 </li>
@@ -898,8 +905,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="xapp-library-in-depth"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.</span> xApp Library In-depth<a class="headerlink" href="#xapp-library-in-depth" title="Permanent link">⚓︎</a></h1>
-<h2 id="xapp-library-overview"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.1</span> xApp Library Overview<a class="headerlink" href="#xapp-library-overview" title="Permanent link">⚓︎</a></h2>
+<h1 id="xapp-library-in-depth"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.</span> xApp Library In-depth<a class="headerlink" href="#xapp-library-in-depth" title="Permanent link">⚓︎</a></h1>
+<h2 id="xapp-library-overview"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.1</span> xApp Library Overview<a class="headerlink" href="#xapp-library-overview" title="Permanent link">⚓︎</a></h2>
 <p>The xApp Library is a library written in Python which is used by developers to implement their own new functionalities and/or services on the dRAX RIC. The xApp Library abstracts the interfaces towards the dRAX RIC, allowing developers to use these interfaces in an easy-to-use way. The xApp Library connects multiple components using its interfaces such as:</p>
 <ol>
 <li>The logic as implemented by the developer</li>
@@ -907,9 +914,9 @@
 <li>The REST API</li>
 <li>The configuration and settings</li>
 </ol>
-<h2 id="overview-of-the-xapp-interactions-with-the-ric"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.2</span> Overview of the xApp interactions with the RIC<a class="headerlink" href="#overview-of-the-xapp-interactions-with-the-ric" title="Permanent link">⚓︎</a></h2>
+<h2 id="overview-of-the-xapp-interactions-with-the-ric"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.2</span> Overview of the xApp interactions with the RIC<a class="headerlink" href="#overview-of-the-xapp-interactions-with-the-ric" title="Permanent link">⚓︎</a></h2>
 <p>Once an xApp is deployed into dRAX it can interact with all the components present in the system. Currently, there are two main ways to achieve this: via the dRAX Databus or via the REST APIs. Depending on the use case, a developer can choose which communication method fits their need best. The use of the dRAX Databus is encouraged in scenarios where xApps need to access RAN data, exchange real-time data or issue commands via the Action Taker. The use of the REST APIs is best for non-real-time information gathering or for utilizing the Netconf functionalities exposed by the dRAX REST API Gateway. The xAPP interaction with the cells can happen either via the REST API or via direct Netconf sessions to the corresponding Netconf servers.</p>
-<h2 id="the-xapp-structure-and-conventions"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.3</span> The xApp Structure and Conventions<a class="headerlink" href="#the-xapp-structure-and-conventions" title="Permanent link">⚓︎</a></h2>
+<h2 id="the-xapp-structure-and-conventions"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.3</span> The xApp Structure and Conventions<a class="headerlink" href="#the-xapp-structure-and-conventions" title="Permanent link">⚓︎</a></h2>
 <p>When creating a new Python xApp, we recommend the following structure:</p>
 <div class="highlight"><pre><span></span><code>root/
   setup.cfg
@@ -930,7 +937,7 @@
 <li>The config folder contains various configuration files meant to be provided at runtime. This means the folder will usually not exist and not be added to the version tracking system, as its contents are created by the xApp Helm Chart.</li>
 </ul>
 <p>An example of this can be found in the <em>example</em> subfolder of the repository, along with some basic usage in <em>example/core/xapp_main.py</em>.</p>
-<h2 id="the-xapp-builder"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.4</span> The xApp Builder<a class="headerlink" href="#the-xapp-builder" title="Permanent link">⚓︎</a></h2>
+<h2 id="the-xapp-builder"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.4</span> The xApp Builder<a class="headerlink" href="#the-xapp-builder" title="Permanent link">⚓︎</a></h2>
 <p>For convenience an xApp Builder class has been added. An example of how its used can be found in the _example/core/xapp_main/.py _example xApp in the xApp Framework repository:</p>
 <div class="highlight"><pre><span></span><code>builder = xapp_lib.XAppBuilder("..", absolute=False)
     builder.metadata("core/xapp_metadata.json")
@@ -950,7 +957,7 @@
 <p>Next, the xapp_endpoints.json and xapp-config.json files can be loaded. Note that these files are created by the xApp Helm Chart as on deployment time configuration options, hence they are located in the root/config folder.</p>
 <p>The xApp Builder then can load the README.md documentation file. Finally, if the xApp developer has created custom API endpoints in the root/core/restapi.py file, the APIs can be initiated by the xApp Builder as described above in the example code (providing their API endpoint and callback function).</p>
 <p>Do note that the builder only registers paths and configuration, and thus any errors about missing files etc will only be thrown during the builder.build() call.</p>
-<h2 id="drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.5</span> dRAX RIC Databus<a class="headerlink" href="#drax-ric-databus" title="Permanent link">⚓︎</a></h2>
+<h2 id="drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.5</span> dRAX RIC Databus<a class="headerlink" href="#drax-ric-databus" title="Permanent link">⚓︎</a></h2>
 <p>The data from the dRAX RIC Databus comes in through the Kafka object, which automatically takes care of properly setting up and configuring a Kafka client. Note that this object is a singleton created and owned by the xApp library object itself, and calling the .kafka() method multiple times will result in the same object being returned every time, which is why the following code works:</p>
 <div class="highlight"><pre><span></span><code>xapp.kafka().subscribe(["topic"])
 (topic, data) = xapp.kafka().recv_data()
@@ -971,13 +978,13 @@ logging.debug("dRAX Databus message on {topic}: {data}".format(topic=topic, data
 </code></pre></div>
 <p>The 4G and 5G RAN data that is available on the dRAX Databus is described in a separate document that can be accessed via the following link:</p>
 <p><a href="https://docs.google.com/document/u/1/d/e/2PACX-1vTmZjYiThXivi03Td_1LXjQVldAO_7AXqnVwc0Qe-uFCT16tKH6EBF2OTOhiZ0SFw/pub">https://docs.google.com/document/u/1/d/e/2PACX-1vTmZjYiThXivi03Td_1LXjQVldAO_7AXqnVwc0Qe-uFCT16tKH6EBF2OTOhiZ0SFw/pub</a></p>
-<h2 id="drax-nats-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.6</span> dRAX NATS Databus<a class="headerlink" href="#drax-nats-databus" title="Permanent link">⚓︎</a></h2>
+<h2 id="drax-nats-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.6</span> dRAX NATS Databus<a class="headerlink" href="#drax-nats-databus" title="Permanent link">⚓︎</a></h2>
 <p>Connecting to the dRAX NATS Databus is nearly identical to connecting to the dRAX RIC Databus. The only difference is the xApp method call and the use of NATS_URL instead of KAFKA_URL:</p>
 <div class="highlight"><pre><span></span><code>xapp.nats().subscribe(["topic"])
 (topic, data) = xapp.nats().recv_data()
 </code></pre></div>
-<h2 id="drax-commands"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7</span> dRAX Commands<a class="headerlink" href="#drax-commands" title="Permanent link">⚓︎</a></h2>
-<h3 id="handover"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.1</span> Handover<a class="headerlink" href="#handover" title="Permanent link">⚓︎</a></h3>
+<h2 id="drax-commands"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7</span> dRAX Commands<a class="headerlink" href="#drax-commands" title="Permanent link">⚓︎</a></h2>
+<h3 id="handover"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.1</span> Handover<a class="headerlink" href="#handover" title="Permanent link">⚓︎</a></h3>
 <p>From the xApp you can issue two types of handover commands on the dRAX NATS Databus:</p>
 <ol>
 <li>
@@ -989,7 +996,7 @@ logging.debug("dRAX Databus message on {topic}: {data}".format(topic=topic, data
 </ol>
 <p>These are both defined inside the xapp_lib.actions module.</p>
 <p><strong>NOTE:</strong> As the commands are sent over the dRAX NATS Databus, the NATS client should be set up in the xApp as described in the <a href="#drax-nats-databus">dRAX NATS Databus</a> section.</p>
-<h4 id="4g-lte-handover-command"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.1.1</span> 4G LTE Handover command<a class="headerlink" href="#4g-lte-handover-command" title="Permanent link">⚓︎</a></h4>
+<h4 id="4g-lte-handover-command"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.1.1</span> 4G LTE Handover command<a class="headerlink" href="#4g-lte-handover-command" title="Permanent link">⚓︎</a></h4>
 <p>dRAX enables you to issue a handover command for a set of UEs in an LTE environment from source cells to target cells. In the <em>example/core/xapp_main.py</em> example of the xApp Framework we show this in Example 4a.</p>
 <div class="highlight"><pre><span></span><code>### Example 4a: Send handover command (LTE)
 handover_list = [
@@ -1038,7 +1045,7 @@ actions.trigger_handover(xapp.nats(), handover_list)
 }
 </code></pre></div>
 <p>The UniqueRicId field from a UEMeasurement can be matched with the ueDraxId field from a L2 Stats message. Then the cell along with its information relating to the UE can be matched using the CELL field from the corresponding L2 Stats message.</p>
-<h4 id="5g-nr-handover-command-and-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.1.2</span> 5G NR Handover command and response<a class="headerlink" href="#5g-nr-handover-command-and-response" title="Permanent link">⚓︎</a></h4>
+<h4 id="5g-nr-handover-command-and-response"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.1.2</span> 5G NR Handover command and response<a class="headerlink" href="#5g-nr-handover-command-and-response" title="Permanent link">⚓︎</a></h4>
 <details class="note">
 <summary>Supported CU Versions</summary>
 <p>This command is supported since CU 4.2, used by default from RIC 6.5.0.</p>
@@ -1120,7 +1127,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
     timestamp, transaction_id, requestor_id = actions.parse_ran_control_response(data)
 </code></pre></div>
 <p>The actions.parse_ran_control_response function will return the time the message was generated, the requestor_id (which is the xapp.id), and also the transaction_id so the response can be matched with the transaction_id returned by the actions.trigger_handover function from Example 4b.</p>
-<h3 id="ue-admission-control"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2</span> UE Admission Control<a class="headerlink" href="#ue-admission-control" title="Permanent link">⚓︎</a></h3>
+<h3 id="ue-admission-control"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.2</span> UE Admission Control<a class="headerlink" href="#ue-admission-control" title="Permanent link">⚓︎</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Supported CU Versions</p>
 <p>This command is supported since CU 4.3 used by default from RIC 7.0.0.</p>
@@ -1130,7 +1137,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <p>If a UE is accepted by dRAX RIC, the dRAX RIC will be notified when the UE information is updated or when the UE state changes.</p>
 <p>This proactive management helps prevent network congestion and ensures optimal resource allocation.</p>
 <p>Hence, it plays a crucial role in maintaining network performance, quality of service, and resource efficiency within the radio access network.</p>
-<h4 id="prerequisite"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.1</span> Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">⚓︎</a></h4>
+<h4 id="prerequisite"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.2.1</span> Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">⚓︎</a></h4>
 <p>To be able to activate this feature within dRAX RIC, some prerequisite configuration must be performed.</p>
 <div class="admonition danger">
 <p class="admonition-title">UE Admission Control prerequisite</p>
@@ -1139,7 +1146,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <p>The <strong><em>ricUeAdmissionControlEnabled</em></strong> flag can be set using the dRAX Dashboard in the CU-CP feature configuration section or via the dRAX API.</p>
 <p>Once activated, the incoming UE admission request will be forwarded from the CU to the dRAX RIC and thus, will allow the dRAX RIC to have control over UE admission decisions.</p>
 </div>
-<h4 id="receive-messages-on-nats"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.2</span> Receive messages on NATS<a class="headerlink" href="#receive-messages-on-nats" title="Permanent link">⚓︎</a></h4>
+<h4 id="receive-messages-on-nats"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.2.2</span> Receive messages on NATS<a class="headerlink" href="#receive-messages-on-nats" title="Permanent link">⚓︎</a></h4>
 <p>From the xApp point-of-view, the application should listen the following subjects on NATS:</p>
 <ul>
 <li>*.UE-ADMISSION-REQUEST subject is used to be notified when a CU requests admission of a UE to the dRAX RIC</li>
@@ -1164,7 +1171,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <p>Then, the xApp can read the UE Admission Control messages from the dRAX RIC NATS Databus:
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">=</span> <span class="n">xapp</span><span class="o">.</span><span class="n">nats</span><span class="p">()</span><span class="o">.</span><span class="n">recv_data</span><span class="p">()</span>
 </code></pre></div></p>
-<h4 id="ue-admission-request-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.3</span> UE Admission Request messages<a class="headerlink" href="#ue-admission-request-messages" title="Permanent link">⚓︎</a></h4>
+<h4 id="ue-admission-request-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.2.3</span> UE Admission Request messages<a class="headerlink" href="#ue-admission-request-messages" title="Permanent link">⚓︎</a></h4>
 <p>When a new message is received on NATS, it is necessary to parse the message with the help of the topic field.</p>
 <p>Depending on which topic the message arrives, the processing will have to be different.</p>
 <div class="admonition example">
@@ -1192,7 +1199,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <span class="n">DuUeId</span><span class="p">:</span> <span class="mi">1</span>
 </code></pre></div>
 <p>Message reference: <a href="../../message_references/5G/4.3/nats/#ueadmissionrequestdata">UeAdmissionRequestData</a></p>
-<h5 id="accept-ue-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.3.1</span> Accept UE Admission<a class="headerlink" href="#accept-ue-admission" title="Permanent link">⚓︎</a></h5>
+<h5 id="accept-ue-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.2.3.1</span> Accept UE Admission<a class="headerlink" href="#accept-ue-admission" title="Permanent link">⚓︎</a></h5>
 <p>The Accept UE Admission command is the decision made by dRAX RIC to allow a specific UE to access the 5G network.</p>
 <p>Once the <strong><em>ue_admission_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to accept the new UE.</p>
 <div class="admonition example">
@@ -1208,7 +1215,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <p class="admonition-title">Note</p>
 <p>After a UE has been accepted, it is the responsibility of the xApp to keep track about the list of accepted / rejected UEs</p>
 </div>
-<h5 id="reject-ue-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.3.2</span> Reject UE Admission<a class="headerlink" href="#reject-ue-admission" title="Permanent link">⚓︎</a></h5>
+<h5 id="reject-ue-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.2.3.2</span> Reject UE Admission<a class="headerlink" href="#reject-ue-admission" title="Permanent link">⚓︎</a></h5>
 <p>The Reject UE Admission command is the decision made by dRAX RIC to deny a specific UE to access the 5G network.</p>
 <p>Once the <strong><em>ue_admission_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to reject the new UE.</p>
 <div class="admonition example">
@@ -1220,9 +1227,9 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
   <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rejection of UE </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<h4 id="control-admitted-ue"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.4</span> Control Admitted UE<a class="headerlink" href="#control-admitted-ue" title="Permanent link">⚓︎</a></h4>
+<h4 id="control-admitted-ue"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.2.4</span> Control Admitted UE<a class="headerlink" href="#control-admitted-ue" title="Permanent link">⚓︎</a></h4>
 <p>Once the UE is admitted by dRAX RIC, the xApp will be able to receive notifications about the admitted UEs state.</p>
-<h5 id="ue-update-indication"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.4.1</span> UE Update Indication<a class="headerlink" href="#ue-update-indication" title="Permanent link">⚓︎</a></h5>
+<h5 id="ue-update-indication"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.2.4.1</span> UE Update Indication<a class="headerlink" href="#ue-update-indication" title="Permanent link">⚓︎</a></h5>
 <p>The UE Update Indication message is a notification received by dRAX RIC when the state of an admitted UE changes or is updated.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -1262,7 +1269,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <span class="p">}</span>
 </code></pre></div>
 <p>Message reference: <a href="../../message_references/5G/4.3/nats/#ueinfoupdateindicationdata">UeInfoUpdateIndicationData</a></p>
-<h5 id="ue-release-indication"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.4.2</span> UE Release Indication<a class="headerlink" href="#ue-release-indication" title="Permanent link">⚓︎</a></h5>
+<h5 id="ue-release-indication"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.2.4.2</span> UE Release Indication<a class="headerlink" href="#ue-release-indication" title="Permanent link">⚓︎</a></h5>
 <p>The UE Release Indication message is a notification received by dRAX RIC when the communication with a UE terminates.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -1280,7 +1287,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <span class="n">RanUeId</span><span class="p">:</span> <span class="mi">1</span> <span class="c1"># Available if known</span>
 </code></pre></div>
 <p>Message reference: <a href="../../message_references/5G/4.3/nats/#uereleaseindicationdata">UeReleaseIndicationData</a></p>
-<h5 id="ue-context-release"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.2.4.3</span> UE Context release<a class="headerlink" href="#ue-context-release" title="Permanent link">⚓︎</a></h5>
+<h5 id="ue-context-release"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.2.4.3</span> UE Context release<a class="headerlink" href="#ue-context-release" title="Permanent link">⚓︎</a></h5>
 <p>The UE Context Release command is the decision made by dRAX RIC to terminate the session of a specific UE within the 5G network.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -1292,7 +1299,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
   <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Release context of UE </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">ue_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<h3 id="pdu-admission-control"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3</span> PDU Admission Control<a class="headerlink" href="#pdu-admission-control" title="Permanent link">⚓︎</a></h3>
+<h3 id="pdu-admission-control"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.3</span> PDU Admission Control<a class="headerlink" href="#pdu-admission-control" title="Permanent link">⚓︎</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Supported CU Versions</p>
 <p>This command is supported since CU 4.3 used by default from RIC 7.0.0.</p>
@@ -1304,7 +1311,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <p>This dynamic control allows for efficient utilization of network resources and ensures that the network can handle the traffic in a way that meets the specified performance criteria.</p>
 <p>The PDU admission feature is essential for maintaining a balance between network efficiency and quality of service, especially in environments with varying traffic loads and changing network conditions.</p>
 <p>Hence, the PDU admission control allows the dRAX RIC to adapt in real-time to the demands of different services and applications, providing an intelligent and flexible approach to managing data flows in the O-RAN architecture.</p>
-<h4 id="prerequisite_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.1</span> Prerequisite<a class="headerlink" href="#prerequisite_1" title="Permanent link">⚓︎</a></h4>
+<h4 id="prerequisite_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.3.1</span> Prerequisite<a class="headerlink" href="#prerequisite_1" title="Permanent link">⚓︎</a></h4>
 <p>To be able to activate this feature within dRAX RIC, some prerequisite configuration must be performed.</p>
 <div class="admonition danger">
 <p class="admonition-title">PDU Admission Control prerequisite</p>
@@ -1314,7 +1321,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <p>Both the <strong><em>ricUeAdmissionControlEnabled</em></strong> and <strong><em>ricPduAdmissionControlEnabled</em></strong> flags can be set using the dRAX Dashboard in the CU-CP feature configuration section or via the dRAX API.</p>
 <p>Once activated, the incoming UE admission request and PDU admission request will be forwarded from the CU to the dRAX RIC and thus, will allow the dRAX RIC to have control over UE admission decisions and PDU admission decisions.</p>
 </div>
-<h4 id="receive-messages-on-nats_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.2</span> Receive messages on NATS<a class="headerlink" href="#receive-messages-on-nats_1" title="Permanent link">⚓︎</a></h4>
+<h4 id="receive-messages-on-nats_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.3.2</span> Receive messages on NATS<a class="headerlink" href="#receive-messages-on-nats_1" title="Permanent link">⚓︎</a></h4>
 <p>From the xApp point-of-view, the application should listen the following subjects on NATS:</p>
 <ul>
 <li>*.PDU-SESSION-ADM-REQ subject is used to be notified when an accepted UE requests permission from the dRAX RIC to establish a PDU session</li>
@@ -1339,7 +1346,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <p>Then, the xApp can read the PDU Admission Control messages from the dRAX RIC NATS Databus:
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">=</span> <span class="n">xapp</span><span class="o">.</span><span class="n">nats</span><span class="p">()</span><span class="o">.</span><span class="n">recv_data</span><span class="p">()</span>
 </code></pre></div></p>
-<h4 id="pdu-session-admission-request-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.3</span> PDU Session Admission Request messages<a class="headerlink" href="#pdu-session-admission-request-messages" title="Permanent link">⚓︎</a></h4>
+<h4 id="pdu-session-admission-request-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.3.3</span> PDU Session Admission Request messages<a class="headerlink" href="#pdu-session-admission-request-messages" title="Permanent link">⚓︎</a></h4>
 <p>When a new message is received on NATS, it is necessary to parse the message with the help of the topic field.</p>
 <p>Depending on which topic the message arrives, the processing will have to be different.</p>
 <div class="admonition example">
@@ -1406,7 +1413,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <span class="p">}</span>
 </code></pre></div>
 <p>Message reference: <a href="../../message_references/5G/4.3/nats/#pdusessionadmissionrequestdata">PduSessionAdmissionRequestData</a></p>
-<h5 id="accept-pdu-session-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.3.1</span> Accept PDU Session Admission<a class="headerlink" href="#accept-pdu-session-admission" title="Permanent link">⚓︎</a></h5>
+<h5 id="accept-pdu-session-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.3.3.1</span> Accept PDU Session Admission<a class="headerlink" href="#accept-pdu-session-admission" title="Permanent link">⚓︎</a></h5>
 <p>The Accept PDU Session Admission command is the decision made by dRAX RIC to allow a specific PDU session to be set.</p>
 <p>Once the <strong><em>pdu_session_admission_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to accept the new PDU session.</p>
 <div class="admonition example">
@@ -1418,7 +1425,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
   <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Admission of PDU session </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<h5 id="reject-pdu-session-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.3.2</span> Reject PDU Session Admission<a class="headerlink" href="#reject-pdu-session-admission" title="Permanent link">⚓︎</a></h5>
+<h5 id="reject-pdu-session-admission"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.3.3.2</span> Reject PDU Session Admission<a class="headerlink" href="#reject-pdu-session-admission" title="Permanent link">⚓︎</a></h5>
 <p>The Reject PDU Session Admission command is the decision made by dRAX RIC to deny a specific PDU session to be set.</p>
 <p>Once the <strong><em>pdu_session_admission_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to reject the new PDU session.</p>
 <div class="admonition example">
@@ -1430,7 +1437,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
   <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rejection of PDU session </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<h4 id="pdu-session-modification-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.4</span> PDU Session Modification messages<a class="headerlink" href="#pdu-session-modification-messages" title="Permanent link">⚓︎</a></h4>
+<h4 id="pdu-session-modification-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.3.4</span> PDU Session Modification messages<a class="headerlink" href="#pdu-session-modification-messages" title="Permanent link">⚓︎</a></h4>
 <p>When a new message is received on NATS, it is necessary to parse the message with the help of the topic field.</p>
 <p>Depending on which topic the message arrives, the processing will have to be different.</p>
 <div class="admonition example">
@@ -1443,7 +1450,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <p>The <strong><em>pdu_session_modification_request_message</em></strong> function is used to decode encoded messages received on the <strong><em>PDU-SESSION-MOD-REQ</em></strong> subject.</p>
 <p>It takes as argument the encoded message and will return a decoded object.</p>
 <p>Message reference: <a href="../../message_references/5G/4.3/nats/#pdusessionmodificationrequestdata">PduSessionModificationRequestData</a></p>
-<h5 id="accept-pdu-session-modification"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.4.1</span> Accept PDU Session Modification<a class="headerlink" href="#accept-pdu-session-modification" title="Permanent link">⚓︎</a></h5>
+<h5 id="accept-pdu-session-modification"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.3.4.1</span> Accept PDU Session Modification<a class="headerlink" href="#accept-pdu-session-modification" title="Permanent link">⚓︎</a></h5>
 <p>The Accept PDU Session Modification command is the decision made by dRAX RIC to accept a specific PDU session to be set.</p>
 <p>Once the <strong><em>pdu_session_modification_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to accept the new PDU session.</p>
 <div class="admonition example">
@@ -1455,7 +1462,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
   <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Admission of PDU session modification </span><span class="si">{</span><span class="n">pdu_session_mod_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_mod_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<h5 id="reject-pdu-session-modification"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.4.2</span> Reject PDU Session Modification<a class="headerlink" href="#reject-pdu-session-modification" title="Permanent link">⚓︎</a></h5>
+<h5 id="reject-pdu-session-modification"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.3.4.2</span> Reject PDU Session Modification<a class="headerlink" href="#reject-pdu-session-modification" title="Permanent link">⚓︎</a></h5>
 <p>The Reject PDU Session Modification command is the decision made by dRAX RIC to deny a specific PDU session to be set.</p>
 <p>Once the <strong><em>pdu_session_modification_request_message</em></strong> has been received on NATS and decoded, the <strong><em>CuCpName</em></strong> and the <strong><em>CuCpUeId</em></strong> can be used to reject the new PDU session.</p>
 <div class="admonition example">
@@ -1467,9 +1474,9 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
   <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rejection of PDU session </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpUeId</span><span class="si">}</span><span class="s2"> on CU </span><span class="si">{</span><span class="n">pdu_session_adm_req</span><span class="o">.</span><span class="n">CuCpName</span><span class="si">}</span><span class="s2"> failed"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<h4 id="control-admitted-pdu-session"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.5</span> Control Admitted PDU Session<a class="headerlink" href="#control-admitted-pdu-session" title="Permanent link">⚓︎</a></h4>
+<h4 id="control-admitted-pdu-session"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.3.5</span> Control Admitted PDU Session<a class="headerlink" href="#control-admitted-pdu-session" title="Permanent link">⚓︎</a></h4>
 <p>Once the PDU session is admitted by dRAX RIC, the xApp will be able to receive notifications about the PDU session state.</p>
-<h5 id="pdu-session-release"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.7.3.5.1</span> PDU Session Release<a class="headerlink" href="#pdu-session-release" title="Permanent link">⚓︎</a></h5>
+<h5 id="pdu-session-release"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.7.3.5.1</span> PDU Session Release<a class="headerlink" href="#pdu-session-release" title="Permanent link">⚓︎</a></h5>
 <p>The PDU Session Release Indication message is a notification received by dRAX RIC when an admitted PDU session is released.</p>
 <p>Here is an example about how to read a PDU Session Release Indication message</p>
 <div class="admonition example">
@@ -1490,11 +1497,11 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <span class="p">}</span>
 </code></pre></div>
 <p>Message reference: <a href="../../message_references/5G/4.3/nats/#pdusessionreleaseindicationdata">PduSessionReleaseIndicationData</a></p>
-<h2 id="publish-to-drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8</span> Publish to dRAX RIC Databus<a class="headerlink" href="#publish-to-drax-ric-databus" title="Permanent link">⚓︎</a></h2>
+<h2 id="publish-to-drax-ric-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.8</span> Publish to dRAX RIC Databus<a class="headerlink" href="#publish-to-drax-ric-databus" title="Permanent link">⚓︎</a></h2>
 <p>From your xApp, you can publish data on the dRAX RIC Databus for other xApps to use as well.</p>
-<h3 id="event-based-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.1</span> Event-based publishing<a class="headerlink" href="#event-based-publishing" title="Permanent link">⚓︎</a></h3>
+<h3 id="event-based-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.8.1</span> Event-based publishing<a class="headerlink" href="#event-based-publishing" title="Permanent link">⚓︎</a></h3>
 <p>You can publish certain event-based data to the dRAX RIC Databus. This is shown in Example 2 in the processor.py of the xApp Core:</p>
-<h3 id="example-2-publishing-one-time-or-event-based-data-on-the-drax-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.2</span> Example 2: Publishing one time or event-based data on the dRAX Databus<a class="headerlink" href="#example-2-publishing-one-time-or-event-based-data-on-the-drax-databus" title="Permanent link">⚓︎</a></h3>
+<h3 id="example-2-publishing-one-time-or-event-based-data-on-the-drax-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.8.2</span> Example 2: Publishing one time or event-based data on the dRAX Databus<a class="headerlink" href="#example-2-publishing-one-time-or-event-based-data-on-the-drax-databus" title="Permanent link">⚓︎</a></h3>
 <p>We will publish on topic "my_test_topic", and just republish the "data" data</p>
 <div class="highlight"><pre><span></span><code>xapp.kafka().json().send_message("my_test_topic", data)
 </code></pre></div>
@@ -1503,7 +1510,7 @@ if data and 'accelleran.drax.5g.ric.raw.ran_control_response' in topic:
 <li>"my_test_topic": This is the topic on the dRAX RIC Databus to which the data should be published</li>
 <li>data: the actual data that needs to be published, it should be of a type that can be serialized as the dRAX RIC Databus expects JSON format messages (hence the xapp.kafka().json()... decorator).</li>
 </ol>
-<h3 id="periodic-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.3</span> Periodic publishing<a class="headerlink" href="#periodic-publishing" title="Permanent link">⚓︎</a></h3>
+<h3 id="periodic-publishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.8.3</span> Periodic publishing<a class="headerlink" href="#periodic-publishing" title="Permanent link">⚓︎</a></h3>
 <p>If one wants to periodically publish information, they can spawn a separate thread using the standard Python threading.Thread function</p>
 <div class="highlight"><pre><span></span><code>data = {"key": "data"}
 def periodic_publish(xapp):
@@ -1514,7 +1521,7 @@ def periodic_publish(xapp):
 publish_thread = threading.Thread(name="PeriodicPublish", target=periodic_publish, args=(xapp,))
 publish_thread.start()
 </code></pre></div>
-<h3 id="publish-to-the-drax-nats-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.8.4</span> Publish to the dRAX NATS Databus<a class="headerlink" href="#publish-to-the-drax-nats-databus" title="Permanent link">⚓︎</a></h3>
+<h3 id="publish-to-the-drax-nats-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.8.4</span> Publish to the dRAX NATS Databus<a class="headerlink" href="#publish-to-the-drax-nats-databus" title="Permanent link">⚓︎</a></h3>
 <p>Publishing to the dRAX NATS Databus is equally simple:</p>
 <div class="highlight"><pre><span></span><code>data = {"key": "data"}
 def periodic_publish(xapp):
@@ -1525,7 +1532,7 @@ def periodic_publish(xapp):
 publish_thread = threading.Thread(name="PeriodicPublish", target=periodic_publish, args=(xapp,))
 publish_thread.start()
 </code></pre></div>
-<h2 id="use-the-drax-ric-api-gateway"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9</span> Use the dRAX RIC API Gateway<a class="headerlink" href="#use-the-drax-ric-api-gateway" title="Permanent link">⚓︎</a></h2>
+<h2 id="use-the-drax-ric-api-gateway"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.9</span> Use the dRAX RIC API Gateway<a class="headerlink" href="#use-the-drax-ric-api-gateway" title="Permanent link">⚓︎</a></h2>
 <p>The dRAX RIC exposes a number of APIs through the dRAX RIC API Gateway. The full documentation on all of the endpoints is available on the dRAX RIC API Gateway Swagerhub, which is exposed on the following URL:</p>
 <div class="highlight"><pre><span></span><code>http://&lt;kubernets_ip&gt;:31315/api/v1/docs
 </code></pre></div>
@@ -1559,7 +1566,7 @@ publish_thread.start()
 </ul>
 </li>
 </ul>
-<h3 id="how-to-use-the-drax-ric-api-gateway-in-general"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9.1</span> How to use the dRAX RIC API Gateway in general<a class="headerlink" href="#how-to-use-the-drax-ric-api-gateway-in-general" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-to-use-the-drax-ric-api-gateway-in-general"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.9.1</span> How to use the dRAX RIC API Gateway in general<a class="headerlink" href="#how-to-use-the-drax-ric-api-gateway-in-general" title="Permanent link">⚓︎</a></h3>
 <p>Example 6 shows how to call the API gateway on the following endpoint:</p>
 <div class="highlight"><pre><span></span><code>/discover/services/netconf
 </code></pre></div>
@@ -1575,7 +1582,7 @@ if api_response.status_code == 200:
     logging.info('Failed to load JSON, showing raw content of API response:')
     logging.info(api_response.text)
 </code></pre></div>
-<h3 id="how-to-select-only-the-port-at-which-netconf-is-exposed"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.9.2</span> How to select only the port at which NetConf is exposed<a class="headerlink" href="#how-to-select-only-the-port-at-which-netconf-is-exposed" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-to-select-only-the-port-at-which-netconf-is-exposed"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.9.2</span> How to select only the port at which NetConf is exposed<a class="headerlink" href="#how-to-select-only-the-port-at-which-netconf-is-exposed" title="Permanent link">⚓︎</a></h3>
 <p>Example 7 shows how to parse the retrieved information from the dRAX RIC API Gateway. Because the information retrieved can be parsed as JSON, in python we can simply use it as a Python dictionary:</p>
 <div class="highlight"><pre><span></span><code>### Example 7: Get the ports where the netconf servers of cells are exposed
         endpoint = '/discover/services/netconf'
@@ -1593,7 +1600,7 @@ if api_response.status_code == 200:
 <div class="highlight"><pre><span></span><code>[netconf-dageraadplats] has NETCONF exposed on port [30023]
 [netconf-parking] has NETCONF exposed on port [32634]
 </code></pre></div>
-<h2 id="e2-support"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.10</span> E2 Support<a class="headerlink" href="#e2-support" title="Permanent link">⚓︎</a></h2>
+<h2 id="e2-support"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.10</span> E2 Support<a class="headerlink" href="#e2-support" title="Permanent link">⚓︎</a></h2>
 <details class="note">
 <summary>Supported RIC Versions</summary>
 <p>This feature is supported since RIC 6.4.0.</p>

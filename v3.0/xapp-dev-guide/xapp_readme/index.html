@@ -103,7 +103,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../quick_guide/">
+<a class="md-tabs__link" href="../intro/">
           
   
     
@@ -181,6 +181,13 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../quick_guide/">
 <span class="md-ellipsis">
     Quick guide
@@ -197,7 +204,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../xapp_dev_environment/">
 <span class="md-ellipsis">
-    Build your own xApp Dev Environment
+    Build your own x/rApp Development Environment
   </span>
 </a>
 </li>
@@ -595,8 +602,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="the-xapp-documentation-readmemd"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.</span> The xApp Documentation README.md<a class="headerlink" href="#the-xapp-documentation-readmemd" title="Permanent link">⚓︎</a></h1>
-<h2 id="the-readmemd-file"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1</span> The README.md file<a class="headerlink" href="#the-readmemd-file" title="Permanent link">⚓︎</a></h2>
+<h1 id="the-xapp-documentation-readmemd"><span class="enumerate-headings-plugin enumerate-heading-plugin">12.</span> The xApp Documentation README.md<a class="headerlink" href="#the-xapp-documentation-readmemd" title="Permanent link">⚓︎</a></h1>
+<h2 id="the-readmemd-file"><span class="enumerate-headings-plugin enumerate-heading-plugin">12.1</span> The README.md file<a class="headerlink" href="#the-readmemd-file" title="Permanent link">⚓︎</a></h2>
 <p>The README.md is a text file used to provide a reliable way to explain, describe and illustrate an xApp. Its content is fully text-based and allows special syntax using Markdown. The Markdown language is a lightweight markup language that allows the creation of formatted text using only a plain-text editor. It allows one to control the display of the document; formatting words as bold or italic, adding images, creating lists and much more. By filling the README.md file with xApp information, the Accelleran dRAX RIC will  display its content automatically in the dRAX dashboard of the specific xApp. Thus, a full description of the xApp and its context can be provided with a special style for the illustration. An example README.md file is provided in the <em>example</em> folder of the xApp Framework.</p>
 <p>Here are some links describing the Markdown features:</p>
 <ul>
@@ -605,7 +612,7 @@
 <li>StackEdit: In-browser Markdown Editor</li>
 <li>Markdown guide: <a href="https://guides.github.com/features/mastering-markdown/">https://guides.github.com/features/mastering-markdown/</a></li>
 </ul>
-<h2 id="what-we-expect-inside-the-readmemd-file"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2</span> What we expect inside the README.md file<a class="headerlink" href="#what-we-expect-inside-the-readmemd-file" title="Permanent link">⚓︎</a></h2>
+<h2 id="what-we-expect-inside-the-readmemd-file"><span class="enumerate-headings-plugin enumerate-heading-plugin">12.2</span> What we expect inside the README.md file<a class="headerlink" href="#what-we-expect-inside-the-readmemd-file" title="Permanent link">⚓︎</a></h2>
 <p>The README.md file is used to explain, describe and illustrate xApp behavior. It is the place where the xApp developer can give information about the xApp and its context.</p>
 <p>The xApp README file generally contains the following elements:</p>
 <ul>
@@ -616,7 +623,7 @@
 <li>If the xApp has additional custom API endpoints, and an explanation of what they are and what they do</li>
 </ul>
 <p>Then, it is the responsibility of the xApp developer to feed the information correctly and give the best description possible for its xApp. The Markdown style formatting is also available to help xApps developers to structure the document but it’s not mandatory.</p>
-<h2 id="how-the-readmemd-is-made-available-via-readme-endpoint"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.3</span> How the README.md is made available via /readme endpoint<a class="headerlink" href="#how-the-readmemd-is-made-available-via-readme-endpoint" title="Permanent link">⚓︎</a></h2>
+<h2 id="how-the-readmemd-is-made-available-via-readme-endpoint"><span class="enumerate-headings-plugin enumerate-heading-plugin">12.3</span> How the README.md is made available via /readme endpoint<a class="headerlink" href="#how-the-readmemd-is-made-available-via-readme-endpoint" title="Permanent link">⚓︎</a></h2>
 <p>As with the /config and /metadata endpoint on the xApp API, (consequently used for configuration purposes), the /readme endpoint retrieves the README.md file from the xApp Core and makes it available for other modules. Only the GET method is accepted for this endpoint.</p>
 <p>To suit this behavior, the README.md must be a text file co-located with the xApp core files. An example of the README.md file is already provided in the xApp Framework Package to demonstrate the /readme endpoint functionality.</p>
 <p>Thus, the README.md content is available the xApp API port:</p>
