@@ -267,6 +267,13 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#using-simple-ssh-to-access-the-xrapp-development-environment">
+<span class="md-ellipsis">
+      Using simple ssh to access the x/rApp Development Environment
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#using-local-ide-to-edit-xrapp-development-environment-files">
 <span class="md-ellipsis">
       Using local IDE to edit x/rApp Development Environment files
@@ -651,7 +658,7 @@
 <p>You need to install the remote-ssh extension in VS Code, and configure it to connect to your x/rApp Development Environment (taking into account the ssh password and port used).</p>
 <p>In the left hand menu, select the Extensions tab. Search for Remote-SSH and install the extension.</p>
 <h3 id="adding-the-xapp-dev-environment-as-new-ssh-host"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.3</span> Adding the xApp Dev Environment as new SSH host<a class="headerlink" href="#adding-the-xapp-dev-environment-as-new-ssh-host" title="Permanent link">⚓︎</a></h3>
-<p>Next, click F1 on the keyboard to open the Command Pallete (or VSCode -&gt; View -&gt; Command Palette). Now start typing "remote-ssh add new" and select the option that appears: "Remote-SSH: Add New SSH Host…".</p>
+<p>Next, click F1 on the keyboard to open the Command Palette (or VSCode -&gt; View -&gt; Command Palette). Now start typing "remote-ssh add new" and select the option that appears: "Remote-SSH: Add New SSH Host…".</p>
 <p>Follow the instruction to enter the ssh command:</p>
 <div class="highlight"><pre><span></span><code>ssh -p &lt;xapp-dev-ssh&gt; xapp@&lt;drax-ip-address&gt;
 </code></pre></div>
@@ -666,40 +673,12 @@
 <p>To resolve it, you need to kill the VS Code server on the remote using the following command:</p>
 <p>VSCode -&gt; View -&gt; Command Palette -&gt; input "remote" -&gt; Select Remote-SSH: Kill VS Code Server on Host…</p>
 <p>You can then select the IP address of your x/rApp Development Environment, and will be required to enter the ssh password. Once the process completes, reconnect to the remote ssh again and it should work this time.</p>
-<!-- ## Development in the container
-
-The x/rApp Development Environment can be accessed the xApp Dev Environment container as described in the [Quick Guide](quick_guide.md#quick-guide) section:
-
-<div class="highlight"><pre><span></span><code>kubectl exec -it &lt;pod_name&gt; -- /bin/bash
+<h2 id="using-simple-ssh-to-access-the-xrapp-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2</span> Using simple ssh to access the x/rApp Development Environment<a class="headerlink" href="#using-simple-ssh-to-access-the-xrapp-development-environment" title="Permanent link">⚓︎</a></h2>
+<p>As described in the <a href="../quick_guide/#quick-guide">Quick Guide</a> section, you can use SSH to access your x/rApp Development Environment:</p>
+<div class="highlight"><pre><span></span><code>ssh -p &lt;xapp-dev-ssh&gt; xapp@&lt;drax-ip-address&gt;
 </code></pre></div>
-
-As part of the xApp Dev Environment, we have pre-installed tools such as:
-
-* vim
-* nano
-* Git
-
-You are of course free to install any additional packages. This initial set should be enough to get you started in editing the xApp python files and backing up your code to Git. You can start the xApp by running:
-
-<div class="highlight"><pre><span></span><code>python3 xapp_main.py
-~~~ --&gt;
-
-## Using simple ssh to access the x/rApp Development Environment
-
-As described in the [Quick Guide](quick_guide.md#quick-guide) section, you can use SSH to access your x/rApp Development Environment:
-
-    ssh -p &lt;xapp-dev-ssh&gt; xapp@&lt;drax-ip-address&gt;
-
-Using the -p option, you can specify the SSH port, which we discvered in the previous step. The username in the x/rApp Development Environment is always **xapp**, and you have to connect to the IP address where your dRAX RIC, or specifically your x/rApp, is running.
-
-&lt;!-- First, discover which port is used on the host machine as the ssh port for your xApp Dev environment. You can do this by going to the dRAX Dashboard and navigating to **xApps Management -&gt; Overview**. Find you xApp Dev Environment, and click the **Show** button under the **Services** column. You should see multiple services associated with your xApp, one of which should be the **dev-ssh** service. You will find the port on which this service is exposed under the **NodePort** column (it will be in the range of 30 000 - 32 000). You can now ssh into your xApp Dev Environment by using the IP of the dRAX host machine, the dev-ssh service nodePort, and the SSH Password set during the deployment of the xApp Dev Environment:
-</code></pre></div>
-ssh -p <dev-ssh-nodeport> xapp@<drax-host-ip>
-<div class="highlight"><pre><span></span><code>You now have access to the python files in the xApp Core which are located in _/home/xapp/xapp_core _inside the container. You can edit the python files and start the xApp as normal using:
-</code></pre></div>
-python3 xapp_main.py
-~~~ -->
-<h2 id="using-local-ide-to-edit-xrapp-development-environment-files"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2</span> Using local IDE to edit x/rApp Development Environment files<a class="headerlink" href="#using-local-ide-to-edit-xrapp-development-environment-files" title="Permanent link">⚓︎</a></h2>
+<p>Using the -p option, you can specify the SSH port, which we discovered in the previous step. The username in the x/rApp Development Environment is always <strong>xapp</strong>, and you have to connect to the IP address where your dRAX RIC, or specifically your x/rApp, is running.</p>
+<h2 id="using-local-ide-to-edit-xrapp-development-environment-files"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3</span> Using local IDE to edit x/rApp Development Environment files<a class="headerlink" href="#using-local-ide-to-edit-xrapp-development-environment-files" title="Permanent link">⚓︎</a></h2>
 <p>As an x/rApp Developer, it is often easier to develop the xApp in an IDE or user-friendly text editor. You may use a tool called sshfs to mount the files from the x/rApp Development Environment onto your local machine. This way you can edit the files locally in any text editor you want, and the changes will also take effect in the x/rApp Development Environment. Of course, you still need to access the x/rApp Development Environment using ssh to actually start or stop the x/rApp!</p>
 <p>You can install sshfs using the following command:</p>
 <div class="highlight"><pre><span></span><code>sudo apt install -y sshfs
@@ -710,7 +689,7 @@ python3 xapp_main.py
 <p>Finally use the sshfs command to mount the files:</p>
 <div class="highlight"><pre><span></span><code>sshfs -p &lt;xapp-dev-ssh&gt; xapp@&lt;drax-ip-address&gt;:/home/xapp /path/to/xapp-dev-files
 </code></pre></div>
-<p>The x/rApp files will now be available in the "xapp-dev-files" folder you just created. You of course still have to SSH into the x/rApp Development Environment to start and sto pyour x/rApp as described in the <a href="./#using-simple-ssh-to-access-the-xrapp-development-environment">Using simple ssh to access the x/rApp Development Environment</a> section.</p>
+<p>The x/rApp files will now be available in the "xapp-dev-files" folder you just created. You of course still have to SSH into the x/rApp Development Environment to start and stop your x/rApp as described in the <a href="./#using-simple-ssh-to-access-the-xrapp-development-environment">Using simple ssh to access the x/rApp Development Environment</a> section.</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

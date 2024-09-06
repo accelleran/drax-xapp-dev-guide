@@ -239,6 +239,27 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#start-the-xrapp-in-the-xrapp-development-environment">
+<span class="md-ellipsis">
+      Start the x/rApp in the x/rApp Development Environment
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#edit-the-xrapp">
+<span class="md-ellipsis">
+      Edit the x/rApp
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#important-backup-your-xrapp-code">
+<span class="md-ellipsis">
+      [IMPORTANT] Backup your x/rApp code
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#how-to-uninstall-the-xrapp-development-environment">
 <span class="md-ellipsis">
       How to uninstall the x/rApp Development Environment
@@ -641,48 +662,26 @@
 <p>You can now access the x/rApp Development Environment by simply SSHing into it:</p>
 <div class="highlight"><pre><span></span><code>ssh -p &lt;xapp-dev-ssh&gt; xapp@&lt;drax-ip-address&gt;
 </code></pre></div>
-<p>Using the -p option, you can specify the SSH port, which we discvered in the previous step. The username in the x/rApp Development Environment is always <strong>xapp</strong>, and you have to connect to the IP address where your dRAX RIC, or specifically your x/rApp, is running.</p>
-<p>&lt;!-- Once you deploy the xApp Dev Env, you can check if all its pods are deployed. The xApp pods have a naming convention based on the metadata you provided: &lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;</p>
-<p>This can be used to filter the pods in the kubectl command:</p>
-<div class="highlight"><pre><span></span><code>kubectl get pods
+<p>Using the -p option, you can specify the SSH port, which we discovered in the previous step. The username in the x/rApp Development Environment is always <strong>xapp</strong>, and you have to connect to the IP address where your dRAX RIC, or specifically your x/rApp, is running.</p>
+<h2 id="start-the-xrapp-in-the-xrapp-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.3</span> Start the x/rApp in the x/rApp Development Environment<a class="headerlink" href="#start-the-xrapp-in-the-xrapp-development-environment" title="Permanent link">⚓︎</a></h2>
+<p>You are now SSHed into the x/rApp Development Environment. You will be in the home folder by default, where you have the <strong>xapp</strong> folder. Inside that <strong>xapp</strong> folder you have the x/rApp Template. </p>
+<p>To start your x/rApp, you can go to the xapp/core folder and start the xapp_main.py Python file:</p>
+<div class="highlight"><pre><span></span><code>cd xapp/core
+python3 xapp_main.py
 </code></pre></div>
-<p>Once all the pods are in running state, you can access the xApp Dev Environment by using the following command:</p>
-<p>You can now access the xApp Dev Environment by going into the container in Kubernetes. The xApp pods have a naming convention based on the metadata you provided: &lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;</p>
-<p>When the xApp is deployed you will have 2 pods in Kubernetes:</p>
-<ul>
-<li>&lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;</li>
-<li>&lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt;-xapp-redis</li>
-</ul>
-<p>The xApp Core is located under the &lt;organization&gt;-&lt;team&gt;-&lt;xapp_name&gt;-&lt;version&gt; pod, so to access the development environment you can:</p>
-<p><div class="highlight"><pre><span></span><code>kubectl exec -it &lt;pod_name&gt; -- /bin/bash
-~~~ --&gt;
-
-## Start the x/rApp in the x/rApp Development Environment
-
-You are now SSHed into the x/rApp Development Environment. You will be in the home folder by default, where you have the **xapp** folder. Inside that **xapp** folder you have the x/rApp Template. 
-
-To start your x/rApp, you can go to the xapp/core folder and start the xapp_main.py Python file:
-
-    cd xapp/core
-    python3 xapp_main.py
-
-## Edit the x/rApp
-
-The developer is free to edit the xapp_main.py and create other .py files. You can stop the currently running xapp_main.py, edit the files and restart the x/rApp again. This allows you to work in a sandbox environment, all fully integrated into dRAX, and focus only on the functionality you bring.
-
-Please check the [Development Workflows](development_workflows.md) section which explain different approaches to accessing the x/rApp Development Environment and best development practices.
-
-## [IMPORTANT] Backup your x/rApp code
-The x/rApp Development Environment has git pre-installed. To avoid losing your work, we strongly suggest that you immediately push your code to your remote Git Repository. Git is already initialized in the **xapp** folder, therefore you can just add your remote and push the code:
-
-    git add .
-    git commit -m "first commit"
-    git remote add origin &lt;your-git-url&gt;
-    git push -u origin main
+<h2 id="edit-the-xrapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4</span> Edit the x/rApp<a class="headerlink" href="#edit-the-xrapp" title="Permanent link">⚓︎</a></h2>
+<p>The developer is free to edit the xapp_main.py and create other .py files. You can stop the currently running xapp_main.py, edit the files and restart the x/rApp again. This allows you to work in a sandbox environment, all fully integrated into dRAX, and focus only on the functionality you bring.</p>
+<p>Please check the <a href="../development_workflows/">Development Workflows</a> section which explain different approaches to accessing the x/rApp Development Environment and best development practices.</p>
+<h2 id="important-backup-your-xrapp-code"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.5</span> [IMPORTANT] Backup your x/rApp code<a class="headerlink" href="#important-backup-your-xrapp-code" title="Permanent link">⚓︎</a></h2>
+<p>The x/rApp Development Environment has git pre-installed. To avoid losing your work, we strongly suggest that you immediately push your code to your remote Git Repository. Git is already initialized in the <strong>xapp</strong> folder, therefore you can just add your remote and push the code:</p>
+<div class="highlight"><pre><span></span><code>git add .
+git commit -m "first commit"
+git remote add origin &lt;your-git-url&gt;
+git push -u origin main
 </code></pre></div>
-NOTE: Please note that any changes will be lost once the sandbox deployment is removed. Therefore it is important to backup your work before deleting the x/rApp Development Environment. 
-~~~</p>
-<h2 id="how-to-uninstall-the-xrapp-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.3</span> How to uninstall the x/rApp Development Environment<a class="headerlink" href="#how-to-uninstall-the-xrapp-development-environment" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><pre><span></span><code>NOTE: Please note that any changes will be lost once the sandbox deployment is removed. Therefore it is important to backup your work before deleting the x/rApp Development Environment. 
+</code></pre></div>
+<h2 id="how-to-uninstall-the-xrapp-development-environment"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.6</span> How to uninstall the x/rApp Development Environment<a class="headerlink" href="#how-to-uninstall-the-xrapp-development-environment" title="Permanent link">⚓︎</a></h2>
 <p>You can simply delete the x/rApp Development Environment by clicking the <strong>Uninstall</strong> button on the <strong>xApp Overview</strong> page on the dRAX Dashboard. </p>
 </article>
 </div>
