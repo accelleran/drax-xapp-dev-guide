@@ -1,0 +1,16 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.service_discovery
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB": <string>,
+  "CELL": <string>,
+  "ueDraxId": <string>,
+  "ueRicId": <string>,
+  "Rc4gCellStopRequest": {
+    "CellToStop": <string>
+  },
+  "tlpublishTime__": <uint>,
+  "timestamp": <int>
+}
+<!--json-end-->

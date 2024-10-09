@@ -1,0 +1,29 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.service_discovery
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB": <string>,
+  "CELL": <string>,
+  "ueDraxId": <string>,
+  "ueRicId": <string>,
+  "Rc4gServiceLostInfo": {
+    "ServiceType": "<ServiceType>"
+  },
+  "tlpublishTime__": <uint>,
+  "timestamp": <int>
+}
+<!--json-end-->
+<!--enum-start-->
+
+Enum Type:
+ServiceType
+
+Enum Values:
+SERVICETYPE_INVALID
+SERVICETYPE_LAYER2
+SERVICETYPE_LAYER3
+SERVICETYPE_ORAN
+SERVICETYPE_ENODEB
+
+<!--enum-end-->

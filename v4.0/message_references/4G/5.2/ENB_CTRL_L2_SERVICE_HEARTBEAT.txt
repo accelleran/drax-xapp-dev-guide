@@ -1,0 +1,19 @@
+<!--topic-start-->
+accelleran.drax.4g.ric.raw.service_discovery
+<!--topic-end-->
+<!--json-start-->
+{
+  "ENB": <string>,
+  "ueDraxId": <string>,
+  "ueRicId": <string>,
+  "EnbL2ServiceHeartbeat": {
+    "HeartbeatInfo": {
+      "ComponentId": <string>,
+      "DatastoreAvailable": <bool>,
+      "Interval": <uint>
+    }
+  },
+  "tlpublishTime__": <uint>,
+  "timestamp": <int>
+}
+<!--json-end-->

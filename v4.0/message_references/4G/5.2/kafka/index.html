@@ -1,0 +1,766 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://accelleran.github.io/drax-xapp-dev-guide/v4.0/message_references/4G/5.2/kafka/" rel="canonical"/>
+<link href="../../../5G/6.0/nats/" rel="prev"/>
+<link href="../../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.21" name="generator"/>
+<title>Kafka - dRAX xApp Dev Guide</title>
+<link href="../../../../assets/stylesheets/main.66ac8b77.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../../css/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#heartbeats">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="dRAX xApp Dev Guide" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            dRAX xApp Dev Guide
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Kafka
+            
+          </span>
+</div>
+</div>
+</div>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../..">
+          
+  
+    
+  
+  Overview
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../xapp-dev-guide/intro/">
+          
+  
+    
+  
+  Documentation
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../../Accellern_DU/1.0/accelleran_du_kafka/">
+          
+  
+    
+  
+  Message References
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="dRAX xApp Dev Guide" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    dRAX xApp Dev Guide
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../..">
+<span class="md-ellipsis">
+    Overview
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            Overview
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../changelog/">
+<span class="md-ellipsis">
+    Changelog
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Documentation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/intro/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/quick_guide/">
+<span class="md-ellipsis">
+    Quick guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/development_workflows/">
+<span class="md-ellipsis">
+    Development Workflows
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_dev_environment/">
+<span class="md-ellipsis">
+    Build your own x/rApp Development Environment
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_productize/">
+<span class="md-ellipsis">
+    Productize your xApp
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_framework/">
+<span class="md-ellipsis">
+    xApp Framework In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_library/">
+<span class="md-ellipsis">
+    xApp Library In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_async_library/">
+<span class="md-ellipsis">
+    xApp Async Library In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_unittest/">
+<span class="md-ellipsis">
+    xApp Unit Tests
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_readme/">
+<span class="md-ellipsis">
+    The xApp Documentation README.md
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_rest_api/">
+<span class="md-ellipsis">
+    xApp REST API
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_configuration/">
+<span class="md-ellipsis">
+    xApp Configuration In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_helm_charts/">
+<span class="md-ellipsis">
+    xApp Helm Chart In-Depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_lifecycle/">
+<span class="md-ellipsis">
+    xApps Lifecycle In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/xapp_core/">
+<span class="md-ellipsis">
+    Writing the xApp Core in a different language
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/appendix_dockerhub/">
+<span class="md-ellipsis">
+    Appendix: Pushing to Dockerhub
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../xapp-dev-guide/appendix_conversion/">
+<span class="md-ellipsis">
+    Appendix: Conversion from the xApp Framework to the xApp Library
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    Message References
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Message References
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    5G Accelleran DU
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+            5G Accelleran DU
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+<span class="md-ellipsis">
+    version 1.0
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_1">
+<span class="md-nav__icon md-icon"></span>
+            version 1.0
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Accellern_DU/1.0/accelleran_du_kafka/">
+<span class="md-ellipsis">
+    Kafka
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    5G Accelleran CU
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            5G Accelleran CU
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    version 6.0
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_1">
+<span class="md-nav__icon md-icon"></span>
+            version 6.0
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../5G/6.0/kafka/">
+<span class="md-ellipsis">
+    Kafka
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../5G/6.0/nats/">
+<span class="md-ellipsis">
+    Nats
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    4G Accelleran CU
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            4G Accelleran CU
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    version 5.2
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_3_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_3_1">
+<span class="md-nav__icon md-icon"></span>
+            version 5.2
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Kafka
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Kafka
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#heartbeats">
+<span class="md-ellipsis">
+      Heartbeats
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#network-state">
+<span class="md-ellipsis">
+      Network state
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-measurements">
+<span class="md-ellipsis">
+      UE Measurements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#l2-stats">
+<span class="md-ellipsis">
+      L2 Stats
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cqi">
+<span class="md-ellipsis">
+      CQI
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1><span class="enumerate-headings-plugin enumerate-heading-plugin">23.</span> Kafka</h1>
+<h2 id="heartbeats"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.1</span> Heartbeats<a class="headerlink" href="#heartbeats" title="Permanent link">⚓︎</a></h2>
+<p><strong>Description :</strong> Both the Layer 2 and Layer3 of each cell send out heartbeats to report that they are alive.</p>
+<p>The Layer 2 heartbeats has the following format:</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.4g.ric.raw.service_discovery
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "ENB": &lt;string&gt;,
+  "ueDraxId": &lt;string&gt;,
+  "ueRicId": &lt;string&gt;,
+  "EnbL2ServiceHeartbeat": {
+    "HeartbeatInfo": {
+      "ComponentId": &lt;string&gt;,
+      "DatastoreAvailable": &lt;bool&gt;,
+      "Interval": &lt;uint&gt;
+    }
+  },
+  "tlpublishTime__": &lt;uint&gt;,
+  "timestamp": &lt;int&gt;
+}
+</code></pre></div>
+<p>The Layer 3 heartbeats have a similar format:</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.4g.ric.raw.service_discovery
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "ENB": &lt;string&gt;,
+  "ueDraxId": &lt;string&gt;,
+  "ueRicId": &lt;string&gt;,
+  "EnbL3ServiceHeartbeat": {
+    "HeartbeatInfo": {
+      "ComponentId": &lt;string&gt;,
+      "DatastoreAvailable": &lt;bool&gt;,
+      "Interval": &lt;uint&gt;
+    }
+  },
+  "tlpublishTime__": &lt;uint&gt;,
+  "timestamp": &lt;int&gt;
+}
+</code></pre></div>
+<h2 id="network-state"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.2</span> Network state<a class="headerlink" href="#network-state" title="Permanent link">⚓︎</a></h2>
+<p><strong>Description :</strong> This message publishes the network state of the eNodeB, cell and UEs connected to the cell.</p>
+<p><strong>Kafka topic :</strong> <code>accelleran.drax.4g.ric.raw.network_state</code></p>
+<div class="highlight"><pre><span></span><code>{
+  "configurationState": {
+    "items": {
+      "enb-id": "&lt;uint32&gt;",
+      "local-cell-id": "&lt;uint32&gt;",
+      "tracking-area-code": "&lt;uint16&gt;",
+      "cell-id": "&lt;uint32&gt;",
+      "good-one-pps-required": "&lt;bool&gt;",
+      "admin-state": "&lt;AdminState&gt;",
+      "op-state": "&lt;OpState&gt;",
+      "rf-tx-status": "&lt;RfTxStatus&gt;",
+      "physical-cell-id": "&lt;uint16&gt;",
+      "downlink-earfcn": "&lt;uint16&gt;",
+      "downlink-bandwidth": "&lt;uint8&gt;",
+      "reference-signal-power": "&lt;int8&gt;",
+      "frequency-band-indicator": "&lt;FrequencyBandIndicator&gt;",
+      "prach-root-sequence-index": "&lt;uint16&gt;",
+      "plmn-list": [
+        "&lt;string&gt;",
+      ],
+      "mme-set-list": [
+        "&lt;string64&gt;",
+      ],
+      "serial-number": "&lt;string64&gt;",
+      "gnss-status": "&lt;GnssStatus",
+      "longitude": "&lt;int32&gt;",
+      "latitude": "&lt;int32&gt;",
+      "altitude": "&lt;int32&gt;"
+    },
+    "ueState": {
+      "items": {
+        "inRange": {
+          "items": &lt;uint64&gt;
+        },
+        "servingCell": "&lt;string&gt;",
+        "timestamp": &lt;uint64&gt;
+      }
+    }
+  }
+}
+</code></pre></div>
+<p><strong>Enumeration description :</strong>
+<div class="highlight"><pre><span></span><code>Enum Type:
+AdminState
+
+Enum Values:
+locked
+unlocked
+
+Enum Type:
+OpState
+
+Enum Values:
+enabled
+disabled
+
+Enum Type:
+RfTxStatus
+
+Enum Values:
+on-air
+off-air
+
+Enum Type:
+FrequencyBandIndicator
+
+Enum Values:
+band-3
+band-7
+band-14
+band-38
+band-40
+band-42
+band-43
+band-48
+
+Enum Type:
+GnssStatus
+
+Enum Values:
+not-yet-available
+available
+</code></pre></div></p>
+<h2 id="ue-measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.3</span> UE Measurements<a class="headerlink" href="#ue-measurements" title="Permanent link">⚓︎</a></h2>
+<p><strong>Description :</strong> If periodic reporting is enabled in the 4G Radio Controller, the UEs will be instructed to send periodic measurements. These measurements contain the RSRP and RSRQ value from the UE to its serving cell, as well as a maximum of 8 neighbouring cells. Each measurement to a specific cell is sent as a separate message.</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.4g.ric.raw.ue_measurements
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "ENB": &lt;string&gt;,
+  "CELL": &lt;string&gt;,
+  "UE": &lt;string&gt;,
+  "ueDraxId": &lt;string&gt;,
+  "ueRicId": &lt;string&gt;,
+  "Rc4gUeMeasurement": {
+    "UniqueRicId": &lt;string&gt;,
+    "CellId": &lt;string&gt;,
+    "AttachedCellId": &lt;string&gt;,
+    "Rsrp": &lt;uint&gt;,
+    "Rsrq": &lt;uint&gt;,
+    "EllipsoidPointR10": {
+      "EncodedAsn1Length": &lt;uint&gt;,
+      "EncodedAsn1Body": &lt;bytes&gt;
+    },
+    "EllipsoidPointWithAltitudeR10": {
+      "EncodedAsn1Length": &lt;uint&gt;,
+      "EncodedAsn1Body": &lt;bytes&gt;
+    },
+    "HorizontalVelocityR10": {
+      "EncodedAsn1Length": &lt;uint&gt;,
+      "EncodedAsn1Body": &lt;bytes&gt;
+    },
+    "GnssTodMsecR10": {
+      "EncodedAsn1Length": &lt;uint&gt;,
+      "EncodedAsn1Body": &lt;bytes&gt;
+    }
+  },
+  "tlpublishTime__": &lt;uint&gt;,
+  "timestamp": &lt;int&gt;
+}
+</code></pre></div>
+<h2 id="l2-stats"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.4</span> L2 Stats<a class="headerlink" href="#l2-stats" title="Permanent link">⚓︎</a></h2>
+<p><strong>Description :</strong> The dRAX RIC also reports the downlink and uplink L2 stats of the UEs in the network.</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.4g.ric.raw.ue_measurements
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "ENB": &lt;string&gt;,
+  "CELL": &lt;string&gt;,
+  "UE": &lt;string&gt;,
+  "ueDraxId": &lt;string&gt;,
+  "ueRicId": &lt;string&gt;,
+  "EnbStatsL2StatsValues": {
+    "Report": {
+      "DschThroughput": &lt;uint&gt;,
+      "UschThroughput": &lt;uint&gt;,
+      "DownlinkBler": &lt;uint&gt;,
+      "UplinkBler": &lt;uint&gt;,
+      "TimingAdvance": &lt;uint&gt;,
+      "UlSinr": &lt;uint&gt;
+    }
+  },
+  "tlpublishTime__": &lt;uint&gt;,
+  "timestamp": &lt;int&gt;
+}
+</code></pre></div>
+<h2 id="cqi"><span class="enumerate-headings-plugin enumerate-heading-plugin">23.5</span> CQI<a class="headerlink" href="#cqi" title="Permanent link">⚓︎</a></h2>
+<p><strong>Description :</strong> The dRAX RIC also supports retrieving the CQI report of the UE to its serving cell. You can get the CQI value from each subband as well as the wideband CQI value.</p>
+<p><strong>Kafka topic :</strong> <code>**Kafka topic :**</code>accelleran.drax.4g.ric.raw.ue_measurements
+`</p>
+<div class="highlight"><pre><span></span><code>{
+  "ENB": &lt;string&gt;,
+  "CELL": &lt;string&gt;,
+  "UE": &lt;string&gt;,
+  "ueDraxId": &lt;string&gt;,
+  "ueRicId": &lt;string&gt;,
+  "EnbStatsCqiReportValues": {
+    "Report": {
+      "WidebandCqi": &lt;uint&gt;,
+      "CodeblockId": &lt;uint&gt;,
+      "CqiList": {
+        "0": &lt;uint&gt;
+      },
+      "CqiListSize": &lt;uint&gt;,
+      "RankIndication": &lt;uint&gt;,
+      "TransmissionMode": &lt;uint&gt;,
+      "UeEdge": &lt;uint&gt;
+    }
+  },
+  "tlpublishTime__": &lt;uint&gt;,
+  "timestamp": &lt;int&gt;
+}
+</code></pre></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Nats" class="md-footer__link md-footer__link--prev" href="../../../5G/6.0/nats/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Nats
+              </div>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tabs", "navigation.footer", "toc.integrate", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+</body>
+</html>
