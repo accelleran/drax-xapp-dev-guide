@@ -1,0 +1,1469 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://accelleran.github.io/drax-xapp-dev-guide/v5.0/xapp-dev-guide/xapp_async_library/" rel="canonical"/>
+<link href="../xapp_library/" rel="prev"/>
+<link href="../xapp_unittest/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.21" name="generator"/>
+<title>xApp Async Library In-depth - dRAX xApp Dev Guide</title>
+<link href="../../assets/stylesheets/main.66ac8b77.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../css/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#xapp-async-library-in-depth">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="dRAX xApp Dev Guide" class="md-header__button md-logo" data-md-component="logo" href="../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            dRAX xApp Dev Guide
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              xApp Async Library In-depth
+            
+          </span>
+</div>
+</div>
+</div>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+          
+  
+    
+  
+  Overview
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../intro/">
+          
+  
+    
+  
+  Documentation
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../message_references/Accellern_DU/1.0/accelleran_du_kafka/">
+          
+  
+    
+  
+  Message References
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="dRAX xApp Dev Guide" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    dRAX xApp Dev Guide
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Overview
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            Overview
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../changelog/">
+<span class="md-ellipsis">
+    Changelog
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    Documentation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../quick_guide/">
+<span class="md-ellipsis">
+    Quick guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../development_workflows/">
+<span class="md-ellipsis">
+    Development Workflows
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_dev_environment/">
+<span class="md-ellipsis">
+    Build your own x/rApp Development Environment
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_productize/">
+<span class="md-ellipsis">
+    Productize your xApp
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_framework/">
+<span class="md-ellipsis">
+    xApp Framework In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_library/">
+<span class="md-ellipsis">
+    xApp Library In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    xApp Async Library In-depth
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    xApp Async Library In-depth
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#xapp-async-library-overview">
+<span class="md-ellipsis">
+      xApp Async Library Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#general-async-xapp-concepts-and-features">
+<span class="md-ellipsis">
+      General Async xApp Concepts and Features
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-an-async-xapp">
+<span class="md-ellipsis">
+      Creating an Async xApp
+    </span>
+</a>
+<nav aria-label="Creating an Async xApp" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async-xapp-builder">
+<span class="md-ellipsis">
+      Async xApp Builder
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-the-logger">
+<span class="md-ellipsis">
+      Setup the Logger
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-an-application-object">
+<span class="md-ellipsis">
+      Create an Application Object
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-nats-subscriptions">
+<span class="md-ellipsis">
+      Setup NATS Subscriptions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-kafka-subscriptions">
+<span class="md-ellipsis">
+      Setup Kafka Subscriptions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-the-async-event-loop">
+<span class="md-ellipsis">
+      Run the Async Event Loop
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#application-object">
+<span class="md-ellipsis">
+      Application Object
+    </span>
+</a>
+<nav aria-label="Application Object" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#initialisation-function">
+<span class="md-ellipsis">
+      Initialisation Function
+    </span>
+</a>
+<nav aria-label="Initialisation Function" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-settings-subscriptions">
+<span class="md-ellipsis">
+      Setup Settings Subscriptions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-timers">
+<span class="md-ellipsis">
+      Create Timers
+    </span>
+</a>
+<nav aria-label="Create Timers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#periodic-timer">
+<span class="md-ellipsis">
+      Periodic Timer
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#single-shot-timer">
+<span class="md-ellipsis">
+      Single Shot Timer
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-admission-control-messsage-handler">
+<span class="md-ellipsis">
+      Create Admission Control Messsage Handler
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-async-function">
+<span class="md-ellipsis">
+      Run Async Function
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async-xapp-framework-features">
+<span class="md-ellipsis">
+      Async xApp Framework Features
+    </span>
+</a>
+<nav aria-label="Async xApp Framework Features" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nats">
+<span class="md-ellipsis">
+      NATS
+    </span>
+</a>
+<nav aria-label="NATS" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-time-add-nats-subscription">
+<span class="md-ellipsis">
+      Run-time Add NATS Subscription
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-time-remove-nats-subscription">
+<span class="md-ellipsis">
+      Run-time Remove NATS Subscription
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#publish-to-the-drax-nats-databus">
+<span class="md-ellipsis">
+      Publish to the dRAX NATS Databus
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kafka">
+<span class="md-ellipsis">
+      Kafka
+    </span>
+</a>
+<nav aria-label="Kafka" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#publish-to-the-drax-kafka-databus">
+<span class="md-ellipsis">
+      Publish to the dRAX Kafka Databus
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#e2">
+<span class="md-ellipsis">
+      E2
+    </span>
+</a>
+<nav aria-label="E2" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#subscribe">
+<span class="md-ellipsis">
+      Subscribe
+    </span>
+</a>
+<nav aria-label="Subscribe" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#subscription-response-callback-function">
+<span class="md-ellipsis">
+      Subscription Response Callback Function
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#subscription-delete-response-callback-function">
+<span class="md-ellipsis">
+      Subscription Delete Response Callback Function
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kpm-indication-callback-function">
+<span class="md-ellipsis">
+      KPM Indication Callback Function
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#unsubscribe">
+<span class="md-ellipsis">
+      Unsubscribe
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#periodic-timer_1">
+<span class="md-ellipsis">
+      Periodic Timer
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#single-shot-timer_1">
+<span class="md-ellipsis">
+      Single Shot Timer
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#admission-control">
+<span class="md-ellipsis">
+      Admission Control
+    </span>
+</a>
+<nav aria-label="Admission Control" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#subscribe-to-ue-admission-control-requests">
+<span class="md-ellipsis">
+      Subscribe to UE Admission Control Requests
+    </span>
+</a>
+<nav aria-label="Subscribe to UE Admission Control Requests" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-admission-request-callback-function">
+<span class="md-ellipsis">
+      UE Admission Request Callback Function
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-information-update-indication-callback-function">
+<span class="md-ellipsis">
+      UE Information Update Indication Callback Function
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ue-release-indication-callback-function">
+<span class="md-ellipsis">
+      UE Release Indication Callback Function
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#send-ue-admission-control-messages">
+<span class="md-ellipsis">
+      Send UE Admission Control Messages
+    </span>
+</a>
+<nav aria-label="Send UE Admission Control Messages" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accept-a-ue-admission-request">
+<span class="md-ellipsis">
+      Accept a UE Admission Request
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reject-a-ue-admission-request">
+<span class="md-ellipsis">
+      Reject a UE Admission Request
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#release-a-ue">
+<span class="md-ellipsis">
+      Release a UE
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#unsubscribe-from-ue-admission-control-requests">
+<span class="md-ellipsis">
+      Unsubscribe from UE Admission Control Requests
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#subscribe-to-pdu-admission-control-requests">
+<span class="md-ellipsis">
+      Subscribe to PDU Admission Control Requests
+    </span>
+</a>
+<nav aria-label="Subscribe to PDU Admission Control Requests" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pdu-session-admission-request-callback-function">
+<span class="md-ellipsis">
+      PDU Session Admission Request Callback Function
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pdu-session-modification-request-callback-function">
+<span class="md-ellipsis">
+      PDU Session Modification Request Callback Function
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pdu-session-release-indicator-callback-function">
+<span class="md-ellipsis">
+      PDU Session Release Indicator Callback Function
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#send-pdu-admission-control-messages">
+<span class="md-ellipsis">
+      Send PDU Admission Control Messages
+    </span>
+</a>
+<nav aria-label="Send PDU Admission Control Messages" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accept-a-pdu-session-admission-request">
+<span class="md-ellipsis">
+      Accept a PDU Session Admission Request
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reject-a-pdu-session-admission-request">
+<span class="md-ellipsis">
+      Reject a PDU Session Admission Request
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accept-a-pdu-session-admission-modification-request">
+<span class="md-ellipsis">
+      Accept a PDU Session Admission Modification Request
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reject-a-pdu-session-admission-modification-request">
+<span class="md-ellipsis">
+      Reject a PDU Session Admission Modification Request
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#unsubscribe-from-pdu-admission-control-messages">
+<span class="md-ellipsis">
+      Unsubscribe from PDU Admission Control Messages
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async-drax-commands">
+<span class="md-ellipsis">
+      Async dRAX Commands
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#calling-the-drax-ric-rest-api">
+<span class="md-ellipsis">
+      Calling the dRAX RIC REST API
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#access-to-the-xapp-main-event-loop">
+<span class="md-ellipsis">
+      Access to the xApp main event loop
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#user-defined-threads-or-other-event-loops-interacting-with-the-xapp-event-loop">
+<span class="md-ellipsis">
+      User defined threads or other Event Loops interacting with the xApp Event Loop
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async-rest-api-functions">
+<span class="md-ellipsis">
+      Async Rest API Functions
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_unittest/">
+<span class="md-ellipsis">
+    xApp Unit Tests
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_readme/">
+<span class="md-ellipsis">
+    The xApp Documentation README.md
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_rest_api/">
+<span class="md-ellipsis">
+    xApp REST API
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_configuration/">
+<span class="md-ellipsis">
+    xApp Configuration In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_helm_charts/">
+<span class="md-ellipsis">
+    xApp Helm Chart In-Depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_lifecycle/">
+<span class="md-ellipsis">
+    xApps Lifecycle In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../xapp_core/">
+<span class="md-ellipsis">
+    Writing the xApp Core in a different language
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../appendix_dockerhub/">
+<span class="md-ellipsis">
+    Appendix: Pushing to Dockerhub
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../appendix_conversion/">
+<span class="md-ellipsis">
+    Appendix: Conversion from the xApp Framework to the xApp Library
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Message References
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Message References
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    5G Accelleran DU
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+            5G Accelleran DU
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+<span class="md-ellipsis">
+    version 1.0
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_1">
+<span class="md-nav__icon md-icon"></span>
+            version 1.0
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/Accellern_DU/1.0/accelleran_du_kafka/">
+<span class="md-ellipsis">
+    Kafka
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    5G Accelleran CU
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            5G Accelleran CU
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    version 6.0
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_1">
+<span class="md-nav__icon md-icon"></span>
+            version 6.0
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/5G/6.0/kafka/">
+<span class="md-ellipsis">
+    Kafka
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/5G/6.0/nats/">
+<span class="md-ellipsis">
+    Nats
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    4G Accelleran CU
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            4G Accelleran CU
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    version 5.2
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_3_1">
+<span class="md-nav__icon md-icon"></span>
+            version 5.2
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../message_references/4G/5.2/kafka/">
+<span class="md-ellipsis">
+    Kafka
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="xapp-async-library-in-depth"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.</span> xApp Async Library In-depth<a class="headerlink" href="#xapp-async-library-in-depth" title="Permanent link">⚓︎</a></h1>
+<h2 id="xapp-async-library-overview"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.1</span> xApp Async Library Overview<a class="headerlink" href="#xapp-async-library-overview" title="Permanent link">⚓︎</a></h2>
+<p>The xApp Library provides functionality that will operate with the Python Async IO framwework. The advantage of using this approach is that it is easier to handle events such as messages received and configuration changes in an asynchronous manner, so no polling is required. Periodic operations can also be performed using timers.</p>
+<p>The basic features offered are effecively equivalent to the non-Async versions, and this page describes the different behaviour and additional functionality provided.</p>
+<h2 id="general-async-xapp-concepts-and-features"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.2</span> General Async xApp Concepts and Features<a class="headerlink" href="#general-async-xapp-concepts-and-features" title="Permanent link">⚓︎</a></h2>
+<p>The Python AsyncIO framework is fairly well documented elsewhere. The official documentation can be found here <a href="https://docs.python.org/3/library/asyncio.html">https://docs.python.org/3/library/asyncio.html</a>.</p>
+<p>The Async version of the xApp Library uses it in the following way.</p>
+<ol>
+<li>There is only one event loop within the xApp which eliminates the need to use thread safefy mechanisms such as locks. This event loop can be acquired by using the asyncio.get_event_loop() in any functions. It is not recommended to introduce other event loops or threads as this could interefere with the operation of the xApp. However there are ways to handle this to ensure coroutines are posted from these other loops or threads which is described on this page.</li>
+<li>The subscriber pattern is often used so Async functions can be written to handle external events such as messages received on Kafka or NATS, or configuration changes via Async callback functions.</li>
+<li>Notable additions are a Periodic Timer which can be used to perform operations at regular intervals, a Single Shot Timer and the ability to subscribe to configuration changes.</li>
+<li>The modules that include async functionality are prefixed with async_. These are located in the core directory and include:<ul>
+<li>async_actions.py</li>
+<li>async_admission_control_message_handler.py</li>
+<li>async_kafka.py</li>
+<li>async_nats.py</li>
+<li>async_settings.py</li>
+<li>async_timer.py</li>
+<li>e2/async_e2client.py</li>
+</ul>
+</li>
+</ol>
+<h2 id="creating-an-async-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3</span> Creating an Async xApp<a class="headerlink" href="#creating-an-async-xapp" title="Permanent link">⚓︎</a></h2>
+<p>The process of building an Async xApp is similar to that of a non-Async version, but there are some notable differences due the nature of how Async applications operate.</p>
+<p>An example of how to use build an Async xApp and use the functions can be found in the xapp_async_main.py file in the <em>example/core</em> directory, located in the xApp Framework repository.</p>
+<h3 id="async-xapp-builder"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3.1</span> Async xApp Builder<a class="headerlink" href="#async-xapp-builder" title="Permanent link">⚓︎</a></h3>
+<p>The xApp Builder should be used to generate async version of the generic xApp framework. This is achieved by calling build_async() instead of build() as shown below.</p>
+<div class="highlight"><pre><span></span><code>builder = xapp_lib.XAppBuilder("..", absolute=False)
+    builder.metadata("core/xapp_metadata.json")
+    builder.endpoints("config/xapp_endpoints.json")
+    builder.config("config/xapp_config.json")
+    builder.readme("README.md")
+    builder.restapi(
+        [
+            ("/api/", restapi.MainApiHandler),
+            ("/api/actions", restapi.ActionsHandler),
+            ("/api/request", restapi.RequestHandler),
+        ]
+    )
+    xapp = builder.build_async()
+</code></pre></div>
+<h3 id="setup-the-logger"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3.2</span> Setup the Logger<a class="headerlink" href="#setup-the-logger" title="Permanent link">⚓︎</a></h3>
+<p>Next, the logger should be configured with a format and the required logging level. The logging level is usually defined with the 'LOG_LEVEL' setting. </p>
+<p>The following is an example of configurint the log level. </p>
+<div class="highlight"><pre><span></span><code>logging.root.handlers = []
+logging.basicConfig(
+    format="[%(levelname)s] %(asctime)s (%(threadName)s) %(message)s", level=xapp.settings().get_config('LOG_LEVEL'))
+</code></pre></div>
+<h3 id="create-an-application-object"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3.3</span> Create an Application Object<a class="headerlink" href="#create-an-application-object" title="Permanent link">⚓︎</a></h3>
+<p>It is advised to create an application class to encapsulate the functionality, data and state of the application. This is described in more detail in the <a href="#application-object">Application Object</a> section. We create an instance of this class at this point in the process.</p>
+<div class="highlight"><pre><span></span><code>my_app = MyApp(xapp)
+</code></pre></div>
+<p>Here we can see that the instance of the generic xApp framework we built is passed into our own Application object. At this point the <strong>init</strong> member function of MyApp is called. This is described in the <a href="#initialisation-function">Initialisation Function</a> section.</p>
+<h3 id="setup-nats-subscriptions"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3.4</span> Setup NATS Subscriptions<a class="headerlink" href="#setup-nats-subscriptions" title="Permanent link">⚓︎</a></h3>
+<p>It is possible be notified when messages are received on specific NATS subjects. The xapp.nats().subscribe function takes in a dictionary of subject : callback pairs.</p>
+<p>A subject is in the form of a typical NATS subscription. </p>
+<p>The example shows how to subscribe to NATS messages received on the subject RC4G_CTRL_UE_MEASUREMENT_DATA.<em>.</em>.*. </p>
+<div class="highlight"><pre><span></span><code>subjects_and_handlers = { 'RC4G_CTRL_UE_MEASUREMENT_DATA.*.*.*': my_app.handle_nats_4g_ue_measurement}
+xapp.nats().subscribe(subjects_and_handlers)
+</code></pre></div>
+<p>It is advised that the callback functions are member functions of the Application class, so when they are called they can operate on the application data. Each callback function should defined in the following way:</p>
+<p><div class="highlight"><pre><span></span><code>async def nats_callback(self, message):
+  subject = message.subject
+  data = message.data
+</code></pre></div>
+It can be seen that the message will be a structure containing the two fields 'subject' and 'data'.</p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<p>It should also be noted it is also possible to add and remove NATS subscriptions while the application is running. This described in theh <a href="#run-time-add-nats-subscription">Run-time Add NATS Subscription</a> section.</p>
+<h3 id="setup-kafka-subscriptions"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3.5</span> Setup Kafka Subscriptions<a class="headerlink" href="#setup-kafka-subscriptions" title="Permanent link">⚓︎</a></h3>
+<p>It is possible be notified when messages are received on specific Kafka topics. The xapp.kafka().subscribe function takes in a dictionary of topic : callback pairs.</p>
+<p>A topic is in the form of a typical Kafka subscription. </p>
+<p>A callback function should be defined to contain a message parameter which will contain the message received on for that topic.</p>
+<p>The following example shows how to subscribe to the topics accelleran.drax.4g.ric.raw.ue_measurements and accelleran.drax.5g.ric.raw.ran_control_response.</p>
+<div class="highlight"><pre><span></span><code>topics_and_handlers = { 'accelleran.drax.4g.ric.raw.ue_measurements' : my_app.handle_kafka_4g_ue_measurement,
+                        'accelleran.drax.5g.ric.raw.ran_control_response': my_app.handle_kafka_5g_handover_response
+                    }
+self.xapp.kafka().subscribe(topics_and_handlers)  
+</code></pre></div>
+<p>It is advised that the callback functions are member functions of the Application class, so when they are called they can operate on the application data. Each callback function should defined in the following way:</p>
+<div class="highlight"><pre><span></span><code>async def kafka_callback(self, message):
+    json_object = json.loads(message)
+</code></pre></div>
+<p>It can be seen that the message will be a string representation of the JSON message received over Kafka, so it should be converted to a JSON object using the json.loads function in order for it to be operated on.</p>
+<p>Unlike NATS, it is not currently possible to add and remove Kafka subscriptions while the application is running.</p>
+<h3 id="run-the-async-event-loop"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3.6</span> Run the Async Event Loop<a class="headerlink" href="#run-the-async-event-loop" title="Permanent link">⚓︎</a></h3>
+<p>Once the application object has been created, the single Asycio event loop is started using the the xapp.run_async function. By default this will start the Async REST API, Async NATS and Async Kafka. However it is possible to provide other async coroutines to start by adding them as parameters. </p>
+<p>If E2 is required then xapp.e2().run_async() needs to be included. Additionally if any any application async functionality needs to be run (as contained in the application run_async function), this should also be added as a couroutine to this function.</p>
+<p>The following is an example of calling run_async which additionally starts e2 and the run_async function from my_app:</p>
+<div class="highlight"><pre><span></span><code>xapp.run_async(xapp.e2().run_async(), my_app.run_async())
+</code></pre></div>
+<h2 id="application-object"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.4</span> Application Object<a class="headerlink" href="#application-object" title="Permanent link">⚓︎</a></h2>
+<p>When using AsyncIO it is easier to manage the callbacks within an object encapsulating the applicaton data and state, as the call back functions are almost certainily going to need operate on that information. Additionally, some objects and Async tasks need to be kept persistent over the life-time of the application, as otherwise they can end up becoming lost or cancelled and need to be maintained as member variables of this object. Therefore, in the example we create a class called MyApp (this of course can be given a different name). </p>
+<p>An example of the basic structure of an application class is shown below. 
+<div class="highlight"><pre><span></span><code>class MyApp:
+    def __init__(self, xapp: xapp_lib.AsyncXApp):
+        self.xapp = xapp
+
+        # Setup settings handlers
+        settings_changed_handlers = { 'LOG_LEVEL': self.handle_log_level_changed }
+        self.xapp.settings().subscribe(settings_changed_handlers)
+
+        # Create a Periodic Timer to perfom periodic processing (every second in this example)
+        self.periodic_timer = async_timer.AsyncPeriodicTimer(1, self.periodic_timer_handler)
+
+        # Add any application data here as member variables
+
+    async def handle_log_level_changed(self, value):
+        logger = logging.getLogger()
+        logger.setLevel(value)
+
+    async def periodic_timer_handler(self):
+        # Perform some operations on the application data
+
+    async def run_async(self):
+        # Application functionality to be run when the Async event loop is started.
+        # This function is optional
+</code></pre></div></p>
+<p>In the above example, an application is given the reference to the generic AsyncXApp created by the xApp builder, and creates all its own data as member variables containing the application data, defines the calbacks as member functions, and finally defines an optional function to be run when the Async event loop is started. </p>
+<p>The main functionality is split into the __init__ and run_async methods which are described below.</p>
+<h3 id="initialisation-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.4.1</span> Initialisation Function<a class="headerlink" href="#initialisation-function" title="Permanent link">⚓︎</a></h3>
+<p>The __init__ function is called when the Application object is constructed, so is run in the non-Async context (ie not within the Async event loop thread).</p>
+<p>Typically this function will contain the initialisation of the member data (and maybe sub-components) of the application. </p>
+<p>In addition it will contain the functionality described in the following sections.</p>
+<h4 id="setup-settings-subscriptions"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.4.1.1</span> Setup Settings Subscriptions<a class="headerlink" href="#setup-settings-subscriptions" title="Permanent link">⚓︎</a></h4>
+<p>It is possible be notified when changes are made to specific settings via for example the REST API. The settings().subscribe function takes in a dictionary of "setting : callback" pairs.</p>
+<p>The following example shows how to subscribe to a change of LOG_LEVEL</p>
+<div class="highlight"><pre><span></span><code>settings_changed_handlers = { 'LOG_LEVEL': self.handle_log_level_changed }
+self.xapp.settings().subscribe(settings_changed_handlers)
+</code></pre></div>
+<p>The following is an example of how the callback function should be defined.</p>
+<div class="highlight"><pre><span></span><code>async def handle_log_level_changed(self, value):
+  logger = logging.getLogger()
+  logger.setLevel(value)
+</code></pre></div>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h4 id="create-timers"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.4.1.2</span> Create Timers<a class="headerlink" href="#create-timers" title="Permanent link">⚓︎</a></h4>
+<p>The Async xApp framework provides two types of timer. A periodic timer which is fired at regular intervals and and single shot timer which as its name suggests is only fired once. Both types of timer should be created within the <strong>init</strong> function as they need to persist during the lifetime of tha application otherwise it is possible they become garbage collected and no longer fire.</p>
+<p>Each type of timer is described below.</p>
+<h5 id="periodic-timer"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.4.1.2.1</span> Periodic Timer<a class="headerlink" href="#periodic-timer" title="Permanent link">⚓︎</a></h5>
+<p>A Periodic Timer has been added to allow periodic updates to be performed, and multiple periodic timers can be created.</p>
+<p>Each periodic timer is created with an interval and a callback function.</p>
+<p>An interval is a number of seconds as a float, and can therefore be specified in fractions of a second.</p>
+<p>A callback function takes no parameters.</p>
+<p>The following example shows how to create a periodic timer which calls the function periodic_timer_callback function once a second. </p>
+<div class="highlight"><pre><span></span><code>self.periodic_timer = async_timer.AsyncPeriodicTimer(1, self.periodic_timer_callback)
+</code></pre></div>
+<p>Each callback function should be defined in the following way:
+<div class="highlight"><pre><span></span><code>async def periodic_timer_callback(self):
+    logging.info("Periodic timer fired")
+</code></pre></div></p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h5 id="single-shot-timer"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.4.1.2.2</span> Single Shot Timer<a class="headerlink" href="#single-shot-timer" title="Permanent link">⚓︎</a></h5>
+<p>A Single Shot Timer has also been provided, which as its names suggests is only fired once after it has been started. </p>
+<p>Each one shot timer is created with an interval and a callback function.</p>
+<p>An interval is a number of seconds as a float, and can be therefore be specified in fractions of a second.</p>
+<p>The following example shows how to create a one shot timer that calls the single_shot_timer_callback function 1 second after it has been started.</p>
+<div class="highlight"><pre><span></span><code>self.single_shot_timer = async_timer.AsyncSingleShotTimer(1, self.single_shot_timer_callback)
+</code></pre></div>
+<p>Each callback function should be defined in the following way:
+<div class="highlight"><pre><span></span><code>async def single_shot_timer_callback(self, timer):
+    logging.info("One shot timer fired")
+</code></pre></div></p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h5 id="create-admission-control-messsage-handler"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.4.1.2.3</span> Create Admission Control Messsage Handler<a class="headerlink" href="#create-admission-control-messsage-handler" title="Permanent link">⚓︎</a></h5>
+<p>If it is required to process UE or PDU Admission Control Messages an AdmissionControlMessageHandler object should be created as a memmber variable of the application object. The callbacks are added within the Async context, which is discussed later.</p>
+<p>The following is an example of how to create an AdmissionControlMessageHandler object.</p>
+<div class="highlight"><pre><span></span><code>self.admission_control_message_handler = AsyncAdmissionControlMessageHandler(self.xapp.nats())
+</code></pre></div>
+<h3 id="run-async-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.4.2</span> Run Async Function<a class="headerlink" href="#run-async-function" title="Permanent link">⚓︎</a></h3>
+<p>The run_async function will start off any other procesing required in the application from within the Async event loop. This typically includes starting any periodic timers required. </p>
+<h2 id="async-xapp-framework-features"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5</span> Async xApp Framework Features<a class="headerlink" href="#async-xapp-framework-features" title="Permanent link">⚓︎</a></h2>
+<p>The previous sections described how to create an Async xApp and the Application class. This section describes each Async feature in more detail and how they should be called within the Async (event loop) context. Note the examples assume that the functions are written within the the application class, so references to "self" refer to this class.</p>
+<h3 id="nats"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.1</span> NATS<a class="headerlink" href="#nats" title="Permanent link">⚓︎</a></h3>
+<p>As described in the Setup NATS Subscriptions section, it is possible to configure the callback functions that are called when messages are received on specific NATS subjects when the application object is being initialised. However the following functionality is also provided.</p>
+<h4 id="run-time-add-nats-subscription"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.1.1</span> Run-time Add NATS Subscription<a class="headerlink" href="#run-time-add-nats-subscription" title="Permanent link">⚓︎</a></h4>
+<p>It is possible to add NATS subscriptions while the applicaion is running from within the Async event loop. This is achieved by calling the add_subscription function.</p>
+<p>The following is an example of how to add a new subscription for the NATS subject 'test_subject', where the test_callback method is called whenever a message is recived on that that NATS subject.</p>
+<div class="highlight"><pre><span></span><code>await self.xapp.nats().add_subscription('test_subject', self.test_callback)
+</code></pre></div>
+<p>Note that as this is called with the Async context, the add_subscription function needs to be awaited upon.</p>
+<p>The callback function should be defined in the same way as defined earlier, so for example:
+<div class="highlight"><pre><span></span><code>async def test_callback(self, message):
+  subject = message.subject
+  data = message.data
+</code></pre></div></p>
+<h4 id="run-time-remove-nats-subscription"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.1.2</span> Run-time Remove NATS Subscription<a class="headerlink" href="#run-time-remove-nats-subscription" title="Permanent link">⚓︎</a></h4>
+<p>It is also possible to remove NATS subscriptions while the applicaion is running from within the Async event loop. This is achieved by calling the remove_subscription function.</p>
+<p>The following is an example of how to remove the subscription for the NATS subject 'test_topic'.</p>
+<div class="highlight"><pre><span></span><code>await self.xapp.nats().remove_subscription('test_topic')
+</code></pre></div>
+<p>Note that as this is called with the Async context, the remove_subscription function needs to be awaited upon.</p>
+<h4 id="publish-to-the-drax-nats-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.1.3</span> Publish to the dRAX NATS Databus<a class="headerlink" href="#publish-to-the-drax-nats-databus" title="Permanent link">⚓︎</a></h4>
+<p>The function to publish to the dRAX NATS Databus is similar to the non-Async version via the send_message function.</p>
+<p>The following is an example of how to send a json object on the NATS subject 'test_subject'</p>
+<div class="highlight"><pre><span></span><code>data = {"key": "data"}
+await self.xapp.nats().json().send_message('test_subject', data)
+</code></pre></div>
+<p>Note that as this is called with the Async context, the send_message function needs to be awaited upon.</p>
+<h3 id="kafka"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.2</span> Kafka<a class="headerlink" href="#kafka" title="Permanent link">⚓︎</a></h3>
+<p>As described in the Setup Kafka Subscriptions section, it is possible to configure the callback functions that are called when messages are received on specific Kafka topics when the application object is being initialised. However the following functionality is also provided.</p>
+<h4 id="publish-to-the-drax-kafka-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.2.1</span> Publish to the dRAX Kafka Databus<a class="headerlink" href="#publish-to-the-drax-kafka-databus" title="Permanent link">⚓︎</a></h4>
+<p>The function to publish to the dRAX Kafka Databus is similar to the non-Async version via the send_message function.</p>
+<p>The following is an example of how to send a json object on the Kafka topic 'test_topic'</p>
+<div class="highlight"><pre><span></span><code>data = {"key": "data"}
+await xapp.kafka().json().send_message('test_topic', data)
+</code></pre></div>
+<p>Note that as this is called with the Async context, the send_message function needs to be awaited upon.</p>
+<h3 id="e2"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3</span> E2<a class="headerlink" href="#e2" title="Permanent link">⚓︎</a></h3>
+<p>It is possible to subscribe to E2 KPM Reports from an E2 Interface. The functions to create the action and trigger definitions are identical to the non-Async version of the library. However the subscribe and unsubscribe functions operate a little differently.</p>
+<h4 id="subscribe"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3.1</span> Subscribe<a class="headerlink" href="#subscribe" title="Permanent link">⚓︎</a></h4>
+<p>The E2 Subscribe function is used to subscribe to messaeges on the E2 Interface. The Async version function differs from the non-Async version in that it allows callback functions to be defined, so the application can be notified of when subscriptions and unscubscriptions have occured, as well as for when KPM Indications have been received.</p>
+<p>The following is an example of subscribing to E2 KPM, where we pass in callbacks for subscription responses, subscription deletions and KPM indicators. It returns the instance id the subscription which can be used in other functions.</p>
+<div class="highlight"><pre><span></span><code># The MEASUREMENT LIST must contain the parameters contained in the E2setupRequest packet within the Measurement container
+MEASUREMENT_LIST = ["RRU.PrbTotDl", "RRU.PrbTotUl", "DRB.MeanActiveUe"]
+
+# The create_action_definition_list takes two parameters, the first one is the granularity_period that rapresents
+# how mny measurements are made in a time intervall, the value is expressed in millisecond. The second one is the MEASUREMENT_LIST
+actions = e2kpm.create_action_definition_list(300 , MEASUREMENT_LIST)
+
+# The create event trigger takes as parameter the reporting_period that represents how frequently the report message is sent, the value is expressed in millisecond.
+triggers = e2kpm.create_event_trigger_definition(1000)
+
+ins_id = await self.xapp.e2().subscribe(
+    xapp=self.xapp,
+    service_model=e2.ServiceModel.KPM_v2_03,
+    triggers=triggers,
+    actions=actions, 
+    kpm_subscription_response_handler=self.e2_subscription_response_callback,
+    kpm_subscription_delete_response_handler=sself.e2_subscription_delete_response_callback,
+    kpm_indicator_handler=self.e2_kpm_indicator_callback
+)
+</code></pre></div>
+<p>Note that as this is called with the Async context, the subscribe function needs to be awaited upon.</p>
+<h5 id="subscription-response-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3.1.1</span> Subscription Response Callback Function<a class="headerlink" href="#subscription-response-callback-function" title="Permanent link">⚓︎</a></h5>
+<p>The subscription response callback function should be defined in the following way:</p>
+<p>async def kpm_subscription_response_handler(self, service_model, request_id, instance_id, decoded_data):
+    logging.info("KPM subscription response received")</p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h5 id="subscription-delete-response-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3.1.2</span> Subscription Delete Response Callback Function<a class="headerlink" href="#subscription-delete-response-callback-function" title="Permanent link">⚓︎</a></h5>
+<p>The subscription delete response callback function should be defined in the following way:</p>
+<p>async def kpm_subscription_delete_response_handler(self, service_model, request_id, instance_id, decoded_data):
+    logging.info("KPM subscription delete response received")</p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h5 id="kpm-indication-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3.1.3</span> KPM Indication Callback Function<a class="headerlink" href="#kpm-indication-callback-function" title="Permanent link">⚓︎</a></h5>
+<p>The subscription delete response callback function should be defined in the following way:</p>
+<div class="highlight"><pre><span></span><code>async def kpm_indication_callback(self, service_model, request_id, instance_id, decoded_data):
+    logging.info("KPM indication received")
+</code></pre></div>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h4 id="unsubscribe"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3.2</span> Unsubscribe<a class="headerlink" href="#unsubscribe" title="Permanent link">⚓︎</a></h4>
+<p>The unsubscribe function is used to stop receiving KPM Reports from the E2 Intereface. </p>
+<p>The following is an example the unsubscribe function:</p>
+<div class="highlight"><pre><span></span><code>await self.xapp.e2().unsubscribe(self.xapp, e2.ServiceModel.KPM_v2_03 , instance_id)
+</code></pre></div>
+<p>Where the instance_id should be the value returned from the subscribe function.</p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h3 id="periodic-timer_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.4</span> Periodic Timer<a class="headerlink" href="#periodic-timer_1" title="Permanent link">⚓︎</a></h3>
+<p>As described in the Create Periodic Timers section, periodic timers are created in the <strong>init</strong> function of the application.</p>
+<p>However the timers can be started and canelled from with the Async context. In general, periodic timers are started in the run_async function of the application.</p>
+<p>The following is an example of how to start a periodic timer</p>
+<div class="highlight"><pre><span></span><code>await self.periodic_timer.start()
+</code></pre></div>
+<p>The following is an example of how to cancel a periodic timer</p>
+<div class="highlight"><pre><span></span><code>await self.periodic_timer.cancel()
+</code></pre></div>
+<p>Note these will be called from the Async event loop, so they need to be awaited upon.</p>
+<h3 id="single-shot-timer_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5</span> Single Shot Timer<a class="headerlink" href="#single-shot-timer_1" title="Permanent link">⚓︎</a></h3>
+<p>As described in the Create Periodic Timers section, single shot timers are created in the <strong>init</strong> function of the application.</p>
+<p>The timers can be started and canelled from with the Async context.</p>
+<p>The following is an example of how to start a single shot timer</p>
+<div class="highlight"><pre><span></span><code>await self.single_shot_timer.start()
+</code></pre></div>
+<p>The following is an example of how to cancel a periodic timer</p>
+<div class="highlight"><pre><span></span><code>await self.single_shot_timer.cancel()
+</code></pre></div>
+<p>Note these will be called from the Async event loop, so they need to be awaited upon.</p>
+<h3 id="admission-control"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6</span> Admission Control<a class="headerlink" href="#admission-control" title="Permanent link">⚓︎</a></h3>
+<p>The Async framework supports UE and PDU Admission Control. Sending messages is similar to the non-Async version of the SDK, but the Async version allows the application to subscribe to UE and PDU Admission Control messages received, and define callback functions which are called when each type of admission control request message is received. The following sections describe the functionality provided.</p>
+<h4 id="subscribe-to-ue-admission-control-requests"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.1</span> Subscribe to UE Admission Control Requests<a class="headerlink" href="#subscribe-to-ue-admission-control-requests" title="Permanent link">⚓︎</a></h4>
+<p>If the application needs to handle UE Admission request messages, it should subscribe to them using the subscribe_ue_admission_control function. This takes in callback functions for UE admission requests, update indications, and release indications.</p>
+<p>The following is an example of the subscription:</p>
+<div class="highlight"><pre><span></span><code>await self.admission_control_message_handler.subscribe_ue_admission_control(self.ue_admission_request_handler, 
+                                                                            self.ue_info_update_indication_handler, 
+                                                                            self.ue_release_indication_handler)
+</code></pre></div>
+<p>Note this will be called from the Async event loop, so needs to be awaited upon.</p>
+<p>The sections below describe each of the callback functions.</p>
+<h5 id="ue-admission-request-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.1.1</span> UE Admission Request Callback Function<a class="headerlink" href="#ue-admission-request-callback-function" title="Permanent link">⚓︎</a></h5>
+<p>The UE Admission Request callback function should be defined in the following way:</p>
+<div class="highlight"><pre><span></span><code>async def ue_admission_request_handler(self, ue_adm_req):
+    self.cu_cp_name = ue_adm_req.ue_admission_request_received.CuCpName 
+    self.cu_cp_ue_id = ue_adm_req.ue_admission_request_received.CuCpUeId
+</code></pre></div>
+<p>The us_adm_req is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. These should be stored as they may need to be used in other functions.</p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h5 id="ue-information-update-indication-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.1.2</span> UE Information Update Indication Callback Function<a class="headerlink" href="#ue-information-update-indication-callback-function" title="Permanent link">⚓︎</a></h5>
+<p>The UE Information Update Indication callback function should be defined in the following way:</p>
+<div class="highlight"><pre><span></span><code>async def ue_info_update_indication_handler(self, ue_info_update):
+    cu_cp_name = ue_info_update.ue_info_update_indication_received.CuCpName
+    cu_cp_ue_id = ue_info_update.ue_info_update_indication_received.CuCpUeId
+</code></pre></div>
+<p>The ue_info_update is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h5 id="ue-release-indication-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.1.3</span> UE Release Indication Callback Function<a class="headerlink" href="#ue-release-indication-callback-function" title="Permanent link">⚓︎</a></h5>
+<p>The UE Release Indication callback function should be defined in the following way:</p>
+<div class="highlight"><pre><span></span><code>async def ue_release_indication_handler(self, ue_release_ind):
+    cu_cp_name = ue_release_ind.ue_release_indication_received.CuCpName
+    cu_cp_ue_id = ue_release_ind.ue_release_indication_received.CuCpUeId
+</code></pre></div>
+<p>The ue_release_ind is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h4 id="send-ue-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.2</span> Send UE Admission Control Messages<a class="headerlink" href="#send-ue-admission-control-messages" title="Permanent link">⚓︎</a></h4>
+<p>It is possible to send UE Admission Control messages. The functions provided are very similar to those provided by the non-Async version of the SDK.</p>
+<p>The sections below describe each of these functions.</p>
+<h5 id="accept-a-ue-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.2.1</span> Accept a UE Admission Request<a class="headerlink" href="#accept-a-ue-admission-request" title="Permanent link">⚓︎</a></h5>
+<p>The following example shows how to accept a UE Admission Request. </p>
+<div class="highlight"><pre><span></span><code>err = await async_actions.async_ue_admission_accept(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
+if err == 0:
+    logging.info(f"Admission of UE {self.cu_cp_ue_id} on CU {self.cu_cp_name} succeded")
+else:
+    logging.info(f"Admission of UE {self.cu_cp_ue_id} on CU {self.cu_cp_name} failed")
+</code></pre></div>
+<p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the UE Admission Request was received.</p>
+<p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
+<h5 id="reject-a-ue-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.2.2</span> Reject a UE Admission Request<a class="headerlink" href="#reject-a-ue-admission-request" title="Permanent link">⚓︎</a></h5>
+<p>The following example shows how to reject a UE Admission Request. </p>
+<div class="highlight"><pre><span></span><code>err = await async_actions.async_ue_admission_reject(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
+if err == 0:
+    logging.info(f"Rejection of UE {self.cu_cp_ue_id} on CU {self.cu_cp_name} succeded")
+else:
+    logging.info(f"Rejection of UE {self.cu_cp_ue_id} on CU {self.cu_cp_name} failed")
+</code></pre></div>
+<p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the UE Admission Request was received.</p>
+<p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
+<h5 id="release-a-ue"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.2.3</span> Release a UE<a class="headerlink" href="#release-a-ue" title="Permanent link">⚓︎</a></h5>
+<p>The following example shows how to release a UE. </p>
+<div class="highlight"><pre><span></span><code>err = await async_actions.async_ue_admission_reject(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
+if err == 0:
+    logging.info(f"Rejection of UE {self.cu_cp_ue_id} on CU {self.cu_cp_name} succeded")
+else:
+    logging.info(f"Rejection of UE {self.cu_cp_ue_id} on CU {self.cu_cp_name} failed")
+</code></pre></div>
+<p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the UE Admission Request was received.</p>
+<p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
+<h4 id="unsubscribe-from-ue-admission-control-requests"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.3</span> Unsubscribe from UE Admission Control Requests<a class="headerlink" href="#unsubscribe-from-ue-admission-control-requests" title="Permanent link">⚓︎</a></h4>
+<p>The following example shows how unsubsctibe from UE Admission Control Requests</p>
+<div class="highlight"><pre><span></span><code>await async_actions.unsubscribe_ue_admission_control()
+</code></pre></div>
+<p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
+<h4 id="subscribe-to-pdu-admission-control-requests"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.4</span> Subscribe to PDU Admission Control Requests<a class="headerlink" href="#subscribe-to-pdu-admission-control-requests" title="Permanent link">⚓︎</a></h4>
+<p>If the application needs to handle PDU Admission request messages, it should subscribe to them using the subscribe_pdu_admission_control function. This takes in callback functions for PDU admission requests, modification requests, and release indications.</p>
+<p>The following is an example of the subscription:</p>
+<div class="highlight"><pre><span></span><code>await self.admission_control_message_handler.subscribe_pdu_admission_control(self.pdu_session_adm_request_handler, 
+                                                                               self.pdu_session_mod_request_handler, 
+                                                                               self.pdu_session_release_indicator_handler)
+</code></pre></div>
+<p>Note this will be called from the Async event loop, so needs to be awaited upon.</p>
+<p>The sections below describe each of the callback functions.</p>
+<h5 id="pdu-session-admission-request-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.4.1</span> PDU Session Admission Request Callback Function<a class="headerlink" href="#pdu-session-admission-request-callback-function" title="Permanent link">⚓︎</a></h5>
+<p>The PDU Admission Request callback function should be defined in the following way:</p>
+<div class="highlight"><pre><span></span><code>async def pdu_session_adm_request_handler(self, pdu_session_adm_req):
+    self.cu_cp_name = pdu_session_adm_req.pdu_session_adm_request_received.CuCpName
+    self.cu_cp_ue_id = pdu_session_adm_req.pdu_session_adm_request_received.CuCpUeId
+</code></pre></div>
+<p>The us_adm_req is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. These should be stored as they may need to be used in other functions.</p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h5 id="pdu-session-modification-request-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.4.2</span> PDU Session Modification Request Callback Function<a class="headerlink" href="#pdu-session-modification-request-callback-function" title="Permanent link">⚓︎</a></h5>
+<p>The PDU Session Modification Request callback function should be defined in the following way:</p>
+<div class="highlight"><pre><span></span><code>async def pdu_session_mod_request_handler(self, pdu_session_mod_req):
+    cu_cp_name = pdu_session_mod_req.pdu_session_mod_request_received.CuCpName
+    cu_cp_ue_id = pdu_session_mod_req.pdu_session_mod_request_received.CuCpUeId
+</code></pre></div>
+<p>The pdu_session_mod_req is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h5 id="pdu-session-release-indicator-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.4.3</span> PDU Session Release Indicator Callback Function<a class="headerlink" href="#pdu-session-release-indicator-callback-function" title="Permanent link">⚓︎</a></h5>
+<p>The PDU Session Release Indicator callback function should be defined in the following way:</p>
+<div class="highlight"><pre><span></span><code>async def pdu_session_release_indicator_handler(self, pdu_session_release_ind):
+    cu_cp_name = pdu_session_release_ind.pdu_session_release_indicator_received.CuCpName
+    cu_cp_ue_id = pdu_session_release_ind.pdu_session_release_indicator_received.CuCpUeId
+</code></pre></div>
+<p>The pdu_session_release_ind is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
+<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<h4 id="send-pdu-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.5</span> Send PDU Admission Control Messages<a class="headerlink" href="#send-pdu-admission-control-messages" title="Permanent link">⚓︎</a></h4>
+<p>It is possible to send PDU Admission Control messages. The functions provided are very similar to those provided by the non-Async version of the SDK.</p>
+<p>The sections below describe each of these functions.</p>
+<h5 id="accept-a-pdu-session-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.5.1</span> Accept a PDU Session Admission Request<a class="headerlink" href="#accept-a-pdu-session-admission-request" title="Permanent link">⚓︎</a></h5>
+<p>The following example shows how to accept a PDU Admission Request. </p>
+<div class="highlight"><pre><span></span><code>err = await async_actions.async_pdu_session_admission_accept(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
+if err == 0:
+    logging.info(f"Admission of PDU session {self.cu_cp_ue_id} on CU {self.cu_cp_name } succeded")
+else:
+    logging.info(f"Admission of PDU session {self.cu_cp_ue_id} on CU {self.cu_cp_name } failed")
+</code></pre></div>
+<p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the PDU Admission Request was received.</p>
+<p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
+<h5 id="reject-a-pdu-session-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.5.2</span> Reject a PDU Session Admission Request<a class="headerlink" href="#reject-a-pdu-session-admission-request" title="Permanent link">⚓︎</a></h5>
+<p>The following example shows how to reject a PDU Admission Request.</p>
+<div class="highlight"><pre><span></span><code>err = await async_actions.async_pdu_session_admission_reject(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
+if err == 0:
+    logging.info(f"Rejection of PDU session {self.cu_cp_ue_id} on CU {self.cu_cp_name} succeded")
+else:
+    logging.info(f"Rejection of PDU session {self.cu_cp_ue_id} on CU {self.cu_cp_name} failed")
+</code></pre></div>
+<p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the PDU Admission Request was received.</p>
+<p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
+<h5 id="accept-a-pdu-session-admission-modification-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.5.3</span> Accept a PDU Session Admission Modification Request<a class="headerlink" href="#accept-a-pdu-session-admission-modification-request" title="Permanent link">⚓︎</a></h5>
+<p>The following example shows how to accept a PDU Admission ModificationRequest. </p>
+<div class="highlight"><pre><span></span><code>err = await async_actions.async_pdu_session_modification_accept(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
+if err == 0:
+    logging.info(f"Admission of PDU session modification {self.cu_cp_ue_id} on CU {self.cu_cp_name} succeded")
+else:
+    logging.info(f"Admission of PDU session modification {self.cu_cp_ue_id} on CU {self.cu_cp_name} failed")
+</code></pre></div>
+<p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the PDU Admission Request was received.</p>
+<p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
+<h5 id="reject-a-pdu-session-admission-modification-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.5.4</span> Reject a PDU Session Admission Modification Request<a class="headerlink" href="#reject-a-pdu-session-admission-modification-request" title="Permanent link">⚓︎</a></h5>
+<p>The following example shows how to reject a PDU Admission Modification Request. </p>
+<div class="highlight"><pre><span></span><code>err = await async_actions.async_pdu_session_modification_reject(self.xapp, pdu_session_mod_req.CuCpName, self.cu_cp_ue_id)
+if err == 0:
+    logging.info(f"Rejection of PDU session modification {self.cu_cp_ue_id} on CU {self.cu_cp_name} succeded")
+else:
+    logging.info(f"Rejection of PDU session modification {self.cu_cp_ue_id} on CU {self.cu_cp_name} failed")
+</code></pre></div>
+<p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the PDU Admission Request was received.</p>
+<p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
+<h4 id="unsubscribe-from-pdu-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.6</span> Unsubscribe from PDU Admission Control Messages<a class="headerlink" href="#unsubscribe-from-pdu-admission-control-messages" title="Permanent link">⚓︎</a></h4>
+<p>The following example shows how unsubsctibe from UE Admission Control Requests</p>
+<div class="highlight"><pre><span></span><code>await async_actions.unsubscribe_pdu_admission_control()
+</code></pre></div>
+<p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
+<h3 id="async-drax-commands"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.7</span> Async dRAX Commands<a class="headerlink" href="#async-drax-commands" title="Permanent link">⚓︎</a></h3>
+<p>Async versions of the Handover commands/triggers have been provided. </p>
+<p>The following is an example of a function to trigger an 4G LTE Handover command.</p>
+<div class="highlight"><pre><span></span><code>async def send_handover_trigger_4g(self):
+    handover_list = [
+        {'ueIdx': 'ueDraxId_to_handover_1', 'targetCell': 'Bt1Cell', 'sourceCell': 'Bt2Cell'},
+        {'ueIdx': 'ueDraxId_to_handover_2', 'targetCell': 'Bt2Cell', 'sourceCell': 'Bt1Cell'}
+    ]
+    await async_actions.async_trigger_handover(xapp.nats(), handover_list)
+</code></pre></div>
+<p>The following is an example of a functon to trigger a 5G LTE Handover command.</p>
+<div class="highlight"><pre><span></span><code>async def send_handover_trigger_5g(self):
+    ue_id = 1
+    target_cell = actions.Cell(id=456, plmn='654321')
+    transaction_id = await async_actions.async_trigger_handover_5g(xapp=xapp,
+                                            ue_id=ue_id,
+                                            target_cell=target_cell)
+</code></pre></div>
+<h3 id="calling-the-drax-ric-rest-api"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.8</span> Calling the dRAX RIC REST API<a class="headerlink" href="#calling-the-drax-ric-rest-api" title="Permanent link">⚓︎</a></h3>
+<p>When making requests to the dRAX API Gateway, the async_request package should be used in instead of the non-Async request package.</p>
+<p>The following is an example of this.</p>
+<div class="highlight"><pre><span></span><code>endpoint = '/discover/services/netconf'
+api_response = await async_requests.get(actions.create_api_url(self.xapp, endpoint))
+</code></pre></div>
+<p>Note that as this is called with the Async context, the subscribe function needs to be awaited upon.</p>
+<h3 id="access-to-the-xapp-main-event-loop"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.9</span> Access to the xApp main event loop<a class="headerlink" href="#access-to-the-xapp-main-event-loop" title="Permanent link">⚓︎</a></h3>
+<p>A function has been provided which can get the main event loop from the xApp. </p>
+<p>The following is an example of how to use this.</p>
+<div class="highlight"><pre><span></span><code>main_event_loop = self.xapp.get_event_loop()
+</code></pre></div>
+<h3 id="user-defined-threads-or-other-event-loops-interacting-with-the-xapp-event-loop"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.10</span> User defined threads or other Event Loops interacting with the xApp Event Loop<a class="headerlink" href="#user-defined-threads-or-other-event-loops-interacting-with-the-xapp-event-loop" title="Permanent link">⚓︎</a></h3>
+<p>It may be necessary for developers to introduce their own threads or event loops. If any work needs to transferred back to the main event loop so processing can be handled by the Async Xapp framework, the Asyncio function run_coroutine_threadsafe should be used as shown below.
+<div class="highlight"><pre><span></span><code>asyncio.run_coroutine_threadsafe(coroutine_for_main_event_loop, main_loop)
+</code></pre></div></p>
+<h3 id="async-rest-api-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.11</span> Async Rest API Functions<a class="headerlink" href="#async-rest-api-functions" title="Permanent link">⚓︎</a></h3>
+<p>The REST API page describes how to add custom handlers for REST API endpoints. Similar to functions performed in different threads, the handlers should put any processing on the main event loop. </p>
+<p>The following is an example of this.</p>
+<div class="highlight"><pre><span></span><code>async def get_handler(xapp):
+  # Process Get
+
+async def post_handler(xapp):
+  # Proecss Post
+
+class RequestHandler(tornado.web.RequestHandler):
+    def initialize(self, xapp):
+        self.xapp = xapp
+        self.write("init request handler\n")
+    def get(self):
+        asyncio.run_coroutine_threadsafe(get_handler(self.xapp), self.xapp.get_event_loop())
+    def post(self):
+        asyncio.run_coroutine_threadsafe(post_handler(self.xapp), self.xapp.get_event_loop())
+</code></pre></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: xApp Library In-depth" class="md-footer__link md-footer__link--prev" href="../xapp_library/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                xApp Library In-depth
+              </div>
+</div>
+</a>
+<a aria-label="Next: xApp Unit Tests" class="md-footer__link md-footer__link--next" href="../xapp_unittest/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                xApp Unit Tests
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tabs", "navigation.footer", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+</body>
+</html>
