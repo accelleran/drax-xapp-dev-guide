@@ -442,56 +442,6 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#e2">
-<span class="md-ellipsis">
-      E2
-    </span>
-</a>
-<nav aria-label="E2" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#subscribe">
-<span class="md-ellipsis">
-      Subscribe
-    </span>
-</a>
-<nav aria-label="Subscribe" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#subscription-response-callback-function">
-<span class="md-ellipsis">
-      Subscription Response Callback Function
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#subscription-delete-response-callback-function">
-<span class="md-ellipsis">
-      Subscription Delete Response Callback Function
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#kpm-indication-callback-function">
-<span class="md-ellipsis">
-      KPM Indication Callback Function
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#unsubscribe">
-<span class="md-ellipsis">
-      Unsubscribe
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#periodic-timer_1">
 <span class="md-ellipsis">
       Periodic Timer
@@ -944,7 +894,6 @@
 <li>async_nats.py</li>
 <li>async_settings.py</li>
 <li>async_timer.py</li>
-<li>e2/async_e2client.py</li>
 </ul>
 </li>
 </ol>
@@ -1012,9 +961,8 @@ self.xapp.kafka().subscribe(topics_and_handlers)
 <p>Unlike NATS, it is not currently possible to add and remove Kafka subscriptions while the application is running.</p>
 <h3 id="run-the-async-event-loop"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.3.6</span> Run the Async Event Loop<a class="headerlink" href="#run-the-async-event-loop" title="Permanent link">⚓︎</a></h3>
 <p>Once the application object has been created, the single Asycio event loop is started using the the xapp.run_async function. By default this will start the Async REST API, Async NATS and Async Kafka. However it is possible to provide other async coroutines to start by adding them as parameters. </p>
-<p>If E2 is required then xapp.e2().run_async() needs to be included. Additionally if any any application async functionality needs to be run (as contained in the application run_async function), this should also be added as a couroutine to this function.</p>
-<p>The following is an example of calling run_async which additionally starts e2 and the run_async function from my_app:</p>
-<div class="highlight"><pre><span></span><code>xapp.run_async(xapp.e2().run_async(), my_app.run_async())
+<p>The following is an example of calling run_async which starts the run_async function from my_app:</p>
+<div class="highlight"><pre><span></span><code>xapp.run_async(my_app.run_async())
 </code></pre></div>
 <h2 id="application-object"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.4</span> Application Object<a class="headerlink" href="#application-object" title="Permanent link">⚓︎</a></h2>
 <p>When using AsyncIO it is easier to manage the callbacks within an object encapsulating the applicaton data and state, as the call back functions are almost certainily going to need operate on that information. Additionally, some objects and Async tasks need to be kept persistent over the life-time of the application, as otherwise they can end up becoming lost or cancelled and need to be maintained as member variables of this object. Therefore, in the example we create a class called MyApp (this of course can be given a different name). </p>
@@ -1133,56 +1081,7 @@ await self.xapp.nats().json().send_message('test_subject', data)
 await xapp.kafka().json().send_message('test_topic', data)
 </code></pre></div>
 <p>Note that as this is called with the Async context, the send_message function needs to be awaited upon.</p>
-<h3 id="e2"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3</span> E2<a class="headerlink" href="#e2" title="Permanent link">⚓︎</a></h3>
-<p>It is possible to subscribe to E2 KPM Reports from an E2 Interface. The functions to create the action and trigger definitions are identical to the non-Async version of the library. However the subscribe and unsubscribe functions operate a little differently.</p>
-<h4 id="subscribe"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3.1</span> Subscribe<a class="headerlink" href="#subscribe" title="Permanent link">⚓︎</a></h4>
-<p>The E2 Subscribe function is used to subscribe to messaeges on the E2 Interface. The Async version function differs from the non-Async version in that it allows callback functions to be defined, so the application can be notified of when subscriptions and unscubscriptions have occured, as well as for when KPM Indications have been received.</p>
-<p>The following is an example of subscribing to E2 KPM, where we pass in callbacks for subscription responses, subscription deletions and KPM indicators. It returns the instance id the subscription which can be used in other functions.</p>
-<div class="highlight"><pre><span></span><code># The MEASUREMENT LIST must contain the parameters contained in the E2setupRequest packet within the Measurement container
-MEASUREMENT_LIST = ["RRU.PrbTotDl", "RRU.PrbTotUl", "DRB.MeanActiveUe"]
-
-# The create_action_definition_list takes two parameters, the first one is the granularity_period that rapresents
-# how mny measurements are made in a time intervall, the value is expressed in millisecond. The second one is the MEASUREMENT_LIST
-actions = e2kpm.create_action_definition_list(300 , MEASUREMENT_LIST)
-
-# The create event trigger takes as parameter the reporting_period that represents how frequently the report message is sent, the value is expressed in millisecond.
-triggers = e2kpm.create_event_trigger_definition(1000)
-
-ins_id = await self.xapp.e2().subscribe(
-    xapp=self.xapp,
-    service_model=e2.ServiceModel.KPM_v2_03,
-    triggers=triggers,
-    actions=actions, 
-    kpm_subscription_response_handler=self.e2_subscription_response_callback,
-    kpm_subscription_delete_response_handler=sself.e2_subscription_delete_response_callback,
-    kpm_indicator_handler=self.e2_kpm_indicator_callback
-)
-</code></pre></div>
-<p>Note that as this is called with the Async context, the subscribe function needs to be awaited upon.</p>
-<h5 id="subscription-response-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3.1.1</span> Subscription Response Callback Function<a class="headerlink" href="#subscription-response-callback-function" title="Permanent link">⚓︎</a></h5>
-<p>The subscription response callback function should be defined in the following way:</p>
-<p>async def kpm_subscription_response_handler(self, service_model, request_id, instance_id, decoded_data):
-    logging.info("KPM subscription response received")</p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
-<h5 id="subscription-delete-response-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3.1.2</span> Subscription Delete Response Callback Function<a class="headerlink" href="#subscription-delete-response-callback-function" title="Permanent link">⚓︎</a></h5>
-<p>The subscription delete response callback function should be defined in the following way:</p>
-<p>async def kpm_subscription_delete_response_handler(self, service_model, request_id, instance_id, decoded_data):
-    logging.info("KPM subscription delete response received")</p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
-<h5 id="kpm-indication-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3.1.3</span> KPM Indication Callback Function<a class="headerlink" href="#kpm-indication-callback-function" title="Permanent link">⚓︎</a></h5>
-<p>The subscription delete response callback function should be defined in the following way:</p>
-<div class="highlight"><pre><span></span><code>async def kpm_indication_callback(self, service_model, request_id, instance_id, decoded_data):
-    logging.info("KPM indication received")
-</code></pre></div>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
-<h4 id="unsubscribe"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3.2</span> Unsubscribe<a class="headerlink" href="#unsubscribe" title="Permanent link">⚓︎</a></h4>
-<p>The unsubscribe function is used to stop receiving KPM Reports from the E2 Intereface. </p>
-<p>The following is an example the unsubscribe function:</p>
-<div class="highlight"><pre><span></span><code>await self.xapp.e2().unsubscribe(self.xapp, e2.ServiceModel.KPM_v2_03 , instance_id)
-</code></pre></div>
-<p>Where the instance_id should be the value returned from the subscribe function.</p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
-<h3 id="periodic-timer_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.4</span> Periodic Timer<a class="headerlink" href="#periodic-timer_1" title="Permanent link">⚓︎</a></h3>
+<h3 id="periodic-timer_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.3</span> Periodic Timer<a class="headerlink" href="#periodic-timer_1" title="Permanent link">⚓︎</a></h3>
 <p>As described in the Create Periodic Timers section, periodic timers are created in the <strong>init</strong> function of the application.</p>
 <p>However the timers can be started and canelled from with the Async context. In general, periodic timers are started in the run_async function of the application.</p>
 <p>The following is an example of how to start a periodic timer</p>
@@ -1192,7 +1091,7 @@ ins_id = await self.xapp.e2().subscribe(
 <div class="highlight"><pre><span></span><code>await self.periodic_timer.cancel()
 </code></pre></div>
 <p>Note these will be called from the Async event loop, so they need to be awaited upon.</p>
-<h3 id="single-shot-timer_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5</span> Single Shot Timer<a class="headerlink" href="#single-shot-timer_1" title="Permanent link">⚓︎</a></h3>
+<h3 id="single-shot-timer_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.4</span> Single Shot Timer<a class="headerlink" href="#single-shot-timer_1" title="Permanent link">⚓︎</a></h3>
 <p>As described in the Create Periodic Timers section, single shot timers are created in the <strong>init</strong> function of the application.</p>
 <p>The timers can be started and canelled from with the Async context.</p>
 <p>The following is an example of how to start a single shot timer</p>
@@ -1202,9 +1101,9 @@ ins_id = await self.xapp.e2().subscribe(
 <div class="highlight"><pre><span></span><code>await self.single_shot_timer.cancel()
 </code></pre></div>
 <p>Note these will be called from the Async event loop, so they need to be awaited upon.</p>
-<h3 id="admission-control"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6</span> Admission Control<a class="headerlink" href="#admission-control" title="Permanent link">⚓︎</a></h3>
+<h3 id="admission-control"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5</span> Admission Control<a class="headerlink" href="#admission-control" title="Permanent link">⚓︎</a></h3>
 <p>The Async framework supports UE and PDU Admission Control. Sending messages is similar to the non-Async version of the SDK, but the Async version allows the application to subscribe to UE and PDU Admission Control messages received, and define callback functions which are called when each type of admission control request message is received. The following sections describe the functionality provided.</p>
-<h4 id="subscribe-to-ue-admission-control-requests"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.1</span> Subscribe to UE Admission Control Requests<a class="headerlink" href="#subscribe-to-ue-admission-control-requests" title="Permanent link">⚓︎</a></h4>
+<h4 id="subscribe-to-ue-admission-control-requests"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.1</span> Subscribe to UE Admission Control Requests<a class="headerlink" href="#subscribe-to-ue-admission-control-requests" title="Permanent link">⚓︎</a></h4>
 <p>If the application needs to handle UE Admission request messages, it should subscribe to them using the subscribe_ue_admission_control function. This takes in callback functions for UE admission requests, update indications, and release indications.</p>
 <p>The following is an example of the subscription:</p>
 <div class="highlight"><pre><span></span><code>await self.admission_control_message_handler.subscribe_ue_admission_control(self.ue_admission_request_handler, 
@@ -1213,7 +1112,7 @@ ins_id = await self.xapp.e2().subscribe(
 </code></pre></div>
 <p>Note this will be called from the Async event loop, so needs to be awaited upon.</p>
 <p>The sections below describe each of the callback functions.</p>
-<h5 id="ue-admission-request-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.1.1</span> UE Admission Request Callback Function<a class="headerlink" href="#ue-admission-request-callback-function" title="Permanent link">⚓︎</a></h5>
+<h5 id="ue-admission-request-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.1.1</span> UE Admission Request Callback Function<a class="headerlink" href="#ue-admission-request-callback-function" title="Permanent link">⚓︎</a></h5>
 <p>The UE Admission Request callback function should be defined in the following way:</p>
 <div class="highlight"><pre><span></span><code>async def ue_admission_request_handler(self, ue_adm_req):
     self.cu_cp_name = ue_adm_req.ue_admission_request_received.CuCpName 
@@ -1221,7 +1120,7 @@ ins_id = await self.xapp.e2().subscribe(
 </code></pre></div>
 <p>The us_adm_req is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. These should be stored as they may need to be used in other functions.</p>
 <p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
-<h5 id="ue-information-update-indication-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.1.2</span> UE Information Update Indication Callback Function<a class="headerlink" href="#ue-information-update-indication-callback-function" title="Permanent link">⚓︎</a></h5>
+<h5 id="ue-information-update-indication-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.1.2</span> UE Information Update Indication Callback Function<a class="headerlink" href="#ue-information-update-indication-callback-function" title="Permanent link">⚓︎</a></h5>
 <p>The UE Information Update Indication callback function should be defined in the following way:</p>
 <div class="highlight"><pre><span></span><code>async def ue_info_update_indication_handler(self, ue_info_update):
     cu_cp_name = ue_info_update.ue_info_update_indication_received.CuCpName
@@ -1229,7 +1128,7 @@ ins_id = await self.xapp.e2().subscribe(
 </code></pre></div>
 <p>The ue_info_update is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
 <p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
-<h5 id="ue-release-indication-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.1.3</span> UE Release Indication Callback Function<a class="headerlink" href="#ue-release-indication-callback-function" title="Permanent link">⚓︎</a></h5>
+<h5 id="ue-release-indication-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.1.3</span> UE Release Indication Callback Function<a class="headerlink" href="#ue-release-indication-callback-function" title="Permanent link">⚓︎</a></h5>
 <p>The UE Release Indication callback function should be defined in the following way:</p>
 <div class="highlight"><pre><span></span><code>async def ue_release_indication_handler(self, ue_release_ind):
     cu_cp_name = ue_release_ind.ue_release_indication_received.CuCpName
@@ -1237,10 +1136,10 @@ ins_id = await self.xapp.e2().subscribe(
 </code></pre></div>
 <p>The ue_release_ind is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
 <p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
-<h4 id="send-ue-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.2</span> Send UE Admission Control Messages<a class="headerlink" href="#send-ue-admission-control-messages" title="Permanent link">⚓︎</a></h4>
+<h4 id="send-ue-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.2</span> Send UE Admission Control Messages<a class="headerlink" href="#send-ue-admission-control-messages" title="Permanent link">⚓︎</a></h4>
 <p>It is possible to send UE Admission Control messages. The functions provided are very similar to those provided by the non-Async version of the SDK.</p>
 <p>The sections below describe each of these functions.</p>
-<h5 id="accept-a-ue-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.2.1</span> Accept a UE Admission Request<a class="headerlink" href="#accept-a-ue-admission-request" title="Permanent link">⚓︎</a></h5>
+<h5 id="accept-a-ue-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.2.1</span> Accept a UE Admission Request<a class="headerlink" href="#accept-a-ue-admission-request" title="Permanent link">⚓︎</a></h5>
 <p>The following example shows how to accept a UE Admission Request. </p>
 <div class="highlight"><pre><span></span><code>err = await async_actions.async_ue_admission_accept(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
 if err == 0:
@@ -1250,7 +1149,7 @@ else:
 </code></pre></div>
 <p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the UE Admission Request was received.</p>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
-<h5 id="reject-a-ue-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.2.2</span> Reject a UE Admission Request<a class="headerlink" href="#reject-a-ue-admission-request" title="Permanent link">⚓︎</a></h5>
+<h5 id="reject-a-ue-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.2.2</span> Reject a UE Admission Request<a class="headerlink" href="#reject-a-ue-admission-request" title="Permanent link">⚓︎</a></h5>
 <p>The following example shows how to reject a UE Admission Request. </p>
 <div class="highlight"><pre><span></span><code>err = await async_actions.async_ue_admission_reject(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
 if err == 0:
@@ -1260,7 +1159,7 @@ else:
 </code></pre></div>
 <p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the UE Admission Request was received.</p>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
-<h5 id="release-a-ue"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.2.3</span> Release a UE<a class="headerlink" href="#release-a-ue" title="Permanent link">⚓︎</a></h5>
+<h5 id="release-a-ue"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.2.3</span> Release a UE<a class="headerlink" href="#release-a-ue" title="Permanent link">⚓︎</a></h5>
 <p>The following example shows how to release a UE. </p>
 <div class="highlight"><pre><span></span><code>err = await async_actions.async_ue_admission_reject(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
 if err == 0:
@@ -1270,12 +1169,12 @@ else:
 </code></pre></div>
 <p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the UE Admission Request was received.</p>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
-<h4 id="unsubscribe-from-ue-admission-control-requests"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.3</span> Unsubscribe from UE Admission Control Requests<a class="headerlink" href="#unsubscribe-from-ue-admission-control-requests" title="Permanent link">⚓︎</a></h4>
+<h4 id="unsubscribe-from-ue-admission-control-requests"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.3</span> Unsubscribe from UE Admission Control Requests<a class="headerlink" href="#unsubscribe-from-ue-admission-control-requests" title="Permanent link">⚓︎</a></h4>
 <p>The following example shows how unsubsctibe from UE Admission Control Requests</p>
 <div class="highlight"><pre><span></span><code>await async_actions.unsubscribe_ue_admission_control()
 </code></pre></div>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
-<h4 id="subscribe-to-pdu-admission-control-requests"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.4</span> Subscribe to PDU Admission Control Requests<a class="headerlink" href="#subscribe-to-pdu-admission-control-requests" title="Permanent link">⚓︎</a></h4>
+<h4 id="subscribe-to-pdu-admission-control-requests"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.4</span> Subscribe to PDU Admission Control Requests<a class="headerlink" href="#subscribe-to-pdu-admission-control-requests" title="Permanent link">⚓︎</a></h4>
 <p>If the application needs to handle PDU Admission request messages, it should subscribe to them using the subscribe_pdu_admission_control function. This takes in callback functions for PDU admission requests, modification requests, and release indications.</p>
 <p>The following is an example of the subscription:</p>
 <div class="highlight"><pre><span></span><code>await self.admission_control_message_handler.subscribe_pdu_admission_control(self.pdu_session_adm_request_handler, 
@@ -1284,7 +1183,7 @@ else:
 </code></pre></div>
 <p>Note this will be called from the Async event loop, so needs to be awaited upon.</p>
 <p>The sections below describe each of the callback functions.</p>
-<h5 id="pdu-session-admission-request-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.4.1</span> PDU Session Admission Request Callback Function<a class="headerlink" href="#pdu-session-admission-request-callback-function" title="Permanent link">⚓︎</a></h5>
+<h5 id="pdu-session-admission-request-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.4.1</span> PDU Session Admission Request Callback Function<a class="headerlink" href="#pdu-session-admission-request-callback-function" title="Permanent link">⚓︎</a></h5>
 <p>The PDU Admission Request callback function should be defined in the following way:</p>
 <div class="highlight"><pre><span></span><code>async def pdu_session_adm_request_handler(self, pdu_session_adm_req):
     self.cu_cp_name = pdu_session_adm_req.pdu_session_adm_request_received.CuCpName
@@ -1292,7 +1191,7 @@ else:
 </code></pre></div>
 <p>The us_adm_req is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. These should be stored as they may need to be used in other functions.</p>
 <p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
-<h5 id="pdu-session-modification-request-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.4.2</span> PDU Session Modification Request Callback Function<a class="headerlink" href="#pdu-session-modification-request-callback-function" title="Permanent link">⚓︎</a></h5>
+<h5 id="pdu-session-modification-request-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.4.2</span> PDU Session Modification Request Callback Function<a class="headerlink" href="#pdu-session-modification-request-callback-function" title="Permanent link">⚓︎</a></h5>
 <p>The PDU Session Modification Request callback function should be defined in the following way:</p>
 <div class="highlight"><pre><span></span><code>async def pdu_session_mod_request_handler(self, pdu_session_mod_req):
     cu_cp_name = pdu_session_mod_req.pdu_session_mod_request_received.CuCpName
@@ -1300,7 +1199,7 @@ else:
 </code></pre></div>
 <p>The pdu_session_mod_req is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
 <p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
-<h5 id="pdu-session-release-indicator-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.4.3</span> PDU Session Release Indicator Callback Function<a class="headerlink" href="#pdu-session-release-indicator-callback-function" title="Permanent link">⚓︎</a></h5>
+<h5 id="pdu-session-release-indicator-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.4.3</span> PDU Session Release Indicator Callback Function<a class="headerlink" href="#pdu-session-release-indicator-callback-function" title="Permanent link">⚓︎</a></h5>
 <p>The PDU Session Release Indicator callback function should be defined in the following way:</p>
 <div class="highlight"><pre><span></span><code>async def pdu_session_release_indicator_handler(self, pdu_session_release_ind):
     cu_cp_name = pdu_session_release_ind.pdu_session_release_indicator_received.CuCpName
@@ -1308,10 +1207,10 @@ else:
 </code></pre></div>
 <p>The pdu_session_release_ind is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
 <p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
-<h4 id="send-pdu-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.5</span> Send PDU Admission Control Messages<a class="headerlink" href="#send-pdu-admission-control-messages" title="Permanent link">⚓︎</a></h4>
+<h4 id="send-pdu-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.5</span> Send PDU Admission Control Messages<a class="headerlink" href="#send-pdu-admission-control-messages" title="Permanent link">⚓︎</a></h4>
 <p>It is possible to send PDU Admission Control messages. The functions provided are very similar to those provided by the non-Async version of the SDK.</p>
 <p>The sections below describe each of these functions.</p>
-<h5 id="accept-a-pdu-session-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.5.1</span> Accept a PDU Session Admission Request<a class="headerlink" href="#accept-a-pdu-session-admission-request" title="Permanent link">⚓︎</a></h5>
+<h5 id="accept-a-pdu-session-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.5.1</span> Accept a PDU Session Admission Request<a class="headerlink" href="#accept-a-pdu-session-admission-request" title="Permanent link">⚓︎</a></h5>
 <p>The following example shows how to accept a PDU Admission Request. </p>
 <div class="highlight"><pre><span></span><code>err = await async_actions.async_pdu_session_admission_accept(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
 if err == 0:
@@ -1321,7 +1220,7 @@ else:
 </code></pre></div>
 <p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the PDU Admission Request was received.</p>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
-<h5 id="reject-a-pdu-session-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.5.2</span> Reject a PDU Session Admission Request<a class="headerlink" href="#reject-a-pdu-session-admission-request" title="Permanent link">⚓︎</a></h5>
+<h5 id="reject-a-pdu-session-admission-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.5.2</span> Reject a PDU Session Admission Request<a class="headerlink" href="#reject-a-pdu-session-admission-request" title="Permanent link">⚓︎</a></h5>
 <p>The following example shows how to reject a PDU Admission Request.</p>
 <div class="highlight"><pre><span></span><code>err = await async_actions.async_pdu_session_admission_reject(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
 if err == 0:
@@ -1331,7 +1230,7 @@ else:
 </code></pre></div>
 <p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the PDU Admission Request was received.</p>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
-<h5 id="accept-a-pdu-session-admission-modification-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.5.3</span> Accept a PDU Session Admission Modification Request<a class="headerlink" href="#accept-a-pdu-session-admission-modification-request" title="Permanent link">⚓︎</a></h5>
+<h5 id="accept-a-pdu-session-admission-modification-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.5.3</span> Accept a PDU Session Admission Modification Request<a class="headerlink" href="#accept-a-pdu-session-admission-modification-request" title="Permanent link">⚓︎</a></h5>
 <p>The following example shows how to accept a PDU Admission ModificationRequest. </p>
 <div class="highlight"><pre><span></span><code>err = await async_actions.async_pdu_session_modification_accept(self.xapp, self.cu_cp_name, self.cu_cp_ue_id)
 if err == 0:
@@ -1341,7 +1240,7 @@ else:
 </code></pre></div>
 <p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the PDU Admission Request was received.</p>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
-<h5 id="reject-a-pdu-session-admission-modification-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.5.4</span> Reject a PDU Session Admission Modification Request<a class="headerlink" href="#reject-a-pdu-session-admission-modification-request" title="Permanent link">⚓︎</a></h5>
+<h5 id="reject-a-pdu-session-admission-modification-request"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.5.4</span> Reject a PDU Session Admission Modification Request<a class="headerlink" href="#reject-a-pdu-session-admission-modification-request" title="Permanent link">⚓︎</a></h5>
 <p>The following example shows how to reject a PDU Admission Modification Request. </p>
 <div class="highlight"><pre><span></span><code>err = await async_actions.async_pdu_session_modification_reject(self.xapp, pdu_session_mod_req.CuCpName, self.cu_cp_ue_id)
 if err == 0:
@@ -1351,12 +1250,12 @@ else:
 </code></pre></div>
 <p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the PDU Admission Request was received.</p>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
-<h4 id="unsubscribe-from-pdu-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6.6</span> Unsubscribe from PDU Admission Control Messages<a class="headerlink" href="#unsubscribe-from-pdu-admission-control-messages" title="Permanent link">⚓︎</a></h4>
+<h4 id="unsubscribe-from-pdu-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.5.6</span> Unsubscribe from PDU Admission Control Messages<a class="headerlink" href="#unsubscribe-from-pdu-admission-control-messages" title="Permanent link">⚓︎</a></h4>
 <p>The following example shows how unsubsctibe from UE Admission Control Requests</p>
 <div class="highlight"><pre><span></span><code>await async_actions.unsubscribe_pdu_admission_control()
 </code></pre></div>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
-<h3 id="async-drax-commands"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.7</span> Async dRAX Commands<a class="headerlink" href="#async-drax-commands" title="Permanent link">⚓︎</a></h3>
+<h3 id="async-drax-commands"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.6</span> Async dRAX Commands<a class="headerlink" href="#async-drax-commands" title="Permanent link">⚓︎</a></h3>
 <p>Async versions of the Handover commands/triggers have been provided. </p>
 <p>The following is an example of a function to trigger an 4G LTE Handover command.</p>
 <div class="highlight"><pre><span></span><code>async def send_handover_trigger_4g(self):
@@ -1374,23 +1273,23 @@ else:
                                             ue_id=ue_id,
                                             target_cell=target_cell)
 </code></pre></div>
-<h3 id="calling-the-drax-ric-rest-api"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.8</span> Calling the dRAX RIC REST API<a class="headerlink" href="#calling-the-drax-ric-rest-api" title="Permanent link">⚓︎</a></h3>
+<h3 id="calling-the-drax-ric-rest-api"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.7</span> Calling the dRAX RIC REST API<a class="headerlink" href="#calling-the-drax-ric-rest-api" title="Permanent link">⚓︎</a></h3>
 <p>When making requests to the dRAX API Gateway, the async_request package should be used in instead of the non-Async request package.</p>
 <p>The following is an example of this.</p>
 <div class="highlight"><pre><span></span><code>endpoint = '/discover/services/netconf'
 api_response = await async_requests.get(actions.create_api_url(self.xapp, endpoint))
 </code></pre></div>
 <p>Note that as this is called with the Async context, the subscribe function needs to be awaited upon.</p>
-<h3 id="access-to-the-xapp-main-event-loop"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.9</span> Access to the xApp main event loop<a class="headerlink" href="#access-to-the-xapp-main-event-loop" title="Permanent link">⚓︎</a></h3>
+<h3 id="access-to-the-xapp-main-event-loop"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.8</span> Access to the xApp main event loop<a class="headerlink" href="#access-to-the-xapp-main-event-loop" title="Permanent link">⚓︎</a></h3>
 <p>A function has been provided which can get the main event loop from the xApp. </p>
 <p>The following is an example of how to use this.</p>
 <div class="highlight"><pre><span></span><code>main_event_loop = self.xapp.get_event_loop()
 </code></pre></div>
-<h3 id="user-defined-threads-or-other-event-loops-interacting-with-the-xapp-event-loop"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.10</span> User defined threads or other Event Loops interacting with the xApp Event Loop<a class="headerlink" href="#user-defined-threads-or-other-event-loops-interacting-with-the-xapp-event-loop" title="Permanent link">⚓︎</a></h3>
+<h3 id="user-defined-threads-or-other-event-loops-interacting-with-the-xapp-event-loop"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.9</span> User defined threads or other Event Loops interacting with the xApp Event Loop<a class="headerlink" href="#user-defined-threads-or-other-event-loops-interacting-with-the-xapp-event-loop" title="Permanent link">⚓︎</a></h3>
 <p>It may be necessary for developers to introduce their own threads or event loops. If any work needs to transferred back to the main event loop so processing can be handled by the Async Xapp framework, the Asyncio function run_coroutine_threadsafe should be used as shown below.
 <div class="highlight"><pre><span></span><code>asyncio.run_coroutine_threadsafe(coroutine_for_main_event_loop, main_loop)
 </code></pre></div></p>
-<h3 id="async-rest-api-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.11</span> Async Rest API Functions<a class="headerlink" href="#async-rest-api-functions" title="Permanent link">⚓︎</a></h3>
+<h3 id="async-rest-api-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">10.5.10</span> Async Rest API Functions<a class="headerlink" href="#async-rest-api-functions" title="Permanent link">⚓︎</a></h3>
 <p>The REST API page describes how to add custom handlers for REST API endpoints. Similar to functions performed in different threads, the handlers should put any processing on the main event loop. </p>
 <p>The following is an example of this.</p>
 <div class="highlight"><pre><span></span><code>async def get_handler(xapp):

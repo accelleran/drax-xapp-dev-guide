@@ -558,13 +558,6 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#e2-support">
-<span class="md-ellipsis">
-      E2 Support
-    </span>
-</a>
-</li>
 </ul>
 </nav>
 </li>
@@ -1489,54 +1482,6 @@ if api_response.status_code == 200:
 <p>This would log the following example data:</p>
 <div class="highlight"><pre><span></span><code>[netconf-dageraadplats] has NETCONF exposed on port [30023]
 [netconf-parking] has NETCONF exposed on port [32634]
-</code></pre></div>
-<h2 id="e2-support"><span class="enumerate-headings-plugin enumerate-heading-plugin">9.10</span> E2 Support<a class="headerlink" href="#e2-support" title="Permanent link">⚓︎</a></h2>
-<details class="note">
-<summary>Supported RIC Versions</summary>
-<p>This feature is supported since RIC 6.4.0.</p>
-</details>
-<p>The library provides the ability for an xApp to subscribe and unsubscribe to an E2 KPM Service Model provided by an E2 Termination, as well as receiving E2 KPM Reports once subscribed. All messages sent to and from the E2 Termination are sent using protobuf over NATS.</p>
-<p>The following code snippet shows how this feature should be used.</p>
-<div class="highlight"><pre><span></span><code>### Example E2: How to subscribe to the E2 interface using the e2 client and recieve data
-from xapp_lib.e2.e2client import E2Client
-from xapp_lib.e2 import e2, e2kpm
-
-# The MEASUREMENT LIST must contain the parameters contained in the E2setupRequest packet within the Measurement container
-MEASUREMENT_LIST = ["cellResourceReportList"]
-
-client = xapp.e2()
-
-# The create_action_definition_list takes two parameters, the first one is the granularity_period that rapresents
-# how many measurements are made in a time intervall, the value is expressed in millisecond. The second one is the MEASUREMENT_LIST
-
-actions = e2kpm.create_action_definition_list(300 , MEASUREMENT_LIST)
-
-# The create event trigger takes as parameter the reporting_period that represents how frequently the report message is sent, the value is expressed in millisecond.
-
-triggers = e2kpm.create_event_trigger_definition(1000)
-
-client.subscribe(
-    xapp=xapp,
-    service_model=e2.ServiceModel.KPM_v2_03,
-    triggers=triggers,
-    actions=actions
-)
-
-unsub_counter = 0
-while True:
-    # If you want to send a RIC KPM Unsubscribe message, set after how many KPM Indications to send the RIC KPM Unsubscribe message
-    unsub_after = 10
-    # If you want to send a RIC KPM Unsubscribe message, set to True
-    test_unsubscribe = False
-
-    (service_model, req_id, ins_id, decoded_data) = client.recv_data()
-
-    logging.info("Received with INS ID {} data: {}".format(ins_id, decoded_data))
-
-    ### Example E2 Unsubscribe from KPM SM
-    if unsub_counter == unsub_after and test_unsubscribe:
-        client.unsubscribe(xapp, e2.ServiceModel.KPM_v2_03 , ins_id)
-    unsub_counter = unsub_counter + 1
 </code></pre></div>
 </article>
 </div>
