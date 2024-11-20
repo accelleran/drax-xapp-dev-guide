@@ -1,0 +1,350 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$ref": "#/definitions/XappRcRanctlControlRequestPublisherPubData",
+    "definitions": {
+        "PBE2apMsgData.CuUeF1apIdList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NUM_CU_UE_F1AP_IDS elements of type uint32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Cu Ue F 1 Ap Id List"
+        },
+        "PBE2apMsgData.CucpUeE1apIdList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NUM_CUCP_UE_E1AP_IDS elements of type uint32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Cucp Ue E 1 Ap Id List"
+        },
+        "PBE2apMsgData.GlobalE2NodeId": {
+            "properties": {
+                "GlobalGnbId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GlobalGnbId",
+                    "additionalProperties": true
+                },
+                "OptionalGnbCuUpId": {
+                    "type": "string"
+                },
+                "OptionalGnbDuId": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Global E 2 Node Id",
+            "description": "*O-RAN.WG3.E2AP-v02.00 9.2.6 Global E2 Node ID"
+        },
+        "PBE2apMsgData.GlobalGnbId": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "GnbId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GnbId",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Global Gnb Id"
+        },
+        "PBE2apMsgData.GnbId": {
+            "properties": {
+                "Value": {
+                    "type": "integer"
+                },
+                "Length": {
+                    "type": "integer",
+                    "description": "Number of bits used in the gnbId. This may vary from 22 to 32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Gnb Id"
+        },
+        "PBE2apMsgData.Guami": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "AmfRegionId": {
+                    "type": "integer",
+                    "description": "Bit set of 8 bits"
+                },
+                "AmfSetId": {
+                    "type": "integer",
+                    "description": "Bit set of 10 bits"
+                },
+                "AmfPointer": {
+                    "type": "integer",
+                    "description": "Bit set of 6 bits"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Guami",
+            "description": "*O-RAN.WG3.E2SM-R003-v03.00 6.2.3.17 GUAMI"
+        },
+        "PBE2apMsgData.NrCgi": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "NrCellIdentity": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Nr Cgi"
+        },
+        "PBE2apMsgData.PlmnIdentity": {
+            "properties": {
+                "Data": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Plmn Identity",
+            "description": "*O-RAN.WG3.E2SM-R003-v03.00 6.2.3.1 PLMN Identity"
+        },
+        "PBE2apMsgData.RicCallProcessId": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array",
+                    "description": "Carries max 4096 elements of type uint32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Call Process Id"
+        },
+        "PBE2apMsgData.RicRequestId": {
+            "properties": {
+                "RicRequestorId": {
+                    "type": "integer"
+                },
+                "RicInstanceId": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Request Id"
+        },
+        "PBE2apMsgData.UeId": {
+            "properties": {
+                "UeIdDu": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeIdDu",
+                    "additionalProperties": true
+                },
+                "UeIdCuup": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeIdCuup",
+                    "additionalProperties": true
+                },
+                "UeIdGnb": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeIdGnb",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id",
+            "description": "*O-RAN.WG3.E2SM-R003-v03.00 6.2.2.6 UE ID"
+        },
+        "PBE2apMsgData.UeIdCuup": {
+            "properties": {
+                "CucpUeE1apId": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id Cuup"
+        },
+        "PBE2apMsgData.UeIdDu": {
+            "properties": {
+                "CuUeF1apId": {
+                    "type": "integer"
+                },
+                "RanUeId": {
+                    "$ref": "#/definitions/PBE2apMsgData.NrCgi",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id Du"
+        },
+        "PBE2apMsgData.UeIdGnb": {
+            "properties": {
+                "AmfUeNgapId": {
+                    "type": "string",
+                    "description": "O-RAN.WG3.E2SM-R003-v03.00 6.2.3.16 AMF UE NGAP ID"
+                },
+                "Guami": {
+                    "$ref": "#/definitions/PBE2apMsgData.Guami",
+                    "additionalProperties": true
+                },
+                "CuUeF1apIdList": {
+                    "$ref": "#/definitions/PBE2apMsgData.CuUeF1apIdList",
+                    "additionalProperties": true
+                },
+                "CucpUeE1apIdList": {
+                    "$ref": "#/definitions/PBE2apMsgData.CucpUeE1apIdList",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id Gnb"
+        },
+        "PBE2smRcData.RanParameterStructureItem": {
+            "properties": {
+                "RanParameterIdType": {
+                    "type": "integer"
+                },
+                "RanParameterValueType": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ran Parameter Structure Item",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03               9.3.8 + 9.3.11"
+        },
+        "PBE2smRcData.SequenceOfRanParameters": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.RanParameterStructureItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_ASSOCIATED_RAN_PARAMETERS elements of type RanParameterStructureItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Sequence Of Ran Parameters",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03 9.2.1.4.2"
+        },
+        "PBXAppRcData.RicControlHeader": {
+            "properties": {
+                "UeIdType": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeId",
+                    "additionalProperties": true
+                },
+                "RicStyleTypeType": {
+                    "type": "string"
+                },
+                "ControlActionIdType": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Control Header",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03               9.2.1.6.1 E2SM-RC Control Header Format 1"
+        },
+        "PBXAppRcData.RicControlMessage": {
+            "properties": {
+                "SequenceOfRanParametersType": {
+                    "$ref": "#/definitions/PBE2smRcData.SequenceOfRanParameters",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Control Message",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03               9.2.1.7.1 E2SM-RC Control Message Format 1"
+        },
+        "PBXAppRcData.RicControlRequest": {
+            "properties": {
+                "GlobalE2NodeId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GlobalE2NodeId",
+                    "additionalProperties": true
+                },
+                "RicRequestId": {
+                    "$ref": "#/definitions/PBE2apMsgData.RicRequestId",
+                    "additionalProperties": true
+                },
+                "RanFunctionName": {
+                    "type": "string"
+                },
+                "RanFunctionId": {
+                    "type": "integer"
+                },
+                "RicCallProcessId": {
+                    "$ref": "#/definitions/PBE2apMsgData.RicCallProcessId",
+                    "additionalProperties": true
+                },
+                "RicControlAckRequest": {
+                    "enum": [
+                        "RIC_CONTROL_ACK_REQUEST_NO_ACK",
+                        "RIC_CONTROL_ACK_REQUEST_ACK"
+                    ],
+                    "type": "string",
+                    "title": "Ric Control Ack Request"
+                },
+                "RicControlHeader": {
+                    "$ref": "#/definitions/PBXAppRcData.RicControlHeader",
+                    "additionalProperties": true
+                },
+                "RicControlMessage": {
+                    "$ref": "#/definitions/PBXAppRcData.RicControlMessage",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Control Request"
+        },
+        "XappRcRanctlControlRequestPublisherPubData": {
+            "properties": {
+                "RicControlRequest": {
+                    "$ref": "#/definitions/PBXAppRcData.RicControlRequest",
+                    "additionalProperties": true,
+                    "description": "See RicControlRequest for detailed description of this field"
+                },
+                "tlpublishTime": {
+                    "type": "string",
+                    "description": "Contains the time of publishing in EPOCH milliseconds"
+                },
+                "spanContext": {
+                    "type": "string",
+                    "description": "Contains an opentracing spancontext",
+                    "format": "binary",
+                    "binaryEncoding": "base64"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Xapp Rc Ranctl Control Request Publisher Pub Data",
+            "description": "* Publisher : XappRcRanctlControlRequestPublisher Topic : E2SM-RANCTL-CONTROL-REQUEST Description : Publishes E2 RanCtl Control Request initiated by the XAPP to the SMRC"
+        }
+    }
+}
