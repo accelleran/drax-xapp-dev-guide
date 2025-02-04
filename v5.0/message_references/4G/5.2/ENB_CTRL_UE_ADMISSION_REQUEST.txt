@@ -106,6 +106,25 @@ accelleran.drax.4g.ric.raw.service_discovery
 <!--enum-start-->
 
 Enum Type:
+RrcInitialUeIdentity
+
+Enum Values:
+stackRrcInitialUeIdentityChoice_none
+stackRrcInitialUeIdentityChoice_stmsi
+stackRrcInitialUeIdentityChoice_randomval
+
+Enum Type:
+HandoverType
+
+Enum Values:
+handoverType_intreLte
+handoverType_lteToUtran
+handoverType_lteToGeran
+handoverType_utranToLte
+handoverType_geranToTte
+handoverType_invalid
+
+Enum Type:
 IpAddrType_e
 
 Enum Values:
@@ -126,24 +145,5 @@ sessionEstablishmentCauseType_moSignalling
 sessionEstablishmentCauseType_moData
 sessionEstablishmentCauseType_delayTolerantAccess
 sessionEstablishmentCauseType_handIn
-
-Enum Type:
-RrcInitialUeIdentity
-
-Enum Values:
-stackRrcInitialUeIdentityChoice_none
-stackRrcInitialUeIdentityChoice_stmsi
-stackRrcInitialUeIdentityChoice_randomval
-
-Enum Type:
-HandoverType
-
-Enum Values:
-handoverType_intreLte
-handoverType_lteToUtran
-handoverType_lteToGeran
-handoverType_utranToLte
-handoverType_geranToTte
-handoverType_invalid
 
 <!--enum-end-->

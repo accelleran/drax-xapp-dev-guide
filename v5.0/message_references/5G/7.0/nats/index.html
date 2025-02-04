@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://accelleran.github.io/drax-xapp-dev-guide/v5.0/message_references/5G/6.0/nats/" rel="canonical"/>
+<link href="https://accelleran.github.io/drax-xapp-dev-guide/v5.0/message_references/5G/7.0/nats/" rel="canonical"/>
 <link href="../kafka/" rel="prev"/>
 <link href="../../../4G/5.2/kafka/" rel="next"/>
 <link href="../../../../assets/images/favicon.png" rel="icon"/>
@@ -385,14 +385,14 @@
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_3_2_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
 <span class="md-ellipsis">
-    version 6.0
+    version 7.0
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="true" aria-labelledby="__nav_3_2_1_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_1">
 <span class="md-nav__icon md-icon"></span>
-            version 6.0
+            version 7.0
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -517,6 +517,13 @@
 <a class="md-nav__link" href="#filtercoefficient">
 <span class="md-ellipsis">
       FilterCoefficient
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fullconfigurationmode">
+<span class="md-ellipsis">
+      FullConfigurationMode
     </span>
 </a>
 </li>
@@ -4374,6 +4381,13 @@
 <nav aria-label="genDuF1apPubSub.proto" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#f1closerequestpublisherpubdata">
+<span class="md-ellipsis">
+      F1CloseRequestPublisherPubData
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#f1gnbcuconfigupdatepublisherpubdata">
 <span class="md-ellipsis">
       F1GnbCuConfigUpdatePublisherPubData
@@ -4398,13 +4412,6 @@
 <a class="md-nav__link" href="#f1pagingpublisherpubdata">
 <span class="md-ellipsis">
       F1PagingPublisherPubData
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#f1removalrequestpublisherpubdata">
-<span class="md-ellipsis">
-      F1RemovalRequestPublisherPubData
     </span>
 </a>
 </li>
@@ -5959,6 +5966,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#f1closerequestdata">
+<span class="md-ellipsis">
+      F1CloseRequestData
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#f1connitem">
 <span class="md-ellipsis">
       F1ConnItem
@@ -6088,6 +6102,13 @@
 <a class="md-nav__link" href="#f1removalrequestdata">
 <span class="md-ellipsis">
       F1RemovalRequestData
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#f1removalresponsedata">
+<span class="md-ellipsis">
+      F1RemovalResponseData
     </span>
 </a>
 </li>
@@ -11612,8 +11633,37 @@
 </tr>
 </tbody>
 </table>
+<p><a id="PBAcc5GTypes-FullConfigurationMode"></a></p>
+<h3 id="fullconfigurationmode"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.14</span> FullConfigurationMode<a class="headerlink" href="#fullconfigurationmode" title="Permanent link">⚓︎</a></h3>
+<p>Determines what the CU-CP should do with the fullConfiguration flag in RRC Reconfiguration               when performing a handover.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NEVER_INCLUDE</td>
+<td>0</td>
+<td>Always include fullConfiguration in RRC Reconfiguration, even if it is included in the UE Context Setup Response that was received from the DU.</td>
+</tr>
+<tr>
+<td>ALWAYS_INCLUDE</td>
+<td>1</td>
+<td>Always include fullConfiguration in RRC Reconfiguration, even if it is not included in the UE Context Setup Response that was received from the DU.</td>
+</tr>
+<tr>
+<td>PROPAGATE</td>
+<td>2</td>
+<td>Include fullConfiguration in RRC Reconfiguration if it is included in the UE Context Setup Response that was received from the DU.</td>
+</tr>
+</tbody>
+</table>
 <p><a id="PBAcc5GTypes-IntegrityAlgorithm"></a></p>
-<h3 id="integrityalgorithm"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.14</span> IntegrityAlgorithm<a class="headerlink" href="#integrityalgorithm" title="Permanent link">⚓︎</a></h3>
+<h3 id="integrityalgorithm"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.15</span> IntegrityAlgorithm<a class="headerlink" href="#integrityalgorithm" title="Permanent link">⚓︎</a></h3>
 <p>Type definition for 5G integrity algorithms.</p>
 <table>
 <thead>
@@ -11647,7 +11697,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-NrDuplexMode"></a></p>
-<h3 id="nrduplexmode"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.15</span> NrDuplexMode<a class="headerlink" href="#nrduplexmode" title="Permanent link">⚓︎</a></h3>
+<h3 id="nrduplexmode"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.16</span> NrDuplexMode<a class="headerlink" href="#nrduplexmode" title="Permanent link">⚓︎</a></h3>
 <p>Indicates the duplex-mode of a cell</p>
 <table>
 <thead>
@@ -11671,7 +11721,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-QHyst"></a></p>
-<h3 id="qhyst"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.16</span> QHyst<a class="headerlink" href="#qhyst" title="Permanent link">⚓︎</a></h3>
+<h3 id="qhyst"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.17</span> QHyst<a class="headerlink" href="#qhyst" title="Permanent link">⚓︎</a></h3>
 <p>q-Hyst in cell reselection common info</p>
 <table>
 <thead>
@@ -11765,7 +11815,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-QOffsetRange"></a></p>
-<h3 id="qoffsetrange"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.17</span> QOffsetRange<a class="headerlink" href="#qoffsetrange" title="Permanent link">⚓︎</a></h3>
+<h3 id="qoffsetrange"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.18</span> QOffsetRange<a class="headerlink" href="#qoffsetrange" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -11933,7 +11983,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-RlcMode"></a></p>
-<h3 id="rlcmode"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.18</span> RlcMode<a class="headerlink" href="#rlcmode" title="Permanent link">⚓︎</a></h3>
+<h3 id="rlcmode"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.19</span> RlcMode<a class="headerlink" href="#rlcmode" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -11971,7 +12021,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-SfHigh"></a></p>
-<h3 id="sfhigh"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.19</span> SfHigh<a class="headerlink" href="#sfhigh" title="Permanent link">⚓︎</a></h3>
+<h3 id="sfhigh"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.20</span> SfHigh<a class="headerlink" href="#sfhigh" title="Permanent link">⚓︎</a></h3>
 <p>sfHigh in cell reselection common info</p>
 <table>
 <thead>
@@ -12005,7 +12055,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-SfMedium"></a></p>
-<h3 id="sfmedium"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.20</span> SfMedium<a class="headerlink" href="#sfmedium" title="Permanent link">⚓︎</a></h3>
+<h3 id="sfmedium"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.21</span> SfMedium<a class="headerlink" href="#sfmedium" title="Permanent link">⚓︎</a></h3>
 <p>sfMedium in cell reselection common info</p>
 <table>
 <thead>
@@ -12039,7 +12089,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-SpeedStateScaleFactorsSf"></a></p>
-<h3 id="speedstatescalefactorssf"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.21</span> SpeedStateScaleFactorsSf<a class="headerlink" href="#speedstatescalefactorssf" title="Permanent link">⚓︎</a></h3>
+<h3 id="speedstatescalefactorssf"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.22</span> SpeedStateScaleFactorsSf<a class="headerlink" href="#speedstatescalefactorssf" title="Permanent link">⚓︎</a></h3>
 <p>factors to be applied when the UE is in medium or high state, used for scaling a mobility control related parameter</p>
 <table>
 <thead>
@@ -12073,7 +12123,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-SsbMtcPeriodicity"></a></p>
-<h3 id="ssbmtcperiodicity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.22</span> SsbMtcPeriodicity<a class="headerlink" href="#ssbmtcperiodicity" title="Permanent link">⚓︎</a></h3>
+<h3 id="ssbmtcperiodicity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.23</span> SsbMtcPeriodicity<a class="headerlink" href="#ssbmtcperiodicity" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -12116,7 +12166,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-SsbSubcarrierSpacing"></a></p>
-<h3 id="ssbsubcarrierspacing"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.23</span> SsbSubcarrierSpacing<a class="headerlink" href="#ssbsubcarrierspacing" title="Permanent link">⚓︎</a></h3>
+<h3 id="ssbsubcarrierspacing"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.24</span> SsbSubcarrierSpacing<a class="headerlink" href="#ssbsubcarrierspacing" title="Permanent link">⚓︎</a></h3>
 <p>[3GPP 38.331] subcarrier spacing</p>
 <table>
 <thead>
@@ -12170,7 +12220,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-Sst"></a></p>
-<h3 id="sst"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.24</span> Sst<a class="headerlink" href="#sst" title="Permanent link">⚓︎</a></h3>
+<h3 id="sst"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.25</span> Sst<a class="headerlink" href="#sst" title="Permanent link">⚓︎</a></h3>
 <p>Slice/Service Type.</p>
 <table>
 <thead>
@@ -12204,7 +12254,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-TEvaluation"></a></p>
-<h3 id="tevaluation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.25</span> TEvaluation<a class="headerlink" href="#tevaluation" title="Permanent link">⚓︎</a></h3>
+<h3 id="tevaluation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.26</span> TEvaluation<a class="headerlink" href="#tevaluation" title="Permanent link">⚓︎</a></h3>
 <p>The duration for evaluating criteria to enter mobility states. Corresponds to TCRmax in 3GPP TS 38.304. Value in seconds, s30 corresponds to 30 s and so on.</p>
 <table>
 <thead>
@@ -12258,7 +12308,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-THystNormal"></a></p>
-<h3 id="thystnormal"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.26</span> THystNormal<a class="headerlink" href="#thystnormal" title="Permanent link">⚓︎</a></h3>
+<h3 id="thystnormal"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.27</span> THystNormal<a class="headerlink" href="#thystnormal" title="Permanent link">⚓︎</a></h3>
 <p>The additional duration for evaluating criteria to enter normal mobility state. Corresponds to TCRmaxHyst in 3GPP TS 38.304. Value in seconds, value s30 corresponds to 30 seconds and so on.</p>
 <table>
 <thead>
@@ -12312,7 +12362,7 @@
 </tbody>
 </table>
 <p><a id="PBAcc5GTypes-TReordering"></a></p>
-<h3 id="treordering"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.27</span> TReordering<a class="headerlink" href="#treordering" title="Permanent link">⚓︎</a></h3>
+<h3 id="treordering"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.28</span> TReordering<a class="headerlink" href="#treordering" title="Permanent link">⚓︎</a></h3>
 <p>Allowed values for the t-Reordering timer used to detect loss of PDCP Data PDUs as specified in 3GPP TS 38.323 clause 5.2.2.</p>
 <table>
 <thead>
@@ -12607,7 +12657,7 @@
 <td></td>
 </tr>
 <tr>
-<td>dbFrmPosix</td>
+<td>dbFrmFileWatcher</td>
 <td>7</td>
 <td></td>
 </tr>
@@ -17960,6 +18010,18 @@
 <td>optional</td>
 <td></td>
 </tr>
+<tr>
+<td>AcknowledgePdusOnRrcResponse</td>
+<td><a href="#bool">bool</a></td>
+<td>optional</td>
+<td></td>
+</tr>
+<tr>
+<td>InterDuFullConfigurationMode</td>
+<td><a href="#PBAcc5GTypes-FullConfigurationMode">PBAcc5GTypes.FullConfigurationMode</a></td>
+<td>optional</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <p><a id="PBCommonMsgData-EmptyMessageData"></a></p>
@@ -20433,6 +20495,12 @@
 <tr>
 <td>CommTeid</td>
 <td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td></td>
+</tr>
+<tr>
+<td>ReestablishPdcp</td>
+<td><a href="#bool">bool</a></td>
 <td>optional</td>
 <td></td>
 </tr>
@@ -27822,8 +27890,43 @@
 <!-- end services -->
 <p><a id="genDuF1apPubSub-proto"></a></p>
 <h2 id="genduf1appubsubproto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.56</span> genDuF1apPubSub.proto<a class="headerlink" href="#genduf1appubsubproto" title="Permanent link">⚓︎</a></h2>
+<p><a id="PBDuControllerF1apPB-F1CloseRequestPublisherPubData"></a></p>
+<h3 id="f1closerequestpublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.56.1</span> F1CloseRequestPublisherPubData<a class="headerlink" href="#f1closerequestpublisherpubdata" title="Permanent link">⚓︎</a></h3>
+<p>Publisher : F1CloseRequestPublisher</p>
+<p>Topic : F1-CLOSE-REQUEST.DU=*</p>
+<p>Description : This publisher will publish F1 Close message</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1CloseRequestData</td>
+<td><a href="#PBF1apMsgData-F1CloseRequestData">PBF1apMsgData.F1CloseRequestData</a></td>
+<td>optional</td>
+<td>See F1CloseRequestData for detailed description of this field</td>
+</tr>
+<tr>
+<td>tlpublishTime__</td>
+<td><a href="#uint64">uint64</a></td>
+<td>optional</td>
+<td>Contains the time of publishing in EPOCH milliseconds</td>
+</tr>
+<tr>
+<td>spanContext__</td>
+<td><a href="#bytes">bytes</a></td>
+<td>optional</td>
+<td>Contains an opentracing spancontext</td>
+</tr>
+</tbody>
+</table>
 <p><a id="PBDuControllerF1apPB-F1GnbCuConfigUpdatePublisherPubData"></a></p>
-<h3 id="f1gnbcuconfigupdatepublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.56.1</span> F1GnbCuConfigUpdatePublisherPubData<a class="headerlink" href="#f1gnbcuconfigupdatepublisherpubdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1gnbcuconfigupdatepublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.56.2</span> F1GnbCuConfigUpdatePublisherPubData<a class="headerlink" href="#f1gnbcuconfigupdatepublisherpubdata" title="Permanent link">⚓︎</a></h3>
 <p>Publisher : F1GnbCuConfigUpdatePublisher</p>
 <p>Topic : F1-GNB-CU-CONFIG-UPDATE.DU=*</p>
 <p>Description : This publisher will publish f1 config update</p>
@@ -27858,7 +27961,7 @@
 </tbody>
 </table>
 <p><a id="PBDuControllerF1apPB-F1GnbDuConfigUpdateAckPublisherPubData"></a></p>
-<h3 id="f1gnbduconfigupdateackpublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.56.2</span> F1GnbDuConfigUpdateAckPublisherPubData<a class="headerlink" href="#f1gnbduconfigupdateackpublisherpubdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1gnbduconfigupdateackpublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.56.3</span> F1GnbDuConfigUpdateAckPublisherPubData<a class="headerlink" href="#f1gnbduconfigupdateackpublisherpubdata" title="Permanent link">⚓︎</a></h3>
 <p>Publisher : F1GnbDuConfigUpdateAckPublisher</p>
 <p>Topic : F1-GNB-DU-CONFIG-UPDATE-ACK.DU=*</p>
 <p>Description : This publisher will publish f1 gnb du config update ack</p>
@@ -27893,7 +27996,7 @@
 </tbody>
 </table>
 <p><a id="PBDuControllerF1apPB-F1GnbDuConfigUpdateFailurePublisherPubData"></a></p>
-<h3 id="f1gnbduconfigupdatefailurepublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.56.3</span> F1GnbDuConfigUpdateFailurePublisherPubData<a class="headerlink" href="#f1gnbduconfigupdatefailurepublisherpubdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1gnbduconfigupdatefailurepublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.56.4</span> F1GnbDuConfigUpdateFailurePublisherPubData<a class="headerlink" href="#f1gnbduconfigupdatefailurepublisherpubdata" title="Permanent link">⚓︎</a></h3>
 <p>Publisher : F1GnbDuConfigUpdateFailurePublisher</p>
 <p>Topic : F1-GNB-DU-CONFIG-UPDATE-FAILURE.DU=*</p>
 <p>Description : This publisher will publish f1 gnb du config update failure</p>
@@ -27928,7 +28031,7 @@
 </tbody>
 </table>
 <p><a id="PBDuControllerF1apPB-F1PagingPublisherPubData"></a></p>
-<h3 id="f1pagingpublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.56.4</span> F1PagingPublisherPubData<a class="headerlink" href="#f1pagingpublisherpubdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1pagingpublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.56.5</span> F1PagingPublisherPubData<a class="headerlink" href="#f1pagingpublisherpubdata" title="Permanent link">⚓︎</a></h3>
 <p>Publisher : F1PagingPublisher</p>
 <p>Topic : F1-PAGING.DU=*</p>
 <p>Description : This publisher will publish F1 Paging message</p>
@@ -27947,41 +28050,6 @@
 <td><a href="#PBF1apMsgData-F1Paging">PBF1apMsgData.F1Paging</a></td>
 <td>optional</td>
 <td>See F1Paging for detailed description of this field</td>
-</tr>
-<tr>
-<td>tlpublishTime__</td>
-<td><a href="#uint64">uint64</a></td>
-<td>optional</td>
-<td>Contains the time of publishing in EPOCH milliseconds</td>
-</tr>
-<tr>
-<td>spanContext__</td>
-<td><a href="#bytes">bytes</a></td>
-<td>optional</td>
-<td>Contains an opentracing spancontext</td>
-</tr>
-</tbody>
-</table>
-<p><a id="PBDuControllerF1apPB-F1RemovalRequestPublisherPubData"></a></p>
-<h3 id="f1removalrequestpublisherpubdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.56.5</span> F1RemovalRequestPublisherPubData<a class="headerlink" href="#f1removalrequestpublisherpubdata" title="Permanent link">⚓︎</a></h3>
-<p>Publisher : F1RemovalRequestPublisher</p>
-<p>Topic : F1-REMOVAL-REQUEST.DU=*</p>
-<p>Description : This publisher will publish F1 Removal message</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F1RemovalRequestData</td>
-<td><a href="#PBF1apMsgData-F1RemovalRequestData">PBF1apMsgData.F1RemovalRequestData</a></td>
-<td>optional</td>
-<td>See F1RemovalRequestData for detailed description of this field</td>
 </tr>
 <tr>
 <td>tlpublishTime__</td>
@@ -34417,8 +34485,10 @@
 </tr>
 </tbody>
 </table>
+<p><a id="PBF1apMsgData-F1CloseRequestData"></a></p>
+<h3 id="f1closerequestdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.22</span> F1CloseRequestData<a class="headerlink" href="#f1closerequestdata" title="Permanent link">⚓︎</a></h3>
 <p><a id="PBF1apMsgData-F1ConnItem"></a></p>
-<h3 id="f1connitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.22</span> F1ConnItem<a class="headerlink" href="#f1connitem" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1connitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.23</span> F1ConnItem<a class="headerlink" href="#f1connitem" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34444,7 +34514,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1CuToDuRrcInformation"></a></p>
-<h3 id="f1cutodurrcinformation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.23</span> F1CuToDuRrcInformation<a class="headerlink" href="#f1cutodurrcinformation" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1cutodurrcinformation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.24</span> F1CuToDuRrcInformation<a class="headerlink" href="#f1cutodurrcinformation" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34482,7 +34552,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1DrbsModifiedItem"></a></p>
-<h3 id="f1drbsmodifieditem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.24</span> F1DrbsModifiedItem<a class="headerlink" href="#f1drbsmodifieditem" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1drbsmodifieditem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.25</span> F1DrbsModifiedItem<a class="headerlink" href="#f1drbsmodifieditem" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34508,7 +34578,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1DrbsModifiedList"></a></p>
-<h3 id="f1drbsmodifiedlist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.25</span> F1DrbsModifiedList<a class="headerlink" href="#f1drbsmodifiedlist" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1drbsmodifiedlist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.26</span> F1DrbsModifiedList<a class="headerlink" href="#f1drbsmodifiedlist" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34528,7 +34598,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1DrbsModifyRequiredItem"></a></p>
-<h3 id="f1drbsmodifyrequireditem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.26</span> F1DrbsModifyRequiredItem<a class="headerlink" href="#f1drbsmodifyrequireditem" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1drbsmodifyrequireditem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.27</span> F1DrbsModifyRequiredItem<a class="headerlink" href="#f1drbsmodifyrequireditem" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34560,7 +34630,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1DrbsModifyRequiredList"></a></p>
-<h3 id="f1drbsmodifyrequiredlist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.27</span> F1DrbsModifyRequiredList<a class="headerlink" href="#f1drbsmodifyrequiredlist" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1drbsmodifyrequiredlist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.28</span> F1DrbsModifyRequiredList<a class="headerlink" href="#f1drbsmodifyrequiredlist" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34580,7 +34650,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1DrbsSetupItem"></a></p>
-<h3 id="f1drbssetupitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.28</span> F1DrbsSetupItem<a class="headerlink" href="#f1drbssetupitem" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1drbssetupitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.29</span> F1DrbsSetupItem<a class="headerlink" href="#f1drbssetupitem" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34606,7 +34676,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1DrbsSetupList"></a></p>
-<h3 id="f1drbssetuplist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.29</span> F1DrbsSetupList<a class="headerlink" href="#f1drbssetuplist" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1drbssetuplist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.30</span> F1DrbsSetupList<a class="headerlink" href="#f1drbssetuplist" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34626,7 +34696,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ErrorIndication"></a></p>
-<h3 id="f1errorindication"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.30</span> F1ErrorIndication<a class="headerlink" href="#f1errorindication" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1errorindication"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.31</span> F1ErrorIndication<a class="headerlink" href="#f1errorindication" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34670,7 +34740,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1GnbCuConfigUpdateAckData"></a></p>
-<h3 id="f1gnbcuconfigupdateackdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.31</span> F1GnbCuConfigUpdateAckData<a class="headerlink" href="#f1gnbcuconfigupdateackdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1gnbcuconfigupdateackdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.32</span> F1GnbCuConfigUpdateAckData<a class="headerlink" href="#f1gnbcuconfigupdateackdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34696,7 +34766,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1GnbCuConfigUpdateData"></a></p>
-<h3 id="f1gnbcuconfigupdatedata_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.32</span> F1GnbCuConfigUpdateData<a class="headerlink" href="#f1gnbcuconfigupdatedata_1" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1gnbcuconfigupdatedata_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.33</span> F1GnbCuConfigUpdateData<a class="headerlink" href="#f1gnbcuconfigupdatedata_1" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34728,7 +34798,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1GnbCuConfigUpdateFailureData"></a></p>
-<h3 id="f1gnbcuconfigupdatefailuredata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.33</span> F1GnbCuConfigUpdateFailureData<a class="headerlink" href="#f1gnbcuconfigupdatefailuredata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1gnbcuconfigupdatefailuredata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.34</span> F1GnbCuConfigUpdateFailureData<a class="headerlink" href="#f1gnbcuconfigupdatefailuredata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34748,7 +34818,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1GnbDuConfigUpdateAckData"></a></p>
-<h3 id="f1gnbduconfigupdateackdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.34</span> F1GnbDuConfigUpdateAckData<a class="headerlink" href="#f1gnbduconfigupdateackdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1gnbduconfigupdateackdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.35</span> F1GnbDuConfigUpdateAckData<a class="headerlink" href="#f1gnbduconfigupdateackdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34768,7 +34838,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1GnbDuConfigUpdateData"></a></p>
-<h3 id="f1gnbduconfigupdatedata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.35</span> F1GnbDuConfigUpdateData<a class="headerlink" href="#f1gnbduconfigupdatedata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1gnbduconfigupdatedata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.36</span> F1GnbDuConfigUpdateData<a class="headerlink" href="#f1gnbduconfigupdatedata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34818,7 +34888,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1GnbDuConfigUpdateFailureData"></a></p>
-<h3 id="f1gnbduconfigupdatefailuredata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.36</span> F1GnbDuConfigUpdateFailureData<a class="headerlink" href="#f1gnbduconfigupdatefailuredata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1gnbduconfigupdatefailuredata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.37</span> F1GnbDuConfigUpdateFailureData<a class="headerlink" href="#f1gnbduconfigupdatefailuredata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34856,7 +34926,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1Paging"></a></p>
-<h3 id="f1paging"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.37</span> F1Paging<a class="headerlink" href="#f1paging" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1paging"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.38</span> F1Paging<a class="headerlink" href="#f1paging" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34900,7 +34970,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1PduErroneousData"></a></p>
-<h3 id="f1pduerroneousdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.38</span> F1PduErroneousData<a class="headerlink" href="#f1pduerroneousdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1pduerroneousdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.39</span> F1PduErroneousData<a class="headerlink" href="#f1pduerroneousdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34920,7 +34990,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1PduUnhandledData"></a></p>
-<h3 id="f1pduunhandleddata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.39</span> F1PduUnhandledData<a class="headerlink" href="#f1pduunhandleddata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1pduunhandleddata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.40</span> F1PduUnhandledData<a class="headerlink" href="#f1pduunhandleddata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34958,9 +35028,47 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1RemovalRequestData"></a></p>
-<h3 id="f1removalrequestdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.40</span> F1RemovalRequestData<a class="headerlink" href="#f1removalrequestdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1removalrequestdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.41</span> F1RemovalRequestData<a class="headerlink" href="#f1removalrequestdata" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TransactionId</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a id="PBF1apMsgData-F1RemovalResponseData"></a></p>
+<h3 id="f1removalresponsedata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.42</span> F1RemovalResponseData<a class="headerlink" href="#f1removalresponsedata" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TransactionId</td>
+<td><a href="#uint32">uint32</a></td>
+<td>optional</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p><a id="PBF1apMsgData-F1Reset"></a></p>
-<h3 id="f1reset"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.41</span> F1Reset<a class="headerlink" href="#f1reset" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1reset"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.43</span> F1Reset<a class="headerlink" href="#f1reset" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -34992,7 +35100,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ResetAck"></a></p>
-<h3 id="f1resetack"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.42</span> F1ResetAck<a class="headerlink" href="#f1resetack" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1resetack"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.44</span> F1ResetAck<a class="headerlink" href="#f1resetack" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35024,7 +35132,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ResetAckConnListData"></a></p>
-<h3 id="f1resetackconnlistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.43</span> F1ResetAckConnListData<a class="headerlink" href="#f1resetackconnlistdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1resetackconnlistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.45</span> F1ResetAckConnListData<a class="headerlink" href="#f1resetackconnlistdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35044,7 +35152,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ResetInd"></a></p>
-<h3 id="f1resetind"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.44</span> F1ResetInd<a class="headerlink" href="#f1resetind" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1resetind"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.46</span> F1ResetInd<a class="headerlink" href="#f1resetind" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35076,7 +35184,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ResetType"></a></p>
-<h3 id="f1resettype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.45</span> F1ResetType<a class="headerlink" href="#f1resettype" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1resettype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.47</span> F1ResetType<a class="headerlink" href="#f1resettype" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35102,7 +35210,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1RrcDeliveryReportData"></a></p>
-<h3 id="f1rrcdeliveryreportdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.46</span> F1RrcDeliveryReportData<a class="headerlink" href="#f1rrcdeliveryreportdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1rrcdeliveryreportdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.48</span> F1RrcDeliveryReportData<a class="headerlink" href="#f1rrcdeliveryreportdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35134,7 +35242,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1RrcDeliveryStatusData"></a></p>
-<h3 id="f1rrcdeliverystatusdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.47</span> F1RrcDeliveryStatusData<a class="headerlink" href="#f1rrcdeliverystatusdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1rrcdeliverystatusdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.49</span> F1RrcDeliveryStatusData<a class="headerlink" href="#f1rrcdeliverystatusdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35160,7 +35268,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1RrcDownlinkMsgTransfer"></a></p>
-<h3 id="f1rrcdownlinkmsgtransfer"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.48</span> F1RrcDownlinkMsgTransfer<a class="headerlink" href="#f1rrcdownlinkmsgtransfer" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1rrcdownlinkmsgtransfer"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.50</span> F1RrcDownlinkMsgTransfer<a class="headerlink" href="#f1rrcdownlinkmsgtransfer" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35198,7 +35306,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1RrcInitialUplinkMsgTransfer"></a></p>
-<h3 id="f1rrcinitialuplinkmsgtransfer"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.49</span> F1RrcInitialUplinkMsgTransfer<a class="headerlink" href="#f1rrcinitialuplinkmsgtransfer" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1rrcinitialuplinkmsgtransfer"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.51</span> F1RrcInitialUplinkMsgTransfer<a class="headerlink" href="#f1rrcinitialuplinkmsgtransfer" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35242,7 +35350,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1RrcUplinkMsgTransfer"></a></p>
-<h3 id="f1rrcuplinkmsgtransfer"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.50</span> F1RrcUplinkMsgTransfer<a class="headerlink" href="#f1rrcuplinkmsgtransfer" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1rrcuplinkmsgtransfer"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.52</span> F1RrcUplinkMsgTransfer<a class="headerlink" href="#f1rrcuplinkmsgtransfer" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35274,7 +35382,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1SetupFailureData"></a></p>
-<h3 id="f1setupfailuredata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.51</span> F1SetupFailureData<a class="headerlink" href="#f1setupfailuredata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1setupfailuredata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.53</span> F1SetupFailureData<a class="headerlink" href="#f1setupfailuredata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35312,7 +35420,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1SetupRequestData"></a></p>
-<h3 id="f1setuprequestdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.52</span> F1SetupRequestData<a class="headerlink" href="#f1setuprequestdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1setuprequestdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.54</span> F1SetupRequestData<a class="headerlink" href="#f1setuprequestdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35350,7 +35458,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1SetupResponseData"></a></p>
-<h3 id="f1setupresponsedata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.53</span> F1SetupResponseData<a class="headerlink" href="#f1setupresponsedata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1setupresponsedata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.55</span> F1SetupResponseData<a class="headerlink" href="#f1setupresponsedata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35376,7 +35484,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1SrbSetupItem"></a></p>
-<h3 id="f1srbsetupitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.54</span> F1SrbSetupItem<a class="headerlink" href="#f1srbsetupitem" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1srbsetupitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.56</span> F1SrbSetupItem<a class="headerlink" href="#f1srbsetupitem" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35396,7 +35504,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1SrbSetupList"></a></p>
-<h3 id="f1srbsetuplist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.55</span> F1SrbSetupList<a class="headerlink" href="#f1srbsetuplist" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1srbsetuplist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.57</span> F1SrbSetupList<a class="headerlink" href="#f1srbsetuplist" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35416,7 +35524,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextModFailureData"></a></p>
-<h3 id="f1uecontextmodfailuredata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.56</span> F1UeContextModFailureData<a class="headerlink" href="#f1uecontextmodfailuredata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextmodfailuredata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.58</span> F1UeContextModFailureData<a class="headerlink" href="#f1uecontextmodfailuredata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35442,7 +35550,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextModificationConfirm"></a></p>
-<h3 id="f1uecontextmodificationconfirm"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.57</span> F1UeContextModificationConfirm<a class="headerlink" href="#f1uecontextmodificationconfirm" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextmodificationconfirm"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.59</span> F1UeContextModificationConfirm<a class="headerlink" href="#f1uecontextmodificationconfirm" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35468,7 +35576,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextModificationRefuse"></a></p>
-<h3 id="f1uecontextmodificationrefuse"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.58</span> F1UeContextModificationRefuse<a class="headerlink" href="#f1uecontextmodificationrefuse" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextmodificationrefuse"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.60</span> F1UeContextModificationRefuse<a class="headerlink" href="#f1uecontextmodificationrefuse" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35494,7 +35602,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextModificationRequest"></a></p>
-<h3 id="f1uecontextmodificationrequest"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.59</span> F1UeContextModificationRequest<a class="headerlink" href="#f1uecontextmodificationrequest" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextmodificationrequest"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.61</span> F1UeContextModificationRequest<a class="headerlink" href="#f1uecontextmodificationrequest" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35568,7 +35676,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextModificationRequiredData"></a></p>
-<h3 id="f1uecontextmodificationrequireddata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.60</span> F1UeContextModificationRequiredData<a class="headerlink" href="#f1uecontextmodificationrequireddata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextmodificationrequireddata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.62</span> F1UeContextModificationRequiredData<a class="headerlink" href="#f1uecontextmodificationrequireddata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35600,7 +35708,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextModificationRespData"></a></p>
-<h3 id="f1uecontextmodificationrespdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.61</span> F1UeContextModificationRespData<a class="headerlink" href="#f1uecontextmodificationrespdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextmodificationrespdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.63</span> F1UeContextModificationRespData<a class="headerlink" href="#f1uecontextmodificationrespdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35644,7 +35752,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextReleaseCompleteData"></a></p>
-<h3 id="f1uecontextreleasecompletedata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.62</span> F1UeContextReleaseCompleteData<a class="headerlink" href="#f1uecontextreleasecompletedata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextreleasecompletedata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.64</span> F1UeContextReleaseCompleteData<a class="headerlink" href="#f1uecontextreleasecompletedata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35664,7 +35772,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextReleaseReq"></a></p>
-<h3 id="f1uecontextreleasereq"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.63</span> F1UeContextReleaseReq<a class="headerlink" href="#f1uecontextreleasereq" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextreleasereq"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.65</span> F1UeContextReleaseReq<a class="headerlink" href="#f1uecontextreleasereq" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35690,7 +35798,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextReleaseRequest"></a></p>
-<h3 id="f1uecontextreleaserequest"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.64</span> F1UeContextReleaseRequest<a class="headerlink" href="#f1uecontextreleaserequest" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextreleaserequest"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.66</span> F1UeContextReleaseRequest<a class="headerlink" href="#f1uecontextreleaserequest" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35728,7 +35836,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextSetupData"></a></p>
-<h3 id="f1uecontextsetupdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.65</span> F1UeContextSetupData<a class="headerlink" href="#f1uecontextsetupdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextsetupdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.67</span> F1UeContextSetupData<a class="headerlink" href="#f1uecontextsetupdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35784,7 +35892,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextSetupFailureData"></a></p>
-<h3 id="f1uecontextsetupfailuredata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.66</span> F1UeContextSetupFailureData<a class="headerlink" href="#f1uecontextsetupfailuredata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextsetupfailuredata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.68</span> F1UeContextSetupFailureData<a class="headerlink" href="#f1uecontextsetupfailuredata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35822,7 +35930,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1UeContextSetupRespData"></a></p>
-<h3 id="f1uecontextsetuprespdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.67</span> F1UeContextSetupRespData<a class="headerlink" href="#f1uecontextsetuprespdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1uecontextsetuprespdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.69</span> F1UeContextSetupRespData<a class="headerlink" href="#f1uecontextsetuprespdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35878,7 +35986,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-FddInfoData"></a></p>
-<h3 id="fddinfodata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.68</span> FddInfoData<a class="headerlink" href="#fddinfodata" title="Permanent link">⚓︎</a></h3>
+<h3 id="fddinfodata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.70</span> FddInfoData<a class="headerlink" href="#fddinfodata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35904,7 +36012,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-FreqBandListData"></a></p>
-<h3 id="freqbandlistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.69</span> FreqBandListData<a class="headerlink" href="#freqbandlistdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="freqbandlistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.71</span> FreqBandListData<a class="headerlink" href="#freqbandlistdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35924,7 +36032,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-GnbCuSystemInformationData"></a></p>
-<h3 id="gnbcusysteminformationdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.70</span> GnbCuSystemInformationData<a class="headerlink" href="#gnbcusysteminformationdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="gnbcusysteminformationdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.72</span> GnbCuSystemInformationData<a class="headerlink" href="#gnbcusysteminformationdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35944,7 +36052,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-GnbDuCellStatusItemData"></a></p>
-<h3 id="gnbducellstatusitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.71</span> GnbDuCellStatusItemData<a class="headerlink" href="#gnbducellstatusitemdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="gnbducellstatusitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.73</span> GnbDuCellStatusItemData<a class="headerlink" href="#gnbducellstatusitemdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35970,7 +36078,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-GnbDuCellStatusListData"></a></p>
-<h3 id="gnbducellstatuslistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.72</span> GnbDuCellStatusListData<a class="headerlink" href="#gnbducellstatuslistdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="gnbducellstatuslistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.74</span> GnbDuCellStatusListData<a class="headerlink" href="#gnbducellstatuslistdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -35990,7 +36098,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-GnbDuServedCellsItemData"></a></p>
-<h3 id="gnbduservedcellsitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.73</span> GnbDuServedCellsItemData<a class="headerlink" href="#gnbduservedcellsitemdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="gnbduservedcellsitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.75</span> GnbDuServedCellsItemData<a class="headerlink" href="#gnbduservedcellsitemdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36016,7 +36124,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-GnbDuServedCellsListData"></a></p>
-<h3 id="gnbduservedcellslistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.74</span> GnbDuServedCellsListData<a class="headerlink" href="#gnbduservedcellslistdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="gnbduservedcellslistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.76</span> GnbDuServedCellsListData<a class="headerlink" href="#gnbduservedcellslistdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36036,7 +36144,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-GnbDuServedCellsToDeleteItemData"></a></p>
-<h3 id="gnbduservedcellstodeleteitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.75</span> GnbDuServedCellsToDeleteItemData<a class="headerlink" href="#gnbduservedcellstodeleteitemdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="gnbduservedcellstodeleteitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.77</span> GnbDuServedCellsToDeleteItemData<a class="headerlink" href="#gnbduservedcellstodeleteitemdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36056,7 +36164,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-GnbDuServedCellsToDeleteListData"></a></p>
-<h3 id="gnbduservedcellstodeletelistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.76</span> GnbDuServedCellsToDeleteListData<a class="headerlink" href="#gnbduservedcellstodeletelistdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="gnbduservedcellstodeletelistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.78</span> GnbDuServedCellsToDeleteListData<a class="headerlink" href="#gnbduservedcellstodeletelistdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36076,7 +36184,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-GnbDuServedCellsToModifyItemData"></a></p>
-<h3 id="gnbduservedcellstomodifyitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.77</span> GnbDuServedCellsToModifyItemData<a class="headerlink" href="#gnbduservedcellstomodifyitemdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="gnbduservedcellstomodifyitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.79</span> GnbDuServedCellsToModifyItemData<a class="headerlink" href="#gnbduservedcellstomodifyitemdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36108,7 +36216,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-GnbDuServedCellsToModifyListData"></a></p>
-<h3 id="gnbduservedcellstomodifylistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.78</span> GnbDuServedCellsToModifyListData<a class="headerlink" href="#gnbduservedcellstomodifylistdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="gnbduservedcellstomodifylistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.80</span> GnbDuServedCellsToModifyListData<a class="headerlink" href="#gnbduservedcellstomodifylistdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36128,7 +36236,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-IeExtItemData"></a></p>
-<h3 id="ieextitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.79</span> IeExtItemData<a class="headerlink" href="#ieextitemdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="ieextitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.81</span> IeExtItemData<a class="headerlink" href="#ieextitemdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36148,7 +36256,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-IeExtListData"></a></p>
-<h3 id="ieextlistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.80</span> IeExtListData<a class="headerlink" href="#ieextlistdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="ieextlistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.82</span> IeExtListData<a class="headerlink" href="#ieextlistdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36168,7 +36276,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-NrFrequencyInfo"></a></p>
-<h3 id="nrfrequencyinfo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.81</span> NrFrequencyInfo<a class="headerlink" href="#nrfrequencyinfo" title="Permanent link">⚓︎</a></h3>
+<h3 id="nrfrequencyinfo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.83</span> NrFrequencyInfo<a class="headerlink" href="#nrfrequencyinfo" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36194,7 +36302,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-NrModeInfoData"></a></p>
-<h3 id="nrmodeinfodata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.82</span> NrModeInfoData<a class="headerlink" href="#nrmodeinfodata" title="Permanent link">⚓︎</a></h3>
+<h3 id="nrmodeinfodata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.84</span> NrModeInfoData<a class="headerlink" href="#nrmodeinfodata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36220,7 +36328,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-OptionalCRnti"></a></p>
-<h3 id="optionalcrnti"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.83</span> OptionalCRnti<a class="headerlink" href="#optionalcrnti" title="Permanent link">⚓︎</a></h3>
+<h3 id="optionalcrnti"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.85</span> OptionalCRnti<a class="headerlink" href="#optionalcrnti" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36246,7 +36354,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-OptionalF1CuToDuRrcInformation"></a></p>
-<h3 id="optionalf1cutodurrcinformation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.84</span> OptionalF1CuToDuRrcInformation<a class="headerlink" href="#optionalf1cutodurrcinformation" title="Permanent link">⚓︎</a></h3>
+<h3 id="optionalf1cutodurrcinformation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.86</span> OptionalF1CuToDuRrcInformation<a class="headerlink" href="#optionalf1cutodurrcinformation" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36272,7 +36380,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-OptionalF1apIdentity"></a></p>
-<h3 id="optionalf1apidentity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.85</span> OptionalF1apIdentity<a class="headerlink" href="#optionalf1apidentity" title="Permanent link">⚓︎</a></h3>
+<h3 id="optionalf1apidentity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.87</span> OptionalF1apIdentity<a class="headerlink" href="#optionalf1apidentity" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36298,7 +36406,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-OptionalGnbDuSystemInformationData"></a></p>
-<h3 id="optionalgnbdusysteminformationdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.86</span> OptionalGnbDuSystemInformationData<a class="headerlink" href="#optionalgnbdusysteminformationdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="optionalgnbdusysteminformationdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.88</span> OptionalGnbDuSystemInformationData<a class="headerlink" href="#optionalgnbdusysteminformationdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36330,7 +36438,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-OptionalIeExtData"></a></p>
-<h3 id="optionalieextdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.87</span> OptionalIeExtData<a class="headerlink" href="#optionalieextdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="optionalieextdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.89</span> OptionalIeExtData<a class="headerlink" href="#optionalieextdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36356,7 +36464,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-OptionalRanacData"></a></p>
-<h3 id="optionalranacdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.88</span> OptionalRanacData<a class="headerlink" href="#optionalranacdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="optionalranacdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.90</span> OptionalRanacData<a class="headerlink" href="#optionalranacdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36382,7 +36490,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-OptionalSpCellIdData"></a></p>
-<h3 id="optionalspcelliddata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.89</span> OptionalSpCellIdData<a class="headerlink" href="#optionalspcelliddata" title="Permanent link">⚓︎</a></h3>
+<h3 id="optionalspcelliddata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.91</span> OptionalSpCellIdData<a class="headerlink" href="#optionalspcelliddata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36408,7 +36516,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-OptionalTransmissionActionIndData"></a></p>
-<h3 id="optionaltransmissionactioninddata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.90</span> OptionalTransmissionActionIndData<a class="headerlink" href="#optionaltransmissionactioninddata" title="Permanent link">⚓︎</a></h3>
+<h3 id="optionaltransmissionactioninddata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.92</span> OptionalTransmissionActionIndData<a class="headerlink" href="#optionaltransmissionactioninddata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36434,7 +36542,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-PagingCellItemData"></a></p>
-<h3 id="pagingcellitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.91</span> PagingCellItemData<a class="headerlink" href="#pagingcellitemdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="pagingcellitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.93</span> PagingCellItemData<a class="headerlink" href="#pagingcellitemdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36454,7 +36562,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-PagingCellItemList"></a></p>
-<h3 id="pagingcellitemlist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.92</span> PagingCellItemList<a class="headerlink" href="#pagingcellitemlist" title="Permanent link">⚓︎</a></h3>
+<h3 id="pagingcellitemlist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.94</span> PagingCellItemList<a class="headerlink" href="#pagingcellitemlist" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36474,7 +36582,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-PotentialSpcellsItem"></a></p>
-<h3 id="potentialspcellsitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.93</span> PotentialSpcellsItem<a class="headerlink" href="#potentialspcellsitem" title="Permanent link">⚓︎</a></h3>
+<h3 id="potentialspcellsitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.95</span> PotentialSpcellsItem<a class="headerlink" href="#potentialspcellsitem" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36494,7 +36602,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-PotentialSpcellsListData"></a></p>
-<h3 id="potentialspcellslistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.94</span> PotentialSpcellsListData<a class="headerlink" href="#potentialspcellslistdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="potentialspcellslistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.96</span> PotentialSpcellsListData<a class="headerlink" href="#potentialspcellslistdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36514,7 +36622,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-ResetConnListItem"></a></p>
-<h3 id="resetconnlistitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.95</span> ResetConnListItem<a class="headerlink" href="#resetconnlistitem" title="Permanent link">⚓︎</a></h3>
+<h3 id="resetconnlistitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.97</span> ResetConnListItem<a class="headerlink" href="#resetconnlistitem" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36534,7 +36642,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-ServedCellInformationData"></a></p>
-<h3 id="servedcellinformationdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.96</span> ServedCellInformationData<a class="headerlink" href="#servedcellinformationdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="servedcellinformationdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.98</span> ServedCellInformationData<a class="headerlink" href="#servedcellinformationdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36590,7 +36698,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-ServedPlmnsData"></a></p>
-<h3 id="servedplmnsdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.97</span> ServedPlmnsData<a class="headerlink" href="#servedplmnsdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="servedplmnsdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.99</span> ServedPlmnsData<a class="headerlink" href="#servedplmnsdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36605,12 +36713,12 @@
 <td>items</td>
 <td><a href="#PBF1apMsgData-ServedPlmnsItemData">ServedPlmnsItemData</a></td>
 <td>repeated</td>
-<td>Carries max MAX_NUM_OF_BPLMNS elements of type ServedPlmnsItemData</td>
+<td>Carries max MAX_NUM_OF_BPLMNSNR elements of type ServedPlmnsItemData</td>
 </tr>
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-ServedPlmnsItemData"></a></p>
-<h3 id="servedplmnsitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.98</span> ServedPlmnsItemData<a class="headerlink" href="#servedplmnsitemdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="servedplmnsitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.100</span> ServedPlmnsItemData<a class="headerlink" href="#servedplmnsitemdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36636,7 +36744,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-ServiceStatus"></a></p>
-<h3 id="servicestatus"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.99</span> ServiceStatus<a class="headerlink" href="#servicestatus" title="Permanent link">⚓︎</a></h3>
+<h3 id="servicestatus"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.101</span> ServiceStatus<a class="headerlink" href="#servicestatus" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36662,7 +36770,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-SibTypeToBeUpdatedItemData"></a></p>
-<h3 id="sibtypetobeupdateditemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.100</span> SibTypeToBeUpdatedItemData<a class="headerlink" href="#sibtypetobeupdateditemdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="sibtypetobeupdateditemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.102</span> SibTypeToBeUpdatedItemData<a class="headerlink" href="#sibtypetobeupdateditemdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36694,7 +36802,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-SibTypeToBeUpdatedListData"></a></p>
-<h3 id="sibtypetobeupdatedlistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.101</span> SibTypeToBeUpdatedListData<a class="headerlink" href="#sibtypetobeupdatedlistdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="sibtypetobeupdatedlistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.103</span> SibTypeToBeUpdatedListData<a class="headerlink" href="#sibtypetobeupdatedlistdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36714,7 +36822,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-SrbToBeSetupItemData"></a></p>
-<h3 id="srbtobesetupitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.102</span> SrbToBeSetupItemData<a class="headerlink" href="#srbtobesetupitemdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="srbtobesetupitemdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.104</span> SrbToBeSetupItemData<a class="headerlink" href="#srbtobesetupitemdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36734,7 +36842,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-SrbToBeSetupListData"></a></p>
-<h3 id="srbtobesetuplistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.103</span> SrbToBeSetupListData<a class="headerlink" href="#srbtobesetuplistdata" title="Permanent link">⚓︎</a></h3>
+<h3 id="srbtobesetuplistdata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.105</span> SrbToBeSetupListData<a class="headerlink" href="#srbtobesetuplistdata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36754,7 +36862,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-TddInfoData"></a></p>
-<h3 id="tddinfodata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.104</span> TddInfoData<a class="headerlink" href="#tddinfodata" title="Permanent link">⚓︎</a></h3>
+<h3 id="tddinfodata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.106</span> TddInfoData<a class="headerlink" href="#tddinfodata" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36774,7 +36882,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-TunnelInfoSetupItem"></a></p>
-<h3 id="tunnelinfosetupitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.105</span> TunnelInfoSetupItem<a class="headerlink" href="#tunnelinfosetupitem" title="Permanent link">⚓︎</a></h3>
+<h3 id="tunnelinfosetupitem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.107</span> TunnelInfoSetupItem<a class="headerlink" href="#tunnelinfosetupitem" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36794,7 +36902,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-TunnelInfoSetupList"></a></p>
-<h3 id="tunnelinfosetuplist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.106</span> TunnelInfoSetupList<a class="headerlink" href="#tunnelinfosetuplist" title="Permanent link">⚓︎</a></h3>
+<h3 id="tunnelinfosetuplist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.108</span> TunnelInfoSetupList<a class="headerlink" href="#tunnelinfosetuplist" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36814,7 +36922,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-UePagingIdentity"></a></p>
-<h3 id="uepagingidentity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.107</span> UePagingIdentity<a class="headerlink" href="#uepagingidentity" title="Permanent link">⚓︎</a></h3>
+<h3 id="uepagingidentity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.109</span> UePagingIdentity<a class="headerlink" href="#uepagingidentity" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -36847,7 +36955,7 @@
 </table>
 <!-- end messages -->
 <p><a id="PBF1apMsgData-F1ApCauseType"></a></p>
-<h3 id="f1apcausetype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.108</span> F1ApCauseType<a class="headerlink" href="#f1apcausetype" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1apcausetype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.110</span> F1ApCauseType<a class="headerlink" href="#f1apcausetype" title="Permanent link">⚓︎</a></h3>
 <p>cause types in F1AP messages</p>
 <table>
 <thead>
@@ -36886,7 +36994,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ApCriticalityType"></a></p>
-<h3 id="f1apcriticalitytype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.109</span> F1ApCriticalityType<a class="headerlink" href="#f1apcriticalitytype" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1apcriticalitytype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.111</span> F1ApCriticalityType<a class="headerlink" href="#f1apcriticalitytype" title="Permanent link">⚓︎</a></h3>
 <p>criticality type for diagnostics in ErrorIndication in F1AP messages</p>
 <table>
 <thead>
@@ -36915,7 +37023,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ApMiscCauseValue"></a></p>
-<h3 id="f1apmisccausevalue"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.110</span> F1ApMiscCauseValue<a class="headerlink" href="#f1apmisccausevalue" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1apmisccausevalue"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.112</span> F1ApMiscCauseValue<a class="headerlink" href="#f1apmisccausevalue" title="Permanent link">⚓︎</a></h3>
 <p>misc cause values in F1AP messages</p>
 <table>
 <thead>
@@ -36954,7 +37062,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ApProtocolCauseValue"></a></p>
-<h3 id="f1approtocolcausevalue"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.111</span> F1ApProtocolCauseValue<a class="headerlink" href="#f1approtocolcausevalue" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1approtocolcausevalue"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.113</span> F1ApProtocolCauseValue<a class="headerlink" href="#f1approtocolcausevalue" title="Permanent link">⚓︎</a></h3>
 <p>protocol cause values in F1AP messages</p>
 <table>
 <thead>
@@ -37003,7 +37111,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ApRadionetworkCauseValue"></a></p>
-<h3 id="f1apradionetworkcausevalue"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.112</span> F1ApRadionetworkCauseValue<a class="headerlink" href="#f1apradionetworkcausevalue" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1apradionetworkcausevalue"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.114</span> F1ApRadionetworkCauseValue<a class="headerlink" href="#f1apradionetworkcausevalue" title="Permanent link">⚓︎</a></h3>
 <p>radio network cause values in F1AP messages</p>
 <table>
 <thead>
@@ -37117,7 +37225,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ApTransmissionActionIndType"></a></p>
-<h3 id="f1aptransmissionactionindtype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.113</span> F1ApTransmissionActionIndType<a class="headerlink" href="#f1aptransmissionactionindtype" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1aptransmissionactionindtype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.115</span> F1ApTransmissionActionIndType<a class="headerlink" href="#f1aptransmissionactionindtype" title="Permanent link">⚓︎</a></h3>
 <p>transmission action indications in F1AP messages</p>
 <table>
 <thead>
@@ -37141,7 +37249,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ApTransportCauseValue"></a></p>
-<h3 id="f1aptransportcausevalue"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.114</span> F1ApTransportCauseValue<a class="headerlink" href="#f1aptransportcausevalue" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1aptransportcausevalue"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.116</span> F1ApTransportCauseValue<a class="headerlink" href="#f1aptransportcausevalue" title="Permanent link">⚓︎</a></h3>
 <p>transport cause values in F1AP messages</p>
 <table>
 <thead>
@@ -37165,7 +37273,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1ApTriggeringMessageType"></a></p>
-<h3 id="f1aptriggeringmessagetype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.115</span> F1ApTriggeringMessageType<a class="headerlink" href="#f1aptriggeringmessagetype" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1aptriggeringmessagetype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.117</span> F1ApTriggeringMessageType<a class="headerlink" href="#f1aptriggeringmessagetype" title="Permanent link">⚓︎</a></h3>
 <p>trigger for ErrorIndication in F1AP messages</p>
 <table>
 <thead>
@@ -37194,7 +37302,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1apErrorType"></a></p>
-<h3 id="f1aperrortype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.116</span> F1apErrorType<a class="headerlink" href="#f1aperrortype" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1aperrortype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.118</span> F1apErrorType<a class="headerlink" href="#f1aperrortype" title="Permanent link">⚓︎</a></h3>
 <p>error type for diagnostics in ErrorIndication in F1AP messages</p>
 <table>
 <thead>
@@ -37218,7 +37326,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-F1apTimeToWait"></a></p>
-<h3 id="f1aptimetowait"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.117</span> F1apTimeToWait<a class="headerlink" href="#f1aptimetowait" title="Permanent link">⚓︎</a></h3>
+<h3 id="f1aptimetowait"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.119</span> F1apTimeToWait<a class="headerlink" href="#f1aptimetowait" title="Permanent link">⚓︎</a></h3>
 <p>time to wait in F1AP F1SetupFailure message</p>
 <table>
 <thead>
@@ -37262,7 +37370,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-ResetType"></a></p>
-<h3 id="resettype_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.118</span> ResetType<a class="headerlink" href="#resettype_1" title="Permanent link">⚓︎</a></h3>
+<h3 id="resettype_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.120</span> ResetType<a class="headerlink" href="#resettype_1" title="Permanent link">⚓︎</a></h3>
 <p>reset type in F1AP Reset message</p>
 <table>
 <thead>
@@ -37291,7 +37399,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-RlcReestablishInd"></a></p>
-<h3 id="rlcreestablishind"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.119</span> RlcReestablishInd<a class="headerlink" href="#rlcreestablishind" title="Permanent link">⚓︎</a></h3>
+<h3 id="rlcreestablishind"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.121</span> RlcReestablishInd<a class="headerlink" href="#rlcreestablishind" title="Permanent link">⚓︎</a></h3>
 <p>Indicates that following a change in the radio status, the RLC has been re-established.</p>
 <table>
 <thead>
@@ -37310,7 +37418,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-ServiceState"></a></p>
-<h3 id="servicestate"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.120</span> ServiceState<a class="headerlink" href="#servicestate" title="Permanent link">⚓︎</a></h3>
+<h3 id="servicestate"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.122</span> ServiceState<a class="headerlink" href="#servicestate" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -37333,7 +37441,7 @@
 </tbody>
 </table>
 <p><a id="PBF1apMsgData-UePagingIdentityType"></a></p>
-<h3 id="uepagingidentitytype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.121</span> UePagingIdentityType<a class="headerlink" href="#uepagingidentitytype" title="Permanent link">⚓︎</a></h3>
+<h3 id="uepagingidentitytype"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.69.123</span> UePagingIdentityType<a class="headerlink" href="#uepagingidentitytype" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
@@ -40700,19 +40808,7 @@
 </thead>
 <tbody>
 <tr>
-<td>NgapGuid</td>
-<td><a href="#string">string</a></td>
-<td>optional</td>
-<td></td>
-</tr>
-<tr>
 <td>AmfIdentifier</td>
-<td><a href="#string">string</a></td>
-<td>optional</td>
-<td></td>
-</tr>
-<tr>
-<td>AmfGuid</td>
 <td><a href="#string">string</a></td>
 <td>optional</td>
 <td></td>
@@ -41557,12 +41653,6 @@
 </thead>
 <tbody>
 <tr>
-<td>NgapGuid</td>
-<td><a href="#string">string</a></td>
-<td>optional</td>
-<td></td>
-</tr>
-<tr>
 <td>AmfIdentifier</td>
 <td><a href="#string">string</a></td>
 <td>optional</td>
@@ -41696,18 +41786,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>MicroServiceId</td>
-<td><a href="#string">string</a></td>
-<td>optional</td>
-<td></td>
-</tr>
-<tr>
-<td>NgapGuid</td>
-<td><a href="#string">string</a></td>
-<td>optional</td>
-<td></td>
-</tr>
 <tr>
 <td>AmfIdentifier</td>
 <td><a href="#string">string</a></td>
@@ -44507,12 +44585,6 @@
 <td></td>
 </tr>
 <tr>
-<td>AmfGuid</td>
-<td><a href="#string">string</a></td>
-<td>optional</td>
-<td></td>
-</tr>
-<tr>
 <td>RegisteredGuamiSupported</td>
 <td><a href="#bool">bool</a></td>
 <td>optional</td>
@@ -45396,7 +45468,7 @@
 </tr>
 <tr>
 <td>Thp</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#uint64">uint64</a></td>
 <td>optional</td>
 <td></td>
 </tr>
@@ -45526,7 +45598,7 @@
 <td>items</td>
 <td><a href="#PBFPmData-CuUpPmItemData">CuUpPmItemData</a></td>
 <td>repeated</td>
-<td>Carries max common_msg_data::MAX_NUM_OF_DRBS elements of type CuUpPmItemData</td>
+<td>Carries max 32000 elements of type CuUpPmItemData</td>
 </tr>
 </tbody>
 </table>
@@ -45556,7 +45628,7 @@
 </tr>
 <tr>
 <td>Thp</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#uint64">uint64</a></td>
 <td>optional</td>
 <td></td>
 </tr>
@@ -45808,13 +45880,13 @@
 <tbody>
 <tr>
 <td>_key</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#uint64">uint64</a></td>
 <td>optional</td>
 <td>sub counter</td>
 </tr>
 <tr>
 <td>_val</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#uint64">uint64</a></td>
 <td>optional</td>
 <td>sub counter value</td>
 </tr>
@@ -52952,6 +53024,12 @@
 </thead>
 <tbody>
 <tr>
+<td>AmfIdentifier</td>
+<td><a href="#string">string</a></td>
+<td>optional</td>
+<td></td>
+</tr>
+<tr>
 <td>NgDataindData</td>
 <td><a href="#PBSctpCpMsgData-SctpcpDataIndMsgData">PBSctpCpMsgData.SctpcpDataIndMsgData</a></td>
 <td>optional</td>
@@ -52972,6 +53050,12 @@
 </thead>
 <tbody>
 <tr>
+<td>AmfIdentifier</td>
+<td><a href="#string">string</a></td>
+<td>optional</td>
+<td></td>
+</tr>
+<tr>
 <td>NgDatareqData</td>
 <td><a href="#PBSctpCpMsgData-SctpcpDataReqMsgData">PBSctpCpMsgData.SctpcpDataReqMsgData</a></td>
 <td>optional</td>
@@ -52991,18 +53075,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>MicroServiceId</td>
-<td><a href="#string">string</a></td>
-<td>optional</td>
-<td></td>
-</tr>
-<tr>
-<td>NgapGuid</td>
-<td><a href="#string">string</a></td>
-<td>optional</td>
-<td></td>
-</tr>
 <tr>
 <td>AmfIpAddress</td>
 <td><a href="#string">string</a></td>
@@ -53062,7 +53134,7 @@
 </thead>
 <tbody>
 <tr>
-<td>MicroServiceId</td>
+<td>AmfIdentifier</td>
 <td><a href="#string">string</a></td>
 <td>optional</td>
 <td></td>

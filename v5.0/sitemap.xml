@@ -16,12 +16,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://accelleran.github.io/drax-xapp-dev-guide/v5.0/message_references/5G/6.0/kafka/</loc>
+         <loc>https://accelleran.github.io/drax-xapp-dev-guide/v5.0/message_references/5G/7.0/kafka/</loc>
          <lastmod>2025-02-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://accelleran.github.io/drax-xapp-dev-guide/v5.0/message_references/5G/6.0/nats/</loc>
+         <loc>https://accelleran.github.io/drax-xapp-dev-guide/v5.0/message_references/5G/7.0/nats/</loc>
          <lastmod>2025-02-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
