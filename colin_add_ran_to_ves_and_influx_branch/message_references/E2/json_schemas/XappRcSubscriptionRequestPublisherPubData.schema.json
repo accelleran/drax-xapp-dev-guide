@@ -1,0 +1,943 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$ref": "#/definitions/XappRcSubscriptionRequestPublisherPubData",
+    "definitions": {
+        "PBE2apMsgData.Cgi": {
+            "properties": {
+                "NrCgi": {
+                    "$ref": "#/definitions/PBE2apMsgData.NrCgi",
+                    "additionalProperties": true
+                },
+                "EutraCgi": {
+                    "$ref": "#/definitions/PBE2apMsgData.EutraCgi",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Cgi"
+        },
+        "PBE2apMsgData.CuUeF1apIdList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NUM_CU_UE_F1AP_IDS elements of type uint32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Cu Ue F 1 Ap Id List"
+        },
+        "PBE2apMsgData.CucpUeE1apIdList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NUM_CUCP_UE_E1AP_IDS elements of type uint32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Cucp Ue E 1 Ap Id List"
+        },
+        "PBE2apMsgData.EutraCgi": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "EutraCellIdentity": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Eutra Cgi"
+        },
+        "PBE2apMsgData.GlobalE2NodeId": {
+            "properties": {
+                "GlobalGnbId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GlobalGnbId",
+                    "additionalProperties": true
+                },
+                "OptionalGnbCuUpId": {
+                    "type": "string"
+                },
+                "OptionalGnbDuId": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Global E 2 Node Id",
+            "description": "*O-RAN.WG3.E2AP-v02.00 9.2.6 Global E2 Node ID"
+        },
+        "PBE2apMsgData.GlobalGnbId": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "GnbId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GnbId",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Global Gnb Id"
+        },
+        "PBE2apMsgData.GnbId": {
+            "properties": {
+                "Value": {
+                    "type": "integer"
+                },
+                "Length": {
+                    "type": "integer",
+                    "description": "Number of bits used in the gnbId. This may vary from 22 to 32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Gnb Id"
+        },
+        "PBE2apMsgData.Guami": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "AmfRegionId": {
+                    "type": "integer",
+                    "description": "Bit set of 8 bits"
+                },
+                "AmfSetId": {
+                    "type": "integer",
+                    "description": "Bit set of 10 bits"
+                },
+                "AmfPointer": {
+                    "type": "integer",
+                    "description": "Bit set of 6 bits"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Guami",
+            "description": "*O-RAN.WG3.E2SM-R003-v03.00 6.2.3.17 GUAMI"
+        },
+        "PBE2apMsgData.NrCgi": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "NrCellIdentity": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Nr Cgi"
+        },
+        "PBE2apMsgData.PlmnIdentity": {
+            "properties": {
+                "Data": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Plmn Identity",
+            "description": "*O-RAN.WG3.E2SM-R003-v03.00 6.2.3.1 PLMN Identity"
+        },
+        "PBE2apMsgData.RicRequestId": {
+            "properties": {
+                "RicRequestorId": {
+                    "type": "integer"
+                },
+                "RicInstanceId": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Request Id"
+        },
+        "PBE2apMsgData.RicSubsequentAction": {
+            "properties": {
+                "RicSubsequentActionType": {
+                    "enum": [
+                        "RIC_SUBSEQUENT_ACTION_TYPE_CONTINUE",
+                        "RIC_SUBSEQUENT_ACTION_TYPE_HALT"
+                    ],
+                    "type": "string",
+                    "title": "Ric Subsequent Action Type"
+                },
+                "RicTimeToWait": {
+                    "enum": [
+                        "ric_time_to_wait_unknown",
+                        "ric_time_to_wait_1",
+                        "ric_time_to_wait_2",
+                        "ric_time_to_wait_5",
+                        "ric_time_to_wait_10",
+                        "ric_time_to_wait_20",
+                        "ric_time_to_wait_30",
+                        "ric_time_to_wait_40",
+                        "ric_time_to_wait_50",
+                        "ric_time_to_wait_100",
+                        "ric_time_to_wait_200",
+                        "ric_time_to_wait_500",
+                        "ric_time_to_wait_1000",
+                        "ric_time_to_wait_2000",
+                        "ric_time_to_wait_5000",
+                        "ric_time_to_wait_10000",
+                        "ric_time_to_wait_20000",
+                        "ric_time_to_wait_60000"
+                    ],
+                    "type": "string",
+                    "title": "Ric Time To Wait"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Subsequent Action"
+        },
+        "PBE2apMsgData.UeId": {
+            "properties": {
+                "UeIdDu": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeIdDu",
+                    "additionalProperties": true
+                },
+                "UeIdCuup": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeIdCuup",
+                    "additionalProperties": true
+                },
+                "UeIdGnb": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeIdGnb",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id",
+            "description": "*O-RAN.WG3.E2SM-R003-v03.00 6.2.2.6 UE ID"
+        },
+        "PBE2apMsgData.UeIdCuup": {
+            "properties": {
+                "CucpUeE1apId": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id Cuup"
+        },
+        "PBE2apMsgData.UeIdDu": {
+            "properties": {
+                "CuUeF1apId": {
+                    "type": "integer"
+                },
+                "RanUeId": {
+                    "$ref": "#/definitions/PBE2apMsgData.NrCgi",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id Du"
+        },
+        "PBE2apMsgData.UeIdGnb": {
+            "properties": {
+                "AmfUeNgapId": {
+                    "type": "string",
+                    "description": "O-RAN.WG3.E2SM-R003-v03.00 6.2.3.16 AMF UE NGAP ID"
+                },
+                "Guami": {
+                    "$ref": "#/definitions/PBE2apMsgData.Guami",
+                    "additionalProperties": true
+                },
+                "CuUeF1apIdList": {
+                    "$ref": "#/definitions/PBE2apMsgData.CuUeF1apIdList",
+                    "additionalProperties": true
+                },
+                "CucpUeE1apIdList": {
+                    "$ref": "#/definitions/PBE2apMsgData.CucpUeE1apIdList",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id Gnb"
+        },
+        "PBE2smRcData.ActionDefinition": {
+            "properties": {
+                "RicStyleType": {
+                    "type": "string"
+                },
+                "ActionDefinitionFormat1": {
+                    "$ref": "#/definitions/PBE2smRcData.ActionDefinitionFormat1",
+                    "additionalProperties": true
+                },
+                "ActionDefinitionFormat2": {
+                    "$ref": "#/definitions/PBE2smRcData.ActionDefinitionFormat2",
+                    "additionalProperties": true
+                },
+                "ActionDefinitionFormat4": {
+                    "$ref": "#/definitions/PBE2smRcData.ActionDefinitionFormat4",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03 9.2.1.2               Format types 2, 3, 4 are currently not supported"
+        },
+        "PBE2smRcData.ActionDefinitionFormat1": {
+            "properties": {
+                "ParametersToBeReportedType": {
+                    "$ref": "#/definitions/PBE2smRcData.ParametersToBeReported",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 1",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03 9.2.1.2.1               E2SM-RC Action Definition Format 1"
+        },
+        "PBE2smRcData.ActionDefinitionFormat2": {
+            "properties": {
+                "ActionDefinitionFormat2List": {
+                    "$ref": "#/definitions/PBE2smRcData.ActionDefinitionFormat2List",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 2",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03 9.2.1.2.1               E2SM-RC Action Definition Format 2"
+        },
+        "PBE2smRcData.ActionDefinitionFormat2Item": {
+            "properties": {
+                "RicPolicyAction": {
+                    "$ref": "#/definitions/PBE2smRcData.RicPolicyAction",
+                    "additionalProperties": true
+                },
+                "RicPolicyConditionDefinition": {
+                    "$ref": "#/definitions/PBE2smRcData.RanParameterTesting",
+                    "additionalProperties": true
+                },
+                "RicPolicyConditionId": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 2 Item"
+        },
+        "PBE2smRcData.ActionDefinitionFormat2List": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.ActionDefinitionFormat2Item"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_ASSOCIATED_RAN_PARAMETERS elements of type ActionDefinitionFormat2Item"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 2 List"
+        },
+        "PBE2smRcData.ActionDefinitionFormat4": {
+            "properties": {
+                "RicInsertStyleList": {
+                    "$ref": "#/definitions/PBE2smRcData.ActionDefinitionFormat4StyleList",
+                    "additionalProperties": true
+                },
+                "UeId": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeId",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 4",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03 9.2.1.2.1               E2SM-RC Action Definition Format 4"
+        },
+        "PBE2smRcData.ActionDefinitionFormat4IndicationItem": {
+            "properties": {
+                "RicInsertIndicationId": {
+                    "type": "integer"
+                },
+                "ActionDefinitionFormat4RanpList": {
+                    "$ref": "#/definitions/PBE2smRcData.ActionDefinitionFormat4RanpList",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 4 Indication Item"
+        },
+        "PBE2smRcData.ActionDefinitionFormat4IndicationList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.ActionDefinitionFormat4IndicationItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_INSERT_INDICATION_ACTIONS elements of type ActionDefinitionFormat4IndicationItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 4 Indication List"
+        },
+        "PBE2smRcData.ActionDefinitionFormat4RanpItem": {
+            "properties": {
+                "RanParameterId": {
+                    "type": "integer"
+                },
+                "RanParameterDefinition": {
+                    "$ref": "#/definitions/PBE2smRcData.RanParameterDefinition",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 4 Ranp Item"
+        },
+        "PBE2smRcData.ActionDefinitionFormat4RanpList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.ActionDefinitionFormat4RanpItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_ASSOCIATED_RAN_PARAMETERS elements of type ActionDefinitionFormat4RanpItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 4 Ranp List"
+        },
+        "PBE2smRcData.ActionDefinitionFormat4StyleItem": {
+            "properties": {
+                "RequestedInsertStyleType": {
+                    "type": "string"
+                },
+                "ActionDefinitionFormat4IndicationList": {
+                    "$ref": "#/definitions/PBE2smRcData.ActionDefinitionFormat4IndicationList",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 4 Style Item"
+        },
+        "PBE2smRcData.ActionDefinitionFormat4StyleList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.ActionDefinitionFormat4StyleItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_RIC_STYLES elements of type ActionDefinitionFormat4StyleItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 4 Style List"
+        },
+        "PBE2smRcData.EventTriggerCellInformation": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.EventTriggerCellInformationItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_CELL_INFO elements of type EventTriggerCellInformationItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Cell Information",
+            "description": "*O-RAN.WG3.E2SM-RC-R003-v06.00               9.3.27 Event Trigger Cell Information"
+        },
+        "PBE2smRcData.EventTriggerCellInformationCellGroup": {
+            "properties": {
+                "RanParameterTesting": {
+                    "$ref": "#/definitions/PBE2smRcData.RanParameterTesting",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Cell Information Cell Group"
+        },
+        "PBE2smRcData.EventTriggerCellInformationIndividualCell": {
+            "properties": {
+                "CellGlobalId": {
+                    "$ref": "#/definitions/PBE2apMsgData.Cgi",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Cell Information Individual Cell"
+        },
+        "PBE2smRcData.EventTriggerCellInformationItem": {
+            "properties": {
+                "EventTriggerCellId": {
+                    "type": "integer"
+                },
+                "EventTriggerCellInformationCellTypeChoice": {
+                    "enum": [
+                        "IndividualCell",
+                        "CellGroup"
+                    ],
+                    "type": "string",
+                    "title": "Event Trigger Cell Information Cell Type Choice"
+                },
+                "EventTriggerCellInformationIndividualCell": {
+                    "$ref": "#/definitions/PBE2smRcData.EventTriggerCellInformationIndividualCell",
+                    "additionalProperties": true
+                },
+                "EventTriggerCellInformationCellGroup": {
+                    "$ref": "#/definitions/PBE2smRcData.EventTriggerCellInformationCellGroup",
+                    "additionalProperties": true
+                },
+                "LogicalOr": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Cell Information Item",
+            "description": "*O-RAN.WG3.E2SM-RC-R003-v06.00 9.3.27"
+        },
+        "PBE2smRcData.EventTriggerConditionId": {
+            "properties": {
+                "Value": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Condition Id",
+            "description": "*ORAN.WG3.E2SM-RC-R003-v06.00 9.3.21               Event Trigger Condition ID"
+        },
+        "PBE2smRcData.EventTriggerDefinition": {
+            "properties": {
+                "EventTriggerDefinitionFormat2": {
+                    "$ref": "#/definitions/PBE2smRcData.EventTriggerDefinitionFormat2",
+                    "additionalProperties": true
+                },
+                "EventTriggerDefinitionFormat3": {
+                    "$ref": "#/definitions/PBE2smRcData.EventTriggerDefinitionFormat3",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Definition",
+            "description": "*O-RAN.WG3.E2SM-RC-R003-v06.00 9.2.1.1"
+        },
+        "PBE2smRcData.EventTriggerDefinitionFormat2": {
+            "properties": {
+                "CallProcessTypeId": {
+                    "type": "integer"
+                },
+                "CallProcessBreakpointId": {
+                    "type": "integer"
+                },
+                "AssociatedE2NodeInfo": {
+                    "$ref": "#/definitions/PBE2smRcData.RanParameterTesting",
+                    "additionalProperties": true
+                },
+                "AssociatedUeNodeInfo": {
+                    "$ref": "#/definitions/PBE2smRcData.EventTriggerUeInformation",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Definition Format 2",
+            "description": "*O-RAN.WG3.E2SM-RC-R003-v06.00 9.2.1.1.2               E2SM-RC Event Trigger Definition Format 2: Call Process Breakpoint"
+        },
+        "PBE2smRcData.EventTriggerDefinitionFormat3": {
+            "properties": {
+                "SequenceOfE2InformationChange": {
+                    "$ref": "#/definitions/PBE2smRcData.SequenceOfE2InformationChange",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Definition Format 3",
+            "description": "*ORAN.WG3.E2SM-RC-R003-v06.00 9.2.1.1.3               E2SM-RC Event Trigger Definition Format 3: E2 Node Information Change"
+        },
+        "PBE2smRcData.EventTriggerUeInformation": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.EventTriggerUeInformationItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_UE_INFO elements of type EventTriggerUeInformationItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Ue Information",
+            "description": "*O-RAN.WG3.E2SM-RC-R003-v06.00               9.3.26 Event Trigger UE Information"
+        },
+        "PBE2smRcData.EventTriggerUeInformationIndividualUe": {
+            "properties": {
+                "UeId": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeId",
+                    "additionalProperties": true
+                },
+                "RanParameterTesting": {
+                    "$ref": "#/definitions/PBE2smRcData.RanParameterTesting",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Ue Information Individual Ue"
+        },
+        "PBE2smRcData.EventTriggerUeInformationItem": {
+            "properties": {
+                "EventTriggerIdForUe": {
+                    "type": "integer"
+                },
+                "EventTriggerUeInformationUeTypeChoice": {
+                    "enum": [
+                        "IndividualUe",
+                        "UeGroup"
+                    ],
+                    "type": "string",
+                    "title": "Event Trigger Ue Information Ue Type Choice"
+                },
+                "EventTriggerUeInformationIndividualUe": {
+                    "$ref": "#/definitions/PBE2smRcData.EventTriggerUeInformationIndividualUe",
+                    "additionalProperties": true
+                },
+                "EventTriggerUeInformationUeGroup": {
+                    "$ref": "#/definitions/PBE2smRcData.EventTriggerUeInformationUeGroup",
+                    "additionalProperties": true
+                },
+                "LogicalOr": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Ue Information Item",
+            "description": "*O-RAN.WG3.E2SM-RC-R003-v06.00 9.3.26"
+        },
+        "PBE2smRcData.EventTriggerUeInformationUeGroup": {
+            "properties": {
+                "RanParameterTesting": {
+                    "$ref": "#/definitions/PBE2smRcData.RanParameterTesting",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Ue Information Ue Group"
+        },
+        "PBE2smRcData.ParametersToBeReported": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.ParametersToBeReportedItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_PARAMETERS_TO_REPORT elements of type ParametersToBeReportedItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Parameters To Be Reported",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03 9.2.1.2.1"
+        },
+        "PBE2smRcData.ParametersToBeReportedItem": {
+            "properties": {
+                "RanParameterIdType": {
+                    "type": "integer"
+                },
+                "RanParameterDefinitionType": {
+                    "$ref": "#/definitions/PBE2smRcData.RanParameterDefinition",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Parameters To Be Reported Item",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03               9.3.8 + 9.3.51"
+        },
+        "PBE2smRcData.RanParameterDefinition": {
+            "properties": {
+                "RanParameterDefinitionTypeChoiceType": {
+                    "enum": [
+                        "RANParameterDefinitionTypeList",
+                        "RANParameterDefinitionTypeStructure"
+                    ],
+                    "type": "string",
+                    "title": "Ran Parameter Definition Type Choice"
+                },
+                "RanParameterDefinitionListType": {
+                    "$ref": "#/definitions/PBE2smRcData.RanParameterDefinitionList",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ran Parameter Definition",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03 9.3.51               RAN Parameter Definition"
+        },
+        "PBE2smRcData.RanParameterDefinitionList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.RanParameterDefinitionListItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_ITEMS_IN_LIST elements of type RanParameterDefinitionListItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ran Parameter Definition List",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03 9.3.51"
+        },
+        "PBE2smRcData.RanParameterDefinitionListItem": {
+            "properties": {
+                "RanParameterIdType": {
+                    "type": "integer"
+                },
+                "RanParameterNameType": {
+                    "$ref": "#/definitions/PBE2smRcData.RanParameterName",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ran Parameter Definition List Item",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03 9.3.51"
+        },
+        "PBE2smRcData.RanParameterName": {
+            "properties": {
+                "RanParameterNameString": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ran Parameter Name",
+            "description": "*O-RAN.WG3.E2SM-RC-v01.03 9.3.9               RAN Parameter Name               PrintableString(SIZE(1..150))"
+        },
+        "PBE2smRcData.RanParameterTesting": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_RAN_PARAMETERS_TESTING elements of type string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ran Parameter Testing",
+            "description": "*O-RAN.WG3.E2SM-RC-R003-v06.00               9.3.29 RAN Parameter Conditional Criteria Definition"
+        },
+        "PBE2smRcData.RicActionToBeSetupItem": {
+            "properties": {
+                "RicActionId": {
+                    "type": "integer"
+                },
+                "RicActionType": {
+                    "enum": [
+                        "RIC_ACTION_TYPE_INSERT",
+                        "RIC_ACTION_TYPE_REPORT",
+                        "RIC_ACTION_TYPE_POLICY"
+                    ],
+                    "type": "string",
+                    "title": "Ric Action Type"
+                },
+                "RicSubsequentAction": {
+                    "$ref": "#/definitions/PBE2apMsgData.RicSubsequentAction",
+                    "additionalProperties": true
+                },
+                "ActionDefinition": {
+                    "$ref": "#/definitions/PBE2smRcData.ActionDefinition",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Action To Be Setup Item"
+        },
+        "PBE2smRcData.RicActionToBeSetupList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.RicActionToBeSetupItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max e2ap_msg_data::MAX_NO_RIC_ACTIONS elements of type RicActionToBeSetupItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Action To Be Setup List"
+        },
+        "PBE2smRcData.RicPolicyAction": {
+            "properties": {
+                "RicPolicyActionId": {
+                    "type": "integer"
+                },
+                "RanParametersList": {
+                    "$ref": "#/definitions/PBE2smRcData.RicPolicyActionRanParameterList",
+                    "additionalProperties": true
+                },
+                "RicPolicyDecision": {
+                    "enum": [
+                        "RIC_POLICY_DECISION_ACCEPT",
+                        "RIC_POLICY_DECISION_REJECT"
+                    ],
+                    "type": "string",
+                    "title": "Ric Policy Decision"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Policy Action"
+        },
+        "PBE2smRcData.RicPolicyActionRanParameterItem": {
+            "properties": {
+                "RanParameterId": {
+                    "type": "integer"
+                },
+                "RanParameterValueType": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Policy Action Ran Parameter Item"
+        },
+        "PBE2smRcData.RicPolicyActionRanParameterList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.RicPolicyActionRanParameterItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_ASSOCIATED_RAN_PARAMETERS elements of type RicPolicyActionRanParameterItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Policy Action Ran Parameter List"
+        },
+        "PBE2smRcData.SequenceOfE2InformationChange": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smRcData.SequenceOfE2InformationChangeItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_E2_INFO_CHANGES elements of type SequenceOfE2InformationChangeItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Sequence Of E 2 Information Change"
+        },
+        "PBE2smRcData.SequenceOfE2InformationChangeItem": {
+            "properties": {
+                "EventTriggerConditionId": {
+                    "$ref": "#/definitions/PBE2smRcData.EventTriggerConditionId",
+                    "additionalProperties": true
+                },
+                "E2NodeInformationChangeId": {
+                    "type": "integer"
+                },
+                "AssociatedCellInfo": {
+                    "$ref": "#/definitions/PBE2smRcData.EventTriggerCellInformation",
+                    "additionalProperties": true
+                },
+                "LogicalOr": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Sequence Of E 2 Information Change Item",
+            "description": "*ORAN.WG3.E2SM-RC-R003-v06.00 9.2.1.1.3"
+        },
+        "PBXAppRcData.E2smRanctlSubscriptionData": {
+            "properties": {
+                "RequestId": {
+                    "$ref": "#/definitions/PBE2apMsgData.RicRequestId",
+                    "additionalProperties": true
+                },
+                "RanFunctionName": {
+                    "type": "string"
+                },
+                "RanFunctionId": {
+                    "type": "integer"
+                },
+                "NodeId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GlobalE2NodeId",
+                    "additionalProperties": true
+                },
+                "EventTriggerDefinition": {
+                    "$ref": "#/definitions/PBE2smRcData.EventTriggerDefinition",
+                    "additionalProperties": true
+                },
+                "RicActionsToBeSetupList": {
+                    "$ref": "#/definitions/PBE2smRcData.RicActionToBeSetupList",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "E 2 Sm Ranctl Subscription Data"
+        },
+        "XappRcSubscriptionRequestPublisherPubData": {
+            "properties": {
+                "E2smRanctlSubscriptionData": {
+                    "$ref": "#/definitions/PBXAppRcData.E2smRanctlSubscriptionData",
+                    "additionalProperties": true,
+                    "description": "See E2smRanctlSubscriptionData for detailed description of this field"
+                },
+                "tlpublishTime": {
+                    "type": "string",
+                    "description": "Contains the time of publishing in EPOCH milliseconds"
+                },
+                "spanContext": {
+                    "type": "string",
+                    "description": "Contains an opentracing spancontext",
+                    "format": "binary",
+                    "binaryEncoding": "base64"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Xapp Rc Subscription Request Publisher Pub Data",
+            "description": "* Publisher : XappRcSubscriptionRequestPublisher Topic : E2SM-RANCTL-SUBSCRIBE Description : Publishes E2 Subscription Request initiated by the XAPP to the SMRC"
+        }
+    }
+}

@@ -1,0 +1,83 @@
+<!--topic-start-->
+accelleran.drax.5g.ric.raw.cu_state
+<!--topic-end-->
+<!--json-start-->
+{
+  "DuBeaconInfo": {
+    "DuList": {
+      "items": {
+        "0": {
+          "GnbDuId": <uint>,
+          "State": "<DuState>",
+          "ServedCellList": {
+            "items": {
+              "0": {
+                "State": "<CellState>",
+                "NrCgi": {
+                  "NrCellId": <uint>,
+                  "PlmnId": {
+                    "Data": {
+                      "0": <uint>
+                    }
+                  }
+                },
+                "Pci": <uint>,
+                "FivegSTac": <string>,
+                "SsPBCHBlockPower": <int>,
+                "SupportedPlmns": {
+                  "items": {
+                    "0": {
+                      "PlmnIdentity": <string>,
+                      "TaiSlicedSupportList": {
+                        "items": {
+                          "0": {
+                            "SNssai": {
+                              "SST": <uint>,
+                              "SD": {
+                                "Data": {
+                                  "0": <uint>
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "GnbId": <uint>,
+          "DuName": <string>,
+          "TransportLayerAddress": <string>
+        }
+      }
+    }
+  },
+  "tlpublishTime__": <uint>,
+  "spanContext__": <bytes>
+}
+<!--json-end-->
+<!--enum-start-->
+
+Enum Type:
+DuState
+
+Enum Values:
+NON_OPERATIONAL
+NON_OPERATIONAL_FAILURE
+OPERATIONAL
+
+Enum Type:
+CellState
+
+Enum Values:
+NOT_SUPPORTED
+ACTIVATING
+DEACTIVATING
+RESOURCE_UNAVAIL
+ACTIVATION_FAILED
+ACTIVATED
+
+<!--enum-end-->

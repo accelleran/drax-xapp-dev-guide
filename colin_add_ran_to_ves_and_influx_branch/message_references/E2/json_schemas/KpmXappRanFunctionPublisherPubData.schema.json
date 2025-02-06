@@ -1,0 +1,246 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$ref": "#/definitions/KpmXappRanFunctionPublisherPubData",
+    "definitions": {
+        "KpmXappRanFunctionPublisherPubData": {
+            "properties": {
+                "E2smKpimonRanFunctionData": {
+                    "$ref": "#/definitions/PBXAppKpmData.E2smKpimonRanFunctionData",
+                    "additionalProperties": true,
+                    "description": "See E2smKpimonRanFunctionData for detailed description of this field"
+                },
+                "tlpublishTime": {
+                    "type": "string",
+                    "description": "Contains the time of publishing in EPOCH milliseconds"
+                },
+                "spanContext": {
+                    "type": "string",
+                    "description": "Contains an opentracing spancontext",
+                    "format": "binary",
+                    "binaryEncoding": "base64"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Kpm Xapp Ran Function Publisher Pub Data",
+            "description": "* Publisher : KpmXappRanFunctionPublisher Topic : E2SM-KPIMON-RAN-FUNCTION.E2AP=* Description : This publisher will publish RAN Function Descriptions from SMKPM to the RIC"
+        },
+        "PBE2apMsgData.GlobalE2NodeId": {
+            "properties": {
+                "GlobalGnbId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GlobalGnbId",
+                    "additionalProperties": true
+                },
+                "OptionalGnbCuUpId": {
+                    "type": "string"
+                },
+                "OptionalGnbDuId": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Global E 2 Node Id",
+            "description": "*O-RAN.WG3.E2AP-v02.00 9.2.6 Global E2 Node ID"
+        },
+        "PBE2apMsgData.GlobalGnbId": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "GnbId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GnbId",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Global Gnb Id"
+        },
+        "PBE2apMsgData.GnbId": {
+            "properties": {
+                "Value": {
+                    "type": "integer"
+                },
+                "Length": {
+                    "type": "integer",
+                    "description": "Number of bits used in the gnbId. This may vary from 22 to 32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Gnb Id"
+        },
+        "PBE2apMsgData.PlmnIdentity": {
+            "properties": {
+                "Data": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Plmn Identity",
+            "description": "*O-RAN.WG3.E2SM-R003-v03.00 6.2.3.1 PLMN Identity"
+        },
+        "PBE2smKpmData.E2smKpmRanFunctionDescription": {
+            "properties": {
+                "RanFunctionName": {
+                    "$ref": "#/definitions/PBE2smKpmData.RanFunctionName",
+                    "additionalProperties": true
+                },
+                "RicEventTrigerStyleList": {
+                    "$ref": "#/definitions/PBE2smKpmData.RicEventTriggerStyleList",
+                    "additionalProperties": true
+                },
+                "RicReportStyleList": {
+                    "$ref": "#/definitions/PBE2smKpmData.RicReportStyleList",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "E 2 Sm Kpm Ran Function Description"
+        },
+        "PBE2smKpmData.MeasurementInfoActionItem": {
+            "properties": {
+                "MeasurementTypeName": {
+                    "type": "string"
+                },
+                "MeasurementTypeId": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Measurement Info Action Item"
+        },
+        "PBE2smKpmData.MeasurementInfoActionList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smKpmData.MeasurementInfoActionItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_MEASUREMENT_INFO elements of type MeasurementInfoActionItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Measurement Info Action List"
+        },
+        "PBE2smKpmData.RanFunctionName": {
+            "properties": {
+                "RanFunctionShortName": {
+                    "type": "string"
+                },
+                "E2smOid": {
+                    "type": "string"
+                },
+                "RanFunctionDescription": {
+                    "type": "string"
+                },
+                "RanFunctionInstance": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ran Function Name"
+        },
+        "PBE2smKpmData.RicEventTriggerStyleItem": {
+            "properties": {
+                "RicStyleType": {
+                    "type": "string"
+                },
+                "RanStyleName": {
+                    "type": "string"
+                },
+                "RicFormatType": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Event Trigger Style Item"
+        },
+        "PBE2smKpmData.RicEventTriggerStyleList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smKpmData.RicEventTriggerStyleItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_RIC_STYLES elements of type RicEventTriggerStyleItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Event Trigger Style List"
+        },
+        "PBE2smKpmData.RicReportStyleItem": {
+            "properties": {
+                "RicStyleType": {
+                    "type": "string"
+                },
+                "RanStyleName": {
+                    "type": "string"
+                },
+                "ActionFormatType": {
+                    "type": "string"
+                },
+                "MeasurementInfoActionList": {
+                    "$ref": "#/definitions/PBE2smKpmData.MeasurementInfoActionList",
+                    "additionalProperties": true
+                },
+                "RicIndHeaderFormatType": {
+                    "type": "string"
+                },
+                "RicIndMessageFormatType": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Report Style Item"
+        },
+        "PBE2smKpmData.RicReportStyleList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smKpmData.RicReportStyleItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_RIC_STYLES elements of type RicReportStyleItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Report Style List"
+        },
+        "PBXAppKpmData.E2smKpimonRanFunctionData": {
+            "properties": {
+                "NodeId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GlobalE2NodeId",
+                    "additionalProperties": true
+                },
+                "RanFunctionId": {
+                    "type": "integer"
+                },
+                "RanFunctionRevision": {
+                    "type": "integer"
+                },
+                "RanFunctionDescription": {
+                    "$ref": "#/definitions/PBE2smKpmData.E2smKpmRanFunctionDescription",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "E 2 Sm Kpimon Ran Function Data"
+        }
+    }
+}

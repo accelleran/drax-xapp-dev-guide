@@ -1,0 +1,58 @@
+<!--topic-start-->
+accelleran.drax.5g.ric.raw.cu_state
+<!--topic-end-->
+<!--json-start-->
+{
+  "CuCpCuupBeaconInfo": {
+    "GnbId": <uint>,
+    "ServiceInfo": <string>,
+    "CuUpList": {
+      "items": {
+        "0": {
+          "GnbCuupId": <uint>,
+          "State": "<CuupState>",
+          "SupportedPlmns": {
+            "items": {
+              "0": {
+                "PlmnIdentity": {
+                  "Data": {
+                    "0": <uint>
+                  }
+                },
+                "SliceSupportList": {
+                  "items": {
+                    "0": {
+                      "SNssai": {
+                        "SST": <uint>,
+                        "SD": {
+                          "Data": {
+                            "0": <uint>
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "CuupGuid": <string>,
+          "CuupName": <string>
+        }
+      }
+    }
+  },
+  "tlpublishTime__": <uint>,
+  "spanContext__": <bytes>
+}
+<!--json-end-->
+<!--enum-start-->
+
+Enum Type:
+CuupState
+
+Enum Values:
+CUUPSTATE_OPERATIONAL
+CUUPSTATE_NON_OPERATIONAL_FAILURE
+
+<!--enum-end-->
