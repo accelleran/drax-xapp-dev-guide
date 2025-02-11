@@ -1,0 +1,699 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$ref": "#/definitions/XappKpmSubscriptionRequestPublisherPubData",
+    "definitions": {
+        "PBE2apMsgData.CuUeF1apIdList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NUM_CU_UE_F1AP_IDS elements of type uint32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Cu Ue F 1 Ap Id List"
+        },
+        "PBE2apMsgData.CucpUeE1apIdList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NUM_CUCP_UE_E1AP_IDS elements of type uint32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Cucp Ue E 1 Ap Id List"
+        },
+        "PBE2apMsgData.GlobalE2NodeId": {
+            "properties": {
+                "GlobalGnbId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GlobalGnbId",
+                    "additionalProperties": true
+                },
+                "OptionalGnbCuUpId": {
+                    "type": "string"
+                },
+                "OptionalGnbDuId": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Global E 2 Node Id",
+            "description": "*O-RAN.WG3.E2AP-v02.00 9.2.6 Global E2 Node ID"
+        },
+        "PBE2apMsgData.GlobalGnbId": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "GnbId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GnbId",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Global Gnb Id"
+        },
+        "PBE2apMsgData.GnbId": {
+            "properties": {
+                "Value": {
+                    "type": "integer"
+                },
+                "Length": {
+                    "type": "integer",
+                    "description": "Number of bits used in the gnbId. This may vary from 22 to 32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Gnb Id"
+        },
+        "PBE2apMsgData.Guami": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "AmfRegionId": {
+                    "type": "integer",
+                    "description": "Bit set of 8 bits"
+                },
+                "AmfSetId": {
+                    "type": "integer",
+                    "description": "Bit set of 10 bits"
+                },
+                "AmfPointer": {
+                    "type": "integer",
+                    "description": "Bit set of 6 bits"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Guami",
+            "description": "*O-RAN.WG3.E2SM-R003-v03.00 6.2.3.17 GUAMI"
+        },
+        "PBE2apMsgData.NrCgi": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "NrCellIdentity": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Nr Cgi"
+        },
+        "PBE2apMsgData.PlmnIdentity": {
+            "properties": {
+                "Data": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Plmn Identity",
+            "description": "*O-RAN.WG3.E2SM-R003-v03.00 6.2.3.1 PLMN Identity"
+        },
+        "PBE2apMsgData.RicRequestId": {
+            "properties": {
+                "RicRequestorId": {
+                    "type": "integer"
+                },
+                "RicInstanceId": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Request Id"
+        },
+        "PBE2apMsgData.RicSubsequentAction": {
+            "properties": {
+                "RicSubsequentActionType": {
+                    "enum": [
+                        "RIC_SUBSEQUENT_ACTION_TYPE_CONTINUE",
+                        "RIC_SUBSEQUENT_ACTION_TYPE_HALT"
+                    ],
+                    "type": "string",
+                    "title": "Ric Subsequent Action Type"
+                },
+                "RicTimeToWait": {
+                    "enum": [
+                        "ric_time_to_wait_unknown",
+                        "ric_time_to_wait_1",
+                        "ric_time_to_wait_2",
+                        "ric_time_to_wait_5",
+                        "ric_time_to_wait_10",
+                        "ric_time_to_wait_20",
+                        "ric_time_to_wait_30",
+                        "ric_time_to_wait_40",
+                        "ric_time_to_wait_50",
+                        "ric_time_to_wait_100",
+                        "ric_time_to_wait_200",
+                        "ric_time_to_wait_500",
+                        "ric_time_to_wait_1000",
+                        "ric_time_to_wait_2000",
+                        "ric_time_to_wait_5000",
+                        "ric_time_to_wait_10000",
+                        "ric_time_to_wait_20000",
+                        "ric_time_to_wait_60000"
+                    ],
+                    "type": "string",
+                    "title": "Ric Time To Wait"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Subsequent Action"
+        },
+        "PBE2apMsgData.SNssai": {
+            "properties": {
+                "SST": {
+                    "type": "integer"
+                },
+                "SD": {
+                    "$ref": "#/definitions/PBE2apMsgData.SNssaiSd",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "S Nssai"
+        },
+        "PBE2apMsgData.SNssaiSd": {
+            "properties": {
+                "Data": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "S Nssai Sd"
+        },
+        "PBE2apMsgData.UeId": {
+            "properties": {
+                "UeIdDu": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeIdDu",
+                    "additionalProperties": true
+                },
+                "UeIdCuup": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeIdCuup",
+                    "additionalProperties": true
+                },
+                "UeIdGnb": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeIdGnb",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id",
+            "description": "*O-RAN.WG3.E2SM-R003-v03.00 6.2.2.6 UE ID"
+        },
+        "PBE2apMsgData.UeIdCuup": {
+            "properties": {
+                "CucpUeE1apId": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id Cuup"
+        },
+        "PBE2apMsgData.UeIdDu": {
+            "properties": {
+                "CuUeF1apId": {
+                    "type": "integer"
+                },
+                "RanUeId": {
+                    "$ref": "#/definitions/PBE2apMsgData.NrCgi",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id Du"
+        },
+        "PBE2apMsgData.UeIdGnb": {
+            "properties": {
+                "AmfUeNgapId": {
+                    "type": "string",
+                    "description": "O-RAN.WG3.E2SM-R003-v03.00 6.2.3.16 AMF UE NGAP ID"
+                },
+                "Guami": {
+                    "$ref": "#/definitions/PBE2apMsgData.Guami",
+                    "additionalProperties": true
+                },
+                "CuUeF1apIdList": {
+                    "$ref": "#/definitions/PBE2apMsgData.CuUeF1apIdList",
+                    "additionalProperties": true
+                },
+                "CucpUeE1apIdList": {
+                    "$ref": "#/definitions/PBE2apMsgData.CucpUeE1apIdList",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ue Id Gnb"
+        },
+        "PBE2smKpmData.ActionDefinition": {
+            "properties": {
+                "RicStyleType": {
+                    "type": "string"
+                },
+                "ActionDefinitionFormats": {
+                    "$ref": "#/definitions/PBE2smKpmData.ActionDefinitionFormats",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition"
+        },
+        "PBE2smKpmData.ActionDefinitionFormat1": {
+            "properties": {
+                "MeasInfoList": {
+                    "$ref": "#/definitions/PBE2smKpmData.MeasurementInfoList",
+                    "additionalProperties": true
+                },
+                "GranularityPeriod": {
+                    "type": "integer"
+                },
+                "Cgi": {
+                    "$ref": "#/definitions/PBE2smKpmData.CellGlobalIdentifier",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 1"
+        },
+        "PBE2smKpmData.ActionDefinitionFormat2": {
+            "properties": {
+                "UeId": {
+                    "$ref": "#/definitions/PBE2apMsgData.UeId",
+                    "additionalProperties": true
+                },
+                "SubscriptionInfo": {
+                    "$ref": "#/definitions/PBE2smKpmData.ActionDefinitionFormat1",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 2"
+        },
+        "PBE2smKpmData.ActionDefinitionFormat3": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Format 3"
+        },
+        "PBE2smKpmData.ActionDefinitionFormats": {
+            "properties": {
+                "ActionDefinitionFormat1": {
+                    "$ref": "#/definitions/PBE2smKpmData.ActionDefinitionFormat1",
+                    "additionalProperties": true
+                },
+                "ActionDefinitionFormat2": {
+                    "$ref": "#/definitions/PBE2smKpmData.ActionDefinitionFormat2",
+                    "additionalProperties": true
+                },
+                "ActionDefinitionFormat3": {
+                    "$ref": "#/definitions/PBE2smKpmData.ActionDefinitionFormat3",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Action Definition Formats"
+        },
+        "PBE2smKpmData.CellGlobalIdentifier": {
+            "properties": {
+                "NrCgi": {
+                    "$ref": "#/definitions/PBE2smKpmData.NrCgi",
+                    "additionalProperties": true
+                },
+                "EutraCgi": {
+                    "$ref": "#/definitions/PBE2smKpmData.EutraCgi",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Cell Global Identifier"
+        },
+        "PBE2smKpmData.EutraCgi": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "EutraCellIdentity": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Eutra Cgi"
+        },
+        "PBE2smKpmData.EventTriggerDefinition": {
+            "properties": {
+                "EventDefinitionFormats": {
+                    "$ref": "#/definitions/PBE2smKpmData.EventTriggerDefinitionFormats",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Definition"
+        },
+        "PBE2smKpmData.EventTriggerDefinitionFormat1": {
+            "properties": {
+                "ReportingPeriod": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Definition Format 1"
+        },
+        "PBE2smKpmData.EventTriggerDefinitionFormats": {
+            "properties": {
+                "EventTriggerDefinitionFormat1": {
+                    "$ref": "#/definitions/PBE2smKpmData.EventTriggerDefinitionFormat1",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Trigger Definition Formats"
+        },
+        "PBE2smKpmData.LabelInfoItem": {
+            "properties": {
+                "MeasLabel": {
+                    "$ref": "#/definitions/PBE2smKpmData.MeasurementLabel",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Label Info Item"
+        },
+        "PBE2smKpmData.LabelInfoList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smKpmData.LabelInfoItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_LABEL_INFO elements of type LabelInfoItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Label Info List"
+        },
+        "PBE2smKpmData.MeasurementInfoItem": {
+            "properties": {
+                "MeasurementType": {
+                    "$ref": "#/definitions/PBE2smKpmData.MeasurementType",
+                    "additionalProperties": true
+                },
+                "LabelInfoList": {
+                    "$ref": "#/definitions/PBE2smKpmData.LabelInfoList",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Measurement Info Item"
+        },
+        "PBE2smKpmData.MeasurementInfoList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smKpmData.MeasurementInfoItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max MAX_NO_OF_MEASUREMENT_INFO elements of type MeasurementInfoItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Measurement Info List"
+        },
+        "PBE2smKpmData.MeasurementLabel": {
+            "properties": {
+                "NoLabel": {
+                    "enum": [
+                        "Label_unknown",
+                        "Label_True"
+                    ],
+                    "type": "string",
+                    "title": "Measurement Label True Enum",
+                    "description": "*Enumeration used in Measurement label"
+                },
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "SliceId": {
+                    "$ref": "#/definitions/PBE2apMsgData.SNssai",
+                    "additionalProperties": true
+                },
+                "FiveQI": {
+                    "type": "integer"
+                },
+                "GFI": {
+                    "type": "integer"
+                },
+                "QCI": {
+                    "type": "integer"
+                },
+                "QciMax": {
+                    "type": "integer"
+                },
+                "QciMin": {
+                    "type": "integer"
+                },
+                "ArpMax": {
+                    "type": "integer"
+                },
+                "ArpMin": {
+                    "type": "integer"
+                },
+                "BitRateRange": {
+                    "type": "integer"
+                },
+                "LayerMuMimo": {
+                    "type": "integer"
+                },
+                "Sum": {
+                    "enum": [
+                        "Label_unknown",
+                        "Label_True"
+                    ],
+                    "type": "string",
+                    "title": "Measurement Label True Enum",
+                    "description": "*Enumeration used in Measurement label"
+                },
+                "DistBinX": {
+                    "type": "integer"
+                },
+                "DistBinY": {
+                    "type": "integer"
+                },
+                "DistBinZ": {
+                    "type": "integer"
+                },
+                "PreLabelOverride": {
+                    "enum": [
+                        "Label_unknown",
+                        "Label_True"
+                    ],
+                    "type": "string",
+                    "title": "Measurement Label True Enum",
+                    "description": "*Enumeration used in Measurement label"
+                },
+                "StartEndIndication": {
+                    "enum": [
+                        "start",
+                        "end"
+                    ],
+                    "type": "string",
+                    "title": "Measurement Label Start End",
+                    "description": "*Enumeration used in Measurement label"
+                },
+                "Min": {
+                    "enum": [
+                        "Label_unknown",
+                        "Label_True"
+                    ],
+                    "type": "string",
+                    "title": "Measurement Label True Enum",
+                    "description": "*Enumeration used in Measurement label"
+                },
+                "Max": {
+                    "enum": [
+                        "Label_unknown",
+                        "Label_True"
+                    ],
+                    "type": "string",
+                    "title": "Measurement Label True Enum",
+                    "description": "*Enumeration used in Measurement label"
+                },
+                "Avg": {
+                    "enum": [
+                        "Label_unknown",
+                        "Label_True"
+                    ],
+                    "type": "string",
+                    "title": "Measurement Label True Enum",
+                    "description": "*Enumeration used in Measurement label"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Measurement Label"
+        },
+        "PBE2smKpmData.MeasurementType": {
+            "properties": {
+                "MeasId": {
+                    "type": "integer"
+                },
+                "MeasName": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Measurement Type"
+        },
+        "PBE2smKpmData.NrCgi": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "NrCellIdentity": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Nr Cgi"
+        },
+        "PBE2smKpmData.RicActionToBeSetupItem": {
+            "properties": {
+                "RicActionId": {
+                    "type": "integer"
+                },
+                "RicActionType": {
+                    "enum": [
+                        "RIC_ACTION_TYPE_INSERT",
+                        "RIC_ACTION_TYPE_REPORT",
+                        "RIC_ACTION_TYPE_POLICY"
+                    ],
+                    "type": "string",
+                    "title": "Ric Action Type"
+                },
+                "RicSubsequentAction": {
+                    "$ref": "#/definitions/PBE2apMsgData.RicSubsequentAction",
+                    "additionalProperties": true
+                },
+                "ActionDefinition": {
+                    "$ref": "#/definitions/PBE2smKpmData.ActionDefinition",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Action To Be Setup Item"
+        },
+        "PBE2smKpmData.RicActionToBeSetupList": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/PBE2smKpmData.RicActionToBeSetupItem"
+                    },
+                    "type": "array",
+                    "description": "Carries max e2ap_msg_data::MAX_NO_RIC_ACTIONS elements of type RicActionToBeSetupItem"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Action To Be Setup List"
+        },
+        "PBXAppKpmData.E2smKpimonSubscriptionData": {
+            "properties": {
+                "RequestId": {
+                    "$ref": "#/definitions/PBE2apMsgData.RicRequestId",
+                    "additionalProperties": true
+                },
+                "RanFunctionName": {
+                    "type": "string"
+                },
+                "RanFunctionId": {
+                    "type": "integer"
+                },
+                "NodeId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GlobalE2NodeId",
+                    "additionalProperties": true
+                },
+                "EventTriggerDefinition": {
+                    "$ref": "#/definitions/PBE2smKpmData.EventTriggerDefinition",
+                    "additionalProperties": true
+                },
+                "RicActionToBeSetupList": {
+                    "$ref": "#/definitions/PBE2smKpmData.RicActionToBeSetupList",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "E 2 Sm Kpimon Subscription Data"
+        },
+        "XappKpmSubscriptionRequestPublisherPubData": {
+            "properties": {
+                "E2smKpimonSubscriptionData": {
+                    "$ref": "#/definitions/PBXAppKpmData.E2smKpimonSubscriptionData",
+                    "additionalProperties": true,
+                    "description": "See E2smKpimonSubscriptionData for detailed description of this field"
+                },
+                "tlpublishTime": {
+                    "type": "string",
+                    "description": "Contains the time of publishing in EPOCH milliseconds"
+                },
+                "spanContext": {
+                    "type": "string",
+                    "description": "Contains an opentracing spancontext",
+                    "format": "binary",
+                    "binaryEncoding": "base64"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Xapp Kpm Subscription Request Publisher Pub Data",
+            "description": "* Publisher : XappKpmSubscriptionRequestPublisher Topic : E2SM-KPIMON-SUBSCRIBE Description : This publisher will publish E2 Subscription Request initiated by the XAPP to the SMKPM"
+        }
+    }
+}
