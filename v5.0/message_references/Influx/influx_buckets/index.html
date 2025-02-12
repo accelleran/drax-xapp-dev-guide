@@ -1,0 +1,3452 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://accelleran.github.io/drax-xapp-dev-guide/v5.0/message_references/Influx/influx_buckets/" rel="canonical"/>
+<link href="../influx/" rel="prev"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.21" name="generator"/>
+<title>Buckets - dRAX xApp Dev Guide</title>
+<link href="../../../assets/stylesheets/main.66ac8b77.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../css/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#buckets">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="dRAX xApp Dev Guide" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            dRAX xApp Dev Guide
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Buckets
+            
+          </span>
+</div>
+</div>
+</div>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+          
+  
+    
+  
+  Overview
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../xapp-dev-guide/intro/">
+          
+  
+    
+  
+  x/rApp SDK Documentation
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../introduction/">
+          
+  
+    
+  
+  RAN Data Documentation
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../E2/introduction/">
+          
+  
+    
+  
+  RIC E2 Documentation
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../influx/">
+          
+  
+    
+  
+  RIC Time-Series DB Documentation
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="dRAX xApp Dev Guide" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="dRAX xApp Dev Guide">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    dRAX xApp Dev Guide
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    Overview
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            Overview
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../changelog/">
+<span class="md-ellipsis">
+    Changelog
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    x/rApp SDK Documentation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            x/rApp SDK Documentation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/intro/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/quick_guide/">
+<span class="md-ellipsis">
+    Quick guide
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/development_workflows/">
+<span class="md-ellipsis">
+    Development Workflows
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_dev_environment/">
+<span class="md-ellipsis">
+    Build your own x/rApp Development Environment
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_productize/">
+<span class="md-ellipsis">
+    Productize your xApp
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_framework/">
+<span class="md-ellipsis">
+    xApp Framework In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_library/">
+<span class="md-ellipsis">
+    xApp Library In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_async_library/">
+<span class="md-ellipsis">
+    xApp Async Library In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_unittest/">
+<span class="md-ellipsis">
+    xApp Unit Tests
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_readme/">
+<span class="md-ellipsis">
+    The xApp Documentation README.md
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_rest_api/">
+<span class="md-ellipsis">
+    xApp REST API
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_configuration/">
+<span class="md-ellipsis">
+    xApp Configuration In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_helm_charts/">
+<span class="md-ellipsis">
+    xApp Helm Chart In-Depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_lifecycle/">
+<span class="md-ellipsis">
+    xApps Lifecycle In-depth
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_core/">
+<span class="md-ellipsis">
+    Writing the xApp Core in a different language
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/appendix_dockerhub/">
+<span class="md-ellipsis">
+    Appendix: Pushing to Dockerhub
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/appendix_conversion/">
+<span class="md-ellipsis">
+    Appendix: Conversion from the xApp Framework to the xApp Library
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    RAN Data Documentation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            RAN Data Documentation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../introduction/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    5G Accelleran DU - v3.0
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            5G Accelleran DU - v3.0
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    dRAX Databus
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_1">
+<span class="md-nav__icon md-icon"></span>
+            dRAX Databus
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_1_1" id="__nav_3_2_1_1_label" tabindex="0">
+<span class="md-ellipsis">
+    KPMs/PMs
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_1_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+            KPMs/PMs
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Accelleran_DU/1.0/accelleran_du_kafka/">
+<span class="md-ellipsis">
+    Accelleran du kafka
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    E2
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            E2
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_2_1" id="__nav_3_2_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    KPMs/PMs
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_2_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_2_2_1">
+<span class="md-nav__icon md-icon"></span>
+            KPMs/PMs
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Accelleran_DU/1.0/accelleran_du_e2/">
+<span class="md-ellipsis">
+    Accelleran du e2
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    5G Accelleran CU - v7.0
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            5G Accelleran CU - v7.0
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    dRAX Databus
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_3_1">
+<span class="md-nav__icon md-icon"></span>
+            dRAX Databus
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3_1_1" id="__nav_3_3_1_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Beacons
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_1_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_3_1_1">
+<span class="md-nav__icon md-icon"></span>
+            Beacons
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../5G/7.0/kafka_beacons/">
+<span class="md-ellipsis">
+    Beacons
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3_1_2" id="__nav_3_3_1_2_label" tabindex="0">
+<span class="md-ellipsis">
+    KPMs/PMs
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_1_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_3_1_2">
+<span class="md-nav__icon md-icon"></span>
+            KPMs/PMs
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../5G/7.0/kafka_kpms/">
+<span class="md-ellipsis">
+    Kafka kpms
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3_1_3" id="__nav_3_3_1_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Events
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_1_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_3_1_3">
+<span class="md-nav__icon md-icon"></span>
+            Events
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../5G/7.0/cu_events/">
+<span class="md-ellipsis">
+    Cu events
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    O1
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_3_2">
+<span class="md-nav__icon md-icon"></span>
+            O1
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../O1/o1/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../O1/o1_notifications/">
+<span class="md-ellipsis">
+    Notifications
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    RIC E2 Documentation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            RIC E2 Documentation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    dRAX version 11 (E2 v6)
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            dRAX version 11 (E2 v6)
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/introduction/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+<span class="md-ellipsis">
+    E2AP
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_2">
+<span class="md-nav__icon md-icon"></span>
+            E2AP
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/E2AP/forwarded_messages/">
+<span class="md-ellipsis">
+    Forwarded Messages
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+<span class="md-ellipsis">
+    E2SM
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_3">
+<span class="md-nav__icon md-icon"></span>
+            E2SM
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_3_1" id="__nav_4_1_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    KPM
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_3_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_1_3_1">
+<span class="md-nav__icon md-icon"></span>
+            KPM
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/KPM/subscription_request/">
+<span class="md-ellipsis">
+    Subscription Request
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/KPM/subscription_response/">
+<span class="md-ellipsis">
+    Subscription Response
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/KPM/subscription_delete_request/">
+<span class="md-ellipsis">
+    Subscription Delete Request
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/KPM/subscription_delete_response/">
+<span class="md-ellipsis">
+    Subscription Delete Response
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/KPM/indications/">
+<span class="md-ellipsis">
+    Indications
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_3_2" id="__nav_4_1_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    RC
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_3_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_1_3_2">
+<span class="md-nav__icon md-icon"></span>
+            RC
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/RC/subscription_request/">
+<span class="md-ellipsis">
+    Subscription Request
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/RC/subscription_response/">
+<span class="md-ellipsis">
+    Subscription Response
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/RC/subscription_delete_request/">
+<span class="md-ellipsis">
+    Subscription Delete Request
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/RC/subscription_delete_response/">
+<span class="md-ellipsis">
+    Subscription Delete Response
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/RC/control_request/">
+<span class="md-ellipsis">
+    Control Request
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/RC/control_request_failure/">
+<span class="md-ellipsis">
+    Control Failure
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/RC/indications/">
+<span class="md-ellipsis">
+    Indications
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/RC/acknowledgements/">
+<span class="md-ellipsis">
+    Acknowledgements
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_3_3" id="__nav_4_1_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    CCC
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_3_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_1_3_3">
+<span class="md-nav__icon md-icon"></span>
+            CCC
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/CCC/subscription_request/">
+<span class="md-ellipsis">
+    Subscription Request
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/CCC/subscription_response/">
+<span class="md-ellipsis">
+    Subscription Response
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/CCC/subscription_delete_request/">
+<span class="md-ellipsis">
+    Subscription Delete Request
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/CCC/subscription_delete_response/">
+<span class="md-ellipsis">
+    Subscription Delete Response
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/CCC/control_request/">
+<span class="md-ellipsis">
+    Control Request
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/CCC/control_request_failure/">
+<span class="md-ellipsis">
+    Control Failure
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/CCC/indications/">
+<span class="md-ellipsis">
+    Indications
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/CCC/acknowledgements/">
+<span class="md-ellipsis">
+    Acknowledgements
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Use cases
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_4">
+<span class="md-nav__icon md-icon"></span>
+            Use cases
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../E2/demo/energy_saving/">
+<span class="md-ellipsis">
+    Energy Saving
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-ellipsis">
+    RIC Time-Series DB Documentation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            RIC Time-Series DB Documentation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../influx/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Buckets
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Buckets
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#du_rlc_measurements">
+<span class="md-ellipsis">
+      du_rlc_measurements
+    </span>
+</a>
+<nav aria-label="du_rlc_measurements" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#durlcmeasurements">
+<span class="md-ellipsis">
+      DURLCMeasurements
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#du_ue_measurements">
+<span class="md-ellipsis">
+      du_ue_measurements
+    </span>
+</a>
+<nav aria-label="du_ue_measurements" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#duuemeasurements">
+<span class="md-ellipsis">
+      DUUEMeasurements
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#handover_and_mobility_metrics">
+<span class="md-ellipsis">
+      handover_and_mobility_metrics
+    </span>
+</a>
+<nav aria-label="handover_and_mobility_metrics" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mmhoexeinterreqtimemean">
+<span class="md-ellipsis">
+      MMHoExeInterReqTimeMean
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mmhoexeinterreqtimemax">
+<span class="md-ellipsis">
+      MMHoExeInterReqTimeMax
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mmhoprepinterreq">
+<span class="md-ellipsis">
+      MMHoPrepInterReq
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mmhoprepintersucc">
+<span class="md-ellipsis">
+      MMHoPrepInterSucc
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mmhoprepinterfail">
+<span class="md-ellipsis">
+      MMHoPrepInterFail
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mmhoresallointerreq">
+<span class="md-ellipsis">
+      MMHoResAlloInterReq
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mmhoresallointersucc">
+<span class="md-ellipsis">
+      MMHoResAlloInterSucc
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mmhoresallointerfail">
+<span class="md-ellipsis">
+      MMHoResAlloInterFail
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mmhoexeinterreq">
+<span class="md-ellipsis">
+      MMHoExeInterReq
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mmhoexeintrareq">
+<span class="md-ellipsis">
+      MMHoExeIntraReq
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mmhoexeintrasucc">
+<span class="md-ellipsis">
+      MMHoExeIntraSucc
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pdu_session_management_metrics">
+<span class="md-ellipsis">
+      pdu_session_management_metrics
+    </span>
+</a>
+<nav aria-label="pdu_session_management_metrics" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#smpdusessionsetupreq">
+<span class="md-ellipsis">
+      SMPDUSessionSetupReq
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#smpdusessionsetupreqsnssai">
+<span class="md-ellipsis">
+      SMPDUSessionSetupReqSnssai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#smpdusessionsetupfail">
+<span class="md-ellipsis">
+      SMPDUSessionSetupFail
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#radio_resource_utilization_metrics">
+<span class="md-ellipsis">
+      radio_resource_utilization_metrics
+    </span>
+</a>
+<nav aria-label="radio_resource_utilization_metrics" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbpdcpsdudelaydlqos">
+<span class="md-ellipsis">
+      DRBPdcpSduDelayDlQoS
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbpdcpsdudelaydlsnssai">
+<span class="md-ellipsis">
+      DRBPdcpSduDelayDlSnssai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accdrbpdcpsdudelaydlqfisnssaiplmn">
+<span class="md-ellipsis">
+      AccDRBPdcpSduDelayDlQfiSnssaiPlmn
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbpdcpsdudelaydldist">
+<span class="md-ellipsis">
+      DRBPdcpSduDelayDlDist
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbpdcpsdudelaydldistqos">
+<span class="md-ellipsis">
+      DRBPdcpSduDelayDlDistQos
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbpdcpsdudelaydldistsnssai">
+<span class="md-ellipsis">
+      DRBPdcpSduDelayDlDistSnssai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accdrbpdcpsdudelaydldistqfisnssaiplmn">
+<span class="md-ellipsis">
+      AccDRBPdcpSduDelayDlDistQfiSnssaiPlmn
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accdrbestabatt5qisnssai">
+<span class="md-ellipsis">
+      AccDRBEstabAtt5QiSnssai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbestabattsnssai">
+<span class="md-ellipsis">
+      DRBEstabAttSnssai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbestabatt5qi">
+<span class="md-ellipsis">
+      DRBEstabAtt5Qi
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accdrbestabsucc5qisnssai">
+<span class="md-ellipsis">
+      AccDRBEstabSucc5QiSnssai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbestabsucc5qi">
+<span class="md-ellipsis">
+      DRBEstabSucc5Qi
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbestabsuccsnssai">
+<span class="md-ellipsis">
+      DRBEstabSuccSnssai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbrelactnbr5qisnssai">
+<span class="md-ellipsis">
+      DRBRelActNbr5QiSnssai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbrelactnbr5qi">
+<span class="md-ellipsis">
+      DRBRelActNbr5Qi
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drbrelactnbrsnssai">
+<span class="md-ellipsis">
+      DRBRelActNbrSnssai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accdrbf1upacketlossrateulqos">
+<span class="md-ellipsis">
+      AccDRBF1UPacketLossRateUlQoS
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accdrbf1upacketlossrateulsnssai">
+<span class="md-ellipsis">
+      AccDRBF1UPacketLossRateUlSnssai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accdrbf1upacketlossrateulqfisnssaiplmn">
+<span class="md-ellipsis">
+      AccDRBF1UPacketLossRateUlQfiSnssaiPlmn
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accdrbpdcppacketdropratedlqos">
+<span class="md-ellipsis">
+      AccDRBPdcpPacketDropRateDlQoS
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accdrbpdcppacketdropratedlsnssai">
+<span class="md-ellipsis">
+      AccDRBPdcpPacketDropRateDlSnssai
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accdrbpdcppacketdropratedlqfisnssaiplmn">
+<span class="md-ellipsis">
+      AccDRBPdcpPacketDropRateDlQfiSnssaiPlmn
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrc_connection_metrics">
+<span class="md-ellipsis">
+      rrc_connection_metrics
+    </span>
+</a>
+<nav aria-label="rrc_connection_metrics" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrcconnmean">
+<span class="md-ellipsis">
+      RRCConnMean
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrcconnmax">
+<span class="md-ellipsis">
+      RRCConnMax
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrcconnestabatt">
+<span class="md-ellipsis">
+      RRCConnEstabAtt
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrcconnestabsucc">
+<span class="md-ellipsis">
+      RRCConnEstabSucc
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrc_measurements">
+<span class="md-ellipsis">
+      rrc_measurements
+    </span>
+</a>
+<nav aria-label="rrc_measurements" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrcmeasurementreport">
+<span class="md-ellipsis">
+      RrcMeasurementReport
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#l1mssrsrp">
+<span class="md-ellipsis">
+      L1MSSRSRP
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#throughput_metrics">
+<span class="md-ellipsis">
+      throughput_metrics
+    </span>
+</a>
+<nav aria-label="throughput_metrics" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accgtpthpul">
+<span class="md-ellipsis">
+      AccGTPThpUl
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accgtpthpulqfisnssaiplmn">
+<span class="md-ellipsis">
+      AccGTPThpUlQfiSnssaiPlmn
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accgtpthpdl">
+<span class="md-ellipsis">
+      AccGTPThpDl
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accgtpthpdlqfisnssaiplmn">
+<span class="md-ellipsis">
+      AccGTPThpDlQfiSnssaiPlmn
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="buckets"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Buckets<a class="headerlink" href="#buckets" title="Permanent link">¶</a></h1>
+<h2 id="du_rlc_measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> du_rlc_measurements<a class="headerlink" href="#du_rlc_measurements" title="Permanent link">¶</a></h2>
+<h3 id="durlcmeasurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.1</span> DURLCMeasurements<a class="headerlink" href="#durlcmeasurements" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>AccDuId</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>AccUeId</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>AccSchUeRnti</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>AccDrbId</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>AccRlcDlNumSdus</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumSduPulled</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumSduBytes</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumSduDropped</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumSduDiscarded</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumSduFailedDiscard</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlTotSduLatency</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlAveSduLatency</td>
+<td>float64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumPduNoSegment</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumPduBytesNoSegment</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlMode</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumSmallAlloc</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumPduSegmentation</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumPduBytesSegmentation</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumPduRetx</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumPduBytesRetx</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumPduCtrl</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcDlNumPduBytesCtrl</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcUlNumSdus</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcUlNumSduBytes</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcUlNumPdus</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcUlNumPduBytes</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcUlNumPduLost</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcUlNumPduMalformed</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcUlMode</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcUlNumSduSegments</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcUlNumSduBytesSegment</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcUlNumPduCtrl</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccRlcUlNumPduBytesCtrl</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="du_ue_measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> du_ue_measurements<a class="headerlink" href="#du_ue_measurements" title="Permanent link">¶</a></h2>
+<h3 id="duuemeasurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> DUUEMeasurements<a class="headerlink" href="#duuemeasurements" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>AccSchUePci</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>AccSchUeRnti</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>AccSchUeCqi</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeRankIndicator</td>
+<td>float64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeDlMcs</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeDlDataRate</td>
+<td>float64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeDlHarqAcks</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeDlHarqNacks</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeDlHarqRetransmissions</td>
+<td>float64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeUlBsr</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeAvgPuschSnr</td>
+<td>float64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeAvgPucchSnr</td>
+<td>float64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeAvgPuschRsrp</td>
+<td>float64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeUlMcs</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeUlDataRate</td>
+<td>float64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeUlHarqAcks</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeUlHarqNacks</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeUlHarqRetransmissions</td>
+<td>float64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeDlBufferStatus</td>
+<td>uint32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUeTa</td>
+<td>uint64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>AccSchUePhr</td>
+<td>int32</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="handover_and_mobility_metrics"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> handover_and_mobility_metrics<a class="headerlink" href="#handover_and_mobility_metrics" title="Permanent link">¶</a></h2>
+<h3 id="mmhoexeinterreqtimemean"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> MMHoExeInterReqTimeMean<a class="headerlink" href="#mmhoexeinterreqtimemean" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mmhoexeinterreqtimemax"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> MMHoExeInterReqTimeMax<a class="headerlink" href="#mmhoexeinterreqtimemax" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mmhoprepinterreq"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> MMHoPrepInterReq<a class="headerlink" href="#mmhoprepinterreq" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mmhoprepintersucc"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.4</span> MMHoPrepInterSucc<a class="headerlink" href="#mmhoprepintersucc" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mmhoprepinterfail"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.5</span> MMHoPrepInterFail<a class="headerlink" href="#mmhoprepinterfail" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>CauseType</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mmhoresallointerreq"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.6</span> MMHoResAlloInterReq<a class="headerlink" href="#mmhoresallointerreq" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>CauseType</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mmhoresallointersucc"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.7</span> MMHoResAlloInterSucc<a class="headerlink" href="#mmhoresallointersucc" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mmhoresallointerfail"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.8</span> MMHoResAlloInterFail<a class="headerlink" href="#mmhoresallointerfail" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>CauseType</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mmhoexeinterreq"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.9</span> MMHoExeInterReq<a class="headerlink" href="#mmhoexeinterreq" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mmhoexeintrareq"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.10</span> MMHoExeIntraReq<a class="headerlink" href="#mmhoexeintrareq" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mmhoexeintrasucc"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.11</span> MMHoExeIntraSucc<a class="headerlink" href="#mmhoexeintrasucc" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pdu_session_management_metrics"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> pdu_session_management_metrics<a class="headerlink" href="#pdu_session_management_metrics" title="Permanent link">¶</a></h2>
+<h3 id="smpdusessionsetupreq"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> SMPDUSessionSetupReq<a class="headerlink" href="#smpdusessionsetupreq" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="smpdusessionsetupreqsnssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> SMPDUSessionSetupReqSnssai<a class="headerlink" href="#smpdusessionsetupreqsnssai" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Snssai</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="smpdusessionsetupfail"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.3</span> SMPDUSessionSetupFail<a class="headerlink" href="#smpdusessionsetupfail" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CauseType</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="radio_resource_utilization_metrics"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> radio_resource_utilization_metrics<a class="headerlink" href="#radio_resource_utilization_metrics" title="Permanent link">¶</a></h2>
+<h3 id="drbpdcpsdudelaydlqos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> DRBPdcpSduDelayDlQoS<a class="headerlink" href="#drbpdcpsdudelaydlqos" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>QFI</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drbpdcpsdudelaydlsnssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2</span> DRBPdcpSduDelayDlSnssai<a class="headerlink" href="#drbpdcpsdudelaydlsnssai" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Snssai</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accdrbpdcpsdudelaydlqfisnssaiplmn"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.3</span> AccDRBPdcpSduDelayDlQfiSnssaiPlmn<a class="headerlink" href="#accdrbpdcpsdudelaydlqfisnssaiplmn" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>QFISNSSAIPLMNID</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drbpdcpsdudelaydldist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.4</span> DRBPdcpSduDelayDlDist<a class="headerlink" href="#drbpdcpsdudelaydldist" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>BinX</td>
+<td>int</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drbpdcpsdudelaydldistqos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.5</span> DRBPdcpSduDelayDlDistQos<a class="headerlink" href="#drbpdcpsdudelaydldistqos" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>QFI</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>BinX</td>
+<td>int</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drbpdcpsdudelaydldistsnssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.6</span> DRBPdcpSduDelayDlDistSnssai<a class="headerlink" href="#drbpdcpsdudelaydldistsnssai" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Snssai</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>BinX</td>
+<td>int</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accdrbpdcpsdudelaydldistqfisnssaiplmn"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.7</span> AccDRBPdcpSduDelayDlDistQfiSnssaiPlmn<a class="headerlink" href="#accdrbpdcpsdudelaydldistqfisnssaiplmn" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>QFISNSSAIPLMNID</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accdrbestabatt5qisnssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.8</span> AccDRBEstabAtt5QiSnssai<a class="headerlink" href="#accdrbestabatt5qisnssai" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Snssai</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>FiveQI</td>
+<td>int</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drbestabattsnssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.9</span> DRBEstabAttSnssai<a class="headerlink" href="#drbestabattsnssai" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Snssai</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drbestabatt5qi"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.10</span> DRBEstabAtt5Qi<a class="headerlink" href="#drbestabatt5qi" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>FiveQI</td>
+<td>int</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accdrbestabsucc5qisnssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.11</span> AccDRBEstabSucc5QiSnssai<a class="headerlink" href="#accdrbestabsucc5qisnssai" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Snssai</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>FiveQI</td>
+<td>int</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drbestabsucc5qi"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.12</span> DRBEstabSucc5Qi<a class="headerlink" href="#drbestabsucc5qi" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>FiveQI</td>
+<td>int</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drbestabsuccsnssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.13</span> DRBEstabSuccSnssai<a class="headerlink" href="#drbestabsuccsnssai" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Snssai</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drbrelactnbr5qisnssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.14</span> DRBRelActNbr5QiSnssai<a class="headerlink" href="#drbrelactnbr5qisnssai" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Snssai</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>FiveQI</td>
+<td>int</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drbrelactnbr5qi"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.15</span> DRBRelActNbr5Qi<a class="headerlink" href="#drbrelactnbr5qi" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>FiveQI</td>
+<td>int</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drbrelactnbrsnssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.16</span> DRBRelActNbrSnssai<a class="headerlink" href="#drbrelactnbrsnssai" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Snssai</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accdrbf1upacketlossrateulqos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.17</span> AccDRBF1UPacketLossRateUlQoS<a class="headerlink" href="#accdrbf1upacketlossrateulqos" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>QFI</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>UEID</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accdrbf1upacketlossrateulsnssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.18</span> AccDRBF1UPacketLossRateUlSnssai<a class="headerlink" href="#accdrbf1upacketlossrateulsnssai" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Snssai</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>UEID</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accdrbf1upacketlossrateulqfisnssaiplmn"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.19</span> AccDRBF1UPacketLossRateUlQfiSnssaiPlmn<a class="headerlink" href="#accdrbf1upacketlossrateulqfisnssaiplmn" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>QFISNSSAIPLMNID</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>UEID</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accdrbpdcppacketdropratedlqos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.20</span> AccDRBPdcpPacketDropRateDlQoS<a class="headerlink" href="#accdrbpdcppacketdropratedlqos" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>UEID</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>QFI</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accdrbpdcppacketdropratedlsnssai"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.21</span> AccDRBPdcpPacketDropRateDlSnssai<a class="headerlink" href="#accdrbpdcppacketdropratedlsnssai" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Snssai</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>UEID</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accdrbpdcppacketdropratedlqfisnssaiplmn"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.22</span> AccDRBPdcpPacketDropRateDlQfiSnssaiPlmn<a class="headerlink" href="#accdrbpdcppacketdropratedlqfisnssaiplmn" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>QFISNSSAIPLMNID</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>UEID</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rrc_connection_metrics"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> rrc_connection_metrics<a class="headerlink" href="#rrc_connection_metrics" title="Permanent link">¶</a></h2>
+<h3 id="rrcconnmean"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.1</span> RRCConnMean<a class="headerlink" href="#rrcconnmean" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rrcconnmax"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.2</span> RRCConnMax<a class="headerlink" href="#rrcconnmax" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rrcconnestabatt"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.3</span> RRCConnEstabAtt<a class="headerlink" href="#rrcconnestabatt" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CauseType</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rrcconnestabsucc"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.4</span> RRCConnEstabSucc<a class="headerlink" href="#rrcconnestabsucc" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CauseType</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rrc_measurements"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> rrc_measurements<a class="headerlink" href="#rrc_measurements" title="Permanent link">¶</a></h2>
+<h3 id="rrcmeasurementreport"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.1</span> RrcMeasurementReport<a class="headerlink" href="#rrcmeasurementreport" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>UEID</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Pci</td>
+<td>uint (optional)</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>IsServingCell</td>
+<td>bool</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>SsbRsrp</td>
+<td>uint</td>
+<td>field</td>
+</tr>
+<tr>
+<td>SsbRsrq</td>
+<td>uint</td>
+<td>field</td>
+</tr>
+<tr>
+<td>SsbSinr</td>
+<td>uint</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="l1mssrsrp"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.2</span> L1MSSRSRP<a class="headerlink" href="#l1mssrsrp" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>SSB</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>BinX</td>
+<td>int</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="throughput_metrics"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> throughput_metrics<a class="headerlink" href="#throughput_metrics" title="Permanent link">¶</a></h2>
+<h3 id="accgtpthpul"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.1</span> AccGTPThpUl<a class="headerlink" href="#accgtpthpul" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>UEID</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>uint64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accgtpthpulqfisnssaiplmn"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.2</span> AccGTPThpUlQfiSnssaiPlmn<a class="headerlink" href="#accgtpthpulqfisnssaiplmn" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>QFISNSSAIPLMNID</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>UEID</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>uint64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accgtpthpdl"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.3</span> AccGTPThpDl<a class="headerlink" href="#accgtpthpdl" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>UEID</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>uint64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accgtpthpdlqfisnssaiplmn"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.4</span> AccGTPThpDlQfiSnssaiPlmn<a class="headerlink" href="#accgtpthpdlqfisnssaiplmn" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>QFISNSSAIPLMNID</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>UEID</td>
+<td>uint32</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>uint64</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Introduction" class="md-footer__link md-footer__link--prev" href="../influx/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Introduction
+              </div>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.tabs", "navigation.footer", "toc.integrate", "content.code.copy", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+</body>
+</html>

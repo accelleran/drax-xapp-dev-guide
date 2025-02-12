@@ -5,25 +5,25 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://accelleran.github.io/drax-xapp-dev-guide/v5.0/xapp-dev-guide/xapp_core/" rel="canonical"/>
-<link href="../xapp_lifecycle/" rel="prev"/>
-<link href="../appendix_dockerhub/" rel="next"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
+<link href="https://accelleran.github.io/drax-xapp-dev-guide/v5.0/message_references/Influx/influx/" rel="canonical"/>
+<link href="../../E2/demo/energy_saving/" rel="prev"/>
+<link href="../influx_buckets/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.21" name="generator"/>
-<title>Writing the xApp Core in a different language - dRAX xApp Dev Guide</title>
-<link href="../../assets/stylesheets/main.66ac8b77.min.css" rel="stylesheet"/>
+<title>Introduction - dRAX xApp Dev Guide</title>
+<link href="../../../assets/stylesheets/main.66ac8b77.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../css/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../css/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#writing-the-xapp-core-in-a-different-language">
+<a class="md-skip" href="#introduction">
           Skip to content
         </a>
 </div>
@@ -33,7 +33,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="dRAX xApp Dev Guide" class="md-header__button md-logo" data-md-component="logo" href="../.." title="dRAX xApp Dev Guide">
+<a aria-label="dRAX xApp Dev Guide" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="dRAX xApp Dev Guide">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Writing the xApp Core in a different language
+              Introduction
             
           </span>
 </div>
@@ -93,7 +93,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+<a class="md-tabs__link" href="../../..">
           
   
     
@@ -102,8 +102,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../intro/">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../xapp-dev-guide/intro/">
           
   
     
@@ -113,7 +113,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../message_references/introduction/">
+<a class="md-tabs__link" href="../../introduction/">
           
   
     
@@ -123,7 +123,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../message_references/E2/introduction/">
+<a class="md-tabs__link" href="../../E2/introduction/">
           
   
     
@@ -132,8 +132,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../message_references/Influx/influx/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="./">
           
   
     
@@ -152,7 +152,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="dRAX xApp Dev Guide" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="dRAX xApp Dev Guide">
+<a aria-label="dRAX xApp Dev Guide" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="dRAX xApp Dev Guide">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
     dRAX xApp Dev Guide
@@ -161,7 +161,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../..">
+<a class="md-nav__link" href="../../..">
 <span class="md-ellipsis">
     Overview
   </span>
@@ -177,7 +177,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../changelog/">
+<a class="md-nav__link" href="../../../changelog/">
 <span class="md-ellipsis">
     Changelog
   </span>
@@ -186,177 +186,134 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
 <span class="md-ellipsis">
     x/rApp SDK Documentation
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
             x/rApp SDK Documentation
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../intro/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/intro/">
 <span class="md-ellipsis">
     Introduction
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../quick_guide/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/quick_guide/">
 <span class="md-ellipsis">
     Quick guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../development_workflows/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/development_workflows/">
 <span class="md-ellipsis">
     Development Workflows
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_dev_environment/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_dev_environment/">
 <span class="md-ellipsis">
     Build your own x/rApp Development Environment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_productize/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_productize/">
 <span class="md-ellipsis">
     Productize your xApp
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_framework/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_framework/">
 <span class="md-ellipsis">
     xApp Framework In-depth
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_library/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_library/">
 <span class="md-ellipsis">
     xApp Library In-depth
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_async_library/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_async_library/">
 <span class="md-ellipsis">
     xApp Async Library In-depth
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_unittest/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_unittest/">
 <span class="md-ellipsis">
     xApp Unit Tests
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_readme/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_readme/">
 <span class="md-ellipsis">
     The xApp Documentation README.md
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_rest_api/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_rest_api/">
 <span class="md-ellipsis">
     xApp REST API
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_configuration/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_configuration/">
 <span class="md-ellipsis">
     xApp Configuration In-depth
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_helm_charts/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_helm_charts/">
 <span class="md-ellipsis">
     xApp Helm Chart In-Depth
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xapp_lifecycle/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_lifecycle/">
 <span class="md-ellipsis">
     xApps Lifecycle In-depth
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Writing the xApp Core in a different language
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../xapp-dev-guide/xapp_core/">
 <span class="md-ellipsis">
     Writing the xApp Core in a different language
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changing-the-xapp-library-using-a-different-programming-language">
-<span class="md-ellipsis">
-      Changing the xApp Library - Using a different programming language
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#changing-the-xapp-core">
-<span class="md-ellipsis">
-      Changing the xApp Core
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changing-the-xapp-helm-chart">
-<span class="md-ellipsis">
-      Changing the xApp Helm Chart
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changing-the-whole-xapp-framework">
-<span class="md-ellipsis">
-      Changing the whole xApp Framework
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../appendix_dockerhub/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/appendix_dockerhub/">
 <span class="md-ellipsis">
     Appendix: Pushing to Dockerhub
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../appendix_conversion/">
+<a class="md-nav__link" href="../../../xapp-dev-guide/appendix_conversion/">
 <span class="md-ellipsis">
     Appendix: Conversion from the xApp Framework to the xApp Library
   </span>
@@ -394,7 +351,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/introduction/">
+<a class="md-nav__link" href="../../introduction/">
 <span class="md-ellipsis">
     Introduction
   </span>
@@ -446,7 +403,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/Accelleran_DU/1.0/accelleran_du_kafka/">
+<a class="md-nav__link" href="../../Accelleran_DU/1.0/accelleran_du_kafka/">
 <span class="md-ellipsis">
     Accelleran du kafka
   </span>
@@ -487,7 +444,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/Accelleran_DU/1.0/accelleran_du_e2/">
+<a class="md-nav__link" href="../../Accelleran_DU/1.0/accelleran_du_e2/">
 <span class="md-ellipsis">
     Accelleran du e2
   </span>
@@ -545,7 +502,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/5G/7.0/kafka_beacons/">
+<a class="md-nav__link" href="../../5G/7.0/kafka_beacons/">
 <span class="md-ellipsis">
     Beacons
   </span>
@@ -569,7 +526,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/5G/7.0/kafka_kpms/">
+<a class="md-nav__link" href="../../5G/7.0/kafka_kpms/">
 <span class="md-ellipsis">
     Kafka kpms
   </span>
@@ -593,7 +550,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/5G/7.0/cu_events/">
+<a class="md-nav__link" href="../../5G/7.0/cu_events/">
 <span class="md-ellipsis">
     Cu events
   </span>
@@ -620,14 +577,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/O1/o1/">
+<a class="md-nav__link" href="../../O1/o1/">
 <span class="md-ellipsis">
     Introduction
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/O1/o1_notifications/">
+<a class="md-nav__link" href="../../O1/o1_notifications/">
 <span class="md-ellipsis">
     Notifications
   </span>
@@ -671,7 +628,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/introduction/">
+<a class="md-nav__link" href="../../E2/introduction/">
 <span class="md-ellipsis">
     Introduction
   </span>
@@ -692,7 +649,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/E2AP/forwarded_messages/">
+<a class="md-nav__link" href="../../E2/E2AP/forwarded_messages/">
 <span class="md-ellipsis">
     Forwarded Messages
   </span>
@@ -730,35 +687,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/KPM/subscription_request/">
+<a class="md-nav__link" href="../../E2/KPM/subscription_request/">
 <span class="md-ellipsis">
     Subscription Request
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/KPM/subscription_response/">
+<a class="md-nav__link" href="../../E2/KPM/subscription_response/">
 <span class="md-ellipsis">
     Subscription Response
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/KPM/subscription_delete_request/">
+<a class="md-nav__link" href="../../E2/KPM/subscription_delete_request/">
 <span class="md-ellipsis">
     Subscription Delete Request
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/KPM/subscription_delete_response/">
+<a class="md-nav__link" href="../../E2/KPM/subscription_delete_response/">
 <span class="md-ellipsis">
     Subscription Delete Response
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/KPM/indications/">
+<a class="md-nav__link" href="../../E2/KPM/indications/">
 <span class="md-ellipsis">
     Indications
   </span>
@@ -782,56 +739,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/RC/subscription_request/">
+<a class="md-nav__link" href="../../E2/RC/subscription_request/">
 <span class="md-ellipsis">
     Subscription Request
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/RC/subscription_response/">
+<a class="md-nav__link" href="../../E2/RC/subscription_response/">
 <span class="md-ellipsis">
     Subscription Response
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/RC/subscription_delete_request/">
+<a class="md-nav__link" href="../../E2/RC/subscription_delete_request/">
 <span class="md-ellipsis">
     Subscription Delete Request
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/RC/subscription_delete_response/">
+<a class="md-nav__link" href="../../E2/RC/subscription_delete_response/">
 <span class="md-ellipsis">
     Subscription Delete Response
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/RC/control_request/">
+<a class="md-nav__link" href="../../E2/RC/control_request/">
 <span class="md-ellipsis">
     Control Request
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/RC/control_request_failure/">
+<a class="md-nav__link" href="../../E2/RC/control_request_failure/">
 <span class="md-ellipsis">
     Control Failure
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/RC/indications/">
+<a class="md-nav__link" href="../../E2/RC/indications/">
 <span class="md-ellipsis">
     Indications
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/RC/acknowledgements/">
+<a class="md-nav__link" href="../../E2/RC/acknowledgements/">
 <span class="md-ellipsis">
     Acknowledgements
   </span>
@@ -855,56 +812,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/CCC/subscription_request/">
+<a class="md-nav__link" href="../../E2/CCC/subscription_request/">
 <span class="md-ellipsis">
     Subscription Request
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/CCC/subscription_response/">
+<a class="md-nav__link" href="../../E2/CCC/subscription_response/">
 <span class="md-ellipsis">
     Subscription Response
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/CCC/subscription_delete_request/">
+<a class="md-nav__link" href="../../E2/CCC/subscription_delete_request/">
 <span class="md-ellipsis">
     Subscription Delete Request
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/CCC/subscription_delete_response/">
+<a class="md-nav__link" href="../../E2/CCC/subscription_delete_response/">
 <span class="md-ellipsis">
     Subscription Delete Response
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/CCC/control_request/">
+<a class="md-nav__link" href="../../E2/CCC/control_request/">
 <span class="md-ellipsis">
     Control Request
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/CCC/control_request_failure/">
+<a class="md-nav__link" href="../../E2/CCC/control_request_failure/">
 <span class="md-ellipsis">
     Control Failure
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/CCC/indications/">
+<a class="md-nav__link" href="../../E2/CCC/indications/">
 <span class="md-ellipsis">
     Indications
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/CCC/acknowledgements/">
+<a class="md-nav__link" href="../../E2/CCC/acknowledgements/">
 <span class="md-ellipsis">
     Acknowledgements
   </span>
@@ -931,7 +888,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/E2/demo/energy_saving/">
+<a class="md-nav__link" href="../../E2/demo/energy_saving/">
 <span class="md-ellipsis">
     Energy Saving
   </span>
@@ -946,29 +903,83 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
 <span class="md-ellipsis">
     RIC Time-Series DB Documentation
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
             RIC Time-Series DB Documentation
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/Influx/influx/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Introduction
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sections-overview">
+<span class="md-ellipsis">
+      Sections overview
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../message_references/Influx/influx_buckets/">
+<a class="md-nav__link" href="#accessing-the-ric-times-series-database">
+<span class="md-ellipsis">
+      Accessing the RIC Times-Series Database
+    </span>
+</a>
+<nav aria-label="Accessing the RIC Times-Series Database" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-drax-grafana">
+<span class="md-ellipsis">
+      Using dRAX Grafana
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-accelleran-xrapps">
+<span class="md-ellipsis">
+      Using Accelleran x/rApps
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#from-external-entities">
+<span class="md-ellipsis">
+      From external entities
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../influx_buckets/">
 <span class="md-ellipsis">
     Buckets
   </span>
@@ -984,41 +995,75 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="writing-the-xapp-core-in-a-different-language"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Writing the xApp Core in a different language<a class="headerlink" href="#writing-the-xapp-core-in-a-different-language" title="Permanent link">¶</a></h1>
-<p>We have built the xApp Framework with the objective to simplify the development of xApps for developers. Hence, most of the lower level details of the xApps interfaces with the dRAX RIC are abstracted into simpler and easy to use methods. These methods are implemented using the xApp Library, which was written in Python. The xApp Library and the developer code are then located inside the xApp Core, a Docker image which containirizes the code in a environment with all the prerequisites installed. The xApp Core, song with the xApp Database, are then deployed using the xApp Helm Chart, which takes care of automating the deployment, by for example discovering the URLs and ports used by the dRAX RIC. That way the developer does not need to worry about such details.</p>
-<p>However, if the developer wishes, the xApp can be written in any other programming language, and can be deployed in any other form that suits the developer. The developer, in that case, needs to implement all the necessary functionality to interface with the dRAX RIC alone. Here, we briefly summarize the different approaches and what the developer, beside the functionality and algorithm they bring, need to implement for the xApp to work properly with the dRAX RIC.</p>
-<h2 id="changing-the-xapp-library-using-a-different-programming-language"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Changing the xApp Library - Using a different programming language<a class="headerlink" href="#changing-the-xapp-library-using-a-different-programming-language" title="Permanent link">¶</a></h2>
-<p>The developer can write an equivalent of the xApp Library in a different programming language. This means that the developer will need to define the following:</p>
+<h1 id="introduction"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h1>
+<p>The Accelleran RIC is equipped with the <strong>KPM/PM Time-Series Database</strong>. We use the InfluxDB v2.</p>
+<p>This KPM/PM Time-Series Database contains a historical view on the different KPMs/PMs that are produced by the Accelleran dRAX RAN components. It can be used for <strong>RAN KPM/PM Monitoring purposes</strong>, by <strong>x/rApps</strong> to get a better insight of the network, or by <strong>external entities</strong> for <strong>integration</strong> purposes.</p>
+<p>The KPMs/PMs are structured in <strong>Measurements</strong>, each one containing multiple <strong>Fields</strong> and <strong>Tags</strong>. Fields store actual metric values while Tags contain metadata that can be used for filtering and grouping.</p>
+<p>The Measurements in the KPM/PM Time-Series Database try to follow as closely as possible the <a href="https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3413" target="_blank">3GPP TS 28.552: 5G performance measurements document</a> .</p>
+<h2 id="sections-overview"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Sections overview<a class="headerlink" href="#sections-overview" title="Permanent link">¶</a></h2>
+<p>The following sections describe the measurements that are stored in the KPM/PM Time-Series (InfluxDB) Database per Influx Bucket. Each <strong>Bucket</strong> contains one or more <strong>Measurements</strong>. Each <strong>Measurement</strong> is then described in a <strong>Table</strong>, detailing the <strong>Fields</strong>, <strong>Tags</strong> and their respective <strong>Data Types</strong>. Knowing the InfluxDB Type is useful when it comes to querying and filtering from the InfluxDB.</p>
+<h2 id="accessing-the-ric-times-series-database"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Accessing the RIC Times-Series Database<a class="headerlink" href="#accessing-the-ric-times-series-database" title="Permanent link">¶</a></h2>
+<h3 id="using-drax-grafana"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Using dRAX Grafana<a class="headerlink" href="#using-drax-grafana" title="Permanent link">¶</a></h3>
+<p>The Accelleran RIC is also equipped with a <strong>Grafana</strong>. By default, the KPM/PM Time-Series Database is integrated into this Grafana. Therefore, you can use Grafana to explore the KPM/PM Time-Series Database, or create your own graphs and dashboard with data from the KPM/PM Time-Series Database.</p>
+<p>The dRAX Grafana can be accessed on the following port on the dRAX Host Machine:</p>
+<div class="admonition note">
+<p class="admonition-title">dRAX Grafana exposed port</p>
+<p>30300</p>
+</div>
+<h3 id="using-accelleran-xrapps"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Using Accelleran x/rApps<a class="headerlink" href="#using-accelleran-xrapps" title="Permanent link">¶</a></h3>
+<p>To access the Accelleran dRAX RIC KPM/PM Time-Series Database, you first need to get a <strong>Access Token</strong>. <strong>Please contact Accelleran to receive one</strong>.</p>
+<p>You can now install a Python InfluxDB v2 client, and use it to query the RIC KPM/PM Time-Series (InfluxDB) Database. You will need the following details:</p>
 <ul>
-<li>A Kafka client: A Kafka client which is used to receive or send data from/to the dRAX RIC Databus. The developer also needs to properly configure the client, set the Kafka URL, port, etc. used by the Kafka in the dRAX RIC.</li>
-<li>A NATS client: The dRAX RIC also has a NATS databus. Hence, the developer needs to have a NATS client, properly configured to send or receive data to/from it. Of course the developer might not need to use the NATS databus, but just the Kafka one, in which case this component becomes optional.</li>
-<li>A REDIS client: As the xApp uses REDIS as its xApp Database, the xApp should have a REDIS client to interface to this database. The developer has to properly configure thai client as well. Of course, the developer can choose not to have a xApp Database (a scenario we will explain later), so this is optional</li>
-<li>An API client: To communicate to the dRAX RIC API Gateway, the xApp needs an API client. The developer needs to take care of properly configuring the client.</li>
-<li>NetConf client: If the developer wants to communicate to the NetConf servers in dRAX via the NetConf protocol, a NetConf client is needed. Again, the developer also needs to take care of the configuration of the client.</li>
-<li>A protobuf client: The dRAX Commands, such as the handover and sub-band masking one, are issued by creating a protobuf message and sending it via NATS tpo the correct topic. The developer would need to create the protobuf message based on the proto definition of thos messages, have a properly configured NATS client to send that messages, and finally know the topic on NATS where the message needs to be sent.</li>
-<li>An API: The xApp needs to have API endpoints, especially the /config and /metadata which are used by the dRAX Dashboard to configure the xApp. Hence, the developer needs to create such endpoints for their xApp. If these are not present, compatibility with teh dRAX Dashboard cannot be achieved.</li>
+<li>INFLUXDB_URL = "http://drax-influxdb2:80" # Replace with InfluxDB2 URL  </li>
+<li>INFLUXDB_TOKEN = "your-token-here"  # Replace with your authentication token</li>
+<li>ORG = "accelleran"  </li>
 </ul>
-<p>Of course, each of the components is optional, depending on what the xApp is supposed to do.</p>
-<p>Once the xApp is written in another language, the developer also needs to take care of generating the xApp Core Docker image, which we will explain in the following subsection. The developer may also choose to run its xApp locally, without integrating it into the Kubernetes where dRAX is running, however the support for such a scenario is limited. For example, the dRAX Dashboard will not be able to discover the xApp, hence it will not appear in the dRAX Dashboard. You will not be able to configure the xApp via the dashboard or via the API endpoints.</p>
-<h2 id="changing-the-xapp-core"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Changing the xApp Core<a class="headerlink" href="#changing-the-xapp-core" title="Permanent link">¶</a></h2>
-<p>The developer is free to take the Dockerfile and Dockerfile.dev from the xApp framework as a starting point to generate their own xApp Core. The developer is in charge of creating the xApp Core that has all the requirements installed to run the xApp they have created in another language.</p>
-<h2 id="changing-the-xapp-helm-chart"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Changing the xApp Helm Chart<a class="headerlink" href="#changing-the-xapp-helm-chart" title="Permanent link">¶</a></h2>
-<p>Once an xApp Core Docker image is generated, the developer is in charge of editing the Helm Chart to include this new xApp Core Docker image. This can be as simple as changing the image.repository field in the values.yaml file. However, if additional information needs to be passed to the xApp Core Docker image on deployment, the developer has to edit the Helm Chart manually.</p>
-<h2 id="changing-the-whole-xapp-framework"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Changing the whole xApp Framework<a class="headerlink" href="#changing-the-whole-xapp-framework" title="Permanent link">¶</a></h2>
-<p>The developer may also choose to run the xApp in a completely different way, and not use any of the xApp Framework blocks. In this case, the developer needs to take care of where the xApp is deployed, and how it would integrate into dRAX. If the xApp is run locally, without integrating it into the Kubernetes where dRAX is running, the support for such a scenario is limited. For example, the dRAX Dashboard will not be able to discover the xApp, hence it will not appear in the dRAX Dashboard. You will not be able to configure the xApp via the dashboard or via the API endpoints.</p>
-<p>If the xApp developer chooses to run the xApp inside Kubernetes, the developer is in charge of setting up the proper labels for the pods, in order for the dRAX Dashboard to discover the xApp. For the pods, they should have the following additional labels:</p>
-<div class="highlight"><pre><span></span><code>drax/role: xapp
-drax/xapp-name: xapp-name
-xapp/mode: Production # or Developer in case the xApp is in development
+<p>The Influx Bucket and Measurement you can explore in this documentation. </p>
+<h3 id="from-external-entities"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3</span> From external entities<a class="headerlink" href="#from-external-entities" title="Permanent link">¶</a></h3>
+<p>The RIC KPM/PM Time-Series (InfluxDB) Database is exposed on the following port on the dRAX Host Machine:</p>
+<div class="admonition note">
+<p class="admonition-title">dRAX Grafana exposed port</p>
+<p>31200</p>
+</div>
+<p>We will give an example in Python, but the principle is the same in any other language.</p>
+<p>First, you will need to install the InfluxDB client Python library:</p>
+<div class="highlight"><pre><span></span><code>pip3 install influxdb-client
 </code></pre></div>
-<p>For the Kubernetes Services, besides the same labels as for the pods, we add the component name:</p>
-<div class="highlight"><pre><span></span><code>drax/role: xapp
-drax/xapp-name: xapp-name
-xapp/mode: Production # or Developer in case the xApp is in development
-drax/xapp-component-name: xapp-dev-ssh
+<p>Next, we give an example Python script that can be used to query the RIC KPM/PM Time-Series Database:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">influxdb_client</span> <span class="kn">import</span> <span class="n">InfluxDBClient</span>
+
+<span class="c1"># InfluxDB connection details</span>
+<span class="n">INFLUXDB_URL</span> <span class="o">=</span> <span class="s2">"http://drax-influxdb2:80"</span> <span class="c1"># Replace with InfluxDB2 URL   </span>
+<span class="n">INFLUXDB_TOKEN</span> <span class="o">=</span> <span class="s2">"your-token-here"</span>  <span class="c1"># Replace with your authentication token</span>
+<span class="n">ORG</span> <span class="o">=</span> <span class="s2">"accelleran"</span>  
+<span class="n">BUCKET</span> <span class="o">=</span> <span class="s2">"rrc_connection_metrics"</span>  <span class="c1"># Example bucket name</span>
+<span class="n">MEASUREMENT</span> <span class="o">=</span> <span class="s2">"RRCConnEstabAtt"</span>  <span class="c1"># Example measurement name</span>
+
+<span class="c1"># Initialize InfluxDB client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">InfluxDBClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">INFLUXDB_URL</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="n">INFLUXDB_TOKEN</span><span class="p">,</span> <span class="n">org</span><span class="o">=</span><span class="n">ORG</span><span class="p">)</span>
+
+<span class="c1"># Create a query with dynamic measurement and bucket</span>
+<span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
+<span class="s2">from(bucket: "</span><span class="si">{</span><span class="n">BUCKET</span><span class="si">}</span><span class="s2">")</span>
+<span class="s2">|&gt; range(start: -1h)</span>
+<span class="s2">|&gt; filter(fn: (r) =&gt; r._measurement == "</span><span class="si">{</span><span class="n">MEASUREMENT</span><span class="si">}</span><span class="s2">")</span>
+<span class="s2">"""</span>
+
+<span class="c1"># Execute the query</span>
+<span class="n">query_api</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">query_api</span><span class="p">()</span>
+<span class="n">tables</span> <span class="o">=</span> <span class="n">query_api</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+<span class="c1"># Process and print results</span>
+<span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">records</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Time: </span><span class="si">{</span><span class="n">record</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span><span class="si">}</span><span class="s2">, Field: </span><span class="si">{</span><span class="n">record</span><span class="o">.</span><span class="n">get_field</span><span class="p">()</span><span class="si">}</span><span class="s2">, Value: </span><span class="si">{</span><span class="n">record</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Close client</span>
+<span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
-<p><strong>NOTE:</strong> The xApp framework has some default services, such as the service where its own API is exposed, the optional development mode ssh service, etc. All this is up to the developer to implement.</p>
-<p><strong>NOTE 2:</strong> Note that the API endpoints of the xApp such as /config and /metadata are required for proper functionality with the dRAX Dashboard. Hence the developer needs to implement the equivalents, and provide the same information as described in the <a href="../xapp_configuration/#xapp-configuration-in-depth">xApp Configuration In-depth</a> section.</p>
+</div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -1030,7 +1075,7 @@ drax/xapp-component-name: xapp-dev-ssh
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: xApps Lifecycle In-depth" class="md-footer__link md-footer__link--prev" href="../xapp_lifecycle/">
+<a aria-label="Previous: Energy Saving" class="md-footer__link md-footer__link--prev" href="../../E2/demo/energy_saving/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1039,17 +1084,17 @@ drax/xapp-component-name: xapp-dev-ssh
                 Previous
               </span>
 <div class="md-ellipsis">
-                xApps Lifecycle In-depth
+                Energy Saving
               </div>
 </div>
 </a>
-<a aria-label="Next: Appendix: Pushing to Dockerhub" class="md-footer__link md-footer__link--next" href="../appendix_dockerhub/">
+<a aria-label="Next: Buckets" class="md-footer__link md-footer__link--next" href="../influx_buckets/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Appendix: Pushing to Dockerhub
+                Buckets
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -1074,7 +1119,7 @@ drax/xapp-component-name: xapp-dev-ssh
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.tabs", "navigation.footer", "toc.integrate", "content.code.copy", "navigation.sections"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
-<script src="../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.tabs", "navigation.footer", "toc.integrate", "content.code.copy", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
 </body>
 </html>
