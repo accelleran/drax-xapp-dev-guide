@@ -1,0 +1,254 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$ref": "#/definitions/RcXappRicControlFailurePublisherPubData",
+    "definitions": {
+        "PBE2apMsgData.CauseData": {
+            "properties": {
+                "CauseType": {
+                    "enum": [
+                        "CAUSE_TYPE_RIC_REQUEST",
+                        "CAUSE_TYPE_RIC_SERVICE",
+                        "CAUSE_TYPE_E2_NODE",
+                        "CAUSE_TYPE_TRANSPORT",
+                        "CAUSE_TYPE_PROTOCOL",
+                        "CAUSE_TYPE_MISC"
+                    ],
+                    "type": "string",
+                    "title": "Cause Type",
+                    "description": "*O-RAN.WG3.E2AP-v02.00 9.2.1 Cause - for particular even for E2AP"
+                },
+                "RrCauseValue": {
+                    "enum": [
+                        "RR_UNSPECIFIED",
+                        "RR_RAN_FUNCTION_ID_INVALID",
+                        "RR_ACTION_NOT_SUPPORTED",
+                        "RR_EXCESSIVE_ACTIONS",
+                        "RR_DUPLICATE_ACTION",
+                        "RR_DUPLICATE_EVENT_TRIGGER",
+                        "RR_FUNCTION_RESOURCE_LIMIT",
+                        "RR_REQUEST_ID_UNKNOWN",
+                        "RR_INCONSISTENT_ACTION_SUBSEQUENT_ACTION_SEQUENCE",
+                        "RR_CONTROL_MESSAGE_INVALID",
+                        "RR_RIC_CALL_PROCESS_ID_INVALID",
+                        "RR_CONTROL_TIMER_EXPIRED",
+                        "RR_CONTROL_FAILED_TO_EXECUTE",
+                        "RR_SYSTEM_NOT_READY"
+                    ],
+                    "type": "string",
+                    "title": "Ric Request Cause Value",
+                    "description": "*RIC request cause values in E2AP messages"
+                },
+                "RsCauseValue": {
+                    "enum": [
+                        "RS_RAN_FUNCTION_NOT_SUPPORTED",
+                        "RS_EXCESSIVE_FUNCTIONS",
+                        "RS_RIC_RESOURCE_LIMIT"
+                    ],
+                    "type": "string",
+                    "title": "Ric Service Cause Value",
+                    "description": "*RIC service cause values in E2AP messages"
+                },
+                "EnCauseValue": {
+                    "enum": [
+                        "EN_E2NODE_COMPONENT_UNKNOWN"
+                    ],
+                    "type": "string",
+                    "title": "E 2 Node Cause Value",
+                    "description": "*RIC service cause values in E2AP messages"
+                },
+                "TpCauseValue": {
+                    "enum": [
+                        "TL_UNSPECIFIED",
+                        "TL_TRANSPORT_RES_UNAVAIL"
+                    ],
+                    "type": "string",
+                    "title": "Transport Cause Value",
+                    "description": "*transport cause values in E2AP messages"
+                },
+                "ProtocolCauseValue": {
+                    "enum": [
+                        "PR_TRANSFER_SYNTAX_ERR",
+                        "PR_ABSTRACT_SYNTAX_ERR_REJECT",
+                        "PR_ABSTRACT_SYNTAX_ERR_IGNORE_AND_NOTIFY",
+                        "PR_MSG_NOT_COMPATIBLE_WITH_RECEIVER_STATE",
+                        "PR_SEMANTIC_ERR",
+                        "PR_ABSTRACT_SYNTAX_ERR",
+                        "PR_UNSPECIFIED"
+                    ],
+                    "type": "string",
+                    "title": "Protocol Cause Value",
+                    "description": "*protocol cause values in E2AP messages"
+                },
+                "MiscCauseValue": {
+                    "enum": [
+                        "MI_CTRL_PROCESSING_OVERLOAD",
+                        "MI_HW_FAILURE",
+                        "MI_OM_INTERVENTION",
+                        "MI_UNSPECIFIED"
+                    ],
+                    "type": "string",
+                    "title": "Misc Cause Value",
+                    "description": "*misc cause values in E2AP messages"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Cause Data"
+        },
+        "PBE2apMsgData.GlobalE2NodeId": {
+            "properties": {
+                "GlobalGnbId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GlobalGnbId",
+                    "additionalProperties": true
+                },
+                "OptionalGnbCuUpId": {
+                    "type": "string"
+                },
+                "OptionalGnbDuId": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Global E 2 Node Id",
+            "description": "*O-RAN.WG3.E2AP-v02.00 9.2.6 Global E2 Node ID"
+        },
+        "PBE2apMsgData.GlobalGnbId": {
+            "properties": {
+                "PlmnIdentity": {
+                    "$ref": "#/definitions/PBE2apMsgData.PlmnIdentity",
+                    "additionalProperties": true
+                },
+                "GnbId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GnbId",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Global Gnb Id"
+        },
+        "PBE2apMsgData.GnbId": {
+            "properties": {
+                "Value": {
+                    "type": "integer"
+                },
+                "Length": {
+                    "type": "integer",
+                    "description": "Number of bits used in the gnbId. This may vary from 22 to 32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Gnb Id"
+        },
+        "PBE2apMsgData.PlmnIdentity": {
+            "properties": {
+                "Data": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Plmn Identity",
+            "description": "*O-RAN.WG3.E2SM-R003-v03.00 6.2.3.1 PLMN Identity"
+        },
+        "PBE2apMsgData.RicCallProcessId": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array",
+                    "description": "Carries max 4096 elements of type uint32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Call Process Id"
+        },
+        "PBE2apMsgData.RicControlFailure": {
+            "properties": {
+                "GlobalE2NodeId": {
+                    "$ref": "#/definitions/PBE2apMsgData.GlobalE2NodeId",
+                    "additionalProperties": true
+                },
+                "RicRequestId": {
+                    "$ref": "#/definitions/PBE2apMsgData.RicRequestId",
+                    "additionalProperties": true
+                },
+                "RanFunctionId": {
+                    "type": "integer"
+                },
+                "RicCallProcessId": {
+                    "$ref": "#/definitions/PBE2apMsgData.RicCallProcessId",
+                    "additionalProperties": true
+                },
+                "Cause": {
+                    "$ref": "#/definitions/PBE2apMsgData.CauseData",
+                    "additionalProperties": true
+                },
+                "RicControlOutcome": {
+                    "$ref": "#/definitions/PBE2apMsgData.RicControlOutcome",
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Control Failure"
+        },
+        "PBE2apMsgData.RicControlOutcome": {
+            "properties": {
+                "items": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array",
+                    "description": "Carries max 4096 elements of type uint32"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Control Outcome"
+        },
+        "PBE2apMsgData.RicRequestId": {
+            "properties": {
+                "RicRequestorId": {
+                    "type": "integer"
+                },
+                "RicInstanceId": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ric Request Id"
+        },
+        "RcXappRicControlFailurePublisherPubData": {
+            "properties": {
+                "RicControlFailure": {
+                    "$ref": "#/definitions/PBE2apMsgData.RicControlFailure",
+                    "additionalProperties": true,
+                    "description": "See RicControlFailure for detailed description of this field"
+                },
+                "tlpublishTime": {
+                    "type": "string",
+                    "description": "Contains the time of publishing in EPOCH milliseconds"
+                },
+                "spanContext": {
+                    "type": "string",
+                    "description": "Contains an opentracing spancontext",
+                    "format": "binary",
+                    "binaryEncoding": "base64"
+                }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Rc Xapp Ric Control Failure Publisher Pub Data",
+            "description": "* Publisher : RcXappRicControlFailurePublisher Topic : E2SM-RANCTL-CONTROL-FAILURE.RIC_REQUESTOR=*.RIC_INSTANCE=* Description : Publishes the E2 control failure received from the               E2 Termination node to the xAPP"
+        }
+    }
+}
