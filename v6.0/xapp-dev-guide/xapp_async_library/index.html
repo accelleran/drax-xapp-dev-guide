@@ -596,7 +596,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../appendix_dockerhub/">
 <span class="md-ellipsis">
-    Appendix: Pushing to Dockerhub
+    Appendix: Pushing to Docker Hub
   </span>
 </a>
 </li>
@@ -1252,7 +1252,7 @@
 </ol>
 <h2 id="creating-an-async-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Creating an Async xApp<a class="headerlink" href="#creating-an-async-xapp" title="Permanent link">¶</a></h2>
 <p>The process of building an Async xApp is similar to that of a non-Async version, but there are some notable differences due the nature of how Async applications operate.</p>
-<p>An example of how to use build an Async xApp and use the functions can be found in the xapp_async_main.py file in the <em>example/core</em> directory, located in the xApp Framework repository.</p>
+<p>An example of how to build an Async xApp and use the functions can be found in the xapp_async_main.py file in the <em>example/core</em> directory, located in the xApp Framework repository.</p>
 <h3 id="async-xapp-builder"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Async xApp Builder<a class="headerlink" href="#async-xapp-builder" title="Permanent link">¶</a></h3>
 <p>The xApp Builder should be used to generate async version of the generic xApp framework. This is achieved by calling build_async() instead of build() as shown below.</p>
 <div class="highlight"><pre><span></span><code>builder = xapp_lib.XAppBuilder("..", absolute=False)
@@ -1271,7 +1271,7 @@
 </code></pre></div>
 <h3 id="setup-the-logger"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Setup the Logger<a class="headerlink" href="#setup-the-logger" title="Permanent link">¶</a></h3>
 <p>Next, the logger should be configured with a format and the required logging level. The logging level is usually defined with the 'LOG_LEVEL' setting. </p>
-<p>The following is an example of configurint the log level. </p>
+<p>The following is an example configuration of the log level. </p>
 <div class="highlight"><pre><span></span><code>logging.root.handlers = []
 logging.basicConfig(
     format="[%(levelname)s] %(asctime)s (%(threadName)s) %(message)s", level=xapp.settings().get_config('LOG_LEVEL'))
@@ -1288,25 +1288,25 @@ logging.basicConfig(
 <div class="highlight"><pre><span></span><code>subjects_and_handlers = { 'RC4G_CTRL_UE_MEASUREMENT_DATA.*.*.*': my_app.handle_nats_4g_ue_measurement}
 xapp.nats().subscribe(subjects_and_handlers)
 </code></pre></div>
-<p>It is advised that the callback functions are member functions of the Application class, so when they are called they can operate on the application data. Each callback function should defined in the following way:</p>
+<p>It is advised that the callback functions are member functions of the Application class, so when they are called they can operate on the application data. Each callback function should be defined in the following way:</p>
 <p><div class="highlight"><pre><span></span><code>async def nats_callback(self, message):
   subject = message.subject
   data = message.data
 </code></pre></div>
 It can be seen that the message will be a structure containing the two fields 'subject' and 'data'.</p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
-<p>It should also be noted it is also possible to add and remove NATS subscriptions while the application is running. This described in theh <a href="#run-time-add-nats-subscription">Run-time Add NATS Subscription</a> section.</p>
+<p>Note this will be called from the Async event loop, so it needs to be defined as an async function.</p>
+<p>It should also be noted it is also possible to add and remove NATS subscriptions while the application is running. This is described in the <a href="#run-time-add-nats-subscription">Run-time Add NATS Subscription</a> section.</p>
 <h3 id="setup-kafka-subscriptions"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.5</span> Setup Kafka Subscriptions<a class="headerlink" href="#setup-kafka-subscriptions" title="Permanent link">¶</a></h3>
 <p>It is possible be notified when messages are received on specific Kafka topics. The xapp.kafka().subscribe function takes in a dictionary of topic : callback pairs.</p>
 <p>A topic is in the form of a typical Kafka subscription. </p>
-<p>A callback function should be defined to contain a message parameter which will contain the message received on for that topic.</p>
+<p>A callback function should be defined to contain a message parameter which will contain the message received on that topic.</p>
 <p>The following example shows how to subscribe to the topics accelleran.drax.4g.ric.raw.ue_measurements and accelleran.drax.5g.ric.raw.ran_control_response.</p>
 <div class="highlight"><pre><span></span><code>topics_and_handlers = { 'accelleran.drax.4g.ric.raw.ue_measurements' : my_app.handle_kafka_4g_ue_measurement,
                         'accelleran.drax.5g.ric.raw.ran_control_response': my_app.handle_kafka_5g_handover_response
                     }
 self.xapp.kafka().subscribe(topics_and_handlers)  
 </code></pre></div>
-<p>It is advised that the callback functions are member functions of the Application class, so when they are called they can operate on the application data. Each callback function should defined in the following way:</p>
+<p>It is advised that the callback functions are member functions of the Application class, so when they are called they can operate on the application data. Each callback function should be defined in the following way:</p>
 <div class="highlight"><pre><span></span><code>async def kafka_callback(self, message):
     json_object = json.loads(message)
 </code></pre></div>
@@ -1347,7 +1347,7 @@ self.xapp.kafka().subscribe(topics_and_handlers)
 <p>In the above example, an application is given the reference to the generic AsyncXApp created by the xApp builder, and creates all its own data as member variables containing the application data, defines the calbacks as member functions, and finally defines an optional function to be run when the Async event loop is started. </p>
 <p>The main functionality is split into the __init__ and run_async methods which are described below.</p>
 <h3 id="initialisation-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> Initialisation Function<a class="headerlink" href="#initialisation-function" title="Permanent link">¶</a></h3>
-<p>The __init__ function is called when the Application object is constructed, so is run in the non-Async context (ie not within the Async event loop thread).</p>
+<p>The __init__ function is called when the Application object is constructed, so is run in the non-Async context (i.e. not within the Async event loop thread).</p>
 <p>Typically this function will contain the initialisation of the member data (and maybe sub-components) of the application. </p>
 <p>In addition it will contain the functionality described in the following sections.</p>
 <h4 id="setup-settings-subscriptions"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1.1</span> Setup Settings Subscriptions<a class="headerlink" href="#setup-settings-subscriptions" title="Permanent link">¶</a></h4>
@@ -1361,9 +1361,9 @@ self.xapp.settings().subscribe(settings_changed_handlers)
   logger = logging.getLogger()
   logger.setLevel(value)
 </code></pre></div>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<p>Note this will be called from the Async event loop, so it needs to be defined as an async function.</p>
 <h4 id="create-timers"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1.2</span> Create Timers<a class="headerlink" href="#create-timers" title="Permanent link">¶</a></h4>
-<p>The Async xApp framework provides two types of timer. A periodic timer which is fired at regular intervals and and single shot timer which as its name suggests is only fired once. Both types of timer should be created within the <strong>init</strong> function as they need to persist during the lifetime of tha application otherwise it is possible they become garbage collected and no longer fire.</p>
+<p>The Async xApp framework provides two types of timer. A periodic timer which is fired at regular intervals and and single shot timer which as its name suggests is only fired once. Both types of timer should be created within the <strong>init</strong> function as they need to persist during the lifetime of the application otherwise it is possible they become garbage collected and no longer fire.</p>
 <p>Each type of timer is described below.</p>
 <h5 id="periodic-timer"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1.2.1</span> Periodic Timer<a class="headerlink" href="#periodic-timer" title="Permanent link">¶</a></h5>
 <p>A Periodic Timer has been added to allow periodic updates to be performed, and multiple periodic timers can be created.</p>
@@ -1377,7 +1377,7 @@ self.xapp.settings().subscribe(settings_changed_handlers)
 <div class="highlight"><pre><span></span><code>async def periodic_timer_callback(self):
     logging.info("Periodic timer fired")
 </code></pre></div></p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<p>Note this will be called from the Async event loop, so it needs to be defined as an async function.</p>
 <h5 id="single-shot-timer"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1.2.2</span> Single Shot Timer<a class="headerlink" href="#single-shot-timer" title="Permanent link">¶</a></h5>
 <p>A Single Shot Timer has also been provided, which as its names suggests is only fired once after it has been started. </p>
 <p>Each one shot timer is created with an interval and a callback function.</p>
@@ -1389,9 +1389,9 @@ self.xapp.settings().subscribe(settings_changed_handlers)
 <div class="highlight"><pre><span></span><code>async def single_shot_timer_callback(self, timer):
     logging.info("One shot timer fired")
 </code></pre></div></p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<p>Note this will be called from the Async event loop, so it needs to be defined as an async function.</p>
 <h5 id="create-admission-control-messsage-handler"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1.2.3</span> Create Admission Control Messsage Handler<a class="headerlink" href="#create-admission-control-messsage-handler" title="Permanent link">¶</a></h5>
-<p>If it is required to process UE or PDU Admission Control Messages an AdmissionControlMessageHandler object should be created as a memmber variable of the application object. The callbacks are added within the Async context, which is discussed later.</p>
+<p>If it is required to process UE or PDU Admission Control Messages an AdmissionControlMessageHandler object should be created as a member variable of the application object. The callbacks are added within the Async context, which is discussed later.</p>
 <p>The following is an example of how to create an AdmissionControlMessageHandler object.</p>
 <div class="highlight"><pre><span></span><code>self.admission_control_message_handler = AsyncAdmissionControlMessageHandler(self.xapp.nats())
 </code></pre></div>
@@ -1402,8 +1402,8 @@ self.xapp.settings().subscribe(settings_changed_handlers)
 <h3 id="nats"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> NATS<a class="headerlink" href="#nats" title="Permanent link">¶</a></h3>
 <p>As described in the Setup NATS Subscriptions section, it is possible to configure the callback functions that are called when messages are received on specific NATS subjects when the application object is being initialised. However the following functionality is also provided.</p>
 <h4 id="run-time-add-nats-subscription"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1.1</span> Run-time Add NATS Subscription<a class="headerlink" href="#run-time-add-nats-subscription" title="Permanent link">¶</a></h4>
-<p>It is possible to add NATS subscriptions while the applicaion is running from within the Async event loop. This is achieved by calling the add_subscription function.</p>
-<p>The following is an example of how to add a new subscription for the NATS subject 'test_subject', where the test_callback method is called whenever a message is recived on that that NATS subject.</p>
+<p>It is possible to add NATS subscriptions while the application is running from within the Async event loop. This is achieved by calling the add_subscription function.</p>
+<p>The following is an example of how to add a new subscription for the NATS subject 'test_subject', where the test_callback method is called whenever a message is received on that that NATS subject.</p>
 <div class="highlight"><pre><span></span><code>await self.xapp.nats().add_subscription('test_subject', self.test_callback)
 </code></pre></div>
 <p>Note that as this is called with the Async context, the add_subscription function needs to be awaited upon.</p>
@@ -1413,7 +1413,7 @@ self.xapp.settings().subscribe(settings_changed_handlers)
   data = message.data
 </code></pre></div></p>
 <h4 id="run-time-remove-nats-subscription"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1.2</span> Run-time Remove NATS Subscription<a class="headerlink" href="#run-time-remove-nats-subscription" title="Permanent link">¶</a></h4>
-<p>It is also possible to remove NATS subscriptions while the applicaion is running from within the Async event loop. This is achieved by calling the remove_subscription function.</p>
+<p>It is also possible to remove NATS subscriptions while the application is running from within the Async event loop. This is achieved by calling the remove_subscription function.</p>
 <p>The following is an example of how to remove the subscription for the NATS subject 'test_topic'.</p>
 <div class="highlight"><pre><span></span><code>await self.xapp.nats().remove_subscription('test_topic')
 </code></pre></div>
@@ -1429,28 +1429,28 @@ await self.xapp.nats().json().send_message('test_subject', data)
 <p>As described in the Setup Kafka Subscriptions section, it is possible to configure the callback functions that are called when messages are received on specific Kafka topics when the application object is being initialised. However the following functionality is also provided.</p>
 <h4 id="publish-to-the-drax-kafka-databus"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2.1</span> Publish to the dRAX Kafka Databus<a class="headerlink" href="#publish-to-the-drax-kafka-databus" title="Permanent link">¶</a></h4>
 <p>The function to publish to the dRAX Kafka Databus is similar to the non-Async version via the send_message function.</p>
-<p>The following is an example of how to send a json object on the Kafka topic 'test_topic'</p>
+<p>The following is an example of how to send a json object on the Kafka topic 'test_topic':</p>
 <div class="highlight"><pre><span></span><code>data = {"key": "data"}
 await xapp.kafka().json().send_message('test_topic', data)
 </code></pre></div>
 <p>Note that as this is called with the Async context, the send_message function needs to be awaited upon.</p>
 <h3 id="periodic-timer_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.3</span> Periodic Timer<a class="headerlink" href="#periodic-timer_1" title="Permanent link">¶</a></h3>
 <p>As described in the Create Periodic Timers section, periodic timers are created in the <strong>init</strong> function of the application.</p>
-<p>However the timers can be started and canelled from with the Async context. In general, periodic timers are started in the run_async function of the application.</p>
-<p>The following is an example of how to start a periodic timer</p>
+<p>However the timers can be started and cancelled from within the Async context. In general, periodic timers are started in the run_async function of the application.</p>
+<p>The following is an example of how to start a periodic timer:</p>
 <div class="highlight"><pre><span></span><code>await self.periodic_timer.start()
 </code></pre></div>
-<p>The following is an example of how to cancel a periodic timer</p>
+<p>The following is an example of how to cancel a periodic timer:</p>
 <div class="highlight"><pre><span></span><code>await self.periodic_timer.cancel()
 </code></pre></div>
 <p>Note these will be called from the Async event loop, so they need to be awaited upon.</p>
 <h3 id="single-shot-timer_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.4</span> Single Shot Timer<a class="headerlink" href="#single-shot-timer_1" title="Permanent link">¶</a></h3>
 <p>As described in the Create Periodic Timers section, single shot timers are created in the <strong>init</strong> function of the application.</p>
-<p>The timers can be started and canelled from with the Async context.</p>
-<p>The following is an example of how to start a single shot timer</p>
+<p>The timers can be started and cancelled from within the Async context.</p>
+<p>The following is an example of how to start a single shot timer:</p>
 <div class="highlight"><pre><span></span><code>await self.single_shot_timer.start()
 </code></pre></div>
-<p>The following is an example of how to cancel a periodic timer</p>
+<p>The following is an example of how to cancel a periodic timer:</p>
 <div class="highlight"><pre><span></span><code>await self.single_shot_timer.cancel()
 </code></pre></div>
 <p>Note these will be called from the Async event loop, so they need to be awaited upon.</p>
@@ -1471,24 +1471,24 @@ await xapp.kafka().json().send_message('test_topic', data)
     self.cu_cp_name = ue_adm_req.ue_admission_request_received.CuCpName 
     self.cu_cp_ue_id = ue_adm_req.ue_admission_request_received.CuCpUeId
 </code></pre></div>
-<p>The us_adm_req is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. These should be stored as they may need to be used in other functions.</p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<p>The ue_adm_req is quite a large structure defined in the protobuf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. These should be stored as they may need to be used in other functions.</p>
+<p>Note this will be called from the Async event loop, so it needs to be defined as an async function.</p>
 <h5 id="ue-information-update-indication-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.5.1.2</span> UE Information Update Indication Callback Function<a class="headerlink" href="#ue-information-update-indication-callback-function" title="Permanent link">¶</a></h5>
 <p>The UE Information Update Indication callback function should be defined in the following way:</p>
 <div class="highlight"><pre><span></span><code>async def ue_info_update_indication_handler(self, ue_info_update):
     cu_cp_name = ue_info_update.ue_info_update_indication_received.CuCpName
     cu_cp_ue_id = ue_info_update.ue_info_update_indication_received.CuCpUeId
 </code></pre></div>
-<p>The ue_info_update is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<p>The ue_info_update is quite a large structure defined in the protobuf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
+<p>Note this will be called from the Async event loop, so it needs to be defined as an async function.</p>
 <h5 id="ue-release-indication-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.5.1.3</span> UE Release Indication Callback Function<a class="headerlink" href="#ue-release-indication-callback-function" title="Permanent link">¶</a></h5>
 <p>The UE Release Indication callback function should be defined in the following way:</p>
 <div class="highlight"><pre><span></span><code>async def ue_release_indication_handler(self, ue_release_ind):
     cu_cp_name = ue_release_ind.ue_release_indication_received.CuCpName
     cu_cp_ue_id = ue_release_ind.ue_release_indication_received.CuCpUeId
 </code></pre></div>
-<p>The ue_release_ind is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<p>The ue_release_ind is quite a large structure defined in the protobuf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
+<p>Note this will be called from the Async event loop, so it needs to be defined as an async function.</p>
 <h4 id="send-ue-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.5.2</span> Send UE Admission Control Messages<a class="headerlink" href="#send-ue-admission-control-messages" title="Permanent link">¶</a></h4>
 <p>It is possible to send UE Admission Control messages. The functions provided are very similar to those provided by the non-Async version of the SDK.</p>
 <p>The sections below describe each of these functions.</p>
@@ -1523,7 +1523,7 @@ else:
 <p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the UE Admission Request was received.</p>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
 <h4 id="unsubscribe-from-ue-admission-control-requests"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.5.3</span> Unsubscribe from UE Admission Control Requests<a class="headerlink" href="#unsubscribe-from-ue-admission-control-requests" title="Permanent link">¶</a></h4>
-<p>The following example shows how unsubsctibe from UE Admission Control Requests</p>
+<p>The following example shows how unsubscribe from UE Admission Control Requests:</p>
 <div class="highlight"><pre><span></span><code>await async_actions.unsubscribe_ue_admission_control()
 </code></pre></div>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
@@ -1542,24 +1542,24 @@ else:
     self.cu_cp_name = pdu_session_adm_req.pdu_session_adm_request_received.CuCpName
     self.cu_cp_ue_id = pdu_session_adm_req.pdu_session_adm_request_received.CuCpUeId
 </code></pre></div>
-<p>The us_adm_req is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. These should be stored as they may need to be used in other functions.</p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<p>The pdu_session_adm_req is quite a large structure defined in the protobuf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. These should be stored as they may need to be used in other functions.</p>
+<p>Note this will be called from the Async event loop, so it needs to be defined as an async function.</p>
 <h5 id="pdu-session-modification-request-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.5.4.2</span> PDU Session Modification Request Callback Function<a class="headerlink" href="#pdu-session-modification-request-callback-function" title="Permanent link">¶</a></h5>
 <p>The PDU Session Modification Request callback function should be defined in the following way:</p>
 <div class="highlight"><pre><span></span><code>async def pdu_session_mod_request_handler(self, pdu_session_mod_req):
     cu_cp_name = pdu_session_mod_req.pdu_session_mod_request_received.CuCpName
     cu_cp_ue_id = pdu_session_mod_req.pdu_session_mod_request_received.CuCpUeId
 </code></pre></div>
-<p>The pdu_session_mod_req is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<p>The pdu_session_mod_req is quite a large structure defined in the protobuf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
+<p>Note this will be called from the Async event loop, so it needs to be defined as an async function.</p>
 <h5 id="pdu-session-release-indicator-callback-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.5.4.3</span> PDU Session Release Indicator Callback Function<a class="headerlink" href="#pdu-session-release-indicator-callback-function" title="Permanent link">¶</a></h5>
 <p>The PDU Session Release Indicator callback function should be defined in the following way:</p>
 <div class="highlight"><pre><span></span><code>async def pdu_session_release_indicator_handler(self, pdu_session_release_ind):
     cu_cp_name = pdu_session_release_ind.pdu_session_release_indicator_received.CuCpName
     cu_cp_ue_id = pdu_session_release_ind.pdu_session_release_indicator_received.CuCpUeId
 </code></pre></div>
-<p>The pdu_session_release_ind is quite a large structure defined in the proto buf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
-<p>Note this will be called from the Async event loop, so needs to be defined as an async function.</p>
+<p>The pdu_session_release_ind is quite a large structure defined in the protobuf files, but the relevant fields are cu_cp_name and cu_cp_ue_id. </p>
+<p>Note this will be called from the Async event loop, so it needs to be defined as an async function.</p>
 <h4 id="send-pdu-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.5.5</span> Send PDU Admission Control Messages<a class="headerlink" href="#send-pdu-admission-control-messages" title="Permanent link">¶</a></h4>
 <p>It is possible to send PDU Admission Control messages. The functions provided are very similar to those provided by the non-Async version of the SDK.</p>
 <p>The sections below describe each of these functions.</p>
@@ -1604,13 +1604,13 @@ else:
 <p>In the example, it can be seen that the cu_cp_name and cu_cp_ue_id are those that were stored when the PDU Admission Request was received.</p>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
 <h4 id="unsubscribe-from-pdu-admission-control-messages"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.5.6</span> Unsubscribe from PDU Admission Control Messages<a class="headerlink" href="#unsubscribe-from-pdu-admission-control-messages" title="Permanent link">¶</a></h4>
-<p>The following example shows how unsubsctibe from UE Admission Control Requests</p>
+<p>The following example shows how unsubscribe from PDU Admission Control Requests:</p>
 <div class="highlight"><pre><span></span><code>await async_actions.unsubscribe_pdu_admission_control()
 </code></pre></div>
 <p>Note this will be called from the Async event loop, so it needs to be awaited upon.</p>
 <h3 id="async-drax-commands"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.6</span> Async dRAX Commands<a class="headerlink" href="#async-drax-commands" title="Permanent link">¶</a></h3>
 <p>Async versions of the Handover commands/triggers have been provided. </p>
-<p>The following is an example of a function to trigger an 4G LTE Handover command.</p>
+<p>The following is an example of a function to trigger a 4G LTE Handover command.</p>
 <div class="highlight"><pre><span></span><code>async def send_handover_trigger_4g(self):
     handover_list = [
         {'ueIdx': 'ueDraxId_to_handover_1', 'targetCell': 'Bt1Cell', 'sourceCell': 'Bt2Cell'},
@@ -1618,7 +1618,7 @@ else:
     ]
     await async_actions.async_trigger_handover(xapp.nats(), handover_list)
 </code></pre></div>
-<p>The following is an example of a functon to trigger a 5G LTE Handover command.</p>
+<p>The following is an example of a functon to trigger a 5G NR Handover command.</p>
 <div class="highlight"><pre><span></span><code>async def send_handover_trigger_5g(self):
     ue_id = 1
     target_cell = actions.Cell(id=456, plmn='654321')
@@ -1627,12 +1627,12 @@ else:
                                             target_cell=target_cell)
 </code></pre></div>
 <h3 id="calling-the-drax-ric-rest-api"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.7</span> Calling the dRAX RIC REST API<a class="headerlink" href="#calling-the-drax-ric-rest-api" title="Permanent link">¶</a></h3>
-<p>When making requests to the dRAX API Gateway, the async_request package should be used in instead of the non-Async request package.</p>
+<p>When making requests to the dRAX API Gateway, the async_request package should be used instead of the non-Async request package.</p>
 <p>The following is an example of this.</p>
 <div class="highlight"><pre><span></span><code>endpoint = '/discover/services/netconf'
 api_response = await async_requests.get(actions.create_api_url(self.xapp, endpoint))
 </code></pre></div>
-<p>Note that as this is called with the Async context, the subscribe function needs to be awaited upon.</p>
+<p>Note that as this is called with the Async context, the function needs to be awaited upon.</p>
 <h3 id="access-to-the-xapp-main-event-loop"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.8</span> Access to the xApp main event loop<a class="headerlink" href="#access-to-the-xapp-main-event-loop" title="Permanent link">¶</a></h3>
 <p>A function has been provided which can get the main event loop from the xApp. </p>
 <p>The following is an example of how to use this.</p>
@@ -1649,7 +1649,7 @@ api_response = await async_requests.get(actions.create_api_url(self.xapp, endpoi
   # Process Get
 
 async def post_handler(xapp):
-  # Proecss Post
+  # Process Post
 
 class RequestHandler(tornado.web.RequestHandler):
     def initialize(self, xapp):

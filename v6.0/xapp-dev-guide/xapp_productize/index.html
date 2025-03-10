@@ -372,7 +372,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../appendix_dockerhub/">
 <span class="md-ellipsis">
-    Appendix: Pushing to Dockerhub
+    Appendix: Pushing to Docker Hub
   </span>
 </a>
 </li>
@@ -1019,9 +1019,9 @@
 <p>When you build the xApp Core Docker image, it will be available on the dRAX host machine. However, if you decide to install the xApp on another dRAX instance, you will have to:</p>
 <ul>
 <li>Either move the xApp Core Docker image to the new machine OR</li>
-<li>Upload the xApp Core Docker image to a Docker image repository, such as Dockerhub to make it globally available</li>
+<li>Upload the xApp Core Docker image to a Docker image repository, such as Docker Hub to make it globally available</li>
 </ul>
-<p>We provide a guide on how to do so in the section on <a href="../appendix_dockerhub/#appendix-pushing-to-dockerhub">Pushing to Dockerhub</a>.</p>
+<p>We provide a guide on how to do so in the section on <a href="../appendix_dockerhub/#appendix-pushing-to-docker-hub">Pushing to Docker Hub</a>.</p>
 <h2 id="prepare-xapp-helm-chart"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Prepare xApp Helm Chart<a class="headerlink" href="#prepare-xapp-helm-chart" title="Permanent link">¶</a></h2>
 <p>Next, we need to prepare the xApp helm Chart. Assuming you have already edited your xApp Helm chart, locate it, and make the following edits as well. Edit the values.yaml file to point to the xApp Core Docker image, either local or global one in a Docker image repository:</p>
 <div class="highlight"><pre><span></span><code>...
@@ -1056,7 +1056,7 @@ appVersion: &lt;xapp-version&gt;
 <h2 id="optional-upload-the-xapp-helm-chart-to-a-helm-repository"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> (Optional) Upload the xApp Helm Chart to a Helm Repository<a class="headerlink" href="#optional-upload-the-xapp-helm-chart-to-a-helm-repository" title="Permanent link">¶</a></h2>
 <p>You can also create a Helm Chart repository, or use a pre-existing one, and add the xApp Helm Chart .tgz file to it. This way you can make it globally available. Now, from the dRAX Dashboard you can also use the Remote Helm Chart Repository deployment method for an xApp. How to create a Helm Chart repository is out of this document's scope.</p>
 <h2 id="use-xapp"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Use xApp<a class="headerlink" href="#use-xapp" title="Permanent link">¶</a></h2>
-<p>You can now share your xApp with the world. We recommend that you upload your xApp Core Docker image to a Docker image repository (such as Dockerhub) and make your own Helm Chart repository to expose your xApp helm Chart. This way anyone, anywhere can use your xApp if you grant them permissions.</p>
+<p>You can now share your xApp with the world. We recommend that you upload your xApp Core Docker image to a Docker image repository (such as Docker Hub) and make your own Helm Chart repository to expose your xApp helm Chart. This way anyone, anywhere can use your xApp if you grant them permissions.</p>
 <p>All other scenarios will either require you to copy the xApp Core Docker image to the dRAX host machine, and/or copy the xApp helm chart to the dRAX host.</p>
 </article>
 </div>

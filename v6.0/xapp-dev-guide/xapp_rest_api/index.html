@@ -351,7 +351,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../appendix_dockerhub/">
 <span class="md-ellipsis">
-    Appendix: Pushing to Dockerhub
+    Appendix: Pushing to Docker Hub
   </span>
 </a>
 </li>
@@ -1052,7 +1052,7 @@
 <ol>
 <li>To enable the dRAX RIC to discover the xApp and make it visible through the dRAX Dashboard</li>
 <li>To enable the real-time configuration of the xApp</li>
-<li>To enable the developer to expose functionalities of the xApp to the rest of the dRAX as well as to external systems</li>
+<li>To enable the developer to expose functionalities of the xApp to the rest of dRAX as well as to external systems</li>
 <li>To easily fetch the documentation and metadata of the xApp</li>
 </ol>
 <p>The /api is the extendable and optional endpoint that we have left up to developers to implement the functionalities. Example code for handling the /api endpoint can be found in the xApp Framework example/core/restapi.py. This way we keep the xApp Core the single point of focus for the developers. The use of /api is simply convention and developers can rename it as they wish. We will, however, use it here in this document when referring to developer created custom API endpoints.</p>
@@ -1085,10 +1085,10 @@
 </code></pre></div>
 <p>Hence, every endpoint is bound to a specific class handler that will define and organize all the expected management and behaviors when it will be triggered.</p>
 <h2 id="how-to-extend-the-context-of-the-newly-added-api-endpoint"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> How to extend the context of the newly added API endpoint<a class="headerlink" href="#how-to-extend-the-context-of-the-newly-added-api-endpoint" title="Permanent link">¶</a></h2>
-<p>While deploying a new endpoint, xApp developers also might want to extend its functionalities to have the hand on much wider components. To have access to the functionalities of these components, a reference to the xapp will need to be provided to the handlers.</p>
+<p>While deploying a new endpoint, xApp developers also might want to extend its functionalities to have the hand on much wider components. To have access to the functionalities of these components, a reference to the xApp will need to be provided to the handlers.</p>
 <p>This reference will be forwarded automatically to the user class initialization function for further use inside it. In addition metaclassing can be used to pass additional parameters to the handler.</p>
 <p>It allows xApps developers to declare a dictionary of variables and information that will be made automatically available in the initialize function of the handler definition.</p>
-<p>The following example introduce the notion of context inside the callback class with the listener object passed to the MainApiHandler:</p>
+<p>The following example introduces the notion of context inside the callback class with the listener object passed to the MainApiHandler:</p>
 <div class="highlight"><pre><span></span><code>def create_handle(listener):
     class MainApiHandler(tornado.web.RequestHandler):
         def initialize(self, xapp):
@@ -1107,7 +1107,7 @@ builder.restapi(["/api", create_handle(my_listener)])
 <p>All the endpoints of the xApp can be reached using the following syntax:</p>
 <div class="highlight"><pre><span></span><code>http://&lt;kubernetes_ip&gt;:&lt;xapp_api_port&gt;/&lt;endpoint&gt;
 </code></pre></div>
-<p>Just substitute <kubernetes_ip> with the advertised address of your Kubernetes cluster and the <xapp_api_port> by the exposed port of your xApp API. This can be found on the dRAX Dashboard by clicking the Show button under services, and locating the xapp-api service information. Finally, change the &lt;endpoint&gt; to whichever endpoint you need (/config, /metadata/ /api/custom_endpoint, etc.).</xapp_api_port></kubernetes_ip></p>
+<p>Just substitute &lt;kubernetes_ip&gt; with the advertised address of your Kubernetes cluster and the &lt;xapp_api_port&gt; by the exposed port of your xApp API. This can be found on the dRAX Dashboard by clicking the Show button under services, and locating the xapp-api service information. Finally, change the &lt;endpoint&gt; to whichever endpoint you need (/config, /metadata, /api/custom_endpoint, etc.).</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

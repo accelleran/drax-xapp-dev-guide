@@ -394,7 +394,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../appendix_dockerhub/">
 <span class="md-ellipsis">
-    Appendix: Pushing to Dockerhub
+    Appendix: Pushing to Docker Hub
   </span>
 </a>
 </li>
@@ -1050,7 +1050,7 @@
 <p>Details on the endpoint can be found on the dRAX RIC API Gateway Swagger page:</p>
 <div class="highlight"><pre><span></span><code>http://&lt;kubernets_ip&gt;:31315/api/v1/docs
 </code></pre></div>
-<p>Just substitute &gt;kubernetes_ip&lt; with the advertise address of your Kubernetes cluster.</p>
+<p>Just substitute &lt;kubernetes_ip&gt; with the advertise address of your Kubernetes cluster.</p>
 <p>The Service Orchestrator supports multiple deployment options:</p>
 <ul>
 <li>Using a local Helm chart package</li>
@@ -1114,7 +1114,7 @@
 <div class="highlight"><pre><span></span><code>curl -X POST "http://10.55.1.2:31315/api/deployment/xapp" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F 'xAppForm={"xAppName":"example-xapp","organization":"Accelleran","team":"dRAX","version":"0.1.0","owner":"Owner","method":"Upload Helm Chart","namespace":"default"}' -F "file=@/home/ad/xapp-training-course/xapp-0.1.0.tgz;type=application/x-compressed-tar" -F "values=@/home/ad/xapp-training-course/values.yaml;type=application/x-yaml"
 </code></pre></div>
 <p>Deploying an xApp using a remote Helm chart repository can be done using the curl command as an example:</p>
-<div class="highlight"><pre><span></span><code>curl -X POST "http://10.55.1.2:31315/api/deployment/xapp" -H "accept: application/json, text/plain, */*" -H "Content-Type: multipart/form-data" -F 'xAppForm={"xAppName":"example-xapp","organization":"Accelleran","team":"dRAX","version":"0.1.0","owner":"Owner","method":"Remote Helm Repository","chartName":"xapp-hello-world","url":"https://accelleran.github.io/xapp-hello-world/","repoName":"example-repo-name","namespace":"default"}' -F "values=@/home/dimitris/Desktop/5g_logs/values.yaml;type=application/x-yaml"
+<div class="highlight"><pre><span></span><code>curl -X POST "http://10.55.1.2:31315/api/deployment/xapp" -H "accept: application/json, text/plain, */*" -H "Content-Type: multipart/form-data" -F 'xAppForm={"xAppName":"example-xapp","organization":"Accelleran","team":"dRAX","version":"0.1.0","owner":"Owner","method":"Remote Helm Repository","chartName":"xapp-hello-world","url":"https://accelleran.github.io/xapp-hello-world/","repoName":"example-repo-name","namespace":"default"}' -F "values=@/home/ad/xapp-training-course/values.yaml;type=application/x-yaml"
 </code></pre></div>
 <p>The following information is of interest:</p>
 <ul>
@@ -1137,7 +1137,7 @@
 <li>If a remote helm repository is used, then <strong>xapp-hello-world </strong>is the name of the helm chart in the remote repository</li>
 <li>If a remote helm repository is used, then <strong>example-repo-name </strong>is the generic name used to save the repository URL in helm</li>
 <li>Finally,
-<div class="highlight"><pre><span></span><code>    **-F “values=@/home/dimitris/Desktop/5g_logs/values.yaml;type=application/x-yaml"**
+<div class="highlight"><pre><span></span><code>    **-F “values=@/home/ad/xapp-training-course/values.yaml;type=application/x-yaml"**
 </code></pre></div>
     specifies the optional values.yaml file and its location</li>
 </ul>
@@ -1150,9 +1150,9 @@
 <li>Check the health of an xApp</li>
 </ul>
 <p>Details are available on the dRAX RIC API Gateway Swagger:</p>
-<div class="highlight"><pre><span></span><code>http://&lt;kubernets_ip&gt;:31315/api/v1/docs
+<div class="highlight"><pre><span></span><code>http://&lt;kubernetes_ip&gt;:31315/api/v1/docs
 </code></pre></div>
-<p>Just substitute ≶kubernetes_ip&gt; with the advertise address of your Kubernetes cluster.</p>
+<p>Just substitute &lt;kubernetes_ip&gt; with the advertise address of your Kubernetes cluster.</p>
 <h2 id="configuration"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
 <p>Details on how the xApps are configured can be found in the <a href="../xapp_configuration/#xapp-configuration-in-depth">xApp Configuration In-depth</a> section. Here we summarize that the xApp can be configured:</p>
 <ul>

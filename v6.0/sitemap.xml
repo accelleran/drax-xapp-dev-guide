@@ -2,267 +2,267 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/changelog/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/introduction/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/5G/7.0/cu_events/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/5G/7.0/kafka_beacons/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/5G/7.0/kafka_kpms/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/Accelleran_DU/1.0/accelleran_du_e2/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/Accelleran_DU/1.0/accelleran_du_kafka/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/introduction/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/CCC/acknowledgements/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/CCC/control_request/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/CCC/control_request_failure/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/CCC/indications/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/CCC/subscription_delete_request/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/CCC/subscription_delete_response/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/CCC/subscription_request/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/CCC/subscription_response/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/E2AP/forwarded_messages/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/KPM/indications/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/KPM/subscription_delete_request/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/KPM/subscription_delete_response/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/KPM/subscription_request/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/KPM/subscription_response/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/RC/acknowledgements/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/RC/control_request/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/RC/control_request_failure/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/RC/indications/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/RC/subscription_delete_request/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/RC/subscription_delete_response/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/RC/subscription_request/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/RC/subscription_response/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/E2/demo/energy_saving/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/Influx/influx/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/Influx/influx_buckets/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/O1/o1/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/O1/o1_notifications/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/appendix_conversion/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/appendix_dockerhub/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/development_workflows/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/intro/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/quick_guide/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_async_library/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_configuration/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_core/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_dev_environment/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_framework/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_helm_charts/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_library/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_lifecycle/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_productize/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_readme/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_rest_api/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/xapp-dev-guide/xapp_unittest/</loc>
-         <lastmod>2025-02-28</lastmod>
+         <lastmod>2025-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
