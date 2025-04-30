@@ -583,9 +583,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../O1/o1_notifications/">
+<a class="md-nav__link" href="../../O1/o1_events/">
 <span class="md-ellipsis">
-    Notifications
+    Events
   </span>
 </a>
 </li>
@@ -1296,6 +1296,20 @@
 <a class="md-nav__link" href="#rrcconnestabsucc">
 <span class="md-ellipsis">
       RRCConnEstabSucc
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrcconnreestabatt">
+<span class="md-ellipsis">
+      RRCConnReestabAtt
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rrcconnreestabsucc">
+<span class="md-ellipsis">
+      RRCConnReestabSucc
     </span>
 </a>
 </li>
@@ -3133,6 +3147,80 @@
 <td>string</td>
 <td>tag</td>
 </tr>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rrcconnreestabatt"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.5</span> RRCConnReestabAtt<a class="headerlink" href="#rrcconnreestabatt" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkFunctionId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>NrCellId</td>
+<td>uint</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>PlmnId</td>
+<td>string</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>int</td>
+<td>field</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>time</td>
+<td>time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rrcconnreestabsucc"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.6</span> RRCConnReestabSucc<a class="headerlink" href="#rrcconnreestabsucc" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>InfluxDB Type</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>NetworkFunctionId</td>
 <td>string</td>
