@@ -49,7 +49,6 @@ accelleran.drax.5g.ric.raw.ue_measurements
       }
     }
   },
-  "tlpublishTime__": <uint>,
-  "spanContext__": <bytes>
+  "tlpublishTime__": <uint>
 }
 <!--json-end-->

@@ -54,8 +54,7 @@ accelleran.drax.5g.ric.raw.cu_state
     },
     "CuUpName": <string>
   },
-  "tlpublishTime__": <uint>,
-  "spanContext__": <bytes>
+  "tlpublishTime__": <uint>
 }
 <!--json-end-->
 <!--enum-start-->

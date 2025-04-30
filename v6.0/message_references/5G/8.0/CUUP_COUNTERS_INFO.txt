@@ -23,8 +23,7 @@ accelleran.drax.5g.ric.raw.pm_counters
       }
     }
   },
-  "tlpublishTime__": <uint>,
-  "spanContext__": <bytes>
+  "tlpublishTime__": <uint>
 }
 <!--json-end-->
 <!--enum-start-->

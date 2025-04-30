@@ -16,17 +16,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/5G/7.0/cu_events/</loc>
+         <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/5G/8.0/cu_events/</loc>
          <lastmod>2025-04-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/5G/7.0/kafka_beacons/</loc>
+         <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/5G/8.0/kafka_beacons/</loc>
          <lastmod>2025-04-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/5G/7.0/kafka_kpms/</loc>
+         <loc>https://accelleran.github.io/drax-xapp-dev-guide/v6.0/message_references/5G/8.0/kafka_kpms/</loc>
          <lastmod>2025-04-30</lastmod>
          <changefreq>daily</changefreq>
     </url>

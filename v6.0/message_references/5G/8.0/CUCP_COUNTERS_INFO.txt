@@ -23,8 +23,7 @@ accelleran.drax.5g.ric.raw.pm_counters
       }
     }
   },
-  "tlpublishTime__": <uint>,
-  "spanContext__": <bytes>
+  "tlpublishTime__": <uint>
 }
 <!--json-end-->
 <!--enum-start-->
@@ -35,6 +34,8 @@ CucpCounterIdEnum
 Enum Values:
 RRC_CONNECTION_EST_ATTEMPT
 RRC_CONNECTION_SUCC
+RRC_REESTABLISHMENT_ATTEMPT
+RRC_REESTABLISHMENT_SUCC
 REQ_INTRA_GNB_HANDOVER_EXECUTIONS
 SUCC_INTRA_GNB_HANDOVER_EXECUTIONS
 MEAN_NUMBER_OF_RRC_CONNECTIONS

@@ -11,7 +11,6 @@ accelleran.drax.5g.ric.raw.ran_control_response
     "RicControlActionId": <uint>,
     "Timestamp": <uint>
   },
-  "tlpublishTime__": <uint>,
-  "spanContext__": <bytes>
+  "tlpublishTime__": <uint>
 }
 <!--json-end-->
