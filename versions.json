@@ -1,5 +1,10 @@
 [
   {
+    "version": "sr-2025.1.2",
+    "title": "System Release 2025.1.2",
+    "aliases": []
+  },
+  {
     "version": "sr-5.0.0.0",
     "title": "System Release 5.0.0.0",
     "aliases": [
