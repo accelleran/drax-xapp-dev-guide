@@ -15,6 +15,11 @@
     "aliases": []
   },
   {
+    "version": "sr-2024.2.3",
+    "title": "System Release 2024.2.3",
+    "aliases": []
+  },
+  {
     "version": "sr-5.0.0.0",
     "title": "System Release 5.0.0.0",
     "aliases": [
