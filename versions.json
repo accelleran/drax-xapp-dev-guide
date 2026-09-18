@@ -2,7 +2,9 @@
   {
     "version": "sr-5.0.0.0",
     "title": "System Release 5.0.0.0",
-    "aliases": []
+    "aliases": [
+      "latest"
+    ]
   },
   {
     "version": "v6.0",
@@ -37,8 +39,6 @@
   {
     "version": "v2.0",
     "title": "v2.0",
-    "aliases": [
-      "latest"
-    ]
+    "aliases": []
   }
 ]
